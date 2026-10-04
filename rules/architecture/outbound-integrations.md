@@ -1,0 +1,27 @@
+---
+description: "Every upstream gets one wrapper over a shared client with timeouts, retries, a breaker per upstream, and no body logging."
+alwaysApply: false
+---
+
+# Outbound integrations
+
+Applies to any new HTTP API, vendor SDK or external service.
+
+```
+application service -> integration wrapper -> shared HTTP client
+```
+
+- **One module owns one upstream.** Auth, endpoint selection, parsing, retries and status mapping live in that wrapper, not scattered across callers.
+- **The wrapper returns transport results** (`ok(response)`, `error(reason)`, `circuit_open`). It never returns a domain error and never raises a protocol-specific error. The caller decides what a status code means for the operation.
+- **Go through the shared client.** Never call the low-level HTTP library inline in a handler or a one-off function. The shared client gives consistent timeouts, retry, circuit breaking and logging.
+- **A breaker per upstream.** Give each integration its own circuit-breaker name so one failing dependency does not trip unrelated ones or blur in logs.
+- **Do not stack retries.** If the shared client retries, do not add a competing loop around it. Retry only idempotent operations, or add a dedup guard.
+- **Caller identity is an explicit parameter,** never read from logger metadata or process-local state inside the wrapper.
+- **Log the boundary event, not the payload:** method, target, status or failure, duration, and the correlation ID already on the logger. Never log request or response bodies to make debugging easier.
+- **Operators must tell transport failure from business rejection** in the emitted logs and error shape.
+
+## Review
+A change to the shared client or an interceptor affects every integration at once: review it with the care of a schema migration. A new integration needs an explicit look at timeout, auth, redaction and failure shape.
+
+## Tests
+A wrapper with real logic (status branching, parsing) gets its own test, mocked at the wrapper's interface rather than by stubbing the HTTP library's internals. Assert the request path when the host may carry a path prefix.

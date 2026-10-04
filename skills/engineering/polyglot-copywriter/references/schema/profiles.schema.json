@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "polyglot-copywriter-profiles-index-v1",
+  "title": "Polyglot Copywriter profile index",
+  "type": "object",
+  "required": ["schema_version", "profiles"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "profiles": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/profileEntry" }
+    }
+  },
+  "$defs": {
+    "profileEntry": {
+      "type": "object",
+      "required": ["overlay_id", "language_id", "file"],
+      "properties": {
+        "overlay_id": { "type": "string" },
+        "language_id": { "type": "string" },
+        "file": {
+          "type": "string",
+          "pattern": "^references/profiles/"
+        },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}

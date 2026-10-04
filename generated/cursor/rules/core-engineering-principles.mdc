@@ -1,0 +1,161 @@
+---
+description: "Engineering principles for simple, maintainable systems: KISS, YAGNI, DRY, SOLID, and minimal scope (do less, delete first)."
+alwaysApply: false
+---
+<!-- generated from rules/core/engineering-principles.md; do not edit -->
+
+# Engineering principles
+
+Design and implementation judgment for any language. These principles complement `code-quality.md` (review order, verification gates, security hygiene) — they do not replace it.
+
+## Core design
+
+### KISS (Keep It Simple, Stupid)
+
+Prefer the smallest design a new maintainer can follow without a tour. One obvious path beats a flexible framework built for hypothetical futures. When two approaches meet the requirement, choose the one with fewer moving parts, fewer files, and fewer concepts to load into working memory.
+
+### YAGNI (You Aren't Gonna Need It)
+
+Do not add an abstraction, feature flag, plugin hook, dependency, or extension point without a **current** use case backed by a caller or test. Speculative generality hides the real behavior and makes every change slower. Build for today's requirement; refactor when the second or third concrete case arrives (see DRY).
+
+### DRY (Don't Repeat Yourself)
+
+Deduplicate **decisions and business rules**, not merely similar-looking syntax. Two copies of the same policy will diverge. Apply the **rule of three**: tolerate one use, notice duplication at two, extract at three when the variation is real. Shared helpers belong at the lowest layer that all callers legitimately share — not in a distant "utils" junk drawer.
+
+### SOLID (practical subset)
+
+| Letter | Meaning in practice |
+|--------|---------------------|
+| **S** — Single responsibility | One reason to change per module. If a name needs "and" to describe its job, split it. |
+| **O** — Open/closed | Extend behavior with new types or functions; avoid editing stable core paths for every variant. |
+| **L** — Liskov substitution | Subtypes must honor the contract of the base. No surprising throws, no narrowed preconditions. |
+| **I** — Interface segregation | Small, purpose-built interfaces beat "god" interfaces that force no-op implementations. |
+| **D** — Dependency inversion | Depend on abstractions at **boundaries** (I/O, clock, identity, external APIs). Inside a cohesive module, concrete code is fine. |
+
+Preserve **one-way dependency direction**: domain and use cases must not import transport, UI, or framework wiring.
+
+### Composition over inheritance
+
+Prefer composing small units over deep inheritance trees. Inheritance encodes "is-a" relationships that often become lies as requirements shift. Mixins, delegation, and plain functions keep call paths visible.
+
+### Make illegal states unrepresentable
+
+Use types, enums, constructors, and validation at creation time so invalid combinations cannot be constructed. Narrow unions beat boolean flag soup. Invalid data should fail at the boundary, not deep in business logic.
+
+### Separate pure logic from I/O
+
+Core rules (calculations, state transitions, eligibility) should be testable without databases, networks, or clocks. Push side effects to the edges; keep the middle deterministic where possible.
+
+## Cross-language habits
+
+- **Explicit over implicit.** Magic, globals, and ambient context hide prerequisites. Prefer passing dependencies and returning values callers can inspect.
+- **Fail fast, fail clearly.** Detect contract violations early; return or throw typed errors with enough context to act — not generic "something went wrong."
+- **Errors are data, not control flow.** Use exceptions or `Result` types for exceptional paths; do not use them for normal branching. Never swallow errors without a documented reason.
+- **Immutability by default.** Treat shared mutable state as a last resort. Copy or freeze values that cross threads, requests, or goroutines unless profiling proves mutation is required.
+- **Local reasoning.** A reader should understand a function from its signature, nearby types, and one level of callees. If understanding requires tracing half the repo, extract or rename until the blast radius shrinks.
+- **Concurrency discipline.** Prefer structured concurrency (scopes, worker pools, `async`/`await`, errgroups) over fire-and-forget tasks. Every concurrent path needs a cancellation, timeout, or shutdown story.
+- **Prefer the standard library** when it is sufficient. Add dependencies only when they remove real complexity, not when they merely shorten a few lines.
+
+## API and boundary design
+
+- Keep public contracts **consistent**: naming, pagination, error shape, and idempotency keys should match sibling endpoints.
+- **Version breaking changes** deliberately; never silently change semantics on a stable identifier.
+- Make **retried writes idempotent** (natural keys, idempotency tokens, upsert semantics).
+- **Fail closed on ambiguity** — unknown input, missing auth, or partial config should deny or error, not guess.
+- Validate at **trust boundaries** (HTTP handlers, CLI entrypoints, message consumers). Inner layers may assume invariants already enforced.
+- Return **stable error codes or types** at boundaries; map internal details to safe, actionable messages for callers.
+
+## Clean code (language-agnostic)
+
+- Names reveal intent: `isEligible`, `retryAfter`, `MerchantID` — not `data`, `handle`, `process2`.
+- Functions do one job at one level of abstraction. Extract when a block needs a comment to explain *what* it does (comments should explain *why*).
+- Keep modules **cohesive**: things that change together live together.
+- Delete dead code, unused flags, and commented-out experiments in the same change that replaces them.
+
+## Minimal scope
+
+Prefer the smallest change that satisfies the approved contract. Read the real affected flow before you simplify it. Reuse a repository capability, a platform feature, or an existing locked dependency before writing new code.
+
+Fewest edited files is not minimal when it violates dependency direction, duplicates a root fix, leaves sibling paths broken, or hides contract consequences.
+
+Do not build for a listed future interface. No CQRS, event sourcing, outbox, per-entity processes, caches, workers, provider clients, or ledger engines just because a roadmap mentions one. Add them when the requested behavior and its consistency or runtime requirements justify them.
+
+YAGNI never excuses weak validation, missing authorization, unsafe SQL, non-idempotent financial writes, secret logging, skipped tests, or undocumented contract changes. A non-trivial branch, parser, security or money path, or state transition needs focused runnable proof.
+
+Where the principles above, security, or the project's tests demand more, follow them. Never use minimal scope to skip a gate.
+
+## Deletion test
+
+Before adding a layer (service, repository, adapter, middleware, wrapper), ask: *If I delete it, does the behavior land in one obvious place?* If yes, the layer is probably not earning its cost. Occam's razor applies to files and folders, not just algorithms. Run it again before committing: for each new abstraction, would inlining or deleting it concentrate complexity or make it disappear? If it disappears, delete it.
+
+---
+
+## Language notes
+
+Apply repository conventions first. The patterns below are additive guidance, not overrides.
+
+### Go
+
+- **Errors are values.** Return `error`; wrap with `%w` and context at each boundary crossing. Handle or explicitly document intentional omission — never `_ = err` without comment.
+- **`context.Context` first** on I/O and RPC paths. Respect cancellation and deadlines; do not store contexts in structs.
+- **Accept interfaces, return concrete types.** Keep interfaces small and defined by the **consumer**. Avoid `interface{}` / `any` at boundaries without immediate narrowing.
+- **Avoid naked goroutines.** Tie goroutine lifetime to a parent context or errgroup; document who waits and who cancels.
+- **Prefer composition** over embedding for reuse; embedding is inheritance with sharper edges.
+- **Table-driven tests** for behavior matrices; use `testing.T` helpers and `t.Helper()` for clarity.
+
+### TypeScript / JavaScript
+
+- **`strict` at the boundary.** Parse and validate external input (Zod, io-ts, hand-rolled guards) before it reaches domain code. Prefer narrowing over `as` assertions.
+- **Discriminated unions** for state machines and event shapes — exhaustiveness checking in `switch` catches missing cases at compile time.
+- **Explicit return types** on exported functions and public APIs; let inference work inside private helpers.
+- **Async clarity:** one `await` chain per logical operation; parallelize with `Promise.all` only when failures are independent and cancellation is defined.
+- **Avoid default exports** in shared libraries when the repo prefers named exports for refactor-safe imports.
+- **Immutability:** `readonly`, `as const`, and spread updates over mutating shared objects passed between layers.
+
+### Python
+
+- **Explicit is better than implicit** (PEP 20). Avoid hidden globals, import side effects, and mutable default arguments.
+- **Type hints on public surfaces** — modules, classes, and functions other packages call. Run the project's type checker in CI when configured.
+- **EAFP vs LBYL:** catch expected failures at I/O boundaries; use guard clauses for invariants inside domain code.
+- **Context managers and `try/finally`** for resources; prefer `pathlib`, `dataclasses` / `pydantic`, and stdlib over ad-hoc dict plumbing.
+- **Packages over scripts** for reusable logic; keep `if __name__ == "__main__"` thin — parse args, call tested functions, exit with codes.
+- **Virtual env and lockfiles** match what the repo documents; do not pin or upgrade dependencies outside the project's workflow.
+
+### Elixir
+
+- **Let it crash — with supervision.** Recover at the OTP boundary (supervisors, `Task.Supervisor`), not with defensive `rescue` everywhere. Failures should restart or propagate to a known handler.
+- **Pattern matching over conditionals.** Use function heads, `case`, and `with` to make valid states explicit. Prefer `{:ok, _}` / `{:error, _}` tuples at boundaries.
+- **Pure core, imperative shell.** Keep domain logic in plain functions and structs; isolate Ecto, HTTP, and messaging in contexts and adapters.
+- **Contexts over god modules.** Group related use cases (`Accounts`, `Billing`) instead of fat controllers or schemas that know every workflow.
+- **Changesets and validation at the edge.** Validate attributes before persistence; never trust raw maps from the outside.
+- **Processes are cheap — misuse is not.** Use `Task.async_stream` with timeouts, named processes only when needed, and avoid GenServer state when ETS or a function suffices.
+- **Docs and `@spec` on public APIs** when the repo uses them; ExUnit table-style and property tests for branching rules.
+
+### Ruby
+
+- **Idiomatic, readable Ruby.** Favor expressive methods and small objects over clever metaprogramming. If meta-programming is required, document the contract it generates.
+- **Explicit requires and autoload boundaries.** Respect gem and engine load paths; avoid global monkey patches and prepend chains unless the repo already standardizes them.
+- **Blocks and enumerables** for transforms; extract service objects when a controller or model accumulates orchestration logic.
+- **Mutability discipline.** Duplicate (`dup` / `clone`) or freeze values shared across threads or requests when mutation would surprise callers.
+- **Bundler and version policy** follow the repo lockfile; do not bump gems opportunistically in feature work.
+- **Tests mirror behavior, not implementation.** Prefer readable examples (RSpec `describe`/`context` or Minitest) and factories/fixtures the project already uses.
+
+### Rails
+
+- **Convention over configuration** — use framework defaults (routing, naming, REST) before custom wiring. Deviations need a comment or ADR when non-obvious.
+- **Thin controllers, cohesive models.** Controllers coordinate; business rules live in models, POROs, or service objects consistent with the app's existing layer.
+- **Strong parameters and authorization at the boundary.** Permit lists, policy objects, and before-actions belong at the HTTP edge — not scattered in views or helpers.
+- **Database-aware changes.** Migrations reversible when practical; add indexes concurrently in production patterns the repo documents; avoid long locks in hot paths.
+- **N+1 and query shape.** Use `includes` / `preload` / `eager_load` deliberately; profile before micro-optimizing SQL.
+- **Background jobs idempotent.** ActiveJob/Sidekiq workers must tolerate retry; use unique keys, locks, or upserts for side effects.
+- **Callbacks and concerns sparingly.** Prefer explicit service calls over hidden callback chains that obscure control flow.
+
+### YAML (configuration and data)
+
+- **YAML is data, not code.** No executable logic, templating secrets inline, or environment-specific branches hidden in shared files without labels.
+- **Never commit secrets** — credentials belong in env, secret managers, or encrypted credentials the repo documents; use placeholders in samples only.
+- **Consistent indentation and keys.** Two spaces is typical; pick one style per file and match sibling files in the repo (Kubernetes, CI, Helm, Ansible, etc.).
+- **Quote ambiguous scalars.** Strings that look like booleans, numbers, or timestamps (`yes`, `off`, `042`, version pins) should be quoted when they must remain strings.
+- **Avoid anchors and aliases** unless they materially reduce duplication; over-merged YAML obscures what deploys.
+- **Validate when tooling exists.** JSON Schema, kubeconform, yamllint, or CI checks — run them in proportion to blast radius.
+- **Stable ordering and comments** for human edits: group related keys, document non-default values, and keep example and production shapes aligned.

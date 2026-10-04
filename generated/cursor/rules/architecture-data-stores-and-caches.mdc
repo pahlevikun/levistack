@@ -1,0 +1,17 @@
+---
+description: "Name the system of record per data shape; caches, search indexes and in-memory stores are derived, with defined miss and failure behavior."
+alwaysApply: false
+---
+<!-- generated from rules/architecture/data-stores-and-caches.md; do not edit -->
+
+# Data stores and caches
+
+- **One system of record per data shape,** decided before code is written. If two stores can both answer "truth" for a field, the boundary is wrong.
+- **One storage concern, one owning adapter.** Runtime-selectable store families sit behind stable persistence APIs; callers never reach into a store directly.
+- **Caches are an optimization, never the source of truth.** Every read path specifies **miss, stale and backend-unavailable** behavior up front. Fallback is part of the contract, not an incident patch. Cache keys belong to the bounded context that owns the data; do not invent global key conventions from one feature.
+- **Search is a read model.** Keep query DSLs and index names inside an infra adapter. Review index naming, mapping ownership and reindex strategy before adding a search dependency; they are runtime contracts. The primary database stays the write authority.
+- **In-memory or ephemeral stores hold derived or rebuildable data only.** Never let the sole copy of durable data live there. State what restart looks like (empty, rebuilt on demand).
+- **No dual-write inconsistency.** When an entity exists in two stores, document which is authoritative and how the other stays consistent (event-driven update, TTL-bounded staleness, or rebuilt on demand and never written to directly by callers).
+- **Cross-store sync, backfill and observability are first-class architecture work,** reviewed as such, not hidden in callbacks or background helpers.
+- **Do not add speculative scaffolding** for a cache, search or document store that is not installed. Dormant modules and fake interfaces mislead.
+- Table and schema creation happens in an explicit init step, not lazily on first request.

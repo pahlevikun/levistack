@@ -1,0 +1,84 @@
+// BookService — one service per file. Import the resource sibling.
+syntax = "proto3";
+
+package example.library.v1;
+
+import "buf/validate/validate.proto";
+import "example/library/v1/resource.proto";
+import "google/protobuf/field_mask.proto";
+
+// BookService manages catalog books.
+service BookService {
+  // GetBook returns a book by id or resource name.
+  //
+  // Returns NOT_FOUND if the book does not exist.
+  rpc GetBook(GetBookRequest) returns (GetBookResponse);
+
+  // ListBooks returns a page of books.
+  rpc ListBooks(ListBooksRequest) returns (ListBooksResponse);
+
+  // CreateBook adds a book. Server assigns id, name, and timestamps.
+  rpc CreateBook(CreateBookRequest) returns (CreateBookResponse);
+
+  // UpdateBook applies a partial update.
+  rpc UpdateBook(UpdateBookRequest) returns (UpdateBookResponse);
+
+  // DeleteBook removes a book.
+  rpc DeleteBook(DeleteBookRequest) returns (DeleteBookResponse);
+}
+
+message GetBookRequest {
+  BookRef ref = 1 [(buf.validate.field).required = true];
+}
+
+message GetBookResponse {
+  Book book = 1;
+}
+
+message ListBooksRequest {
+  uint32 page_size = 1 [(buf.validate.field).uint32.lte = 100];
+  string page_token = 2 [(buf.validate.field).string.max_len = 4096];
+  // Zero means no filter.
+  BookGenre genre = 3 [(buf.validate.field).enum.defined_only = true];
+}
+
+message ListBooksResponse {
+  repeated Book books = 1 [(buf.validate.field).repeated.max_items = 100];
+  string next_page_token = 2 [(buf.validate.field).string.max_len = 4096];
+}
+
+message CreateBookRequest {
+  string title = 1 [
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 512
+  ];
+  string isbn = 2 [(buf.validate.field).string.pattern = "^(97[89])?\\d{9}(\\d|X)$"];
+  string author_id = 3 [(buf.validate.field).string.uuid = true];
+  BookGenre genre = 4 [
+    (buf.validate.field).enum.not_in = 0,
+    (buf.validate.field).enum.defined_only = true
+  ];
+}
+
+message CreateBookResponse {
+  Book book = 1;
+}
+
+message UpdateBookRequest {
+  BookRef ref = 1 [(buf.validate.field).required = true];
+  optional string title = 2 [
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 512
+  ];
+  google.protobuf.FieldMask update_mask = 3;
+}
+
+message UpdateBookResponse {
+  Book book = 1;
+}
+
+message DeleteBookRequest {
+  BookRef ref = 1 [(buf.validate.field).required = true];
+}
+
+message DeleteBookResponse {}

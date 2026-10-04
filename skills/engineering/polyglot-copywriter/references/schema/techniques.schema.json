@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "polyglot-copywriter-techniques-index-v1",
+  "title": "Polyglot Copywriter technique module index",
+  "type": "object",
+  "required": ["schema_version", "generic", "generic_usecase", "locales"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "generic": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/techniqueEntry" }
+    },
+    "generic_usecase": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/techniqueEntry" }
+    },
+    "locales": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/techniqueEntry" }
+    }
+  },
+  "$defs": {
+    "techniqueEntry": {
+      "type": "object",
+      "required": ["id", "languages", "usecases", "file"],
+      "properties": {
+        "id": { "type": "string" },
+        "languages": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 1
+        },
+        "usecases": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 1
+        },
+        "file": {
+          "type": "string",
+          "pattern": "^references/techniques/"
+        },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}

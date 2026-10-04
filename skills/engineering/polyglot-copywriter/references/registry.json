@@ -1,0 +1,3381 @@
+{
+  "schema_version": 2,
+  "source": {
+    "name": "Polyglot Voice pluggable registry",
+    "note": "Languages and use cases are plug-in rows. Markdown packs are content. SKILL.md routes via this file."
+  },
+  "languages": [
+    {
+      "id": "english",
+      "iso": "en",
+      "name": "English",
+      "aliases": [
+        "en",
+        "US English",
+        "Indo-US",
+        "American English"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/english/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "us",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/english/overlays/us.md"
+        },
+        {
+          "id": "uk",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/english/overlays/uk.md"
+        },
+        {
+          "id": "au",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/english/overlays/au.md"
+        },
+        {
+          "id": "nz",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/english/overlays/nz.md"
+        },
+        {
+          "id": "ca",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/english/overlays/ca.md"
+        },
+        {
+          "id": "ie",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/english/overlays/ie.md"
+        },
+        {
+          "id": "za",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/english/overlays/za.md"
+        },
+        {
+          "id": "in-en",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/english/overlays/in-en.md"
+        },
+        {
+          "id": "ph-en",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/english/overlays/ph-en.md"
+        },
+        {
+          "id": "us-slang",
+          "type": "slang",
+          "status": "validated",
+          "file": "references/languages/english/overlays/us-slang.md"
+        },
+        {
+          "id": "singlish",
+          "type": "mix",
+          "status": "validated",
+          "file": "references/languages/english/overlays/singlish.md"
+        },
+        {
+          "id": "jaksel",
+          "type": "mix",
+          "status": "validated",
+          "file": "references/languages/english/overlays/jaksel.md"
+        }
+      ]
+    },
+    {
+      "id": "indonesia",
+      "iso": "id",
+      "name": "Bahasa Indonesia",
+      "aliases": [
+        "Indonesian",
+        "id",
+        "bahasa",
+        "ID"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/indonesia/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "jakarta",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/indonesia/overlays/jakarta.md"
+        },
+        {
+          "id": "bandung",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/indonesia/overlays/bandung.md"
+        },
+        {
+          "id": "surabaya",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/indonesia/overlays/surabaya.md"
+        },
+        {
+          "id": "yogyakarta",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/indonesia/overlays/yogyakarta.md"
+        },
+        {
+          "id": "medan",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/indonesia/overlays/medan.md"
+        },
+        {
+          "id": "makassar",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/indonesia/overlays/makassar.md"
+        },
+        {
+          "id": "jaksel",
+          "type": "mix",
+          "status": "validated",
+          "file": "references/languages/indonesia/overlays/jaksel.md"
+        }
+      ]
+    },
+    {
+      "id": "malay",
+      "iso": "ms",
+      "name": "Malay",
+      "aliases": [
+        "Malaysian Malay",
+        "bahasa Melayu",
+        "Melayu"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/malay/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "manglish",
+          "type": "mix",
+          "status": "validated",
+          "file": "references/languages/malay/overlays/manglish.md"
+        },
+        {
+          "id": "ms-my",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/malay/overlays/ms-my.md"
+        },
+        {
+          "id": "ms-bn",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/malay/overlays/ms-bn.md"
+        },
+        {
+          "id": "ms-sg",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/malay/overlays/ms-sg.md"
+        }
+      ]
+    },
+    {
+      "id": "jawa",
+      "iso": "jv",
+      "name": "Jawa",
+      "aliases": [
+        "Javanese",
+        "bahasa Jawa"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/jawa/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [
+        "ngoko",
+        "madya",
+        "krama"
+      ],
+      "overlays": [
+        {
+          "id": "jv-solo",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/jawa/overlays/jv-solo.md"
+        },
+        {
+          "id": "jv-timur",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/jawa/overlays/jv-timur.md"
+        }
+      ]
+    },
+    {
+      "id": "sunda",
+      "iso": "su",
+      "name": "Sunda",
+      "aliases": [
+        "Sundanese",
+        "bahasa Sunda"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/sunda/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [
+        "loma",
+        "cohag"
+      ],
+      "overlays": [
+        {
+          "id": "su-bandung",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/sunda/overlays/su-bandung.md"
+        },
+        {
+          "id": "su-cirebon",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/sunda/overlays/su-cirebon.md"
+        }
+      ]
+    },
+    {
+      "id": "bali",
+      "iso": "ban",
+      "name": "Balinese",
+      "aliases": [
+        "bahasa Bali",
+        "Bali"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/bali/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [
+        "alus",
+        "madia",
+        "kasar"
+      ],
+      "overlays": [
+        {
+          "id": "bali-urban",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/bali/overlays/bali-urban.md"
+        },
+        {
+          "id": "bali-highland",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/bali/overlays/bali-highland.md"
+        }
+      ]
+    },
+    {
+      "id": "mandarin",
+      "iso": "zh",
+      "name": "Mandarin Chinese",
+      "aliases": [
+        "zh",
+        "中文",
+        "Chinese",
+        "Mandarin"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/mandarin/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "zh-cn",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/mandarin/overlays/zh-cn.md"
+        },
+        {
+          "id": "zh-tw",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/mandarin/overlays/zh-tw.md"
+        },
+        {
+          "id": "zh-sg",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/mandarin/overlays/zh-sg.md"
+        },
+        {
+          "id": "zh-hk",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/mandarin/overlays/zh-hk.md"
+        }
+      ]
+    },
+    {
+      "id": "hindi",
+      "iso": "hi",
+      "name": "Hindi",
+      "aliases": [
+        "hi",
+        "हिन्दी"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/hindi/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "hinglish",
+          "type": "mix",
+          "status": "validated",
+          "file": "references/languages/hindi/overlays/hinglish.md"
+        },
+        {
+          "id": "hi-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/hindi/overlays/hi-standard.md"
+        },
+        {
+          "id": "haryanvi",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/hindi/overlays/haryanvi.md"
+        },
+        {
+          "id": "mumbai-hindi",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/hindi/overlays/mumbai-hindi.md"
+        }
+      ]
+    },
+    {
+      "id": "spanish",
+      "iso": "es",
+      "name": "Spanish",
+      "aliases": [
+        "es",
+        "español",
+        "Spanyol"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/spanish/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "es-es",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/spanish/overlays/es-es.md"
+        },
+        {
+          "id": "es-mx",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/spanish/overlays/es-mx.md"
+        },
+        {
+          "id": "es-ar",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/spanish/overlays/es-ar.md"
+        },
+        {
+          "id": "es-co",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/spanish/overlays/es-co.md"
+        },
+        {
+          "id": "es-bo",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/spanish/overlays/es-bo.md"
+        },
+        {
+          "id": "es-pe",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/spanish/overlays/es-pe.md"
+        },
+        {
+          "id": "es-cl",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/spanish/overlays/es-cl.md"
+        }
+      ]
+    },
+    {
+      "id": "arabic",
+      "iso": "ar",
+      "name": "Arabic",
+      "aliases": [
+        "ar",
+        "العربية",
+        "Arab"
+      ],
+      "umbrella": true,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/arabic/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "arabic-egyptian",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/arabic/overlays/arabic-egyptian.md"
+        },
+        {
+          "id": "arabic-levantine",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/arabic/overlays/arabic-levantine.md"
+        },
+        {
+          "id": "arabic-gulf",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/arabic/overlays/arabic-gulf.md"
+        }
+      ]
+    },
+    {
+      "id": "french",
+      "iso": "fr",
+      "name": "French",
+      "aliases": [
+        "fr",
+        "français",
+        "Perancis"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/french/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "fr-fr",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/french/overlays/fr-fr.md"
+        },
+        {
+          "id": "fr-ca",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/french/overlays/fr-ca.md"
+        },
+        {
+          "id": "fr-be",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/french/overlays/fr-be.md"
+        },
+        {
+          "id": "fr-af",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/french/overlays/fr-af.md"
+        }
+      ]
+    },
+    {
+      "id": "bengali",
+      "iso": "bn",
+      "name": "Bengali",
+      "aliases": [
+        "bn",
+        "বাংলা"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/bengali/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "bn-in",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/bengali/overlays/bn-in.md"
+        },
+        {
+          "id": "bn-bd",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/bengali/overlays/bn-bd.md"
+        }
+      ]
+    },
+    {
+      "id": "portuguese",
+      "iso": "pt",
+      "name": "Portuguese",
+      "aliases": [
+        "pt",
+        "português"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/portuguese/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "pt-br",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/portuguese/overlays/pt-br.md"
+        },
+        {
+          "id": "pt-pt",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/portuguese/overlays/pt-pt.md"
+        }
+      ]
+    },
+    {
+      "id": "urdu",
+      "iso": "ur",
+      "name": "Urdu",
+      "aliases": [
+        "ur",
+        "اردو"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/urdu/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "ur-pk",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/urdu/overlays/ur-pk.md"
+        },
+        {
+          "id": "ur-in",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/urdu/overlays/ur-in.md"
+        }
+      ]
+    },
+    {
+      "id": "russian",
+      "iso": "ru",
+      "name": "Russian",
+      "aliases": [
+        "ru",
+        "русский"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/russian/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "ru-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/russian/overlays/ru-standard.md"
+        },
+        {
+          "id": "ru-southern",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/russian/overlays/ru-southern.md"
+        }
+      ]
+    },
+    {
+      "id": "german",
+      "iso": "de",
+      "name": "German",
+      "aliases": [
+        "de",
+        "Deutsch"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/german/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "de-de",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/german/overlays/de-de.md"
+        },
+        {
+          "id": "de-at",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/german/overlays/de-at.md"
+        },
+        {
+          "id": "de-ch",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/german/overlays/de-ch.md"
+        }
+      ]
+    },
+    {
+      "id": "japanese",
+      "iso": "ja",
+      "name": "Japanese",
+      "aliases": [
+        "jp",
+        "ja",
+        "日本語",
+        "Jepang"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/japanese/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [
+        "desu",
+        "tameguchi",
+        "keigo"
+      ],
+      "overlays": [
+        {
+          "id": "tokyo",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/japanese/overlays/tokyo.md"
+        },
+        {
+          "id": "kansai",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/japanese/overlays/kansai.md"
+        },
+        {
+          "id": "tohoku",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/japanese/overlays/tohoku.md"
+        },
+        {
+          "id": "kyushu",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/japanese/overlays/kyushu.md"
+        }
+      ]
+    },
+    {
+      "id": "pcm",
+      "iso": "pcm",
+      "name": "Nigerian Pidgin",
+      "aliases": [
+        "pidgin",
+        "Naija"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/pcm/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "pcm-lagos",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/pcm/overlays/pcm-lagos.md"
+        },
+        {
+          "id": "pcm-port-harcourt",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/pcm/overlays/pcm-port-harcourt.md"
+        }
+      ]
+    },
+    {
+      "id": "arz",
+      "iso": "arz",
+      "name": "Egyptian Arabic",
+      "aliases": [
+        "Egyptian Arabic",
+        "Masri"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/arz/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "arz-cairo",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/arz/overlays/arz-cairo.md"
+        },
+        {
+          "id": "arz-upper",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/arz/overlays/arz-upper.md"
+        }
+      ]
+    },
+    {
+      "id": "marathi",
+      "iso": "mr",
+      "name": "Marathi",
+      "aliases": [
+        "mr",
+        "मराठी"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/marathi/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "mr-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/marathi/overlays/mr-standard.md"
+        },
+        {
+          "id": "mr-mumbai",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/marathi/overlays/mr-mumbai.md"
+        }
+      ]
+    },
+    {
+      "id": "vietnamese",
+      "iso": "vi",
+      "name": "Vietnamese",
+      "aliases": [
+        "vi",
+        "Tiếng Việt"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/vietnamese/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "vi-north",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/vietnamese/overlays/vi-north.md"
+        },
+        {
+          "id": "vi-south",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/vietnamese/overlays/vi-south.md"
+        },
+        {
+          "id": "vi-central",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/vietnamese/overlays/vi-central.md"
+        }
+      ]
+    },
+    {
+      "id": "telugu",
+      "iso": "te",
+      "name": "Telugu",
+      "aliases": [
+        "te",
+        "తెలుగు"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/telugu/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "te-hyderabad",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/telugu/overlays/te-hyderabad.md"
+        },
+        {
+          "id": "te-coastal",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/telugu/overlays/te-coastal.md"
+        }
+      ]
+    },
+    {
+      "id": "swahili",
+      "iso": "sw",
+      "name": "Swahili",
+      "aliases": [
+        "sw",
+        "Kiswahili"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/swahili/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "sw-tanzania",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/swahili/overlays/sw-tanzania.md"
+        },
+        {
+          "id": "sw-kenya",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/swahili/overlays/sw-kenya.md"
+        }
+      ]
+    },
+    {
+      "id": "hausa",
+      "iso": "ha",
+      "name": "Hausa",
+      "aliases": [
+        "ha"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/hausa/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "ha-nigeria",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/hausa/overlays/ha-nigeria.md"
+        },
+        {
+          "id": "ha-niger",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/hausa/overlays/ha-niger.md"
+        }
+      ]
+    },
+    {
+      "id": "korean",
+      "iso": "ko",
+      "name": "Korean",
+      "aliases": [
+        "ko",
+        "kr",
+        "한국어",
+        "Korea"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/korean/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [
+        "jondaetmal",
+        "banmal"
+      ],
+      "overlays": [
+        {
+          "id": "seoul",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/korean/overlays/seoul.md"
+        },
+        {
+          "id": "busan",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/korean/overlays/busan.md"
+        },
+        {
+          "id": "jeolla",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/korean/overlays/jeolla.md"
+        }
+      ]
+    },
+    {
+      "id": "tagalog",
+      "iso": "tl",
+      "name": "Tagalog",
+      "aliases": [
+        "tl",
+        "Filipino"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/tagalog/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "taglish",
+          "type": "mix",
+          "status": "validated",
+          "file": "references/languages/tagalog/overlays/taglish.md"
+        },
+        {
+          "id": "tl-manila",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/tagalog/overlays/tl-manila.md"
+        },
+        {
+          "id": "tl-provincial",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/tagalog/overlays/tl-provincial.md"
+        }
+      ]
+    },
+    {
+      "id": "turkish",
+      "iso": "tr",
+      "name": "Turkish",
+      "aliases": [
+        "tr",
+        "Türkçe"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/turkish/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "tr-istanbul",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/turkish/overlays/tr-istanbul.md"
+        },
+        {
+          "id": "tr-anatolian",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/turkish/overlays/tr-anatolian.md"
+        }
+      ]
+    },
+    {
+      "id": "abui",
+      "iso": "",
+      "name": "Abui",
+      "aliases": [
+        "Aboa",
+        "bahasa Abui"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/abui/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "abui-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/abui/overlays/abui-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "dayak",
+      "iso": "",
+      "name": "Dayak",
+      "aliases": [
+        "bahasa Dayak",
+        "Dayak languages"
+      ],
+      "umbrella": true,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/dayak/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "dayak-umbrella",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/dayak/overlays/dayak-umbrella.md"
+        }
+      ]
+    },
+    {
+      "id": "dayak-ngaju",
+      "iso": "",
+      "name": "Dayak Ngaju",
+      "aliases": [
+        "Ngaju",
+        "bahasa Ngaju"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/dayak-ngaju/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "ngaju-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/dayak-ngaju/overlays/ngaju-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "makassar",
+      "iso": "",
+      "name": "Makassar",
+      "aliases": [
+        "Makassarese",
+        "bahasa Makassar"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/makassar/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "mks-urban",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/makassar/overlays/mks-urban.md"
+        }
+      ]
+    },
+    {
+      "id": "minangkabau",
+      "iso": "",
+      "name": "Minangkabau",
+      "aliases": [
+        "Minang",
+        "bahasa Minang"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/minangkabau/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "minang-padang",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/minangkabau/overlays/minang-padang.md"
+        },
+        {
+          "id": "minang-coastal",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/minangkabau/overlays/minang-coastal.md"
+        }
+      ]
+    },
+    {
+      "id": "italian",
+      "iso": "it",
+      "name": "Italian",
+      "aliases": [
+        "it",
+        "italiano",
+        "Italiano"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/italian/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "it-it",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/italian/overlays/it-it.md"
+        },
+        {
+          "id": "it-ch",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/italian/overlays/it-ch.md"
+        }
+      ]
+    },
+    {
+      "id": "tamil",
+      "iso": "ta",
+      "name": "Tamil",
+      "aliases": [
+        "ta",
+        "தமிழ்",
+        "Tamizh"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/tamil/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "ta-in",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/tamil/overlays/ta-in.md"
+        },
+        {
+          "id": "ta-lk",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/tamil/overlays/ta-lk.md"
+        }
+      ]
+    },
+    {
+      "id": "punjabi",
+      "iso": "pa",
+      "name": "Punjabi",
+      "aliases": [
+        "pa",
+        "ਪੰਜਾਬੀ",
+        "Panjabi"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/punjabi/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "pa-in",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/punjabi/overlays/pa-in.md"
+        },
+        {
+          "id": "pa-pk",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/punjabi/overlays/pa-pk.md"
+        }
+      ]
+    },
+    {
+      "id": "greek",
+      "iso": "el",
+      "name": "Greek",
+      "aliases": [
+        "ελληνικά",
+        "ellinika"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/greek/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "el-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/greek/overlays/el-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "dutch",
+      "iso": "nl",
+      "name": "Dutch",
+      "aliases": [
+        "Nederlands",
+        "Hollands"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/dutch/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "nl-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/dutch/overlays/nl-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "polish",
+      "iso": "pl",
+      "name": "Polish",
+      "aliases": [
+        "polski",
+        "Polski"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/polish/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "pl-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/polish/overlays/pl-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "ukrainian",
+      "iso": "uk",
+      "name": "Ukrainian",
+      "aliases": [
+        "українська",
+        "ukrainska"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/ukrainian/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "uk-ua",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/ukrainian/overlays/uk-ua.md"
+        }
+      ]
+    },
+    {
+      "id": "czech",
+      "iso": "cs",
+      "name": "Czech",
+      "aliases": [
+        "čeština",
+        "cestina"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/czech/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "cs-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/czech/overlays/cs-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "romanian",
+      "iso": "ro",
+      "name": "Romanian",
+      "aliases": [
+        "română",
+        "romana"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/romanian/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "ro-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/romanian/overlays/ro-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "hungarian",
+      "iso": "hu",
+      "name": "Hungarian",
+      "aliases": [
+        "magyar",
+        "Magyar"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/hungarian/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "hu-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/hungarian/overlays/hu-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "swedish",
+      "iso": "sv",
+      "name": "Swedish",
+      "aliases": [
+        "svenska",
+        "Svenska"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/swedish/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "sv-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/swedish/overlays/sv-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "norwegian",
+      "iso": "no",
+      "name": "Norwegian",
+      "aliases": [
+        "norsk",
+        "Norsk"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/norwegian/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "no-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/norwegian/overlays/no-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "danish",
+      "iso": "da",
+      "name": "Danish",
+      "aliases": [
+        "dansk",
+        "Dansk"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/danish/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "da-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/danish/overlays/da-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "finnish",
+      "iso": "fi",
+      "name": "Finnish",
+      "aliases": [
+        "suomi",
+        "Suomi"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/finnish/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "fi-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/finnish/overlays/fi-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "serbian",
+      "iso": "sr",
+      "name": "Serbian",
+      "aliases": [
+        "српски",
+        "srpski"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/serbian/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "sr-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/serbian/overlays/sr-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "croatian",
+      "iso": "hr",
+      "name": "Croatian",
+      "aliases": [
+        "hrvatski",
+        "Hrvatski"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/croatian/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "hr-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/croatian/overlays/hr-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "bosnian",
+      "iso": "bs",
+      "name": "Bosnian",
+      "aliases": [
+        "bosanski",
+        "Bosanski"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/bosnian/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "bs-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/bosnian/overlays/bs-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "bulgarian",
+      "iso": "bg",
+      "name": "Bulgarian",
+      "aliases": [
+        "български",
+        "bulgarski"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/bulgarian/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "bg-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/bulgarian/overlays/bg-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "slovak",
+      "iso": "sk",
+      "name": "Slovak",
+      "aliases": [
+        "slovenčina",
+        "slovencina"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/slovak/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "sk-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/slovak/overlays/sk-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "slovenian",
+      "iso": "sl",
+      "name": "Slovenian",
+      "aliases": [
+        "slovenščina",
+        "slovenscina"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/slovenian/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "sl-si",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/slovenian/overlays/sl-si.md"
+        }
+      ]
+    },
+    {
+      "id": "lithuanian",
+      "iso": "lt",
+      "name": "Lithuanian",
+      "aliases": [
+        "lietuvių",
+        "lietuviu"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/lithuanian/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "lt-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/lithuanian/overlays/lt-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "latvian",
+      "iso": "lv",
+      "name": "Latvian",
+      "aliases": [
+        "latviešu",
+        "latviesu"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/latvian/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "lv-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/latvian/overlays/lv-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "estonian",
+      "iso": "et",
+      "name": "Estonian",
+      "aliases": [
+        "eesti",
+        "Eesti"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/estonian/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "et-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/estonian/overlays/et-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "icelandic",
+      "iso": "is",
+      "name": "Icelandic",
+      "aliases": [
+        "íslenska",
+        "islenska"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/icelandic/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "is-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/icelandic/overlays/is-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "albanian",
+      "iso": "sq",
+      "name": "Albanian",
+      "aliases": [
+        "shqip",
+        "Shqip"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/albanian/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "sq-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/albanian/overlays/sq-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "catalan",
+      "iso": "ca",
+      "name": "Catalan",
+      "aliases": [
+        "català",
+        "catala"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/catalan/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "cat-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/catalan/overlays/cat-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "galician",
+      "iso": "gl",
+      "name": "Galician",
+      "aliases": [
+        "galego",
+        "Galego"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/galician/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "gl-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/galician/overlays/gl-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "basque",
+      "iso": "eu",
+      "name": "Basque",
+      "aliases": [
+        "euskara",
+        "Euskara"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/basque/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "eu-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/basque/overlays/eu-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "irish",
+      "iso": "ga",
+      "name": "Irish",
+      "aliases": [
+        "Gaeilge",
+        "gaeilge"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/irish/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "ga-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/irish/overlays/ga-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "welsh",
+      "iso": "cy",
+      "name": "Welsh",
+      "aliases": [
+        "Cymraeg",
+        "cymraeg"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/welsh/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "cy-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/welsh/overlays/cy-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "esperanto",
+      "iso": "eo",
+      "name": "Esperanto",
+      "aliases": [
+        "Esperanto"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/esperanto/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "eo-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/esperanto/overlays/eo-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "persian",
+      "iso": "fa",
+      "name": "Persian",
+      "aliases": [
+        "فارسی",
+        "farsi",
+        "Farsi"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/persian/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "fa-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/persian/overlays/fa-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "hebrew",
+      "iso": "he",
+      "name": "Hebrew",
+      "aliases": [
+        "עברית",
+        "ivrit"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/hebrew/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "he-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/hebrew/overlays/he-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "pashto",
+      "iso": "ps",
+      "name": "Pashto",
+      "aliases": [
+        "پښتو",
+        "pashto"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/pashto/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "ps-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/pashto/overlays/ps-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "kurdish",
+      "iso": "ku",
+      "name": "Kurdish",
+      "aliases": [
+        "Kurdî",
+        "kurdi",
+        "Kurmanji"
+      ],
+      "umbrella": true,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/kurdish/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "ku-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/kurdish/overlays/ku-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "azerbaijani",
+      "iso": "az",
+      "name": "Azerbaijani",
+      "aliases": [
+        "Azərbaycan",
+        "azeri"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/azerbaijani/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "az-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/azerbaijani/overlays/az-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "kazakh",
+      "iso": "kk",
+      "name": "Kazakh",
+      "aliases": [
+        "қазақ",
+        "qazaq"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/kazakh/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "kk-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/kazakh/overlays/kk-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "uzbek",
+      "iso": "uz",
+      "name": "Uzbek",
+      "aliases": [
+        "o'zbek",
+        "ozbek"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/uzbek/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "uz-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/uzbek/overlays/uz-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "mongolian",
+      "iso": "mn",
+      "name": "Mongolian",
+      "aliases": [
+        "монгол",
+        "mongol"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/mongolian/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "mn-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/mongolian/overlays/mn-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "georgian",
+      "iso": "ka",
+      "name": "Georgian",
+      "aliases": [
+        "ქართული",
+        "kartuli"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/georgian/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "ka-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/georgian/overlays/ka-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "armenian",
+      "iso": "hy",
+      "name": "Armenian",
+      "aliases": [
+        "հայերեն",
+        "hayeren"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/armenian/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "hy-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/armenian/overlays/hy-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "thai",
+      "iso": "th",
+      "name": "Thai",
+      "aliases": [
+        "ไทย",
+        "ภาษาไทย"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/thai/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "th-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/thai/overlays/th-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "lao",
+      "iso": "lo",
+      "name": "Lao",
+      "aliases": [
+        "ລາວ",
+        "lao"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/lao/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "lo-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/lao/overlays/lo-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "khmer",
+      "iso": "km",
+      "name": "Khmer",
+      "aliases": [
+        "ខ្មែរ",
+        "khmer"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/khmer/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "km-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/khmer/overlays/km-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "burmese",
+      "iso": "my",
+      "name": "Burmese",
+      "aliases": [
+        "မြန်မာ",
+        "myanmar"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/burmese/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "my-mm",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/burmese/overlays/my-mm.md"
+        }
+      ]
+    },
+    {
+      "id": "nepali",
+      "iso": "ne",
+      "name": "Nepali",
+      "aliases": [
+        "नेपाली",
+        "nepali"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/nepali/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "ne-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/nepali/overlays/ne-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "sinhala",
+      "iso": "si",
+      "name": "Sinhala",
+      "aliases": [
+        "සිංහල",
+        "sinhala"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/sinhala/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "si-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/sinhala/overlays/si-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "gujarati",
+      "iso": "gu",
+      "name": "Gujarati",
+      "aliases": [
+        "ગુજરાતી",
+        "gujarati"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/gujarati/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "gu-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/gujarati/overlays/gu-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "kannada",
+      "iso": "kn",
+      "name": "Kannada",
+      "aliases": [
+        "ಕನ್ನಡ",
+        "kannada"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/kannada/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "kn-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/kannada/overlays/kn-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "malayalam",
+      "iso": "ml",
+      "name": "Malayalam",
+      "aliases": [
+        "മലയാളം",
+        "malayalam"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/malayalam/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "ml-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/malayalam/overlays/ml-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "odia",
+      "iso": "or",
+      "name": "Odia",
+      "aliases": [
+        "ଓଡ଼ିଆ",
+        "oriya"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/odia/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "or-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/odia/overlays/or-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "assamese",
+      "iso": "as",
+      "name": "Assamese",
+      "aliases": [
+        "অসমীয়া",
+        "asamiya"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/assamese/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "as-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/assamese/overlays/as-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "kashmiri",
+      "iso": "ks",
+      "name": "Kashmiri",
+      "aliases": [
+        "کٲشُر",
+        "koshur"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/kashmiri/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "ks-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/kashmiri/overlays/ks-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "sindhi",
+      "iso": "sd",
+      "name": "Sindhi",
+      "aliases": [
+        "سنڌي",
+        "sindhi"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/sindhi/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "sd-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/sindhi/overlays/sd-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "cantonese",
+      "iso": "yue",
+      "name": "Cantonese",
+      "aliases": [
+        "粵語",
+        "廣東話",
+        "Cantonese"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/cantonese/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "yue-hk",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/cantonese/overlays/yue-hk.md"
+        }
+      ]
+    },
+    {
+      "id": "amharic",
+      "iso": "am",
+      "name": "Amharic",
+      "aliases": [
+        "አማርኛ",
+        "amharic"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/amharic/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "am-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/amharic/overlays/am-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "somali",
+      "iso": "so",
+      "name": "Somali",
+      "aliases": [
+        "Soomaali",
+        "soomaali"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/somali/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "so-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/somali/overlays/so-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "yoruba",
+      "iso": "yo",
+      "name": "Yoruba",
+      "aliases": [
+        "Yorùbá",
+        "yoruba"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/yoruba/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "yo-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/yoruba/overlays/yo-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "igbo",
+      "iso": "ig",
+      "name": "Igbo",
+      "aliases": [
+        "Igbo",
+        "ibo"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/igbo/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "ig-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/igbo/overlays/ig-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "zulu",
+      "iso": "zu",
+      "name": "Zulu",
+      "aliases": [
+        "isiZulu",
+        "zulu"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/zulu/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "zu-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/zulu/overlays/zu-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "afrikaans",
+      "iso": "af",
+      "name": "Afrikaans",
+      "aliases": [
+        "Afrikaans"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/afrikaans/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "af-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/afrikaans/overlays/af-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "quechua",
+      "iso": "qu",
+      "name": "Quechua",
+      "aliases": [
+        "Runasimi",
+        "Quechua"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/quechua/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "qu-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/quechua/overlays/qu-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "guarani",
+      "iso": "gn",
+      "name": "Guarani",
+      "aliases": [
+        "Avañe'ẽ",
+        "guarani"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/guarani/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "gn-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/guarani/overlays/gn-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "latin",
+      "iso": "la",
+      "name": "Latin",
+      "aliases": [
+        "Latina",
+        "classical Latin"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/latin/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "la-standard",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/latin/overlays/la-standard.md"
+        }
+      ]
+    },
+    {
+      "id": "hokkien",
+      "iso": "nan",
+      "name": "Hokkien",
+      "aliases": [
+        "Minnan",
+        "Taiwanese",
+        "福建話"
+      ],
+      "umbrella": false,
+      "support": {
+        "status": "validated",
+        "pack": "references/languages/hokkien/pack.md"
+      },
+      "registers": [
+        "baku",
+        "profesional",
+        "santai"
+      ],
+      "speech_levels": [],
+      "overlays": [
+        {
+          "id": "nan-tw",
+          "type": "regional",
+          "status": "validated",
+          "file": "references/languages/hokkien/overlays/nan-tw.md"
+        }
+      ]
+    }
+  ],
+  "usecases": [
+    {
+      "id": "casual",
+      "aliases": [
+        "default",
+        "everyday"
+      ],
+      "status": "validated",
+      "pack": "references/usecases/casual/pack.md",
+      "default_register": "santai"
+    },
+    {
+      "id": "email",
+      "aliases": [
+        "inbox",
+        "reply to this mail",
+        "subject line"
+      ],
+      "status": "validated",
+      "pack": "references/usecases/email/pack.md",
+      "default_register": "profesional"
+    },
+    {
+      "id": "letter",
+      "aliases": [
+        "surat",
+        "cover letter",
+        "recommendation letter"
+      ],
+      "status": "validated",
+      "pack": "references/usecases/letter/pack.md",
+      "default_register": "profesional"
+    },
+    {
+      "id": "announcement",
+      "aliases": [
+        "announce",
+        "FYI team",
+        "channel post",
+        "blast"
+      ],
+      "status": "validated",
+      "pack": "references/usecases/announcement/pack.md",
+      "default_register": "profesional"
+    },
+    {
+      "id": "chat",
+      "aliases": [
+        "Lark",
+        "message",
+        "standup",
+        "DM",
+        "thread",
+        "conversation"
+      ],
+      "status": "validated",
+      "pack": "references/usecases/chat/pack.md",
+      "default_register": "santai"
+    },
+    {
+      "id": "create-jira-story",
+      "aliases": [
+        "jira story",
+        "jira ticket",
+        "Jira task",
+        "backlog item",
+        "user story",
+        "create jira"
+      ],
+      "status": "validated",
+      "pack": "references/usecases/create-jira-story/pack.md",
+      "default_register": "santai"
+    },
+    {
+      "id": "technical-doc",
+      "aliases": [
+        "RFC",
+        "ADR",
+        "PRD",
+        "design doc",
+        "architecture",
+        "RCA",
+        "incident doc"
+      ],
+      "status": "validated",
+      "pack": "references/usecases/technical-doc/pack.md",
+      "default_register": "profesional"
+    },
+    {
+      "id": "glab-code-review",
+      "aliases": [
+        "glab-mr-review",
+        "MR",
+        "merge request",
+        "code review",
+        "mr-review",
+        "glab mr review",
+        "nit",
+        "lgtm",
+        "diff"
+      ],
+      "status": "validated",
+      "pack": "references/usecases/glab-code-review/pack.md",
+      "default_register": "santai"
+    },
+    {
+      "id": "peer-review",
+      "aliases": [
+        "360",
+        "peer feedback",
+        "performance review",
+        "self-assessment"
+      ],
+      "status": "validated",
+      "pack": "references/usecases/peer-review/pack.md",
+      "default_register": "profesional"
+    },
+    {
+      "id": "poetic",
+      "aliases": [
+        "puitis",
+        "poetic",
+        "lebih liris"
+      ],
+      "status": "validated",
+      "pack": "references/usecases/poetic/pack.md",
+      "default_register": "santai"
+    },
+    {
+      "id": "humanize",
+      "aliases": [
+        "humanize",
+        "too AI",
+        "de-AI"
+      ],
+      "status": "validated",
+      "pack": "references/usecases/humanize/pack.md",
+      "default_register": "santai"
+    },
+    {
+      "id": "vocab",
+      "aliases": [
+        "vocabulary",
+        "vocab",
+        "word of the day"
+      ],
+      "status": "validated",
+      "pack": "references/usecases/vocab/pack.md",
+      "default_register": "santai"
+    },
+    {
+      "id": "marketing",
+      "aliases": [
+        "landing page",
+        "homepage",
+        "pricing page"
+      ],
+      "status": "validated",
+      "pack": "references/usecases/marketing/pack.md",
+      "default_register": "profesional"
+    },
+    {
+      "id": "ads",
+      "aliases": [
+        "ad copy",
+        "advertisement"
+      ],
+      "status": "validated",
+      "pack": "references/usecases/ads/pack.md",
+      "default_register": "profesional"
+    },
+    {
+      "id": "social",
+      "aliases": [
+        "LinkedIn post",
+        "tweet",
+        "Instagram"
+      ],
+      "status": "validated",
+      "pack": "references/usecases/social/pack.md",
+      "default_register": "santai"
+    },
+    {
+      "id": "docs",
+      "aliases": [
+        "runbook",
+        "internal guide",
+        "meeting notes"
+      ],
+      "status": "validated",
+      "pack": "references/usecases/docs/pack.md",
+      "default_register": "profesional"
+    },
+    {
+      "id": "slides",
+      "aliases": [
+        "deck",
+        "presentation"
+      ],
+      "status": "validated",
+      "pack": "references/usecases/slides/pack.md",
+      "default_register": "profesional"
+    },
+    {
+      "id": "incident",
+      "aliases": [
+        "incident comms",
+        "outage update"
+      ],
+      "status": "validated",
+      "pack": "references/usecases/incident/pack.md",
+      "default_register": "profesional"
+    },
+    {
+      "id": "academic",
+      "aliases": [
+        "journal review",
+        "paper critique"
+      ],
+      "status": "validated",
+      "pack": "references/usecases/academic/pack.md",
+      "default_register": "baku"
+    }
+  ]
+}

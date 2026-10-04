@@ -1,0 +1,51 @@
+{
+  "name": "levistack",
+  "owner": {
+    "name": "Farhan Yuda Pahlevi"
+  },
+  "metadata": {
+    "description": "Personal agent skills, rules, subagents, commands and hooks in Hermes-style groups."
+  },
+  "plugins": [
+    {
+      "name": "levistack",
+      "source": "./",
+      "description": "Every group: all skills, agents, commands and opt-in hooks."
+    },
+    {
+      "name": "levistack-agent-authoring",
+      "source": "./skills/agent-authoring",
+      "description": "Creating agents, skills, rules, hooks, commands and AGENTS.md files for coding assistants."
+    },
+    {
+      "name": "levistack-architecture",
+      "source": "./skills/architecture",
+      "description": "System design and stack choices: super-architecture (detect, select, build, evaluate, migrate and document architecture), super-caching, Node backends, super-protobuf, target-stack evaluation and blueprints."
+    },
+    {
+      "name": "levistack-delivery",
+      "source": "./skills/delivery",
+      "description": "Shipping work: atomic commits, merge request descriptions, code review (local diff, request, receive, GitLab glab drafts), tickets, API collections."
+    },
+    {
+      "name": "levistack-engineering",
+      "source": "./skills/engineering",
+      "description": "Engineering habits: review, super-tdd (test-first red-green-refactor across stacks), super-refactor (multi-language behavior-preserving refactors), super-verify (evidence before claims: gate completion, verify-only, investigate first), super-noslop (domain no-slop filter for backend, API, frontend, database, config, and comments), polyglot-copywriter (plain human prose and anti-AI-tell edits), super-design (UI critique, design tokens, component libraries, DESIGN.md), clean-code principles (DRY, SOLID, YAGNI), output-savers, and Elixir with its specialities (OTP, Ecto, Phoenix, security and performance review)."
+    },
+    {
+      "name": "levistack-focus",
+      "source": "./skills/focus",
+      "description": "ADHD-friendly focus tools: shrink tasks, park tangents, keep momentum."
+    },
+    {
+      "name": "levistack-knowledge",
+      "source": "./skills/knowledge",
+      "description": "Understanding code and domains: current-state codebase learning, architecture docs, site IA, grilling and challenging plans, brainstorming design, planning docs."
+    },
+    {
+      "name": "levistack-workflow",
+      "source": "./skills/workflow",
+      "description": "How a session runs: planning, brainstorming, handoffs, standups and reviews of your own work."
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "levistack-architecture",
+  "version": "0.1.0",
+  "description": "System design and stack choices: super-architecture (detect, select, build, evaluate, migrate and document architecture), super-caching, Node backends, super-protobuf, target-stack evaluation and blueprints.",
+  "author": {
+    "name": "Farhan Yuda Pahlevi"
+  },
+  "license": "MIT",
+  "skills": [
+    "./super-architecture",
+    "./super-caching",
+    "./super-nodejs",
+    "./super-protobuf",
+    "./super-tech-blueprint"
+  ]
+}

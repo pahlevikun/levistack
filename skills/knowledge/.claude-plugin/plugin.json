@@ -1,0 +1,14 @@
+{
+  "name": "levistack-knowledge",
+  "version": "0.1.0",
+  "description": "Understanding code and domains: current-state codebase learning, architecture docs, site IA, grilling and challenging plans, brainstorming design, planning docs.",
+  "author": {
+    "name": "Farhan Yuda Pahlevi"
+  },
+  "license": "MIT",
+  "skills": [
+    "./super-challenge-me",
+    "./super-codebase-learner",
+    "./writing-plans"
+  ]
+}

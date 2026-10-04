@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "polyglot-copywriter-registry-v2",
+  "title": "Polyglot Copywriter registry",
+  "type": "object",
+  "required": ["schema_version", "languages", "usecases"],
+  "properties": {
+    "schema_version": { "const": 2 },
+    "source": { "type": "object" },
+    "languages": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/language" }
+    },
+    "usecases": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/usecase" }
+    }
+  },
+  "$defs": {
+    "supportStatus": {
+      "description": "In practice polyglot-copywriter registry rows and validate_skill.py require validated only; catalogued and beta remain for schema compatibility and future staging.",
+      "enum": ["catalogued", "beta", "validated"]
+    },
+    "language": {
+      "type": "object",
+      "required": ["id", "name", "aliases", "umbrella", "support", "registers", "speech_levels", "overlays"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "iso": { "type": "string" },
+        "name": { "type": "string" },
+        "aliases": { "type": "array", "items": { "type": "string" } },
+        "umbrella": { "type": "boolean" },
+        "support": {
+          "type": "object",
+          "required": ["status", "pack"],
+          "properties": {
+            "status": { "$ref": "#/$defs/supportStatus" },
+            "pack": { "type": "string" }
+          }
+        },
+        "registers": {
+          "type": "array",
+          "items": { "enum": ["baku", "profesional", "santai"] }
+        },
+        "speech_levels": { "type": "array", "items": { "type": "string" } },
+        "overlays": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/overlay" }
+        }
+      }
+    },
+    "overlay": {
+      "type": "object",
+      "required": ["id", "type", "status", "file"],
+      "properties": {
+        "id": { "type": "string" },
+        "type": { "enum": ["regional", "slang", "mix"] },
+        "status": { "$ref": "#/$defs/supportStatus" },
+        "file": { "type": "string" }
+      }
+    },
+    "usecase": {
+      "type": "object",
+      "required": ["id", "aliases", "status", "pack", "default_register"],
+      "properties": {
+        "id": { "type": "string" },
+        "aliases": { "type": "array", "items": { "type": "string" } },
+        "status": { "$ref": "#/$defs/supportStatus" },
+        "pack": { "type": "string" },
+        "default_register": { "enum": ["baku", "profesional", "santai"] }
+      }
+    }
+  }
+}

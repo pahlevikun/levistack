@@ -1,0 +1,52 @@
+// Library catalog resource types (AIP-style, no google.api annotations).
+syntax = "proto3";
+
+package example.library.v1;
+
+import "buf/validate/validate.proto";
+import "google/protobuf/timestamp.proto";
+
+// Book is a catalog entry. Resource name: books/{book_id}.
+message Book {
+  // Unique identifier (UUID).
+  string id = 1 [(buf.validate.field).string.uuid = true];
+
+  // Resource name. Format: books/{book_id}.
+  string name = 2 [(buf.validate.field).string.pattern = "^books/[a-zA-Z0-9_-]+$"];
+
+  // Display title.
+  string title = 3 [
+    (buf.validate.field).string.min_len = 1,
+    (buf.validate.field).string.max_len = 512
+  ];
+
+  // ISBN-13.
+  string isbn = 4 [(buf.validate.field).string.pattern = "^(97[89])?\\d{9}(\\d|X)$"];
+
+  // Author resource id (UUID).
+  string author_id = 5 [(buf.validate.field).string.uuid = true];
+
+  BookGenre genre = 6 [
+    (buf.validate.field).enum.not_in = 0,
+    (buf.validate.field).enum.defined_only = true
+  ];
+
+  google.protobuf.Timestamp create_time = 10 [(buf.validate.field).required = true];
+  google.protobuf.Timestamp update_time = 11;
+}
+
+// BookRef looks up a book by id or resource name.
+message BookRef {
+  oneof value {
+    option (buf.validate.oneof).required = true;
+    string id = 1 [(buf.validate.field).string.uuid = true];
+    string name = 2 [(buf.validate.field).string.pattern = "^books/[a-zA-Z0-9_-]+$"];
+  }
+}
+
+enum BookGenre {
+  BOOK_GENRE_UNSPECIFIED = 0;
+  BOOK_GENRE_FICTION = 1;
+  BOOK_GENRE_NON_FICTION = 2;
+  BOOK_GENRE_REFERENCE = 3;
+}

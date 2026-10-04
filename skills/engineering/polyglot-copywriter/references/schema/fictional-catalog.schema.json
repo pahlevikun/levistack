@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "polyglot-copywriter-fictional-catalog-v1",
+  "title": "Polyglot Copywriter fictional catalog",
+  "type": "object",
+  "required": ["schema_version", "fixtures"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "source": { "type": "object" },
+    "fixtures": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/fixture" }
+    }
+  },
+  "$defs": {
+    "fixtureStatus": {
+      "enum": ["catalogued", "beta", "validated"]
+    },
+    "fixturePurpose": {
+      "enum": ["honesty-eval"]
+    },
+    "fixturePaths": {
+      "type": "object",
+      "required": ["pack", "registers", "culture"],
+      "properties": {
+        "pack": { "type": "string" },
+        "registers": { "type": "string" },
+        "culture": { "type": "string" }
+      }
+    },
+    "fixture": {
+      "type": "object",
+      "required": ["id", "name", "aliases", "source", "status", "purpose", "paths", "overlays"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "name": { "type": "string" },
+        "aliases": { "type": "array", "items": { "type": "string" } },
+        "source": { "type": "string" },
+        "status": { "$ref": "#/$defs/fixtureStatus" },
+        "purpose": { "$ref": "#/$defs/fixturePurpose" },
+        "paths": { "$ref": "#/$defs/fixturePaths" },
+        "overlays": {
+          "type": "array",
+          "items": { "type": "object" }
+        }
+      }
+    }
+  }
+}

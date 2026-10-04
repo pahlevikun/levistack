@@ -1,0 +1,20 @@
+---
+description: "When reproducing a design, the reference is ground truth: measure, use design tokens, keep odd values, compare screenshots."
+globs: "**/*.{heex,html,tsx,jsx,vue,svelte,css}"
+alwaysApply: false
+---
+<!-- generated from rules/design/pixel-perfect-ui.md; do not edit -->
+
+# Pixel-perfect UI
+
+Applies when **reproducing** a design (Figma, a screenshot, a live reference). For ordinary UI work with no reference, it does not apply.
+
+**The reference is ground truth.** Do not redesign, simplify, round odd values, or swap in a "close enough" token for a measured value that does not match one. Glancing at a design and implementing from impression yields "roughly similar", not pixel-perfect. Dense screens (tables, tight spacing, small type) make small drift visible immediately.
+
+## How
+1. **Measure before implementing.** Use the design tool's inspection API (Figma variables, design context, screenshots) or browser automation against a live reference. Do not eyeball a screenshot when the source is inspectable.
+2. **Classify the page before choosing responsive scope.** Dense desktop pages default to a fixed reference viewport plus one wide desktop viewport. Do not force mobile breakpoints onto a screen never designed to reflow. Pages meant to be responsive get the full viewport set.
+3. **Check the theme first.** Look for an existing design token before reaching for a default framework color. If a measured value matches no token, extend the theme. Do not hardcode an arbitrary color inline.
+4. **Keep odd measured values** (`gap-[23px]`, `text-[13px]`) rather than rounding to the nearest scale step, when the source uses that value.
+5. **Finish with a screenshot comparison** at every viewport in scope, after the last substantive markup or style edit. Not from code review alone. Re-compare after any further fix.
+6. **Multi-section pages: one section at a time.** Extract fresh data for the section, implement it, validate it, then move on. Do not batch-extract everything and implement the rest from memory.

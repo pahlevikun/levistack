@@ -1,0 +1,16 @@
+{
+  "name": "levistack-delivery",
+  "version": "0.1.0",
+  "description": "Shipping work: atomic commits, merge request descriptions, code review (local diff, request, receive, GitLab glab drafts), tickets, API collections.",
+  "author": {
+    "name": "Farhan Yuda Pahlevi"
+  },
+  "license": "MIT",
+  "skills": [
+    "./atomic-semantic-commit",
+    "./create-bruno-collection",
+    "./create-jira-story",
+    "./glab-code-review",
+    "./write-mr-description"
+  ]
+}

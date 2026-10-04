@@ -1,0 +1,821 @@
+{
+  "schema_version": 1,
+  "profiles": [
+    {
+      "overlay_id": "us",
+      "language_id": "english",
+      "file": "references/profiles/english-netral.md",
+      "note": "Default Indo-US / netral"
+    },
+    {
+      "overlay_id": "uk",
+      "language_id": "english",
+      "file": "references/profiles/uk.md"
+    },
+    {
+      "overlay_id": "au",
+      "language_id": "english",
+      "file": "references/profiles/au.md"
+    },
+    {
+      "overlay_id": "in-en",
+      "language_id": "english",
+      "file": "references/profiles/in-en.md"
+    },
+    {
+      "overlay_id": "us-slang",
+      "language_id": "english",
+      "file": "references/profiles/us-slang.md"
+    },
+    {
+      "overlay_id": "singlish",
+      "language_id": "english",
+      "file": "references/profiles/singlish.md"
+    },
+    {
+      "overlay_id": "jaksel",
+      "language_id": "english",
+      "file": "references/profiles/jaksel.md"
+    },
+    {
+      "overlay_id": "jakarta",
+      "language_id": "indonesia",
+      "file": "references/profiles/jakarta.md"
+    },
+    {
+      "overlay_id": "surabaya",
+      "language_id": "indonesia",
+      "file": "references/profiles/surabaya.md"
+    },
+    {
+      "overlay_id": "bandung",
+      "language_id": "indonesia",
+      "file": "references/profiles/bandung.md"
+    },
+    {
+      "overlay_id": "yogyakarta",
+      "language_id": "indonesia",
+      "file": "references/profiles/yogyakarta.md"
+    },
+    {
+      "overlay_id": "medan",
+      "language_id": "indonesia",
+      "file": "references/profiles/medan.md"
+    },
+    {
+      "overlay_id": "makassar",
+      "language_id": "indonesia",
+      "file": "references/profiles/makassar.md"
+    },
+    {
+      "overlay_id": "tokyo",
+      "language_id": "japanese",
+      "file": "references/profiles/tokyo.md"
+    },
+    {
+      "overlay_id": "kansai",
+      "language_id": "japanese",
+      "file": "references/profiles/kansai.md"
+    },
+    {
+      "overlay_id": "seoul",
+      "language_id": "korean",
+      "file": "references/profiles/seoul.md"
+    },
+    {
+      "overlay_id": "busan",
+      "language_id": "korean",
+      "file": "references/profiles/busan.md"
+    },
+    {
+      "overlay_id": "zh-cn",
+      "language_id": "mandarin",
+      "file": "references/profiles/zh-cn.md"
+    },
+    {
+      "overlay_id": "zh-tw",
+      "language_id": "mandarin",
+      "file": "references/profiles/zh-tw.md"
+    },
+    {
+      "overlay_id": "es-mx",
+      "language_id": "spanish",
+      "file": "references/profiles/es-mx.md"
+    },
+    {
+      "overlay_id": "es-ar",
+      "language_id": "spanish",
+      "file": "references/profiles/es-ar.md"
+    },
+    {
+      "overlay_id": "nz",
+      "language_id": "english",
+      "file": "references/profiles/nz.md"
+    },
+    {
+      "overlay_id": "ca",
+      "language_id": "english",
+      "file": "references/profiles/ca.md"
+    },
+    {
+      "overlay_id": "ie",
+      "language_id": "english",
+      "file": "references/profiles/ie.md"
+    },
+    {
+      "overlay_id": "za",
+      "language_id": "english",
+      "file": "references/profiles/za.md"
+    },
+    {
+      "overlay_id": "ph-en",
+      "language_id": "english",
+      "file": "references/profiles/ph-en.md"
+    },
+    {
+      "overlay_id": "jaksel",
+      "language_id": "indonesia",
+      "file": "references/profiles/jaksel.md"
+    },
+    {
+      "overlay_id": "manglish",
+      "language_id": "malay",
+      "file": "references/profiles/manglish.md"
+    },
+    {
+      "overlay_id": "ms-my",
+      "language_id": "malay",
+      "file": "references/profiles/ms-my.md"
+    },
+    {
+      "overlay_id": "ms-bn",
+      "language_id": "malay",
+      "file": "references/profiles/ms-bn.md"
+    },
+    {
+      "overlay_id": "ms-sg",
+      "language_id": "malay",
+      "file": "references/profiles/ms-sg.md"
+    },
+    {
+      "overlay_id": "jv-solo",
+      "language_id": "jawa",
+      "file": "references/profiles/jv-solo.md"
+    },
+    {
+      "overlay_id": "jv-timur",
+      "language_id": "jawa",
+      "file": "references/profiles/jv-timur.md"
+    },
+    {
+      "overlay_id": "su-bandung",
+      "language_id": "sunda",
+      "file": "references/profiles/su-bandung.md"
+    },
+    {
+      "overlay_id": "su-cirebon",
+      "language_id": "sunda",
+      "file": "references/profiles/su-cirebon.md"
+    },
+    {
+      "overlay_id": "bali-urban",
+      "language_id": "bali",
+      "file": "references/profiles/bali-urban.md"
+    },
+    {
+      "overlay_id": "bali-highland",
+      "language_id": "bali",
+      "file": "references/profiles/bali-highland.md"
+    },
+    {
+      "overlay_id": "zh-sg",
+      "language_id": "mandarin",
+      "file": "references/profiles/zh-sg.md"
+    },
+    {
+      "overlay_id": "zh-hk",
+      "language_id": "mandarin",
+      "file": "references/profiles/zh-hk.md"
+    },
+    {
+      "overlay_id": "hinglish",
+      "language_id": "hindi",
+      "file": "references/profiles/hinglish.md"
+    },
+    {
+      "overlay_id": "hi-standard",
+      "language_id": "hindi",
+      "file": "references/profiles/hi-standard.md"
+    },
+    {
+      "overlay_id": "haryanvi",
+      "language_id": "hindi",
+      "file": "references/profiles/haryanvi.md"
+    },
+    {
+      "overlay_id": "mumbai-hindi",
+      "language_id": "hindi",
+      "file": "references/profiles/mumbai-hindi.md"
+    },
+    {
+      "overlay_id": "es-es",
+      "language_id": "spanish",
+      "file": "references/profiles/es-es.md"
+    },
+    {
+      "overlay_id": "es-co",
+      "language_id": "spanish",
+      "file": "references/profiles/es-co.md"
+    },
+    {
+      "overlay_id": "es-bo",
+      "language_id": "spanish",
+      "file": "references/profiles/es-bo.md"
+    },
+    {
+      "overlay_id": "es-pe",
+      "language_id": "spanish",
+      "file": "references/profiles/es-pe.md"
+    },
+    {
+      "overlay_id": "es-cl",
+      "language_id": "spanish",
+      "file": "references/profiles/es-cl.md"
+    },
+    {
+      "overlay_id": "arabic-egyptian",
+      "language_id": "arabic",
+      "file": "references/profiles/arabic-egyptian.md"
+    },
+    {
+      "overlay_id": "arabic-levantine",
+      "language_id": "arabic",
+      "file": "references/profiles/arabic-levantine.md"
+    },
+    {
+      "overlay_id": "arabic-gulf",
+      "language_id": "arabic",
+      "file": "references/profiles/arabic-gulf.md"
+    },
+    {
+      "overlay_id": "fr-fr",
+      "language_id": "french",
+      "file": "references/profiles/fr-fr.md"
+    },
+    {
+      "overlay_id": "fr-ca",
+      "language_id": "french",
+      "file": "references/profiles/fr-ca.md"
+    },
+    {
+      "overlay_id": "fr-be",
+      "language_id": "french",
+      "file": "references/profiles/fr-be.md"
+    },
+    {
+      "overlay_id": "fr-af",
+      "language_id": "french",
+      "file": "references/profiles/fr-af.md"
+    },
+    {
+      "overlay_id": "bn-in",
+      "language_id": "bengali",
+      "file": "references/profiles/bn-in.md"
+    },
+    {
+      "overlay_id": "bn-bd",
+      "language_id": "bengali",
+      "file": "references/profiles/bn-bd.md"
+    },
+    {
+      "overlay_id": "pt-br",
+      "language_id": "portuguese",
+      "file": "references/profiles/pt-br.md"
+    },
+    {
+      "overlay_id": "pt-pt",
+      "language_id": "portuguese",
+      "file": "references/profiles/pt-pt.md"
+    },
+    {
+      "overlay_id": "ur-pk",
+      "language_id": "urdu",
+      "file": "references/profiles/ur-pk.md"
+    },
+    {
+      "overlay_id": "ur-in",
+      "language_id": "urdu",
+      "file": "references/profiles/ur-in.md"
+    },
+    {
+      "overlay_id": "ru-standard",
+      "language_id": "russian",
+      "file": "references/profiles/ru-standard.md"
+    },
+    {
+      "overlay_id": "ru-southern",
+      "language_id": "russian",
+      "file": "references/profiles/ru-southern.md"
+    },
+    {
+      "overlay_id": "de-de",
+      "language_id": "german",
+      "file": "references/profiles/de-de.md"
+    },
+    {
+      "overlay_id": "de-at",
+      "language_id": "german",
+      "file": "references/profiles/de-at.md"
+    },
+    {
+      "overlay_id": "de-ch",
+      "language_id": "german",
+      "file": "references/profiles/de-ch.md"
+    },
+    {
+      "overlay_id": "tohoku",
+      "language_id": "japanese",
+      "file": "references/profiles/tohoku.md"
+    },
+    {
+      "overlay_id": "kyushu",
+      "language_id": "japanese",
+      "file": "references/profiles/kyushu.md"
+    },
+    {
+      "overlay_id": "pcm-lagos",
+      "language_id": "pcm",
+      "file": "references/profiles/pcm-lagos.md"
+    },
+    {
+      "overlay_id": "pcm-port-harcourt",
+      "language_id": "pcm",
+      "file": "references/profiles/pcm-port-harcourt.md"
+    },
+    {
+      "overlay_id": "arz-cairo",
+      "language_id": "arz",
+      "file": "references/profiles/arz-cairo.md"
+    },
+    {
+      "overlay_id": "arz-upper",
+      "language_id": "arz",
+      "file": "references/profiles/arz-upper.md"
+    },
+    {
+      "overlay_id": "mr-standard",
+      "language_id": "marathi",
+      "file": "references/profiles/mr-standard.md"
+    },
+    {
+      "overlay_id": "mr-mumbai",
+      "language_id": "marathi",
+      "file": "references/profiles/mr-mumbai.md"
+    },
+    {
+      "overlay_id": "vi-north",
+      "language_id": "vietnamese",
+      "file": "references/profiles/vi-north.md"
+    },
+    {
+      "overlay_id": "vi-south",
+      "language_id": "vietnamese",
+      "file": "references/profiles/vi-south.md"
+    },
+    {
+      "overlay_id": "vi-central",
+      "language_id": "vietnamese",
+      "file": "references/profiles/vi-central.md"
+    },
+    {
+      "overlay_id": "te-hyderabad",
+      "language_id": "telugu",
+      "file": "references/profiles/te-hyderabad.md"
+    },
+    {
+      "overlay_id": "te-coastal",
+      "language_id": "telugu",
+      "file": "references/profiles/te-coastal.md"
+    },
+    {
+      "overlay_id": "sw-tanzania",
+      "language_id": "swahili",
+      "file": "references/profiles/sw-tanzania.md"
+    },
+    {
+      "overlay_id": "sw-kenya",
+      "language_id": "swahili",
+      "file": "references/profiles/sw-kenya.md"
+    },
+    {
+      "overlay_id": "ha-nigeria",
+      "language_id": "hausa",
+      "file": "references/profiles/ha-nigeria.md"
+    },
+    {
+      "overlay_id": "ha-niger",
+      "language_id": "hausa",
+      "file": "references/profiles/ha-niger.md"
+    },
+    {
+      "overlay_id": "jeolla",
+      "language_id": "korean",
+      "file": "references/profiles/jeolla.md"
+    },
+    {
+      "overlay_id": "taglish",
+      "language_id": "tagalog",
+      "file": "references/profiles/taglish.md"
+    },
+    {
+      "overlay_id": "tl-manila",
+      "language_id": "tagalog",
+      "file": "references/profiles/tl-manila.md"
+    },
+    {
+      "overlay_id": "tl-provincial",
+      "language_id": "tagalog",
+      "file": "references/profiles/tl-provincial.md"
+    },
+    {
+      "overlay_id": "tr-istanbul",
+      "language_id": "turkish",
+      "file": "references/profiles/tr-istanbul.md"
+    },
+    {
+      "overlay_id": "tr-anatolian",
+      "language_id": "turkish",
+      "file": "references/profiles/tr-anatolian.md"
+    },
+    {
+      "overlay_id": "abui-standard",
+      "language_id": "abui",
+      "file": "references/profiles/abui-standard.md"
+    },
+    {
+      "overlay_id": "dayak-umbrella",
+      "language_id": "dayak",
+      "file": "references/profiles/dayak-umbrella.md"
+    },
+    {
+      "overlay_id": "ngaju-standard",
+      "language_id": "dayak-ngaju",
+      "file": "references/profiles/ngaju-standard.md"
+    },
+    {
+      "overlay_id": "mks-urban",
+      "language_id": "makassar",
+      "file": "references/profiles/mks-urban.md"
+    },
+    {
+      "overlay_id": "minang-padang",
+      "language_id": "minangkabau",
+      "file": "references/profiles/minang-padang.md"
+    },
+    {
+      "overlay_id": "minang-coastal",
+      "language_id": "minangkabau",
+      "file": "references/profiles/minang-coastal.md"
+    },
+    {
+      "overlay_id": "it-it",
+      "language_id": "italian",
+      "file": "references/profiles/it-it.md"
+    },
+    {
+      "overlay_id": "it-ch",
+      "language_id": "italian",
+      "file": "references/profiles/it-ch.md"
+    },
+    {
+      "overlay_id": "ta-in",
+      "language_id": "tamil",
+      "file": "references/profiles/ta-in.md"
+    },
+    {
+      "overlay_id": "ta-lk",
+      "language_id": "tamil",
+      "file": "references/profiles/ta-lk.md"
+    },
+    {
+      "overlay_id": "pa-in",
+      "language_id": "punjabi",
+      "file": "references/profiles/pa-in.md"
+    },
+    {
+      "overlay_id": "pa-pk",
+      "language_id": "punjabi",
+      "file": "references/profiles/pa-pk.md"
+    },
+    {
+      "overlay_id": "el-standard",
+      "language_id": "greek",
+      "file": "references/profiles/el-standard.md"
+    },
+    {
+      "overlay_id": "nl-standard",
+      "language_id": "dutch",
+      "file": "references/profiles/nl-standard.md"
+    },
+    {
+      "overlay_id": "pl-standard",
+      "language_id": "polish",
+      "file": "references/profiles/pl-standard.md"
+    },
+    {
+      "overlay_id": "uk-ua",
+      "language_id": "ukrainian",
+      "file": "references/profiles/uk-ua.md"
+    },
+    {
+      "overlay_id": "cs-standard",
+      "language_id": "czech",
+      "file": "references/profiles/cs-standard.md"
+    },
+    {
+      "overlay_id": "ro-standard",
+      "language_id": "romanian",
+      "file": "references/profiles/ro-standard.md"
+    },
+    {
+      "overlay_id": "hu-standard",
+      "language_id": "hungarian",
+      "file": "references/profiles/hu-standard.md"
+    },
+    {
+      "overlay_id": "sv-standard",
+      "language_id": "swedish",
+      "file": "references/profiles/sv-standard.md"
+    },
+    {
+      "overlay_id": "no-standard",
+      "language_id": "norwegian",
+      "file": "references/profiles/no-standard.md"
+    },
+    {
+      "overlay_id": "da-standard",
+      "language_id": "danish",
+      "file": "references/profiles/da-standard.md"
+    },
+    {
+      "overlay_id": "fi-standard",
+      "language_id": "finnish",
+      "file": "references/profiles/fi-standard.md"
+    },
+    {
+      "overlay_id": "sr-standard",
+      "language_id": "serbian",
+      "file": "references/profiles/sr-standard.md"
+    },
+    {
+      "overlay_id": "hr-standard",
+      "language_id": "croatian",
+      "file": "references/profiles/hr-standard.md"
+    },
+    {
+      "overlay_id": "bs-standard",
+      "language_id": "bosnian",
+      "file": "references/profiles/bs-standard.md"
+    },
+    {
+      "overlay_id": "bg-standard",
+      "language_id": "bulgarian",
+      "file": "references/profiles/bg-standard.md"
+    },
+    {
+      "overlay_id": "sk-standard",
+      "language_id": "slovak",
+      "file": "references/profiles/sk-standard.md"
+    },
+    {
+      "overlay_id": "sl-si",
+      "language_id": "slovenian",
+      "file": "references/profiles/sl-si.md"
+    },
+    {
+      "overlay_id": "lt-standard",
+      "language_id": "lithuanian",
+      "file": "references/profiles/lt-standard.md"
+    },
+    {
+      "overlay_id": "lv-standard",
+      "language_id": "latvian",
+      "file": "references/profiles/lv-standard.md"
+    },
+    {
+      "overlay_id": "et-standard",
+      "language_id": "estonian",
+      "file": "references/profiles/et-standard.md"
+    },
+    {
+      "overlay_id": "is-standard",
+      "language_id": "icelandic",
+      "file": "references/profiles/is-standard.md"
+    },
+    {
+      "overlay_id": "sq-standard",
+      "language_id": "albanian",
+      "file": "references/profiles/sq-standard.md"
+    },
+    {
+      "overlay_id": "cat-standard",
+      "language_id": "catalan",
+      "file": "references/profiles/cat-standard.md"
+    },
+    {
+      "overlay_id": "gl-standard",
+      "language_id": "galician",
+      "file": "references/profiles/gl-standard.md"
+    },
+    {
+      "overlay_id": "eu-standard",
+      "language_id": "basque",
+      "file": "references/profiles/eu-standard.md"
+    },
+    {
+      "overlay_id": "ga-standard",
+      "language_id": "irish",
+      "file": "references/profiles/ga-standard.md"
+    },
+    {
+      "overlay_id": "cy-standard",
+      "language_id": "welsh",
+      "file": "references/profiles/cy-standard.md"
+    },
+    {
+      "overlay_id": "eo-standard",
+      "language_id": "esperanto",
+      "file": "references/profiles/eo-standard.md"
+    },
+    {
+      "overlay_id": "fa-standard",
+      "language_id": "persian",
+      "file": "references/profiles/fa-standard.md"
+    },
+    {
+      "overlay_id": "he-standard",
+      "language_id": "hebrew",
+      "file": "references/profiles/he-standard.md"
+    },
+    {
+      "overlay_id": "ps-standard",
+      "language_id": "pashto",
+      "file": "references/profiles/ps-standard.md"
+    },
+    {
+      "overlay_id": "ku-standard",
+      "language_id": "kurdish",
+      "file": "references/profiles/ku-standard.md"
+    },
+    {
+      "overlay_id": "az-standard",
+      "language_id": "azerbaijani",
+      "file": "references/profiles/az-standard.md"
+    },
+    {
+      "overlay_id": "kk-standard",
+      "language_id": "kazakh",
+      "file": "references/profiles/kk-standard.md"
+    },
+    {
+      "overlay_id": "uz-standard",
+      "language_id": "uzbek",
+      "file": "references/profiles/uz-standard.md"
+    },
+    {
+      "overlay_id": "mn-standard",
+      "language_id": "mongolian",
+      "file": "references/profiles/mn-standard.md"
+    },
+    {
+      "overlay_id": "ka-standard",
+      "language_id": "georgian",
+      "file": "references/profiles/ka-standard.md"
+    },
+    {
+      "overlay_id": "hy-standard",
+      "language_id": "armenian",
+      "file": "references/profiles/hy-standard.md"
+    },
+    {
+      "overlay_id": "th-standard",
+      "language_id": "thai",
+      "file": "references/profiles/th-standard.md"
+    },
+    {
+      "overlay_id": "lo-standard",
+      "language_id": "lao",
+      "file": "references/profiles/lo-standard.md"
+    },
+    {
+      "overlay_id": "km-standard",
+      "language_id": "khmer",
+      "file": "references/profiles/km-standard.md"
+    },
+    {
+      "overlay_id": "my-mm",
+      "language_id": "burmese",
+      "file": "references/profiles/my-mm.md"
+    },
+    {
+      "overlay_id": "ne-standard",
+      "language_id": "nepali",
+      "file": "references/profiles/ne-standard.md"
+    },
+    {
+      "overlay_id": "si-standard",
+      "language_id": "sinhala",
+      "file": "references/profiles/si-standard.md"
+    },
+    {
+      "overlay_id": "gu-standard",
+      "language_id": "gujarati",
+      "file": "references/profiles/gu-standard.md"
+    },
+    {
+      "overlay_id": "kn-standard",
+      "language_id": "kannada",
+      "file": "references/profiles/kn-standard.md"
+    },
+    {
+      "overlay_id": "ml-standard",
+      "language_id": "malayalam",
+      "file": "references/profiles/ml-standard.md"
+    },
+    {
+      "overlay_id": "or-standard",
+      "language_id": "odia",
+      "file": "references/profiles/or-standard.md"
+    },
+    {
+      "overlay_id": "as-standard",
+      "language_id": "assamese",
+      "file": "references/profiles/as-standard.md"
+    },
+    {
+      "overlay_id": "ks-standard",
+      "language_id": "kashmiri",
+      "file": "references/profiles/ks-standard.md"
+    },
+    {
+      "overlay_id": "sd-standard",
+      "language_id": "sindhi",
+      "file": "references/profiles/sd-standard.md"
+    },
+    {
+      "overlay_id": "yue-hk",
+      "language_id": "cantonese",
+      "file": "references/profiles/yue-hk.md"
+    },
+    {
+      "overlay_id": "am-standard",
+      "language_id": "amharic",
+      "file": "references/profiles/am-standard.md"
+    },
+    {
+      "overlay_id": "so-standard",
+      "language_id": "somali",
+      "file": "references/profiles/so-standard.md"
+    },
+    {
+      "overlay_id": "yo-standard",
+      "language_id": "yoruba",
+      "file": "references/profiles/yo-standard.md"
+    },
+    {
+      "overlay_id": "ig-standard",
+      "language_id": "igbo",
+      "file": "references/profiles/ig-standard.md"
+    },
+    {
+      "overlay_id": "zu-standard",
+      "language_id": "zulu",
+      "file": "references/profiles/zu-standard.md"
+    },
+    {
+      "overlay_id": "af-standard",
+      "language_id": "afrikaans",
+      "file": "references/profiles/af-standard.md"
+    },
+    {
+      "overlay_id": "qu-standard",
+      "language_id": "quechua",
+      "file": "references/profiles/qu-standard.md"
+    },
+    {
+      "overlay_id": "gn-standard",
+      "language_id": "guarani",
+      "file": "references/profiles/gn-standard.md"
+    },
+    {
+      "overlay_id": "la-standard",
+      "language_id": "latin",
+      "file": "references/profiles/la-standard.md"
+    },
+    {
+      "overlay_id": "nan-tw",
+      "language_id": "hokkien",
+      "file": "references/profiles/nan-tw.md"
+    }
+  ]
+}

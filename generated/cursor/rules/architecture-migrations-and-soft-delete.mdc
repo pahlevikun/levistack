@@ -1,0 +1,29 @@
+---
+description: "Migrations are reviewed with the schema, safe for live rows, and explicit about destruction; soft delete needs three parts together."
+alwaysApply: false
+---
+<!-- generated from rules/architecture/migrations-and-soft-delete.md; do not edit -->
+
+# Migrations and soft delete
+
+## Migrations
+- Review the migration and the schema or model diff as **one change.**
+- Live-data safety first: nullability, defaults, backfills, unique constraints and foreign-key behavior are deliberate, never implied.
+- Prefer **database-enforced** constraints for user-visible uniqueness, including partial indexes for soft-deleted rows.
+- Do not hide destructive behavior. Column drops, type changes, table rewrites and irreversible data transforms need an explicit risk note in the change summary.
+- If the migration changes how existing rows are read or written, verify the path against **pre-existing data**, not only fresh test inserts.
+- Migrations are reversible and validated against the pinned database image.
+
+Minimum questions: What happens to existing rows? What happens on rollback? Does the application model enforce the same contract as the database?
+
+## Soft delete
+Add all three pieces together or none:
+1. The `deleted_at` column and its migration.
+2. A dedicated soft-delete operation. Deleting sets `deleted_at`; it never issues `DELETE`. Do not let `deleted_at` through the ordinary create or update path.
+3. A scoped "active" query used by **every** read path (get, list, search) so deleted rows do not leak.
+
+Any uniqueness that should apply only to active rows needs a **partial** unique index scoped to `deleted_at IS NULL`, so a deleted row's value (an email, a reference) can be reused. Omitting it migrates fine and fails later as "can't reuse this value after deleting."
+
+Test soft-delete filtering for every new list or get function.
+
+Histories that must be kept (accounts, ownership, addresses) are soft-closed or end-dated rather than hard-deleted.

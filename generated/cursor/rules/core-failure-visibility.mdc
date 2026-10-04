@@ -1,0 +1,34 @@
+---
+description: "Silent-failure traps: bugs that keep builds green while the failure disappears. Fail loud, branch on real outcomes."
+alwaysApply: false
+---
+<!-- generated from rules/core/failure-visibility.md; do not edit -->
+
+# Failure visibility
+
+These bugs keep the compiler, linter and test run green while the failure mode vanishes.
+
+1. **Log calls that never emit.** Some logging APIs build an event and only emit when the chain is terminated (`.Msg()`, `.Send()`). A "panic" or "fatal" logger that is not terminated may not stop execution either. Terminate every chain, or return a real error.
+2. **Validate required dependencies at startup or registration**, and return an error. A constructor that cannot return an error must not be where "missing dependency" is detected.
+3. **Overly broad catch.** A blanket `except` / `catch` turns a real bug (a malformed response, a `KeyError`) into a clean skip. Catch the failure you expect; let bugs raise.
+4. **Dry runs must stay legible.** A write wrapped so it is skipped in dry-run must not also wrap the *read* that decides what to do. Reads run unconditionally; only writes are suppressed, and the output must say which happened.
+5. **Skip is not empty.** Return "nothing" (null, None, absent) for a skipped item, never an empty record that is counted as success.
+6. **Bootstrap failure.** If setup fails (config store, auth), fail the run with a clear cause rather than producing a 100%-error run with no explanation.
+7. **Wrong log level hides problems.** Real upstream failures belong at `warn` or `error`, not at the level of routine progress.
+8. **Mismatched identifiers.** A wrong ID column or key can make a run "complete" having done nothing. Check that the run processed at least one item and say so.
+9. **Magic strings.** Compare against the enum or constant, not a literal that drifts from the canonical value.
+10. **Unwired code.** A new route, job or handler that compiles but is never registered never runs. Check registration order too.
+
+## Architecture traps, by rule
+These stay green too. Each is covered where it belongs:
+- Config read around the typed accessor, or a feature flag referenced by raw name: `configuration-and-feature-flags`.
+- A handler building a wire error itself, or a bare untyped error reaching the mapper: `error-boundaries`.
+- A new middleware stage registered in one endpoint only, or a handler never wired in: `thin-handlers-and-middleware`.
+- An inner module importing an outer type: `layering-and-dependency-direction`.
+- A mutation committed without its audit rows, or an arbitrary object in an audit snapshot: `audit-events`.
+- A soft-delete table missing its partial unique index: `migrations-and-soft-delete`.
+- A secret compared with `==`: `api-security`.
+- An unsupervised process, or a worker that returns success on every error: `elixir-otp` and `async-jobs-and-consumers`.
+
+## Enforcement
+When reviewing, treat each of these as a finding even though nothing is red.

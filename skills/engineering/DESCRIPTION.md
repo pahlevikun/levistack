@@ -1,0 +1,3 @@
+---
+description: "Engineering habits: review, super-tdd (test-first red-green-refactor across stacks), super-refactor (multi-language behavior-preserving refactors), super-verify (evidence before claims: gate completion, verify-only, investigate first), super-noslop (domain no-slop filter for backend, API, frontend, database, config, and comments), polyglot-copywriter (plain human prose and anti-AI-tell edits), super-design (UI critique, design tokens, component libraries, DESIGN.md), clean-code principles (DRY, SOLID, YAGNI), output-savers, and Elixir with its specialities (OTP, Ecto, Phoenix, security and performance review)."
+---

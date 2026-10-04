@@ -1,0 +1,1722 @@
+{
+  "schema_version": 1,
+  "generic": [
+    {
+      "id": "marketing-copy",
+      "languages": [
+        "*"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social"
+      ],
+      "file": "references/techniques/marketing-copy.md"
+    },
+    {
+      "id": "humanize-workflow",
+      "languages": [
+        "*"
+      ],
+      "usecases": [
+        "humanize"
+      ],
+      "file": "references/techniques/humanize-workflow.md"
+    },
+    {
+      "id": "flow-by-relation",
+      "languages": [
+        "*"
+      ],
+      "usecases": [
+        "*"
+      ],
+      "file": "references/techniques/flow-by-relation.md",
+      "note": "Also load on review when development/flow breaks; humanize when list-like"
+    },
+    {
+      "id": "natural-writing",
+      "languages": [
+        "*"
+      ],
+      "usecases": [
+        "*"
+      ],
+      "file": "references/techniques/natural-writing.md"
+    },
+    {
+      "id": "translation-vs-voice",
+      "languages": [
+        "*"
+      ],
+      "usecases": [
+        "*"
+      ],
+      "file": "references/techniques/translation-vs-voice.md"
+    },
+    {
+      "id": "jp-marketing-stub",
+      "languages": [
+        "japanese"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social"
+      ],
+      "file": "references/techniques/jp-marketing.md",
+      "note": "Stub — prefer locales/japanese.md"
+    }
+  ],
+  "generic_usecase": [
+    {
+      "id": "email-comms",
+      "languages": [
+        "*"
+      ],
+      "usecases": [
+        "email",
+        "letter",
+        "announcement"
+      ],
+      "file": "references/techniques/email-comms.md"
+    },
+    {
+      "id": "chat-comms",
+      "languages": [
+        "*"
+      ],
+      "usecases": [
+        "chat"
+      ],
+      "file": "references/techniques/chat-comms.md"
+    },
+    {
+      "id": "incident-comms",
+      "languages": [
+        "*"
+      ],
+      "usecases": [
+        "incident"
+      ],
+      "file": "references/techniques/incident-comms.md"
+    },
+    {
+      "id": "academic-writing",
+      "languages": [
+        "*"
+      ],
+      "usecases": [
+        "academic"
+      ],
+      "file": "references/techniques/academic-writing.md"
+    },
+    {
+      "id": "docs-prose",
+      "languages": [
+        "*"
+      ],
+      "usecases": [
+        "docs",
+        "technical-doc"
+      ],
+      "file": "references/techniques/docs-prose.md"
+    }
+  ],
+  "locales": [
+    {
+      "id": "abui",
+      "languages": [
+        "abui"
+      ],
+      "usecases": [
+        "email",
+        "chat",
+        "docs"
+      ],
+      "file": "references/techniques/locales/abui.md"
+    },
+    {
+      "id": "afrikaans",
+      "languages": [
+        "afrikaans"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/afrikaans.md"
+    },
+    {
+      "id": "albanian",
+      "languages": [
+        "albanian"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/albanian.md"
+    },
+    {
+      "id": "amharic",
+      "languages": [
+        "amharic"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/amharic.md"
+    },
+    {
+      "id": "arabic",
+      "languages": [
+        "arabic"
+      ],
+      "usecases": [
+        "marketing",
+        "email",
+        "chat"
+      ],
+      "file": "references/techniques/locales/arabic.md"
+    },
+    {
+      "id": "armenian",
+      "languages": [
+        "armenian"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/armenian.md"
+    },
+    {
+      "id": "arz",
+      "languages": [
+        "arz"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/arz.md"
+    },
+    {
+      "id": "assamese",
+      "languages": [
+        "assamese"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/assamese.md"
+    },
+    {
+      "id": "azerbaijani",
+      "languages": [
+        "azerbaijani"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/azerbaijani.md"
+    },
+    {
+      "id": "bali",
+      "languages": [
+        "bali"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/bali.md"
+    },
+    {
+      "id": "basque",
+      "languages": [
+        "basque"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/basque.md"
+    },
+    {
+      "id": "bengali",
+      "languages": [
+        "bengali"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/bengali.md"
+    },
+    {
+      "id": "bosnian",
+      "languages": [
+        "bosnian"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/bosnian.md"
+    },
+    {
+      "id": "bulgarian",
+      "languages": [
+        "bulgarian"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/bulgarian.md"
+    },
+    {
+      "id": "burmese",
+      "languages": [
+        "burmese"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/burmese.md"
+    },
+    {
+      "id": "cantonese",
+      "languages": [
+        "cantonese"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/cantonese.md"
+    },
+    {
+      "id": "catalan",
+      "languages": [
+        "catalan"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/catalan.md"
+    },
+    {
+      "id": "croatian",
+      "languages": [
+        "croatian"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/croatian.md"
+    },
+    {
+      "id": "czech",
+      "languages": [
+        "czech"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/czech.md"
+    },
+    {
+      "id": "danish",
+      "languages": [
+        "danish"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/danish.md"
+    },
+    {
+      "id": "dayak",
+      "languages": [
+        "dayak"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/dayak.md"
+    },
+    {
+      "id": "dayak-ngaju",
+      "languages": [
+        "dayak-ngaju"
+      ],
+      "usecases": [
+        "email",
+        "chat",
+        "docs"
+      ],
+      "file": "references/techniques/locales/dayak-ngaju.md"
+    },
+    {
+      "id": "dutch",
+      "languages": [
+        "dutch"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/dutch.md"
+    },
+    {
+      "id": "english",
+      "languages": [
+        "english"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/english.md"
+    },
+    {
+      "id": "esperanto",
+      "languages": [
+        "esperanto"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/esperanto.md"
+    },
+    {
+      "id": "estonian",
+      "languages": [
+        "estonian"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/estonian.md"
+    },
+    {
+      "id": "finnish",
+      "languages": [
+        "finnish"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/finnish.md"
+    },
+    {
+      "id": "french",
+      "languages": [
+        "french"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/french.md"
+    },
+    {
+      "id": "galician",
+      "languages": [
+        "galician"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/galician.md"
+    },
+    {
+      "id": "georgian",
+      "languages": [
+        "georgian"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/georgian.md"
+    },
+    {
+      "id": "german",
+      "languages": [
+        "german"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/german.md"
+    },
+    {
+      "id": "greek",
+      "languages": [
+        "greek"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/greek.md"
+    },
+    {
+      "id": "guarani",
+      "languages": [
+        "guarani"
+      ],
+      "usecases": [
+        "email",
+        "chat",
+        "docs"
+      ],
+      "file": "references/techniques/locales/guarani.md"
+    },
+    {
+      "id": "gujarati",
+      "languages": [
+        "gujarati"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/gujarati.md"
+    },
+    {
+      "id": "hausa",
+      "languages": [
+        "hausa"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/hausa.md"
+    },
+    {
+      "id": "hebrew",
+      "languages": [
+        "hebrew"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/hebrew.md"
+    },
+    {
+      "id": "hindi",
+      "languages": [
+        "hindi"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/hindi.md"
+    },
+    {
+      "id": "hokkien",
+      "languages": [
+        "hokkien"
+      ],
+      "usecases": [
+        "email",
+        "chat",
+        "docs"
+      ],
+      "file": "references/techniques/locales/hokkien.md"
+    },
+    {
+      "id": "hungarian",
+      "languages": [
+        "hungarian"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/hungarian.md"
+    },
+    {
+      "id": "icelandic",
+      "languages": [
+        "icelandic"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/icelandic.md"
+    },
+    {
+      "id": "igbo",
+      "languages": [
+        "igbo"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/igbo.md"
+    },
+    {
+      "id": "indonesia",
+      "languages": [
+        "indonesia"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/indonesia.md"
+    },
+    {
+      "id": "irish",
+      "languages": [
+        "irish"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/irish.md"
+    },
+    {
+      "id": "italian",
+      "languages": [
+        "italian"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/italian.md"
+    },
+    {
+      "id": "japanese",
+      "languages": [
+        "japanese"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/japanese.md"
+    },
+    {
+      "id": "jawa",
+      "languages": [
+        "jawa"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/jawa.md"
+    },
+    {
+      "id": "kannada",
+      "languages": [
+        "kannada"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/kannada.md"
+    },
+    {
+      "id": "kashmiri",
+      "languages": [
+        "kashmiri"
+      ],
+      "usecases": [
+        "email",
+        "chat",
+        "docs"
+      ],
+      "file": "references/techniques/locales/kashmiri.md"
+    },
+    {
+      "id": "kazakh",
+      "languages": [
+        "kazakh"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/kazakh.md"
+    },
+    {
+      "id": "khmer",
+      "languages": [
+        "khmer"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/khmer.md"
+    },
+    {
+      "id": "korean",
+      "languages": [
+        "korean"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/korean.md"
+    },
+    {
+      "id": "kurdish",
+      "languages": [
+        "kurdish"
+      ],
+      "usecases": [
+        "marketing",
+        "email",
+        "chat"
+      ],
+      "file": "references/techniques/locales/kurdish.md"
+    },
+    {
+      "id": "lao",
+      "languages": [
+        "lao"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/lao.md"
+    },
+    {
+      "id": "latin",
+      "languages": [
+        "latin"
+      ],
+      "usecases": [
+        "email",
+        "chat",
+        "docs"
+      ],
+      "file": "references/techniques/locales/latin.md"
+    },
+    {
+      "id": "latvian",
+      "languages": [
+        "latvian"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/latvian.md"
+    },
+    {
+      "id": "lithuanian",
+      "languages": [
+        "lithuanian"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/lithuanian.md"
+    },
+    {
+      "id": "makassar",
+      "languages": [
+        "makassar"
+      ],
+      "usecases": [
+        "email",
+        "chat",
+        "docs"
+      ],
+      "file": "references/techniques/locales/makassar.md"
+    },
+    {
+      "id": "malay",
+      "languages": [
+        "malay"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/malay.md"
+    },
+    {
+      "id": "malayalam",
+      "languages": [
+        "malayalam"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/malayalam.md"
+    },
+    {
+      "id": "mandarin",
+      "languages": [
+        "mandarin"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/mandarin.md"
+    },
+    {
+      "id": "marathi",
+      "languages": [
+        "marathi"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/marathi.md"
+    },
+    {
+      "id": "minangkabau",
+      "languages": [
+        "minangkabau"
+      ],
+      "usecases": [
+        "email",
+        "chat",
+        "docs"
+      ],
+      "file": "references/techniques/locales/minangkabau.md"
+    },
+    {
+      "id": "mongolian",
+      "languages": [
+        "mongolian"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/mongolian.md"
+    },
+    {
+      "id": "nepali",
+      "languages": [
+        "nepali"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/nepali.md"
+    },
+    {
+      "id": "norwegian",
+      "languages": [
+        "norwegian"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/norwegian.md"
+    },
+    {
+      "id": "odia",
+      "languages": [
+        "odia"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/odia.md"
+    },
+    {
+      "id": "pashto",
+      "languages": [
+        "pashto"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/pashto.md"
+    },
+    {
+      "id": "pcm",
+      "languages": [
+        "pcm"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/pcm.md"
+    },
+    {
+      "id": "persian",
+      "languages": [
+        "persian"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/persian.md"
+    },
+    {
+      "id": "polish",
+      "languages": [
+        "polish"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/polish.md"
+    },
+    {
+      "id": "portuguese",
+      "languages": [
+        "portuguese"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/portuguese.md"
+    },
+    {
+      "id": "punjabi",
+      "languages": [
+        "punjabi"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/punjabi.md"
+    },
+    {
+      "id": "quechua",
+      "languages": [
+        "quechua"
+      ],
+      "usecases": [
+        "email",
+        "chat",
+        "docs"
+      ],
+      "file": "references/techniques/locales/quechua.md"
+    },
+    {
+      "id": "romanian",
+      "languages": [
+        "romanian"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/romanian.md"
+    },
+    {
+      "id": "russian",
+      "languages": [
+        "russian"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/russian.md"
+    },
+    {
+      "id": "serbian",
+      "languages": [
+        "serbian"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/serbian.md"
+    },
+    {
+      "id": "sindhi",
+      "languages": [
+        "sindhi"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/sindhi.md"
+    },
+    {
+      "id": "sinhala",
+      "languages": [
+        "sinhala"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/sinhala.md"
+    },
+    {
+      "id": "slovak",
+      "languages": [
+        "slovak"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/slovak.md"
+    },
+    {
+      "id": "slovenian",
+      "languages": [
+        "slovenian"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/slovenian.md"
+    },
+    {
+      "id": "somali",
+      "languages": [
+        "somali"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/somali.md"
+    },
+    {
+      "id": "spanish",
+      "languages": [
+        "spanish"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/spanish.md"
+    },
+    {
+      "id": "sunda",
+      "languages": [
+        "sunda"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/sunda.md"
+    },
+    {
+      "id": "swahili",
+      "languages": [
+        "swahili"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/swahili.md"
+    },
+    {
+      "id": "swedish",
+      "languages": [
+        "swedish"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/swedish.md"
+    },
+    {
+      "id": "tagalog",
+      "languages": [
+        "tagalog"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/tagalog.md"
+    },
+    {
+      "id": "tamil",
+      "languages": [
+        "tamil"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/tamil.md"
+    },
+    {
+      "id": "telugu",
+      "languages": [
+        "telugu"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/telugu.md"
+    },
+    {
+      "id": "thai",
+      "languages": [
+        "thai"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/thai.md"
+    },
+    {
+      "id": "turkish",
+      "languages": [
+        "turkish"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/turkish.md"
+    },
+    {
+      "id": "ukrainian",
+      "languages": [
+        "ukrainian"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/ukrainian.md"
+    },
+    {
+      "id": "urdu",
+      "languages": [
+        "urdu"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/urdu.md"
+    },
+    {
+      "id": "uzbek",
+      "languages": [
+        "uzbek"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/uzbek.md"
+    },
+    {
+      "id": "vietnamese",
+      "languages": [
+        "vietnamese"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/vietnamese.md"
+    },
+    {
+      "id": "welsh",
+      "languages": [
+        "welsh"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/welsh.md"
+    },
+    {
+      "id": "yoruba",
+      "languages": [
+        "yoruba"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/yoruba.md"
+    },
+    {
+      "id": "zulu",
+      "languages": [
+        "zulu"
+      ],
+      "usecases": [
+        "marketing",
+        "ads",
+        "social",
+        "email",
+        "chat",
+        "incident",
+        "docs",
+        "academic"
+      ],
+      "file": "references/techniques/locales/zulu.md"
+    }
+  ]
+}

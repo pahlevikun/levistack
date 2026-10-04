@@ -1,0 +1,17 @@
+---
+description: "Scale review depth with blast radius: shared runtime surfaces get call-site, config and failure-mode review."
+alwaysApply: false
+---
+<!-- generated from rules/architecture/review-depth.md; do not edit -->
+
+# Review depth by blast radius
+
+| Depth | Surfaces |
+|---|---|
+| **Highest** | Shared runtime: interceptor or middleware chain wiring, the typed config layer and runtime config, migrations, the shared HTTP client, health and readiness code, and any file that changes agent behavior across tasks (rules, hooks, agents, skills) |
+| **Medium** | Bounded-context handlers, transformers, schemas and infra modules that affect one feature slice |
+| **Normal** | Isolated docs, tests and leaf helpers with no cross-app contract |
+
+If a change can alter several apps, several endpoints or operator behavior, the review must inspect **call sites, config wiring, failure modes and verification commands** explicitly. A clean compile is not enough.
+
+A new migration or a runtime-config edit needs deeper review than a single transformer clause. A change to the shared client or an interceptor needs deeper review than a change inside one query module.

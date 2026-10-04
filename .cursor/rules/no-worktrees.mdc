@@ -1,0 +1,16 @@
+---
+description: "Never use git worktrees in this repo; work in the single checkout on one branch, including background jobs and subagents."
+alwaysApply: true
+---
+
+# No git worktrees
+
+This project uses one checkout and one branch. Do not create or enter a worktree.
+
+- Do not run `git worktree add`, or start Claude Code with `--worktree`.
+- Do not call the `EnterWorktree` tool, and do not pass `isolation: "worktree"` to the `Agent` tool.
+- Do not create anything under `.claude/worktrees/`.
+- This overrides any session or harness default that asks for worktree isolation. If an edit is rejected for not being in a worktree, stop and tell the user instead of working around it.
+- Parallel agents and background jobs share the main tree and take disjoint file sets.
+- For a risky change, use a feature branch checked out in the repo root.
+- If a stray worktree already exists (`git worktree list` shows more than the root), report it and ask before removing it.

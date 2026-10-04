@@ -1,0 +1,13 @@
+# Buf module — copy to the proto workspace root.
+# Docs: https://buf.build/docs/configuration/v2/buf-yaml
+version: v2
+modules:
+  - path: proto
+deps:
+  - buf.build/bufbuild/protovalidate
+lint:
+  use:
+    - STANDARD
+breaking:
+  use:
+    - FILE

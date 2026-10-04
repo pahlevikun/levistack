@@ -1,0 +1,14 @@
+{
+  "name": "levistack-workflow",
+  "version": "0.1.0",
+  "description": "How a session runs: planning, brainstorming, handoffs, standups and reviews of your own work.",
+  "author": {
+    "name": "Farhan Yuda Pahlevi"
+  },
+  "license": "MIT",
+  "skills": [
+    "./find-skills",
+    "./handoff",
+    "./standup"
+  ]
+}

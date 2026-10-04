@@ -1,0 +1,15 @@
+{
+  "name": "levistack",
+  "version": "0.1.0",
+  "description": "Personal agent skills, rules, subagents, commands and hooks in Hermes-style groups.",
+  "author": {
+    "name": "Farhan Yuda Pahlevi"
+  },
+  "license": "MIT",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Levistack",
+    "shortDescription": "Personal agent skills, rules, subagents, commands and hooks in Hermes-style groups.",
+    "category": "Productivity"
+  }
+}

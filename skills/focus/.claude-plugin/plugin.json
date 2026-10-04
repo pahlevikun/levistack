@@ -1,0 +1,13 @@
+{
+  "name": "levistack-focus",
+  "version": "0.1.0",
+  "description": "ADHD-friendly focus tools: shrink tasks, park tangents, keep momentum.",
+  "author": {
+    "name": "Farhan Yuda Pahlevi"
+  },
+  "license": "MIT",
+  "skills": [
+    "./one-next-action",
+    "./parking-lot"
+  ]
+}

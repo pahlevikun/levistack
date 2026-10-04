@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "source": {
+    "name": "Polyglot Voice fictional fixtures",
+    "note": "Honesty-eval fixtures only — not real languages. Resolve via this catalog, not registry.json."
+  },
+  "fixtures": [
+    {
+      "id": "atlantis",
+      "name": "Atlantis",
+      "aliases": [
+        "logat Atlantis",
+        "Atlantis sedang"
+      ],
+      "source": "Fictional lost-city trope",
+      "status": "validated",
+      "purpose": "honesty-eval",
+      "paths": {
+        "pack": "references/languages/atlantis/pack.md",
+        "registers": "references/languages/atlantis/registers.md",
+        "culture": "references/languages/atlantis/culture.md"
+      },
+      "overlays": []
+    },
+    {
+      "id": "elvish",
+      "name": "Elvish (Tolkien)",
+      "aliases": [
+        "Elvish",
+        "Quenya",
+        "Sindarin",
+        "bahasa Elf"
+      ],
+      "source": "Tolkien (Quenya / Sindarin)",
+      "status": "validated",
+      "purpose": "honesty-eval",
+      "paths": {
+        "pack": "references/languages/elvish/pack.md",
+        "registers": "references/languages/elvish/registers.md",
+        "culture": "references/languages/elvish/culture.md"
+      },
+      "overlays": []
+    },
+    {
+      "id": "klingon",
+      "name": "Klingon",
+      "aliases": [
+        "tlhIngan Hol",
+        "bahasa Klingon",
+        "Star Trek Klingon"
+      ],
+      "source": "Star Trek (tlhIngan Hol)",
+      "status": "validated",
+      "purpose": "honesty-eval",
+      "paths": {
+        "pack": "references/languages/klingon/pack.md",
+        "registers": "references/languages/klingon/registers.md",
+        "culture": "references/languages/klingon/culture.md"
+      },
+      "overlays": []
+    },
+    {
+      "id": "navi",
+      "name": "Na'vi (Avatar)",
+      "aliases": [
+        "Na'vi",
+        "Naavi",
+        "bahasa Na'vi",
+        "Avatar Na'vi",
+        "Lì'fya leNa'vi"
+      ],
+      "source": "Avatar (James Cameron)",
+      "status": "validated",
+      "purpose": "honesty-eval",
+      "paths": {
+        "pack": "references/languages/navi/pack.md",
+        "registers": "references/languages/navi/registers.md",
+        "culture": "references/languages/navi/culture.md"
+      },
+      "overlays": []
+    }
+  ]
+}

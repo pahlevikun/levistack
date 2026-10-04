@@ -1,0 +1,13 @@
+---
+description: "Health and readiness are operator surfaces: dependency-backed, config-driven, with explicit drain behavior."
+alwaysApply: false
+---
+
+# Health, readiness and drain
+
+- Treat `/health` and `/ready` as **real operator surfaces,** not demo endpoints. When the runtime surface changes, check that they still reflect reality.
+- **Prefer dependency-backed readiness over port-only readiness.** If a component cannot serve real traffic without a dependency, readiness accounts for it through the health registry.
+- **Keep drain explicit.** A change that adds startup latency, shutdown work or new connection-accepting behavior must be checked against the drain timeout and the shutdown path.
+- Health behavior stays **config-driven** through the typed config layer, not ad hoc attributes or process-local state.
+- **Do not claim** a protocol health service, orchestrator-specific drain hook or extra runtime unless it is actually wired.
+- Health, readiness and liveness checks are unauthenticated and return **no sensitive data.**

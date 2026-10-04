@@ -1,0 +1,40 @@
+---
+description: "ExUnit conventions: layered tests, real database via SQL sandbox, shape-matching assertions, async by default."
+globs: "**/*_test.exs,**/test/**"
+alwaysApply: false
+---
+
+# Elixir testing
+
+Builds on `testing`. Write the failing test first, confirm it fails for the right reason (not a typo), implement the smallest change, then refactor green.
+
+## Layered ownership
+| Layer | Test with |
+|---|---|
+| Pure domain | Plain ExUnit; property or state-machine tests where they add real value |
+| Application services | Deterministic fakes through the existing behaviours |
+| Persistence | A real database through `Ecto.Adapters.SQL.Sandbox`. **Do not mock Ecto or the Repo** |
+| HTTP | `ConnCase` integration tests for middleware, status, headers, envelopes, serialization |
+| gRPC / LiveView handlers | Call the handler or `live/2` end to end: request in, response or raised error out |
+| Public contract | The API collection or contract test, and the matching docs |
+
+## Per function, at minimum
+Happy path; invalid input returning the documented `{:error, ...}` shape; missing required key and non-map input where maps are accepted; edge values (blank, boundary); not-found for persistence; authorization or redaction where relevant.
+
+## Assertions
+Match shape and content together. Never truthy-only, never length plus indexed access.
+```elixir
+assert {:ok, %{order_id: id}} = result
+assert [{"email", "is required", _}, {"name", _, _}] = errors
+```
+
+## Rules
+- `async: true` unless the test touches genuinely global state (a shared registry, a sandbox owner).
+- No `Process.sleep/1`: wait on a message or condition.
+- Test public behavior, not private functions.
+- No `@tag :skip`, commented-out tests or relaxed assertions to get green.
+- Add `mox`, `ex_machina` or `stream_data` only when already a dependency, or when a real need is shown.
+- Assert on the typed error (`type`, code) a test promises, not on message text.
+
+## Gates
+`mix test`, then the project's format, warnings-as-errors and lint gates (see `elixir-style`). Keep coverage at the project's bar without broad exclusions.

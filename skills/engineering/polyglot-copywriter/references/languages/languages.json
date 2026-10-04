@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "deprecated": "Use references/registry.json (schema v2). This file is a read-only shim for backward compatibility.",
+  "registry": "references/registry.json",
+  "note": "Run: python3 scripts/find_language.py <query> — reads registry.json",
+  "languages": []
+}

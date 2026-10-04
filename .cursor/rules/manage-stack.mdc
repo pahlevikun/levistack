@@ -1,0 +1,14 @@
+---
+description: "Constraints for changing the levistack catalog: edit source files only, then sync and check."
+alwaysApply: true
+---
+
+# Managing this stack
+
+Follow `.cursor/skills/manage-stack/SKILL.md` before adding or changing a skill, rule, agent, command, or hook. Edit `.cursor/agents/`, `.cursor/rules/`, and `.cursor/skills/` only; `.claude/agents`, `.claude/rules`, and `.claude/skills` symlink here (`npm run sync` refreshes them).
+
+- Edit only `skills/`, `agents/`, `rules/`, `commands/`, and `hooks/`. Update `docs/agents/README.md` when the agent roster changes.
+- Do not hand-edit generated output. Run `npm run sync`. That includes `.claude-plugin/`, `.cursor-plugin/`, `.codex-plugin/`, `skills/<group>/.claude-plugin/`, `generated/`, `hooks/hooks.json`, and the generated tables in `README.md` and `hooks/README.md`.
+- A skill `name` equals its folder. `description` says when to use it, is quoted, and is at most 1024 characters.
+- Nothing employer-owned, no secrets, no personal data.
+- Before reporting done: `npm run sync && git diff --exit-code`, then `npm run validate`, then `npm test`.

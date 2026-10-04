@@ -1,0 +1,24 @@
+---
+description: "Dependencies point inward, one owner per boundary, wire at the composition root, add ports only when needed."
+alwaysApply: false
+---
+
+# Layering and dependency direction
+
+```
+transport / entrypoints  ->  application services  ->  domain
+                                   |
+                                   +->  persistence, outbound clients (adapters)
+```
+
+- **Inward only.** The domain has no dependency on frameworks, ORMs, RPC or protocol types. Adapters depend on the domain, never the reverse. Lower layers never import higher ones.
+- **Transport composes.** Entrypoints own listeners, handlers, transformers and endpoint policy. They wire capabilities; they hold no business rules.
+- **One module owns one boundary.** One adapter per upstream or store. If two modules can both answer "truth" or "how to reach X", the boundary is wrong.
+- **Wire at the composition root.** The app entrypoint builds dependencies and injects them. Inner modules receive behaviour-shaped interfaces and never name the implementation.
+- **Ports only for a real need.** Add an interface when an inner layer needs inversion **and** a real outer implementation exists. Not speculatively, not for a single implementation "in case".
+- **Declare dependencies where the build tool reads them,** and check them with tooling (cycle detection, import linters). A reference the build tool allows but never declared is a latent break.
+- **No shared "util" layer** that every package imports. Share through a narrow, named capability.
+- **Name deployables by runtime role** (transport, worker, service, shared library, core capability) before bounded context, and finish a rename across directory, build target, config, container, CI and docs together.
+
+## Review questions
+Does any inner module now import an outer type? Did a new dependency get declared, or just used? Is there exactly one place that selects an adapter?

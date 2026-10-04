@@ -1,0 +1,42 @@
+# dependencies / build
+node_modules/
+dist/
+coverage/
+*.tsbuildinfo
+
+# secrets / env
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+*.swp
+
+# logs / temp
+*.log
+npm-debug.log*
+*.tmp
+.cache/
+
+# local agent state (generated plugin manifests like .claude-plugin/ and .cursor-plugin/ ARE committed)
+.claude/settings.local.json
+.claude/worktrees/
+.cursor/mcp.json
+.cursor/.cache/
+.teamonia/
+
+# scratch / reference clones
+scratch/
+refs/
+inbox/
+
+# written into the working tree by local session hooks
+**/teamonia-memory-context.mdc

@@ -1,0 +1,13 @@
+{
+  "name": "levistack",
+  "owner": {
+    "name": "Farhan Yuda Pahlevi"
+  },
+  "plugins": [
+    {
+      "name": "levistack",
+      "source": "./",
+      "description": "Personal agent skills, rules, subagents, commands and hooks in Hermes-style groups."
+    }
+  ]
+}

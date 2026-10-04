@@ -1,0 +1,32 @@
+---
+description: "Handlers coordinate a use case and hold no rules; request chains run in a fixed, documented order; streams follow the same rules."
+alwaysApply: false
+---
+
+# Thin handlers and ordered middleware
+
+## Handlers
+A handler coordinates one use case:
+1. Adapt the request into plain attributes.
+2. Validate through the domain.
+3. Call the domain, persistence or application-service operation.
+4. Build the response directly or through a transformer **owned by that transport**.
+
+- Reusable validators live in the domain. They return `ok(command)` or `error(DomainError)` and collect independent failures when the caller benefits from seeing them together.
+- Database constraints are the final integrity boundary, not a substitute for domain validation.
+- Use the closest existing shape. Do not force every context to have both commands and queries.
+- Protocol-to-domain transformers stay in the transport that owns the API, even when the contract package is shared.
+
+## Ordered request chains (interceptors, plugs, middleware)
+- Document the order and do not reorder without accounting for data dependencies: request ID, then logging, then authentication (writes the identity later stages use), then rate limiting, then validation, with the error mapper **last** so it wraps downstream failures.
+- Implementations are shared; **policy is owned by the endpoint**. Each endpoint configures its credential mode and explicitly allowlists public services.
+- **Unknown services fail closed.** Adding a public service needs an endpoint policy change and a test.
+- Register a new stage in every endpoint that needs it. A stage present in config but absent from an endpoint does not run.
+- A new handler not wired into its endpoint compiles and silently does not exist.
+
+## Streams, channels and sockets
+A streaming RPC or WebSocket channel is still a transport:
+- No business logic in it. It subscribes, relays and pushes.
+- Authentication, rate limiting and request or session IDs apply exactly as for unary calls. Re-check auth on reconnect and rate-limit subscription requests.
+- Define disconnect and backpressure behavior before shipping.
+- Do not poll a database inside a supposedly real-time handler.
