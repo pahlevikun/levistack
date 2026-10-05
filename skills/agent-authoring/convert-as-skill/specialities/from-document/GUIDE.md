@@ -2,7 +2,7 @@
 
 Turn a PDF, docs folder, HTML file, or a user-supplied URL into a skill. Distill structure (frameworks, indexes, procedures). Do not dump the document into `SKILL.md`.
 
-Extractor: `scripts/extract_document.py` (parsers in `scripts/extractor/`: `pdf.py`, `html.py`, `docx.py`, `epub.py`, `text.py`, `rtf.py`, plus `sanitize.py`, `dependencies.py`, `config.py`, `exceptions.py`, `__init__.py`, `LICENSE.md`). After writing, scan with `scripts/extractor/scan_generated_skill.py`. Provenance: repo-root `THIRD_PARTY.md`.
+Extractor: `scripts/extract_document.py` (parsers in `scripts/extractor/`: `pdf.py`, `html.py`, `docx.py`, `epub.py`, `text.py`, `rtf.py`, plus `sanitize.py`, `dependencies.py`, `config.py`, `exceptions.py`, `__init__.py`, `LICENSE.md`, `UPSTREAM.md`). After writing, scan with `scripts/extractor/scan_generated_skill.py`.
 
 ## Preconditions
 

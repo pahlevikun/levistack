@@ -81,6 +81,15 @@ Never write into a tool's built-in folder (for example Cursor's `skills-cursor`)
 - Add time-sensitive facts without a date, or restate what the model already knows.
 - Leave dynamic shell injection (a backticked command prefixed with `!`) in a published skill without guarding it.
 
+## Related skills
+
+- `create-agent`: the job is a delegate with its own context and tools.
+- `create-command`: the job is a saved prompt you type as /name.
+- `create-rule`: the guidance must apply on every task.
+- `create-hook`: the job must run on an event.
+- `convert-as-skill`: the source material already exists.
+- `find-skills`: check whether a skill for this already exists before you write one.
+
 ## Done when
 
 - `name` equals the folder; the description says what and when; the linter reports no errors.

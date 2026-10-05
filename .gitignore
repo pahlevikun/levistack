@@ -40,3 +40,4 @@ inbox/
 
 # written into the working tree by local session hooks
 **/teamonia-memory-context.mdc
+**/plans/**

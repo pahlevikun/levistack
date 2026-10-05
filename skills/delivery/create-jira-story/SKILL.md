@@ -79,3 +79,10 @@ For multiple stories, separate blocks with a horizontal rule `---` or numbered h
 - [ ] Prose passed polyglot simple-vocab rules (short sentences, no AI tell closers).
 - [ ] No secrets, employer-only names, or personal paths in ticket text.
 - [ ] Route A: user received paste-ready markdown. Route B: create confirmed or fallback explained.
+
+## Related skills
+
+- `writing-plans`: the work is not broken down yet.
+- `super-challenge-me`: stress-test the scope before you write tickets.
+- `polyglot-copywriter`: polish the story text.
+- `standup`: report ticket movement in the daily update.

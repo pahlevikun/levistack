@@ -57,3 +57,10 @@ When another skill calls this one, it names the job. Skip detection.
 
 - `glab-code-review`: apply super-noslop in **after** mode to the comment text. Use the review format for each inline comment. Never write one rollup block.
 - `write-mr-description`: apply super-noslop in **after** mode to the description. The description is prose for people, so do not compress it.
+
+## Related skills
+
+- `super-refactor`: the change is a behavior-preserving refactor.
+- `super-tdd`: the change is a feature or fix that needs a test first.
+- `super-noslop`: filter generated backend, UI or test code.
+- `polyglot-copywriter`: the text is for human readers, not for agents.

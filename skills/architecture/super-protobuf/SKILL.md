@@ -66,6 +66,14 @@ Keep this router lean. Do not paste language samples or extra checklists here.
 |---|---|
 | `protobuf` | This skill (`super-protobuf`) |
 
+## Related skills
+
+- `super-elixir`: the service is Elixir.
+- `super-nodejs`: the service is Node and uses Connect or gRPC.
+- `super-architecture`: decide service boundaries before you design the schema.
+- `super-verify`: show buf lint and breaking output before you claim compatibility.
+- `create-bruno-collection`: add runnable gRPC examples as a Bruno collection.
+
 ## Done when
 
 - The matching mode ran; only needed references were opened.

@@ -257,3 +257,11 @@ If yes: `git push`
 - [EXAMPLES.md](EXAMPLES.md) — worked example
 - [references/prose-and-visuals.md](references/prose-and-visuals.md) — STE, noslop, mermaid/table
 - [samples/description-with-diagram.md](samples/description-with-diagram.md)
+
+## Related skills
+
+- `atomic-semantic-commit`: the branch has mixed changes, split commits first.
+- `glab-code-review`: self-review the diff before you open the MR.
+- `super-verify`: prove the test plan before you write it down.
+- `create-jira-story`: the MR needs a linked ticket.
+- `polyglot-copywriter`: polish the final wording.

@@ -17,3 +17,10 @@ When everything feels equally urgent, pick one physical action and start it.
 ## Pitfalls
 - If the action is still vague, shrink it again. Opening the file counts.
 - Do not plan the whole project. Plan one step.
+
+## Related skills
+
+- `parking-lot`: tangents appear while you work the one action.
+- `super-challenge-me`: the goal is vague and needs questions first.
+- `writing-plans`: the goal is large and needs a real plan.
+- `handoff`: you stop for the day.

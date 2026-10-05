@@ -16,7 +16,7 @@ Do not make a skill for a one-off, for a fact that is simply true of the repo (t
 ## Get the material
 
 1. Use the conversation in context. Re-read it from the start; do not rely on the last few turns.
-2. If the user named a **prior session** ("last time we wrote skills", "the previous convert-as-skill session"), find that session's transcripts first and harvest from those, not from a guess. State the transcript path you used. If you cannot see it, ask once.
+2. If the user named a **prior session** ("last time we wrote skills", "the previous convert-as-skill session"), find that session's transcripts first and harvest from those, not from a guess. State the transcript path you used. If you cannot see it, ask once. (Procedure inspired by [mattpocock/retro](https://www.skills.sh/mattpocock/skills/retro); no upstream files were copied.)
 3. If the current thread is long or was compacted, ask for the transcript path or a pasted summary of the middle. State what you could not see.
 4. Ask one question only if the intent is unclear: "Which part should become the skill?" A session often holds several tasks; convert one skill per task.
 

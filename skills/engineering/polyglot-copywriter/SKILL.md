@@ -109,3 +109,11 @@ The helper scripts (lookup, scaffold, validate, eval check) use only the Python 
 - Recognising a language name is not fluency; limited packs say so in `pack.md`
 
 Follow the style without announcing mode names. Explain config only when the user asks, when you fall back, or when ambiguity changes the result.
+
+## Related skills
+
+- `atomic-semantic-commit`: the text is a commit message.
+- `write-mr-description`: the text is an MR or PR description.
+- `create-jira-story`: the text is a ticket.
+- `standup`: the text is a daily update.
+- `glab-code-review`: the text is a review comment.

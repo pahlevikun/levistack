@@ -46,6 +46,14 @@ The evaluator ships Python scripts and sample inputs. Run them from `specialitie
 
 Run from `specialities/stack-evaluator/`. `format_detector.py` detects the input format and `report_generator.py` renders the final report; both are called by the other scripts. The `assets/` JSON files are sample inputs (`sample_input_structured.json`, `sample_input_text.json`) and an expected output (`expected_output_comparison.json`) for trying the scripts.
 
+## Related skills
+
+- `super-codebase-learner`: current-state facts are missing.
+- `super-challenge-me`: stress-test the pick before you commit.
+- `super-architecture`: choose the architecture style for the target stack.
+- `writing-plans`: turn the migration into a step-by-step plan.
+- `create-jira-story`: split the plan into tickets.
+
 ## Done when
 
 - Current-state work was sent to `super-codebase-learner` when that was the job.

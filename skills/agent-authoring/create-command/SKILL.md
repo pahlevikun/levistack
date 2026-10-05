@@ -59,6 +59,13 @@ Default to a command when the repo or target tool uses one; Cursor and catalog `
 - Add `allowed-tools` broader than the command needs.
 - Leave a side effect (commit, push, post) implicit.
 
+## Related skills
+
+- `create-skill`: the prompt needs scripts, references or model-triggered loading.
+- `create-hook`: the action must run on an event, not on /name.
+- `convert-as-skill`: turn a command into a skill.
+- `create-agent`: the job needs its own context and tools.
+
 ## Done when
 
 - The file is at the right path for its tool and the filename is the intended `/name`.

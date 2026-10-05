@@ -21,3 +21,10 @@ Smallest diff only. No drive-by refactors. Write a comment only when the code ca
 | Pick the mode for the job | [../references/auto-detect.md](../references/auto-detect.md) |
 
 Use the [style card](../concise/SKILL.md) when the problem is long replies and not extra code.
+
+## Related skills
+
+- `output-savers`: the parent skill; use it to apply these rules to a job.
+- `super-noslop`: filter generated code for slop.
+- `super-refactor`: apply the rules as a behavior-preserving refactor.
+- `glab-code-review`: review a diff for over-engineering.

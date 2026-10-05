@@ -98,3 +98,11 @@ Never set `reviewer_state=approved` from automation. Immediate publish via `scri
 | "review and draft all" | 1 then 2 |
 
 If ambiguous, ask: preview only, draft selected findings, or publish existing drafts.
+
+## Related skills
+
+- `super-noslop`: run the noslop pass on the diff.
+- `super-verify`: check a review comment before you act on it.
+- `super-refactor`: apply a requested change without changing behavior.
+- `write-mr-description`: the diff is clean and you need the MR text.
+- `polyglot-copywriter`: polish review comments.

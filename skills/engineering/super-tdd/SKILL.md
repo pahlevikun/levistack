@@ -78,6 +78,15 @@ Retained from `test-driven-development`:
 |---|---|
 | `test-driven-development` | This skill (`super-tdd`) |
 
+## Related skills
+
+- `super-verify`: prove the suite passes before you claim done.
+- `super-refactor`: the refactor step grows past a small tidy.
+- `super-elixir`: the code is Elixir (use its tdd speciality).
+- `writing-plans`: the seams are not clear and the work is large.
+- `atomic-semantic-commit`: commit each green step.
+- `handoff`: pause between slices.
+
 ## Done when
 
 - Correct mode(s) ran; only needed references were loaded.

@@ -54,10 +54,10 @@ Full trade-off tables, failure modes, and apply steps: [fundamentals.md](referen
 
 ## Related skills
 
-- `content-delivery` — CDN topology above app cache.
-- `data-storage` — origin and buffer-pool tuning.
-- `consistency-coordination` — when staleness is unacceptable.
-- `architecture-diagram` — cache-aside and stampede flows.
+- `super-architecture`: decide where the cache layer sits in the system.
+- `super-nodejs`: build server-side caching in a Node service.
+- `super-tech-blueprint`: compare Redis, Memcached or a CDN as a stack choice.
+- `super-verify`: prove hit rate and latency before you claim a win.
 
 ## Old skill names
 

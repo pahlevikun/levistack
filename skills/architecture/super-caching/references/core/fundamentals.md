@@ -130,13 +130,14 @@ Default to the generic recipe (Redis or Memcached). If the user names a cloud,
 read `providers/<provider>.md`. If no file exists, use the generic recipe.
 
 ## Diagram
-Use the in-plugin `architecture-diagram` skill for cache-aside or stampede flows —
-cache nodes use the cache color, the origin its store color, miss path dashed.
+Draw cache-aside or stampede flows as a short Mermaid or ASCII sketch: cache node, origin store, miss path dashed.
 
 ## Related building blocks
-- `content-delivery` — CDN/edge layer above application cache.
-- `data-storage` — origin the cache protects; replicas as an alternative to caching reads.
-- `consistency-coordination` — when staleness is unacceptable or sharding theory applies.
-- `back-of-the-envelope` — read ratio and hot-set sizing.
-- `resilience-failure` — rate limits and breakers for retry storms.
-- `system-design` — orchestration and trade-off method.
+Other concerns the cache touches. These are topics, not skills in this catalog:
+- CDN and edge layer above the application cache.
+- Origin storage the cache protects; read replicas are an alternative to caching reads.
+- Consistency and sharding when staleness is unacceptable.
+- Back-of-the-envelope sizing: read ratio and hot-set size.
+- Rate limits and circuit breakers for retry storms.
+
+For catalog skills that pair with this one, see Related skills in [SKILL.md](../../SKILL.md).

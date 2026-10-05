@@ -59,3 +59,11 @@ Use this when the user says "continue", "resume", "pick up", or names a handoff 
 - Link to long logs, diffs, and docs. Quote only the one decisive line.
 - A handoff is not a status report for a manager. Write what the next session needs to act.
 - Do not keep stale notes as truth. If you find a note that is wrong, correct it or mark it `Status: superseded`.
+
+## Related skills
+
+- `super-verify`: check what is proven before you write the note.
+- `one-next-action`: resume with one concrete step.
+- `parking-lot`: carry parked ideas into the note.
+- `standup`: the next day starts with a standup.
+- `writing-plans`: the note says the plan is missing.

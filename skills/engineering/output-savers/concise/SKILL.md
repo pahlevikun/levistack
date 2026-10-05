@@ -32,3 +32,9 @@ Before a destructive action, read back the target and the effect. Wait for a con
 | Pick the mode for the job | [../references/auto-detect.md](../references/auto-detect.md) |
 
 Use the [principles card](../principles/SKILL.md) when the problem is over-engineering and not word count.
+
+## Related skills
+
+- `output-savers`: the parent skill; use it for the full engineering and STE flow.
+- `principles`: the job is writing or changing code.
+- `polyglot-copywriter`: the text is for human readers.

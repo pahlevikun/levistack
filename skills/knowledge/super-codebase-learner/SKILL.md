@@ -95,3 +95,12 @@ These skill folders were merged and removed:
 - `improve-codebase-architecture` → **diagnose** mode for *current* smells and layering; target stack / migration blueprint → `super-tech-blueprint`
 
 Load `skills/knowledge/super-codebase-learner/SKILL.md` instead of any of the above (except the target-stack half of `improve-codebase-architecture`, which is `super-tech-blueprint`).
+
+## Related skills
+
+- `super-tech-blueprint`: choose or migrate to a target stack.
+- `super-challenge-me`: stress-test the findings or the next step.
+- `super-architecture`: name the current style or choose one.
+- `super-refactor`: act on the smells you found.
+- `create-agents-md`: write the findings into AGENTS.md or CLAUDE.md.
+- `handoff`: save the map for a fresh session.

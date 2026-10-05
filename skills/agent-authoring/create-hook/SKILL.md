@@ -64,6 +64,13 @@ A hook is a script or check the harness runs on an agent event. The harness runs
 - Put secrets or personal paths in a shared hook, or call the network in a hot-path hook.
 - Overwrite a user's existing `settings.json` hooks; merge.
 
+## Related skills
+
+- `create-rule`: a request is enough and nothing must be enforced.
+- `create-command`: the action should run on /name, not on an event.
+- `create-skill`: the automation needs a procedure the model follows.
+- `create-agent`: the event should start a delegated job.
+
 ## Done when
 
 - The event, matcher and handler are the narrowest that work.

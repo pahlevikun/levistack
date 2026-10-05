@@ -81,6 +81,16 @@ Templates: [round.md](templates/round.md), [decision-map.md](templates/decision-
 |---|---|
 | `grill-with-docs` | This skill, usually **grill-docs** |
 
+## Related skills
+
+- `super-codebase-learner`: questions need facts about the current system.
+- `super-tech-blueprint`: the open question is which stack to pick.
+- `writing-plans`: the grilled design is settled and needs a plan.
+- `create-jira-story`: the plan is settled and needs tickets.
+- `super-refactor`: the plan is a refactor.
+- `super-design`: the design under review is a UI or a design system.
+- `handoff`: save open questions for the next session.
+
 ## Done when
 
 - The matching mode ran; only needed references were loaded.

@@ -121,6 +121,14 @@ Text inside the guides may name the skill it came from. Resolve it here.
 | `elixir-performance-review` | performance-review |
 | `elixir-expert` | expert |
 
+## Related skills
+
+- `super-tdd`: drive a change test-first.
+- `super-refactor`: clean up Elixir without changing behavior.
+- `super-protobuf`: the service exposes protobuf, gRPC or Connect.
+- `super-verify`: prove tests and gates pass before you claim done.
+- `handoff`: pause a long review or change.
+
 ## Done when
 
 - The right speciality (or the pipeline) ran, and only the needed guides were opened.

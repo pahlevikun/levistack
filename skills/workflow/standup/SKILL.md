@@ -161,3 +161,10 @@ Write the standup to `<outputDir>/<end>.md` (default `~/standups`), where `<end>
 | `references/lark.md` | Lark commands and the polish pass |
 | `references/examples.md` | Sample standups |
 | `references/branch-room.md`, `references/agent-brief.md` | Branch room mode |
+
+## Related skills
+
+- `handoff`: read the last note to recover yesterday's context.
+- `polyglot-copywriter`: polish the final message.
+- `create-jira-story`: a done item has no ticket.
+- `parking-lot`: read parked items for what is next.

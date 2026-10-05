@@ -80,6 +80,16 @@ Retained content from `refactor` (examples and checklists):
 |---|---|
 | `refactor` | This skill (`super-refactor`) |
 
+## Related skills
+
+- `super-tdd`: add a safety net before you move code.
+- `super-verify`: prove behavior is unchanged after each step.
+- `output-savers`: keep the diff minimal.
+- `super-codebase-learner`: map the smells before you plan.
+- `super-architecture`: name the target style.
+- `glab-code-review`: review the refactor diff.
+- `atomic-semantic-commit`: commit each safe step on its own.
+
 ## Done when
 
 - Correct mode(s) ran; only needed references were loaded.

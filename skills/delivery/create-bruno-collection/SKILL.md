@@ -67,3 +67,10 @@ Mixed services: one collection, shared `environments/`, HTTP `auth/login` when t
 ## Out of scope
 
 Bruno desktop feature parity, cloud sync, and generating a collection from live traffic capture.
+
+## Related skills
+
+- `super-nodejs`: the routes come from a Node service.
+- `super-protobuf`: the surface is gRPC or Connect described by .proto files.
+- `super-verify`: run the collection and show the result as proof.
+- `write-mr-description`: attach the collection to an MR.

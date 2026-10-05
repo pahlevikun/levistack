@@ -74,6 +74,14 @@ A clean result is a valid result. Do not invent findings to look thorough, and d
 | "Every file", repo-wide rename, audit all, ledgers | [sweeps.md](references/sweeps.md) |
 | A check failed, delegated work, deliverables, staleness, the final report | [failures-and-handoff.md](references/failures-and-handoff.md) |
 
+## Related skills
+
+- `super-tdd`: the fix needs a failing test first.
+- `glab-code-review`: verify a review comment before you act on it.
+- `atomic-semantic-commit`: the work is proven and ready to commit.
+- `write-mr-description`: the work is proven and ready for an MR.
+- `handoff`: say what was and was not verified when you stop.
+
 ## Done when
 
 - Every claim in the final message is backed by output from this turn, or is labeled as not verified.

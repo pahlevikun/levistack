@@ -54,6 +54,14 @@ Infer the intent from the request; ask only if it is unclear. If the conversatio
 3. Report a score and findings by priority, each with a concrete fix: **Broken** (will not load or trigger), **Weak** (loads but misroutes or wastes context), **Polish**.
 4. Apply only the fixes the user asked for. Preserve the author's structure and voice.
 
+## Related skills
+
+- `create-skill`: the job is a procedure the main agent runs, not a delegate.
+- `create-command`: the job is a saved prompt you type as /name.
+- `create-hook`: the job must run on an event, with no model decision.
+- `create-rule`: the guidance must apply on every task.
+- `convert-as-skill`: turn an existing agent into a skill.
+
 ## Done when
 
 - `name` matches the filename; `description` states when to call it; the linter reports no errors.

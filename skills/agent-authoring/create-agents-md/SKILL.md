@@ -83,6 +83,14 @@ Use headings and bullets. Use backticks around any path you do not want imported
 - **Claude Code:** run `/memory` and look for the file's path.
 - **Cursor:** ask the agent to summarize the instructions it has for a file in the target directory.
 
+## Related skills
+
+- `create-rule`: a standard should apply by file glob or path.
+- `create-skill`: a long procedure belongs outside AGENTS.md.
+- `create-hook`: something must be enforced, not just asked.
+- `super-codebase-learner`: the file must describe a codebase you have not read yet.
+- `concise`: keep the file short and plain.
+
 ## Done when
 
 - The right files exist at the right levels, and nothing is duplicated between them.

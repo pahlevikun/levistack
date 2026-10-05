@@ -51,6 +51,13 @@ Scripts: `scripts/classify.mjs`, `scripts/convert.mjs` (rules/agents only), `scr
 - Run `convert.mjs` on a PDF or a skill folder, or `extract_document.py` on `rules/` / `commands/` / `agents/`.
 - Delete sources, or commit a third-party book dump to this catalog.
 
+## Related skills
+
+- `create-skill`: write a skill from scratch, or fix the result after conversion.
+- `create-rule`: the source is a rule and it should stay a rule.
+- `create-command`: the source is a saved prompt and it should stay a command.
+- `create-agent`: the source is a subagent and it should stay one.
+
 ## Done when
 
 - Classify printed one kind (or asked / redirected) and only that GUIDE ran.
