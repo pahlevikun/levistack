@@ -1,319 +1,242 @@
-# Convert-as-skill: documents, PDFs, and prior sessions
+# Convert-as-skill: use cases, documents, and merge
 
 > **Status:** plan only. Do not implement until this document is approved.
 >
-> **For agentic workers (after approval):** REQUIRED SUB-SKILL: Use `manage-stack` for the catalog edit. Then implement task-by-task.
+> **For agentic workers (after approval):** REQUIRED SUB-SKILL: Use `manage-stack`. Then implement task-by-task.
 
-**Goal:** Expand `convert-as-skill` so it can turn PDFs, documentation trees, and prior skill-authoring sessions into skills, without breaking verbatim conversion of rules, commands, and subagents, and without the agent guessing the wrong conversion path.
+**Goal:** One published skill, `convert-as-skill`, with **named use cases**. A classifier picks exactly one use case, or asks. The agent loads only that use case's GUIDE. The word "verbatim" is not a use case; it is only how the from-rule / from-agent path treats the file body (copy it, do not rewrite).
 
-**Architecture:** One published skill. A **thin classifier** (script + SKILL.md step 0) picks exactly one speciality, or asks. Each speciality is a module with its own GUIDE and scripts. The model loads only that GUIDE. Adding a source kind is one classifier row, one speciality folder, and tests — SKILL.md does not grow.
+**Architecture:** Classifier script + one speciality folder per use case. Adding a use case is one classifier branch, one `specialities/<use-case>/`, and tests.
 
-**Tech Stack:** Catalog skill markdown + Node ≥ 20. Optional PATH extractors (`pdftotext`, Docling). No required Python package.
+**Tech Stack:** Node ≥ 20. Optional PATH extractors for PDFs. No required Python package.
+
+## What "verbatim" meant (and why we drop it as a name)
+
+In the current skill, **verbatim** means: take a rule, command, or agent **file** and copy its body into `SKILL.md` unchanged. Only the frontmatter is rewritten (`name`, `description`). Improvements to the body are a later, reviewed change.
+
+That is a copy mode, not a use case. Users do not say "verbatim." They say "convert this rule," "convert this agent," "save this conversation," "turn this PDF into a skill," "merge these two skills."
+
+The plan now names **use cases**, not copy modes.
+
+| Use case | What you start with | What happens to the text |
+|---|---|---|
+| From a rule or command | `.mdc` / `rules/` / `commands/` | **Copy the body.** Do not rewrite. |
+| From an agent | `agents/*.md` | **Copy the body**, after keep / wrap / convert. Isolation may be lost. |
+| From a conversation or prior session | Chat / transcript | **Extract** what worked. Dead ends out. |
+| From a document | PDF, docs folder, HTML, … | **Distill** structure (frameworks, indexes). Not a dump. |
+| Merge skills | Two or more existing skill folders | **Compose** one new skill. Sources stay until you ask to delete them. |
+
+Copy vs extract vs distill vs compose are different on purpose. That is why they are different use cases, not one "verbatim" bucket plus extras.
+
+---
 
 ## Global Constraints
 
-- Edit only `skills/`, `agents/`, `rules/`, `commands/`, `hooks/`, and `docs/agents/README.md` (plus this plan). Run `npm run sync`; do not hand-edit generated plugin output.
-- Skill `name` equals its folder; `description` is one quoted line, ≤ 1024 characters, and says `Use when ...`.
-- `SKILL.md` is a classifier, under ~150 lines (hard cap 500). Depth lives in `specialities/<kind>/GUIDE.md` (router-with-specialities hop). A guide may link to its own `references/`. No reference-to-reference chains.
-- File-source conversion remains verbatim. Documents and sessions are extraction.
-- Path choice is **deterministic**. If classify cannot prove one kind, it returns `ask`. Never default to conversation, never run two specialities on the same file.
-- Node-only repo. Tests must pass with Node alone.
-- No employer-owned content, secrets, or personal paths. Generated skills from third-party copyrighted books stay private; the document speciality must say so.
-- If book-to-skill procedure or code is copied, record it in `THIRD_PARTY.md`.
-- Lint, then `npm run sync && git diff --exit-code`, `npm run validate`, `npm test`.
+- Catalog write surface only (`skills/`, …) plus this plan. `npm run sync`; no hand-edits of generated plugin files.
+- `SKILL.md` is a classifier, under ~150 lines. Each use case lives in `specialities/<use-case>/GUIDE.md`.
+- Path choice is deterministic. `ask` when unproven. Never default to conversation.
+- One use case per input. A PDF is never copied as a rule. A conversation is never merged with a skill folder unless the user asked to merge.
+- Node-only tests. Optional `pdftotext` / Docling on PATH.
+- No secrets, employer names, or copyrighted book dumps in this catalog. Document use case: keep generated book skills private.
+- Provenance in `THIRD_PARTY.md` if book-to-skill or retro procedure is copied.
 
 ---
 
-## Why the first shape was wrong
+## Use cases (modules)
 
-A single SKILL.md with a routing table still lets the model **read every path** and pick by vibe. That is how convert-as-skill would:
-
-- distill a `.mdc` rule as if it were a document
-- harvest "this conversation" when the user attached a PDF
-- dump a `docs/` folder through `convert.mjs` and mangle it
-
-Wrong path is a **classification** bug, not a missing row in a table. The model must not choose. A script chooses; the model follows.
-
----
-
-## Grounding (what exists)
-
-| Source | Mechanism today | Copy or extract? |
-|---|---|---|
-| Rule (`.mdc` / `.md`, not always-on) | `scripts/convert.mjs` | Verbatim |
-| Slash command | `scripts/convert.mjs` | Verbatim |
-| Subagent | `scripts/convert.mjs` + `--fork` | Verbatim |
-| This conversation | Harvest → `create-skill` | Extract |
-| Long `CLAUDE.md` / `AGENTS.md` | Hand-off to `create-skill` | Not scripted |
-
-Neighbor: `create-skill` (from scratch). `create-skill` already points conversion at `convert-as-skill`.
-
-Tests cover only `convertSource()` for rule / command / agent.
-
-Pattern to copy: `create-skill`'s **router with specialities**, and `super-architecture`'s "detect the job, then load only that guide."
-
----
-
-## Research (kept short)
-
-**book-to-skill** (MIT, `master`): extractor + generator. Take distill structure, progressive disclosure, technical vs text, analyze-only / fold-in, scanned-PDF abort, copyright caution. Leave the 862-line spec, host soup, publish flow, and the Python package.
-
-**retro** (mattpocock): read a named session's transcripts, then harvest. Same job as conversation harvest, aimed at other skill-authoring sessions.
-
-**Prior sessions here:** none. The shipped router is the prior session. Finding: a fifth source must be a module, not a second published skill, and path selection must be executable.
-
----
-
-## Preferred design: classifier + specialities
-
-One public surface (`convert-as-skill`). Three specialities. One classifier.
+One public skill. Five use cases. One classifier.
 
 ```
 request (paths + wording)
         │
         ▼
-scripts/classify.mjs          ← only this picks the path
+scripts/classify.mjs
         │
-        ├── reject  → stop; point at create-skill / create-rule / …
-        ├── ask     → one question; do not load a speciality
-        └── ok      → load exactly one GUIDE, then its scripts
-                ├── verbatim  specialities/verbatim/GUIDE.md   → convert.mjs
-                ├── document  specialities/document/GUIDE.md   → extract-document.mjs
-                └── session   specialities/session/GUIDE.md    → harvest.md
+        ├── reject  → create-skill / create-rule / create-command / create-agent
+        ├── ask     → one question; load no GUIDE
+        └── ok      → load exactly one GUIDE
+              ├── from-rule         copy body via convert.mjs
+              ├── from-agent        keep / wrap / convert, then convert.mjs
+              ├── from-conversation extract via harvest.md
+              ├── from-document     distill via extract-document.mjs
+              └── merge-skills      compose via merge.mjs + outline
 ```
 
-If the user passed several files of **different** kinds, classify returns one result **per file**. Run them sequentially. Never blend a PDF and a `.mdc` into one skill.
+### 1. From a rule or command (`specialities/from-rule/`)
 
-### Step 0 (in SKILL.md, first action)
+Today's rule + command path. User: "convert this rule," "turn `/commit` into a skill," "migrate `.cursor/rules`."
+
+- Script copies the body. Always-on rules stay rules. File-scoped rules need `--paths`.
+- Commands keep `disable-model-invocation: true`.
+- Do not run harvest or document distill.
+
+### 2. From an agent (`specialities/from-agent/`)
+
+Separate from rules. User: "convert this subagent," "make reviewer a skill."
+
+- First decide keep, wrap (`context: fork`), or convert. Isolation and `tools` are lost on convert.
+- Then copy the body; list any "you are a separate agent" line edits.
+- A different GUIDE so the model cannot skip the keep/wrap/convert question and treat an agent like a rule.
+
+### 3. From a conversation (`specialities/from-conversation/`)
+
+Separate from files. User: "save this session as a skill," "what we just did," "last time we wrote skills" (retro: read that session's transcripts first).
+
+- Evidence, not a spec. Harvest worksheet. Outline, then `create-skill`.
+- No files attached → this use case only when the words name a conversation/session. "Convert this" with no files is `ask`, not conversation.
+
+### 4. From a document (`specialities/from-document/`)
+
+User: "turn this PDF into a skill," "convert the docs folder."
+
+- Extract → fingerprint check → outline → distill (indexes + on-demand chapters). book-to-skill as material, not a vendored Python package.
+- Scanned PDF abort. Copyright: do not commit third-party book skills to this catalog.
+
+### 5. Merge skills (`specialities/merge-skills/`) — new
+
+User: "merge these skills into one," "combine `foo` and `bar`," two or more folders that each contain `SKILL.md`.
+
+Not a convert-from-files job and not create-from-scratch. `create-skill` already says "if two skills overlap, merge them"; this use case is the procedure that does it.
+
+**Inputs:** two or more skill directories (each has `SKILL.md`). Optional target name.
+
+**Classifier:** wording `merge` / `combine` / `into one skill`, or two-plus skill folders and no other kind. One skill folder + a rule file → `ask`. Merge + a PDF → `ask` (do not silently distill).
+
+**Procedure:**
+
+1. Read each `SKILL.md` (name, description, body, linked `references/` `scripts/` `templates/`).
+2. Classify overlap: **same job** vs **distinct jobs**.
+3. Outline (stop for the user):
+   - proposed new `name` and `description` (`Use when ...`, trigger words from all sources, no "and" if it is really two jobs)
+   - keep / drop / rewrite per source
+   - shape: one `SKILL.md` if same job; **router** (`templates/skill-router.md`) if three or more distinct tasks
+   - where it will be written; sources will not be deleted
+4. After approval, write the new skill. Copy supporting files that are still referenced; do not copy dead references.
+5. Lint. Do not overwrite an existing skill unless asked. Do not delete the source skills unless asked.
+
+**Same job:** one procedure, combined steps, one description. Deduplicate. Prefer the clearer wording.
+
+**Distinct jobs:** do not smash into one narrative. Make a router SKILL.md that dispatches to `references/<old-name>.md` (or keep specialities). If the honest name would need "and," say so in the outline and offer to keep them separate.
+
+**Do not:** rewrite source skills in place as the merge; invent overlap that is not in the files; merge a skill with a rule/PDF/conversation in the same job.
+
+---
+
+## Classifier
+
+```
+classify({ paths, text }) -> {
+  status: 'ok' | 'ask' | 'reject',
+  jobs: [{ kind, files, reason }],
+  question?: string,
+  redirect?: 'create-skill' | 'create-rule' | 'create-command' | 'create-agent'
+}
+```
+
+`kind`: `from-rule` | `from-command` | `from-agent` | `from-document` | `from-conversation` | `merge-skills`
+
+(`from-command` shares the from-rule GUIDE; the kind is distinct so tests and logs stay precise.)
+
+**Order. First match wins. File layout beats wording. Merge wording beats "convert" when two-plus skill folders are present.**
+
+| Order | Evidence | Kind |
+|---|---|---|
+| 1 | From scratch / new skill, no source file | `reject` → `create-skill` |
+| 2 | New rule / command / agent, no file to convert | `reject` → that create-* skill |
+| 3 | Two or more directories each containing `SKILL.md`, or merge/combine wording with skill folders | `merge-skills` |
+| 4 | Path `agents/` | `from-agent` |
+| 5 | Path `commands/` | `from-command` (from-rule GUIDE) |
+| 6 | Path `rules/` or `.mdc` | `from-rule` |
+| 7 | `.pdf` `.epub` `.docx` `.html` `.rtf` `.mobi` … | `from-document` |
+| 8 | `docs/` (or similar) of prose, no rules/commands/agents layout | `from-document` |
+| 9 | Conversation/session words **and no convertible files** | `from-conversation` |
+| 10 | Else | `ask` |
+
+Hard rules:
+
+- Files beat chat. Skill folders beat "save this conversation."
+- Two skill folders without merge wording → `ask` ("merge into one skill, or convert each?").
+- `book.pdf` + "and this conversation" → `ask`.
+- Mixed kinds in one request → separate jobs, run in sequence, never one blended skill unless the use case is `merge-skills`.
+
+Examples:
+
+| Input | Result |
+|---|---|
+| `.cursor/rules/api.mdc` | `from-rule` |
+| `agents/reviewer.md` | `from-agent` |
+| "save this conversation as a skill" (no files) | `from-conversation` |
+| `book.pdf` | `from-document` |
+| `skills/foo` + `skills/bar` (both have SKILL.md) + "merge" | `merge-skills` |
+| `skills/foo` + `skills/bar` (no merge wording) | `ask` |
+| "convert this" (no files) | `ask` |
+| "write a skill from scratch" | `reject` → `create-skill` |
+| `rules/a.mdc` + `chapter.pdf` | two jobs: from-rule, then from-document |
+
+### Step 0
 
 ```bash
 node scripts/classify.mjs [--text "<user request>"] [--json] [path...]
 ```
 
-Prints one line per input, then a summary. The agent:
+Run before opening any GUIDE. State kind and reason. Load only that GUIDE. On `ask` / `reject`, stop.
 
-1. Runs classify before opening any speciality GUIDE.
-2. States the kind and reason in one line.
-3. Loads **only** that GUIDE.
-4. On `ask`, asks the listed question and stops.
-5. On `reject`, names the other skill and stops.
+---
 
-Do not announce the classifier as a feature. Do not skip it when the request "looks obvious."
+## Description (skill load, not path load)
 
-### Classifier contract
+> Convert existing material into a skill, or merge existing skills into one. Use when asked to convert a rule, command or agent to a skill, save a conversation as a skill, turn a PDF or docs folder into a skill, or merge two skills into one. Not for writing a skill from scratch (`create-skill`).
 
-```
-classify({ paths, text }) -> {
-  status: 'ok' | 'ask' | 'reject',
-  jobs: [{ kind, files, reason }],   // kind is verbatim-rule | verbatim-command | verbatim-agent | document | session
-  question?: string,                 // when status is ask
-  redirect?: 'create-skill' | 'create-rule' | 'create-command' | 'create-agent'
-}
-```
+---
 
-**Per-file evidence, in this order. First match wins. Wording never overrides a stronger file signal.**
-
-| Order | Evidence | Kind |
-|---|---|---|
-| 1 | Request is "from scratch" / "write a new skill" and there is no existing source file | `reject` → `create-skill` |
-| 2 | Request is a new rule / command / agent, no existing file to convert | `reject` → that create-* skill |
-| 3 | Path segment `agents/` or `--kind agent` | `verbatim-agent` |
-| 4 | Path segment `commands/` or `--kind command` | `verbatim-command` |
-| 5 | Path segment `rules/`, or extension `.mdc`, or `--kind rule` | `verbatim-rule` |
-| 6 | Extension `.pdf` `.epub` `.docx` `.html` `.htm` `.rtf` `.mobi` `.azw` `.azw3` | `document` |
-| 7 | A directory of prose (e.g. `docs/` of `.md`/`.txt`/`.rst`) with **no** `rules/` `commands/` `agents/` layout | `document` |
-| 8 | Explicit session words ("this conversation", "this session", "what we just did", "last time we wrote skills", a transcript path) **and no convertible files** | `session` |
-| 9 | Bare `.md` / `.txt` not in a known layout, or mixed session-words + files, or empty request | `ask` |
-
-Hard rules:
-
-- **Files beat chat.** If any convertible file is present, never pick `session`.
-- **Layout beats extension.** `rules/foo.md` is a rule, not a document, even if the user said "docs."
-- **No default.** Conversation is not the fallback.
-- **One kind per file.** A PDF is never passed to `convert.mjs`.
-- **Ambiguity is `ask`.** One question: "Convert the PDF as a document skill, or also capture this conversation?" Not a menu of five.
-
-Examples the tests must lock:
-
-| Input | Result |
-|---|---|
-| `.cursor/rules/api.mdc` | `verbatim-rule` |
-| `commands/commit.md` | `verbatim-command` |
-| `agents/reviewer.md` | `verbatim-agent` |
-| `book.pdf` | `document` |
-| `docs/` with markdown, no rules layout | `document` |
-| "save this session as a skill" (no files) | `session` |
-| "convert this" + no files | `ask` |
-| `book.pdf` + "and this conversation" | `ask` (two jobs named; do not merge) |
-| `rules/a.mdc` + `chapter.pdf` | two `ok` jobs, run in sequence |
-| "write a skill from scratch" | `reject` → `create-skill` |
-| `CLAUDE.md` / `AGENTS.md` | `ask` (document distill vs hand-extract) |
-
-### Specialities (modules)
-
-Each speciality owns its procedure, scripts, and "do not." SKILL.md does not repeat them.
-
-**`specialities/verbatim/GUIDE.md`**
-
-Move today's mapping, subagent keep/wrap/convert, and convert.mjs steps here. `references/mapping.md` and `references/subagent.md` become this speciality's references (or stay top-level if shared — prefer speciality-local so document/session agents never read them).
-
-**`specialities/document/GUIDE.md`**
-
-book-to-skill as material: extract → confirm fingerprint → outline → user gate → `create-skill` shape (indexes + on-demand chapters) → lint. Copyright warning. Scanned PDF abort. Analyze-only / fold-in as the one escape hatch.
-
-Extractor: `scripts/extract-document.mjs`
-
-| Format | Default | Fallback |
-|---|---|---|
-| `.md` `.txt` `.rst` `.adoc` | `fs.readFile` | — |
-| `.html` `.htm` | strip tags | — |
-| `.pdf` | `pdftotext` if on PATH | skip with hint; optional Docling if technical and present |
-| `.docx` | unzip `word/document.xml` | skip with hint |
-| `.epub` | zip + HTML strip | skip with hint |
-
-`--check` reports available extractors. Out of v1: MOBI/Calibre, GitHub publish, vendoring `book_to_skill/`.
-
-**`specialities/session/GUIDE.md`**
-
-Today's `conversation.md` plus retro: if the user named another session, read its transcripts first; state what you could not see; harvest with `templates/harvest.md`; extra Watch-for from navigation / checks / traps; outline; `create-skill`. Do not write `AGENTS.md` from a retro.
-
-### Description (skill load, not path load)
-
-The description only has to beat `create-skill` and name the source kinds. It must not be a second classifier.
-
-Draft:
-
-> Convert existing material into a skill: rules, slash commands, subagents, a conversation or prior session, or documents (PDF, HTML, Markdown, a docs folder). Use when asked to migrate a rule, command or agent to a skill, turn a PDF or docs folder into a skill, or save this session as a skill. Not for writing a skill from scratch (`create-skill`).
-
-Front-load convert/migrate/PDF/session. "Not for from scratch" is the anti-collision with `create-skill`.
-
-### File map
+## File map
 
 ```
 skills/agent-authoring/convert-as-skill/
-├── SKILL.md                          # principles + classify step 0 + dispatch table
+├── SKILL.md
 ├── scripts/
-│   ├── classify.mjs                  # path picker (tested)
-│   ├── convert.mjs                   # verbatim only (unchanged API)
-│   └── extract-document.mjs          # document extract + --check
+│   ├── classify.mjs
+│   ├── convert.mjs              # from-rule / from-command / from-agent bodies
+│   ├── extract-document.mjs
+│   └── merge.mjs                # list sources, detect skill folders, draft tree
 ├── specialities/
-│   ├── verbatim/GUIDE.md             # + mapping.md, subagent.md
-│   ├── document/GUIDE.md             # distill procedure
-│   └── session/GUIDE.md              # conversation + retro
-└── templates/harvest.md              # shared by session
+│   ├── from-rule/GUIDE.md       # + mapping.md
+│   ├── from-agent/GUIDE.md      # + subagent.md
+│   ├── from-conversation/GUIDE.md
+│   ├── from-document/GUIDE.md
+│   └── merge-skills/GUIDE.md
+└── templates/
+    ├── harvest.md
+    └── merge-outline.md
 ```
 
-| File | Responsibility |
-|---|---|
-| `SKILL.md` | Classifier instructions only. No convert steps. |
-| `scripts/classify.mjs` | Source of truth for kind. |
-| `scripts/convert.mjs` | File sources; refuses document extensions. |
-| `scripts/extract-document.mjs` | Document extract; refuses rules/commands/agents paths. |
-| `specialities/*/GUIDE.md` | One path's procedure. |
-| `create-skill/SKILL.md` | Point PDF/docs/session conversion here. |
-| `tests/authoring-scripts.test.mjs` | classify + extract + existing convertSource. |
-| `THIRD_PARTY.md` | book-to-skill MIT and retro, if copied. |
-
-**Refuse at the script boundary** so a confused agent still cannot take the wrong path: `convert.mjs` errors on `.pdf`; `extract-document.mjs` errors on `rules/` `commands/` `agents/` and `.mdc`.
-
-### Scalability
-
-| Change | Touch |
-|---|---|
-| New source kind (e.g. Notion export, URL corpus) | One `specialities/<kind>/`, one classifier branch, tests. SKILL.md adds one dispatch row. |
-| Better PDF engine | `extract-document.mjs` only. |
-| Verbatim mapping tweak | `specialities/verbatim/` only. |
-| Retro sources (cloud transcripts) | `specialities/session/` only. |
-
-Do not add a second published converter skill. That is two ways to do one task.
-
----
-
-## Candidates (for the record)
-
-**A. Classifier + specialities (this plan).** One skill, executable path pick, isolated modules.
-
-**B. Sibling `document-to-skill`.** Rejected: two converters for one phrase; Python package; host soup.
-
-**C. Fatter SKILL.md routing table (first draft).** Rejected: the model still reads every path and can pick wrong.
-
----
-
-## Risks
-
-| Risk | Mitigation |
-|---|---|
-| Model skips classify | SKILL.md: first action is the script; specialities say "if you did not run classify, go back" |
-| Model loads every GUIDE anyway | Dispatch table is the only link from SKILL.md; specialities do not link to each other |
-| `.md` in `docs/` vs a stray command | Classifier `ask`; layout beats extension |
-| Weak PDF extraction | `--check`, technical/text, abort on empty/scanned |
-| Copyrighted books in this catalog | Document GUIDE: keep private / do not commit |
-| Session transcripts missing | Say so; never invent; never steal the path from attached files |
-| Dual runtime | Optional PATH only |
+Script guards: `convert.mjs` refuses PDFs and skill-folder merges. `extract-document.mjs` refuses `rules/` `commands/` `agents/`. `merge.mjs` refuses unless every input is a skill directory.
 
 ---
 
 ## Implementation tasks (after approval)
 
-### Task 1: Classifier (red → green)
-
-- [ ] Failing tests for every row in the examples table, including `ask` and `reject`.
-- [ ] Implement `scripts/classify.mjs` (`classify()` exported; CLI `--json`).
-- [ ] Tests pass.
-- [ ] Commit: `feat(convert-as-skill): classify conversion kind from paths and wording`
-
-### Task 2: Guard the existing converter
-
-- [ ] `convert.mjs` rejects document extensions and `docs/` batches with a "use document speciality" error.
-- [ ] Tests for the reject.
-- [ ] Commit: `fix(convert-as-skill): refuse document files in verbatim convert`
-
-### Task 3: Split verbatim into a speciality
-
-- [ ] Move mapping + subagent + current SKILL.md steps into `specialities/verbatim/GUIDE.md`.
-- [ ] SKILL.md becomes principles + classify + dispatch.
-- [ ] Lint. Existing convertSource tests still pass.
-- [ ] Commit: `refactor(convert-as-skill): isolate verbatim conversion as a speciality`
-
-### Task 4: Document speciality
-
-- [ ] Failing extract tests (markdown concat, HTML strip, missing file, `--check`, empty PDF skip, fingerprint).
-- [ ] `extract-document.mjs`; refuses rules/commands/agents paths.
-- [ ] `specialities/document/GUIDE.md` (outline gate, copyright, scanned abort).
-- [ ] Update `create-skill` pointer.
-- [ ] Commit: `feat(convert-as-skill): distill documents through the document speciality`
-
-### Task 5: Session speciality
-
-- [ ] Move conversation harvest; add retro read of a named prior session; incomplete visibility.
-- [ ] Dispatch row only; session GUIDE does not mention PDFs.
-- [ ] Commit: `feat(convert-as-skill): harvest sessions in their own speciality`
-
-### Task 6: Provenance and gate
-
-- [ ] `THIRD_PARTY.md` if needed.
-- [ ] Lint, `npm run sync && git diff --exit-code`, `npm run validate`, `npm test`.
+1. **Classifier** — tests for the example table, including merge vs ask vs conversation.
+2. **from-rule + from-agent** — split today's convert path into two GUIDEs; `convert.mjs` stays the copy engine.
+3. **from-conversation** — harvest + retro of a named prior session.
+4. **from-document** — extract + distill GUIDE.
+5. **merge-skills** — outline template, same-job vs router, lint, do not delete sources.
+6. **Gate** — lint, sync, validate, test. `THIRD_PARTY.md` if needed.
 
 ---
 
 ## Done when
 
-- Classify tests cover the example table; a PDF never returns `session` or `verbatim-*`.
-- `convert.mjs` cannot convert a PDF; `extract-document.mjs` cannot convert a rule.
-- SKILL.md has no convert steps, only classify + dispatch.
-- Adding a kind does not require editing another speciality's GUIDE.
-- Rule conversion is still verbatim. Document conversion outlines first. Session conversion does not invent transcripts.
-- No second published converter. No Python package in `package.json`.
+- "Verbatim" does not appear as a use-case name in SKILL.md.
+- Conversation and from-rule/from-agent cannot load each other's GUIDEs for one input.
+- Merge requires two-plus skill folders (or an explicit merge ask); it does not run on a PDF or a chat.
+- Classify tests lock the example table.
+- No second published converter skill.
 
 ---
 
 ## Checkpoint
 
-Path selection is a script. Specialities do not share procedure. The model does not guess.
-
-Before you approve:
-
-- Classifier + specialities (not a fatter SKILL.md, not a sibling skill)?
-- v1 Node extractor + optional `pdftotext` / Docling, or vendor Python?
-- Session speciality in v1, or verbatim + document only until transcripts are reliable?
+- Five use cases (from-rule, from-agent, from-conversation, from-document, merge-skills) behind one classifier?
+- Merge in v1 with the rest, or after from-rule / from-conversation / from-document?
 - Third-party book PDFs: private-only warning, or refuse to write them into this catalog?
