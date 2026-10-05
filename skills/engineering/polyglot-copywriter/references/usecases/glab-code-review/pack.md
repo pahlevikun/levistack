@@ -30,4 +30,4 @@ Specific observation or "can we…?" proposal on the diff line.
 
 ## Peer engineering skill
 
-Code-surface slop (R-XX) before this pack: [`super-noslop`](../../../../engineering/super-noslop/SKILL.md) (skill name alias: `noslop`).
+Code-surface slop (R-XX) before this pack: `super-noslop` (skill name alias: `noslop`).
