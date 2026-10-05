@@ -1,6 +1,6 @@
 # Polyglot Copywriter
 
-A reader gives you their attention one sentence at a time — in whatever language and register they actually use. **Polyglot Copywriter** is an agent skill that earns that attention across **97 real languages**, **163 dialect overlays**, and **18 use-case structures** without inventing facts the source never supplied.
+A reader gives you their attention one sentence at a time — in whatever language and register they actually use. **Polyglot Copywriter** is an agent skill that earns that attention across **97 real languages**, **163 dialect overlays**, and **23 use-case structures** without inventing facts the source never supplied.
 
 Most humanize skills scrub surface tells (em dashes, "delve," rule-of-three lists) and call it done. Generic model prose fails **before** style: no source, no attribution, no mechanism, no author judgment. This skill fixes substance first — then simple prose, noslop, and optional voice fingerprint — and keeps language packs honest about what they support.
 
@@ -15,7 +15,7 @@ Install with a compatible agent-skills CLI (`npx skills add`, and similar):
 npx skills add <owner>/<repo>/bundle/skills/builtin/polyglot-copywriter
 
 # Standalone repo
-npx skills add farhanpahlevi/polyglot-copywriter
+npx skills add pahlevikun/polyglot-copywriter
 ```
 
 ##### pnpm
@@ -23,7 +23,7 @@ npx skills add farhanpahlevi/polyglot-copywriter
 ```bash
 pnpm dlx skills add <owner>/<repo>/bundle/skills/builtin/polyglot-copywriter
 # or
-pnpm dlx skills add farhanpahlevi/polyglot-copywriter
+pnpm dlx skills add pahlevikun/polyglot-copywriter
 ```
 
 After install, enable the skill in your agent; it loads `SKILL.md` automatically.
@@ -66,6 +66,21 @@ This skill is the default for everyday prose, so it carries the full humanizer a
 Rules that hold in every mode: keep every supported claim, add no fact, name, number, date, quote or citation, use no em dash, en dash, or semicolon in final prose unless your sample does (the first principle), and put the decision first in a reply. A sample of your own writing beats the default style but never the honesty rules. The goal is readable, trustworthy text, not beating AI detectors.
 
 The `/polyglot-humanize` command runs this directly on a draft or file.
+
+## Reader shapes and the send gate
+
+Some pieces need a shape for the person reading, not only clean sentences. These packs load on a matching request. `action-first` and `digest` load only when asked.
+
+| Pack | Use it for | What it enforces |
+|---|---|---|
+| [`action-first`](references/usecases/action-first/pack.md) | Replies, checklists and notes for readers who need to act fast, including ADHD-friendly output | The first line is an action, steps are numbered, one next step ends the text, time estimates carry a basis, no wrapper. Stays on for the session until you say "stop adhd mode". |
+| [`pr-description`](references/usecases/pr-description/pack.md) | PR and MR bodies, commit messages, changelog lines | Why before what, breaking changes up front, the repo template filled as written, a checkbox ticked only for a step that was run |
+| [`ticket-comment`](references/usecases/ticket-comment/pack.md) | Progress, decision and blocker comments on a ticket | The decision and its trade-off first, not a list of edits |
+| [`digest`](references/usecases/digest/pack.md) | Long docs, threads and old notes | Decisions, constraints and open questions, with what is only proposed marked as proposed |
+
+Text that goes out in your name to other people (email, chat, ticket or MR comments, public posts) is shown as a draft first and sent only after you agree. The rule is in [references/substance.md](references/substance.md#send-gate).
+
+The `/polyglot-action` command turns the action-first shape on for a reply or for the session.
 
 ## On copy that earns its reader
 
@@ -420,7 +435,7 @@ Counts from [`references/registry.json`](references/registry.json) (schema v2) a
 | Speech-level languages | 5 | Jawa, Sunda, Bali, Japanese, Korean |
 | Umbrella languages | 3 | `arabic`, `dayak`, `kurdish` — ask for variety before thick prose |
 | Fictional fixtures | 4 | `atlantis`, `klingon`, `elvish`, `navi` — eval/honesty only; not in registry |
-| Use cases | 18 | Structure only, not language rules |
+| Use cases | 23 | Structure only, not language rules |
 
 ## How it works
 

@@ -18,6 +18,26 @@ State the user or business need in plain words (who, what pain, why now).
 4. Out of scope (only when needed)
 5. Technical notes (optional)
 
+## Problem first
+
+Every story needs a problem to solve, told from the user's side. If the request holds only implementation steps ("move the export to a queue worker"), ask once: "What problem does the user have today?" Do not invent one. If you cannot ask, write `[TK: what problem does this solve for the user?]` under Context.
+
+Write the what and the why. Add the how only when the team has already decided it. Do not turn raw brainstorming into a ticket unless the user asks.
+
+Before:
+
+> Exports over 20k rows time out after 30 seconds and users just get an error. We should probably move the export job off the request thread and put it on a queue, maybe with a worker pool, and then store the file somewhere and email a link.
+
+After:
+
+> Context. Exports of more than 20k rows time out after 30 seconds, so users get an error and no file.
+>
+> Goal. Users can export any size and get the file when it is ready.
+>
+> Definition of Done.
+> - An export above 20k rows finishes without a timeout.
+> - The user gets a link when the file is ready.
+
 ## Default register
 
 `santai` + [simple-prose.md](../../simple-prose.md) (STE-style simple vocabulary, short sentences)

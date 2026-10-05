@@ -3376,6 +3376,62 @@
       "status": "validated",
       "pack": "references/usecases/academic/pack.md",
       "default_register": "baku"
+    },
+    {
+      "id": "action-first",
+      "aliases": [
+        "adhd",
+        "adhd mode",
+        "adhd-friendly",
+        "action first",
+        "next step first",
+        "easy to act on"
+      ],
+      "status": "validated",
+      "pack": "references/usecases/action-first/pack.md",
+      "default_register": "santai"
+    },
+    {
+      "id": "pr-description",
+      "aliases": [
+        "PR description",
+        "MR description",
+        "pull request description",
+        "describe the PR",
+        "commit body",
+        "changelog entry"
+      ],
+      "status": "validated",
+      "pack": "references/usecases/pr-description/pack.md",
+      "default_register": "santai"
+    },
+    {
+      "id": "ticket-comment",
+      "aliases": [
+        "ticket comment",
+        "issue comment",
+        "status comment",
+        "progress comment",
+        "Jira comment",
+        "update the ticket"
+      ],
+      "status": "validated",
+      "pack": "references/usecases/ticket-comment/pack.md",
+      "default_register": "santai"
+    },
+    {
+      "id": "digest",
+      "aliases": [
+        "digest",
+        "key decisions",
+        "TL;DR",
+        "summarize this doc",
+        "what matters in this thread",
+        "distill the notes"
+      ],
+      "status": "validated",
+      "pack": "references/usecases/digest/pack.md",
+      "default_register": "profesional"
     }
   ]
 }
