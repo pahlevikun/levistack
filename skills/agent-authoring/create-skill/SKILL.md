@@ -7,13 +7,13 @@ description: "Create, audit or improve agent skills (a folder with SKILL.md) for
 
 A skill is a folder with a `SKILL.md`. Its name and description are always in context; its body loads when the task matches; `references/`, `scripts/` and `templates/` load only when the body points to them.
 
-This skill covers skills only. For subagents use `create-agent`; for rules, hooks and slash commands use `create-rule`, `create-hook` and `create-command`; to turn existing rules, commands, subagents or a conversation into a skill use `convert-as-skill`.
+This skill covers skills only. For subagents use `create-agent`; for rules, hooks and slash commands use `create-rule`, `create-hook` and `create-command`; to convert a rule, command, agent, conversation, PDF or docs folder, or to merge existing skills, use `convert-as-skill`.
 
 ## Principles
 
 1. **The description is the router.** The model loads a skill from its description alone. Say what it does, then `Use when ...` with the words a user would say.
 2. **Assume the model is smart.** Add only what it lacks: your conventions, your commands, the traps. Cut explanations of common knowledge.
-3. **One job per skill.** If the name needs "and", split it. If two skills overlap, merge them.
+3. **One job per skill.** If the name needs "and", split it. If two skills overlap, merge them (`convert-as-skill` merge-skills).
 4. **Match freedom to risk.** Judgment calls get principles and criteria. Fragile steps (migrations, deploys) get exact commands or a script.
 5. **Progressive disclosure.** Aim for `SKILL.md` under 200 lines, never over 500. Depth goes in `references/`, one level deep.
 6. **Test by using it.** An untested description is a guess.
@@ -35,7 +35,7 @@ This skill covers skills only. For subagents use `create-agent`; for rules, hook
 | New skill | [New skill](#new-skill) |
 | Skill exists but never triggers, misfires, or is too big | [Audit](#audit), then fix by symptom in [format.md](references/format.md#test-and-iterate) |
 | Review a skill or a folder of skills | [Audit](#audit) |
-| Turn a rule, command, subagent or this conversation into a skill | `convert-as-skill` |
+| Turn a rule, command, agent, conversation, PDF or docs folder into a skill, or merge two skills | `convert-as-skill` |
 
 ## New skill
 

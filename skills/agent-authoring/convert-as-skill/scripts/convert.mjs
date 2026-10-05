@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-// Convert agent-requested rules, slash commands and subagents into skills. The body is copied verbatim.
+// Copy a rule, command or agent body into a skill. Documents and skill-folder
+// merges are other use cases — classify.mjs first, then that GUIDE's script.
 //
 //   node convert.mjs <source...> --out <skills-dir> [--kind rule|command|agent] [--name <name>]
 //                    [--description "<text>"] [--paths] [--force] [--dry-run]
@@ -11,9 +12,10 @@
 //          other frontmatter keys (argument-hint, allowed-tools, model, ...) kept as written.
 // Skipped on purpose: always-on rules (a skill would stop applying them) and, unless --paths, file-scoped rules.
 // Never deletes or edits a source file.
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
 import { basename, extname, join, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { DOCUMENT_EXTS } from './classify.mjs';
 
 export const MAX_DESCRIPTION = 1024;
 
@@ -89,9 +91,29 @@ function compose({ name, description, extraBlocks = [], paths, body, blankBefore
 }
 
 // Pure: returns { status: 'convert'|'skip'|'error', name, skillMd, warnings, reason }.
+export function refusedConvertReason(file) {
+  const ext = extname(file).toLowerCase();
+  if (DOCUMENT_EXTS.has(ext)) {
+    return `document (${ext}); classify.mjs should pick from-document, then extract_document.py`;
+  }
+  try {
+    if (existsSync(file) && statSync(file).isDirectory()) {
+      if (existsSync(join(file, 'SKILL.md'))) {
+        return 'skill folder; classify.mjs should pick merge-skills, then merge.mjs';
+      }
+      return 'directory; convert.mjs copies a rule, command or agent file, not a folder';
+    }
+  } catch {
+    // Path may be synthetic in tests.
+  }
+  return null;
+}
+
 export function convertSource({ file, text, kind, name, description, paths = false, fork = false }) {
   const warnings = [];
   const fail = (status, reason) => ({ status, reason, warnings });
+  const refused = refusedConvertReason(file);
+  if (refused) return fail('error', refused);
   const k = kind ?? inferKind(file);
   if (!k) return fail('error', 'cannot tell if this is a rule or a command; pass --kind rule|command');
   const skillName = name ?? nameFromPath(file, k);
@@ -210,6 +232,12 @@ function main() {
   for (const source of sources) {
     if (!existsSync(source)) {
       console.log(`error   ${source}: file not found`);
+      failed++;
+      continue;
+    }
+    const refused = refusedConvertReason(source);
+    if (refused) {
+      console.log(`error   ${source}: ${refused}`);
       failed++;
       continue;
     }

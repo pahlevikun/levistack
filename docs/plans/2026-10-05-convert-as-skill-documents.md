@@ -1,6 +1,6 @@
 # Convert-as-skill: use cases, documents, and merge
 
-> **Status:** plan only. Do not implement until this document is approved.
+> **Status:** implemented on this branch. Classifier + specialities + Python extractor + merge.
 >
 > **For agentic workers (after approval):** REQUIRED SUB-SKILL: Use `manage-stack`. Then implement task-by-task.
 
