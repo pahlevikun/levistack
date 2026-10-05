@@ -66,6 +66,13 @@ Keep this router lean. Do not paste language samples or extra checklists here.
 |---|---|
 | `protobuf` | This skill (`super-protobuf`) |
 
+## Related skills
+
+- `super-elixir`: the service is Elixir.
+- `super-nodejs`: the service is Node.
+- `super-verify`: show the buf lint output.
+- `create-bruno-collection`: add gRPC examples.
+
 ## Done when
 
 - The matching mode ran; only needed references were opened.

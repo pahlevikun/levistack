@@ -24,7 +24,10 @@ The script refuses anything that is not a skill directory. It prints names, desc
    - shape: one `SKILL.md` if same job; **router** (`create-skill` `templates/skill-router.md`) if three or more distinct tasks
    - where it will be written; sources will not be deleted
 4. After approval, write the new skill. Copy supporting files that are still referenced; do not copy dead references.
-5. Lint. Do not overwrite an existing skill unless asked. Do not delete the source skills unless asked.
+5. **Check nothing was lost.** List every principle, procedure, command and fact in the sources, then find each one in the merged skill: principles still inline in `SKILL.md`, procedures in a workflow or the body, facts in a reference. Anything dropped must be on the "Dropped from the merge" line of the outline, with a reason. Fix orphans before linting.
+6. Lint, then run one real request per source skill against the merged one and compare behavior with the original. Do not overwrite an existing skill unless asked. Do not delete the source skills unless asked.
+
+If the merged skill grows past about 200 lines or covers several intents, use the router shape. `create-skill` (`references/grow.md`) covers upgrading a simple skill to a router later.
 
 ## Same job vs distinct jobs
 

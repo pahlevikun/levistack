@@ -117,3 +117,7 @@ Run with the core Delivery Gate. All answers must be **yes**:
 - [ ] One line, or two only when the second is a new fact?
 - [ ] Remaining comments short, natural, sentence case?
 - [ ] Scope held: only comments changed, code untouched?
+
+## Related skills
+
+- `super-noslop`: the parent skill.

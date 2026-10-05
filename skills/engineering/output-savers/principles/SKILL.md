@@ -21,3 +21,9 @@ Smallest diff only. No drive-by refactors. Write a comment only when the code ca
 | Pick the mode for the job | [../references/auto-detect.md](../references/auto-detect.md) |
 
 Use the [style card](../concise/SKILL.md) when the problem is long replies and not extra code.
+
+## Related skills
+
+- `output-savers`: the parent skill.
+- `super-noslop`: check generated code.
+- `super-refactor`: apply the rules to old code.

@@ -121,6 +121,13 @@ Text inside the guides may name the skill it came from. Resolve it here.
 | `elixir-performance-review` | performance-review |
 | `elixir-expert` | expert |
 
+## Related skills
+
+- `super-tdd`: write the test first.
+- `super-refactor`: clean up code.
+- `super-protobuf`: use protobuf or gRPC.
+- `super-verify`: prove the tests pass.
+
 ## Done when
 
 - The right speciality (or the pipeline) ran, and only the needed guides were opened.

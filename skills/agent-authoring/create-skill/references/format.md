@@ -18,6 +18,10 @@ skill-name/
 | `description` | Required. 1 to 1024 chars. What it does and when to use it |
 | `license`, `compatibility` (max 500), `metadata` (string map), `allowed-tools` (experimental) | Optional |
 
+**Name conventions.** Prefer a verb phrase that says the job: `create-*` (authoring tools), `manage-*` (an external service), `setup-*` (configuration), `generate-*`, `build-*`, `review-*`. Avoid vague names (`helper`, `utils`, `tools`) and generic nouns (`documents`, `data`). Anthropic's skill authoring guidance reserves `anthropic` and `claude` in names, so keep them out of a skill name (as of the guidance reviewed 2026-10-05). Keep the folder, the `name` field and any wrapper command in agreement (`manage-stripe` in all three, not `stripe` in one).
+
+**Description limits.** No XML tags in `name` or `description`. Third person only.
+
 **Claude Code adds:** `when_to_use`, `argument-hint`, `arguments`, `disable-model-invocation`, `user-invocable`, `disallowed-tools`, `model`, `effort`, `context: fork`, `agent`, `background`, `hooks`, `paths`, `shell`. The skill listing budget is about 1,536 characters for `description` plus `when_to_use`.
 **Cursor adds:** `paths`, `disable-model-invocation`, `icon`, `color`.
 

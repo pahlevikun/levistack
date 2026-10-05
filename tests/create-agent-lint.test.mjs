@@ -149,6 +149,37 @@ test('agent: "Use on ..." counts as a trigger, and "do not edit production code"
   }
 });
 
+test('skill: warns on a first-person description, a reserved word in the name, and an XML tag in the description', () => {
+  const root = tree({
+    'helper/SKILL.md': '---\nname: helper\ndescription: "I can help you format reports. Use when you need a report."\n---\nbody\n',
+    'claude-tools/SKILL.md': '---\nname: claude-tools\ndescription: "Formats reports. Use when asked."\n---\nbody\n',
+    'tagged/SKILL.md': '---\nname: tagged\ndescription: "Writes <name>.md files. Use when asked."\n---\nbody\n',
+    'fine/SKILL.md': '---\nname: fine\ndescription: "Formats reports. Use when the user asks you to format a report."\n---\nbody\n',
+  });
+  try {
+    assert.ok(codes(lintPath(join(root, 'helper')), 'warn').includes('first-person'));
+    assert.ok(codes(lintPath(join(root, 'claude-tools')), 'warn').includes('reserved-name'));
+    assert.ok(codes(lintPath(join(root, 'tagged')), 'warn').includes('xml-in-description'));
+    assert.deepEqual(lintPath(join(root, 'fine')).findings, []);
+  } finally {
+    done(root);
+  }
+});
+
+test('agent: warns when a subagent needs to ask the user, which it cannot', () => {
+  const root = tree({
+    'agents/asks.md': '---\nname: asks\ndescription: "Gathers needs. Use when starting."\ntools: Read, AskUserQuestion\n---\nAsk the user what they want, then wait for confirmation.\n\nDo not edit.\n',
+    'agents/quiet.md': '---\nname: quiet\ndescription: "Reviews diffs. Use after writing code."\ntools: Read\n---\nReview the diff. If an input is missing, stop and list what is missing in the report.\n\nDo not edit.\n',
+  });
+  try {
+    const r = lintPath(root);
+    assert.ok(r.findings.some((f) => f.file === 'agents/asks.md' && f.code === 'needs-user'));
+    assert.deepEqual(r.findings.filter((f) => f.file === 'agents/quiet.md'), []);
+  } finally {
+    done(root);
+  }
+});
+
 test('the skills in this repo that this skill ships are clean', () => {
   for (const dir of ['create-agent', 'create-agents-md', 'create-skill', 'create-rule', 'create-hook', 'create-command', 'convert-as-skill'].map((s) => `skills/agent-authoring/${s}`).concat('skills/engineering/super-verify', 'skills/architecture/super-architecture')) {
     const errors = lintPath(join(repo, dir)).findings.filter((f) => f.severity === 'error' || f.severity === 'warn');

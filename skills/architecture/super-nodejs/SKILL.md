@@ -39,6 +39,13 @@ Order of precedence: a security finding, then the user's explicit words, then th
 3. **Fail loudly at startup, safely at runtime.** Missing config stops boot; request errors return a controlled response and are logged once.
 4. **Never block the event loop.** Anything CPU-heavy or synchronous on a request path is moved off it.
 
+## Related skills
+
+- `super-architecture`: plan the service structure.
+- `super-caching`: add a cache.
+- `super-protobuf`: add gRPC or Connect.
+- `super-tdd`: write a handler test first.
+
 ## Done when
 
 - The guide that matches the job was opened, and only that one (plus the second when the job needs it).

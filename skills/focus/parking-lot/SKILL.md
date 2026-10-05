@@ -17,3 +17,9 @@ Tangents are fine. Chasing them mid-task is how the original task never gets fin
 ## Pitfalls
 - A tangent that blocks the current task is not a tangent. Say so and handle it now.
 - Keep entries to one line. A long entry is a new task in disguise.
+
+## Related skills
+
+- `one-next-action`: pick the next step.
+- `writing-plans`: plan an idea that grew.
+- `handoff`: carry the list to the next session.

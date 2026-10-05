@@ -110,6 +110,13 @@ Write in English by default. If the repository history is in another language, w
 - Do not stage files the user did not mean to commit (`.env`, build output, secrets). Name them and stop.
 - More advanced patterns: [advanced.md](references/advanced.md).
 
+## Related skills
+
+- `super-verify`: run the checks first.
+- `glab-code-review`: review the diff.
+- `write-mr-description`: write the MR.
+- `polyglot-copywriter`: improve the wording.
+
 ## Done when
 
 - Every change is in a commit, or the user said to leave it.

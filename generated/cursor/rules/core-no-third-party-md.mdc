@@ -1,0 +1,17 @@
+---
+description: "Do not add import provenance files anywhere in this catalog, just skip it."
+alwaysApply: true
+---
+<!-- generated from rules/core/no-third-party-md.md; do not edit -->
+
+# No import provenance manifests
+
+This catalog does not track upstream or third-party attribution in the repo. Do not add, restore, or reference:
+
+- Repo-root or nested `THIRD_PARTY.md`
+- `UPSTREAM.md` (including under skill groups such as `skills/agent-authoring/`)
+- Other provenance manifests, adaptation tables, or "adapted from" docs whose main job is listing sources
+
+When vendoring code, keep only what the license requires beside the files (for example `LICENSE.md`). Do not add separate provenance write-ups. Do not paste upstream URLs into skills or rules for attribution alone.
+
+`npm run validate` fails if `THIRD_PARTY.md` or `UPSTREAM.md` appears at the repo root or under `skills/`, `agents/`, `rules/`, `commands/`, or `hooks/`.

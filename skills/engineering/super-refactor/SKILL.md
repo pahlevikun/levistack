@@ -80,6 +80,14 @@ Retained content from `refactor` (examples and checklists):
 |---|---|
 | `refactor` | This skill (`super-refactor`) |
 
+## Related skills
+
+- `super-tdd`: add a test first.
+- `super-verify`: prove behavior is the same.
+- `output-savers`: keep the diff small.
+- `super-codebase-learner`: find the smells.
+- `atomic-semantic-commit`: commit each step.
+
 ## Done when
 
 - Correct mode(s) ran; only needed references were loaded.

@@ -78,6 +78,13 @@ Retained from `test-driven-development`:
 |---|---|
 | `test-driven-development` | This skill (`super-tdd`) |
 
+## Related skills
+
+- `super-verify`: prove the tests pass.
+- `super-refactor`: the refactor step is large.
+- `super-elixir`: the code is Elixir.
+- `writing-plans`: plan a large change.
+
 ## Done when
 
 - Correct mode(s) ran; only needed references were loaded.

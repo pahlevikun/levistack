@@ -48,8 +48,7 @@ Extractor policy: stdlib first (html.parser, zipfile for DOCX/EPUB, urllib for a
 - Path choice is deterministic. `ask` when unproven. Never default to conversation.
 - One use case per input. A PDF is never copied as a rule. A conversation is never merged with a skill folder unless the user asked to merge.
 - Repo gate stays `node --test tests/*.test.mjs`. Document extractor tests are Python (`unittest` or pytest) run from the from-document GUIDE and from a small Node wrapper test that asserts `--check` exits 0. Optional `pdftotext` / Docling / BeautifulSoup; stdlib fallbacks required so missing extras skip with a hint, not a crash.
-- No secrets, employer names, or copyrighted book dumps in this catalog. Document use case: keep generated book skills private.
-- Provenance in `THIRD_PARTY.md` if book-to-skill or retro procedure is copied.
+- No secrets, employer names, or copyrighted book dumps in this catalog. Document use case: keep generated book skills private. No import-provenance manifests (`THIRD_PARTY.md`, `UPSTREAM.md`).
 
 ---
 
@@ -232,7 +231,7 @@ Script guards: `convert.mjs` refuses PDFs and skill-folder merges. `extract_docu
 
 Repo: https://github.com/virgiliojr94/book-to-skill (MIT, copyright virgiliojr94). The generator is **not a script** — it is the 862-line `SKILL.md`. The reusable code is the Python extractor package.
 
-**Copy into `scripts/extractor/` (keep LICENSE notice, list in `THIRD_PARTY.md`):**
+**Copy into `scripts/extractor/` (keep LICENSE notice when required by the license):**
 
 | Their file | Why reuse |
 |---|---|
@@ -275,7 +274,7 @@ Repo: https://github.com/virgiliojr94/book-to-skill (MIT, copyright virgiliojr94
 3. **from-conversation** — harvest + retro of a named prior session.
 4. **from-document** — extract + distill GUIDE.
 5. **merge-skills** — outline template, same-job vs router, lint, do not delete sources.
-6. **Gate** — lint, sync, validate, test. `THIRD_PARTY.md` if needed.
+6. **Gate** — lint, sync, validate, test.
 
 ---
 

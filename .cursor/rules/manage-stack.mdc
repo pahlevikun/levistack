@@ -10,5 +10,5 @@ Follow `.cursor/skills/manage-stack/SKILL.md` before adding or changing a skill,
 - Edit only `skills/`, `agents/`, `rules/`, `commands/`, and `hooks/`. Update `docs/agents/README.md` when the agent roster changes.
 - Do not hand-edit generated output. Run `npm run sync`. That includes `.claude-plugin/`, `.cursor-plugin/`, `.codex-plugin/`, `skills/<group>/.claude-plugin/`, `generated/`, `hooks/hooks.json`, and the generated tables in `README.md` and `hooks/README.md`.
 - A skill `name` equals its folder. `description` says when to use it, is quoted, and is at most 1024 characters.
-- Nothing employer-owned, no secrets, no personal data.
+- Nothing employer-owned, no secrets, no personal data. No `THIRD_PARTY.md`, `UPSTREAM.md`, or import-provenance manifests.
 - Before reporting done: `npm run sync && git diff --exit-code`, then `npm run validate`, then `npm test`.

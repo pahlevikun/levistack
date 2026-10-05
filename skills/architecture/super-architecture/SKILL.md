@@ -114,6 +114,13 @@ Load the matching file when a job needs more than the summary here.
 
 Detect returns a style, a confidence, evidence with paths, deviations and violation candidates. Select returns one recommendation, its reasons, what would change it, and an ADR. Build returns the structure and code plus the check that proves the boundaries hold. Evaluate returns a scored report and a prioritized roadmap. Migrate returns phases, a rollback path and the first slice. Document returns diagrams and records grounded in paths.
 
+## Related skills
+
+- `super-codebase-learner`: read the current system first.
+- `super-tech-blueprint`: choose the stack.
+- `super-challenge-me`: test the choice.
+- `super-refactor`: move code to the new style.
+
 ## Done when
 
 - The job, style and stack were named, and only the guides they need were opened.

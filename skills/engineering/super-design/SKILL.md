@@ -47,6 +47,12 @@ Not for: designing a new screen from nothing, brand identity, or illustration. S
 
 Run from `specialities/design-system/`. Token scripts: `embed-tokens.cjs` embeds tokens into CSS. Slide scripts: `generate-slide.py` builds a slide, `slide_search_core.py` is the search engine behind `search-slides.py`, and `html-token-validator.py` checks generated HTML for hard-coded values. `scripts/tests/test_validate_tokens.py` tests the token validator.
 
+## Related skills
+
+- `super-challenge-me`: test the design.
+- `writing-plans`: plan the build.
+- `super-verify`: prove accessibility claims.
+
 ## Done when
 
 - The guide matching the job was opened, plus a second only when the job needs it.

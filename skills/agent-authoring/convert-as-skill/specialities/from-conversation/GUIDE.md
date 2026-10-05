@@ -46,9 +46,12 @@ Keep the user's exact wording for any instruction they dictated. Generalize valu
 
 ## Write and test
 
+Write the minimum first. A first version needs the goal, the working steps, the corrections and the done criteria; add examples, edge cases and references when a test shows the need.
+
 1. Write the skill with `create-skill` (template, location, description rules, lint).
 2. Test the way the skill will be used: in a fresh session, give the original first request in the user's words. It should trigger and reach the same result without the back-and-forth. Then give one near-miss request that should not trigger it.
-3. Adjust by symptom (never triggers: add the user's words; skipped a step: move it into a numbered step).
+3. Adjust by symptom (never triggers: add the user's words; skipped a step: move it into a numbered step). One change per round.
+   If you can, also note what a fresh session does with no skill on the same request, so you can tell whether the skill improved anything (`create-skill` `references/maintain.md`).
 4. Report the path and say that the conversation is the only test so far.
 
 ## What to leave out

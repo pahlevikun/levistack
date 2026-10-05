@@ -81,6 +81,14 @@ Templates: [round.md](templates/round.md), [decision-map.md](templates/decision-
 |---|---|
 | `grill-with-docs` | This skill, usually **grill-docs** |
 
+## Related skills
+
+- `super-codebase-learner`: get facts first.
+- `super-tech-blueprint`: choose a stack.
+- `writing-plans`: plan the settled design.
+- `create-jira-story`: write tickets.
+- `super-design`: test a UI design.
+
 ## Done when
 
 - The matching mode ran; only needed references were loaded.

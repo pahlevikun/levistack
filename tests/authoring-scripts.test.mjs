@@ -27,6 +27,14 @@ test('check-rule: Claude Code rules only read paths; empty bodies are errors', (
   assert.ok(codes(checkRule('y.md', '---\ndescription: "d"\nalwaysApply: false\n---\n\n'), 'error').includes('empty-body'));
 });
 
+test('check-rule: flags hedged wording outside code, and leaves a firm rule alone', () => {
+  const hedged = checkRule('x.md', '---\ndescription: "d"\nalwaysApply: true\n---\nTry to keep functions short. Generally prefer early returns.\n');
+  assert.ok(codes(hedged, 'info').includes('hedged-language'));
+  assert.match(hedged.find((f) => f.code === 'hedged-language').message, /try to/);
+  const firm = checkRule('x.md', '---\ndescription: "d"\nalwaysApply: true\n---\nKeep functions under 40 lines, except generated code.\n\n```\n// try to read this\n```\n');
+  assert.ok(!codes(firm).includes('hedged-language'));
+});
+
 // try-hook
 test('try-hook: builds a Claude Code tool payload', () => {
   const p = buildPayload({ event: 'PreToolUse', tool: 'Bash', command: 'ls', cwd: '/c' });

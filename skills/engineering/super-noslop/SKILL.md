@@ -116,3 +116,10 @@ Run [delivery-gate.md](references/core/delivery-gate.md) every pass on executabl
 |---|---|
 | `noslop` | This skill (`super-noslop`) |
 | `noslop-code` | [`super-noslop-code`](skills/super-noslop-code/SKILL.md) |
+
+## Related skills
+
+- `super-noslop-code`: edit comments only.
+- `glab-code-review`: review a diff.
+- `super-refactor`: fix slop in the structure.
+- `polyglot-copywriter`: rewrite prose.

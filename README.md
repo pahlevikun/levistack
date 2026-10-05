@@ -108,13 +108,12 @@ The usual flow: `context-harvester` first, then `planner`, `coordinator`, `explo
 
 ## Rules
 
-41 rules in `rules/`, by topic: `core`, `architecture`, `elixir`, `go`, `python` and `design`. The core ones cover things like commit messages, comments, testing, failure visibility and PII in logs. Cursor `.mdc` copies are generated into `generated/cursor/rules/`.
+42 rules in `rules/`, by topic: `core`, `architecture`, `elixir`, `go`, `python` and `design`. The core ones cover things like commit messages, comments, testing, failure visibility and PII in logs. Cursor `.mdc` copies are generated into `generated/cursor/rules/`.
 
 ## Also in the box
 
 - `commands/`: slash commands. `/handoff` is the one I use most.
 - `statusline/`: a one-line status for Claude Code, Cursor CLI and Codex. It shows the branch, model, your 5-hour and weekly limits, and context use. `node scripts/install-statusline.mjs --dry-run` first. See [`statusline/README.md`](statusline/README.md).
-- `THIRD_PARTY.md`: where every imported file came from, and its license.
 
 ## Status
 

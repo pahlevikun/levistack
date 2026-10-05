@@ -10,14 +10,20 @@
 // invoke them by name. The others (the grouped ./skills catalog, custom --root) are file-only: read the
 // SKILL.md and follow it. A skill reached through both, such as a symlink, counts as loaded.
 // find-skills never lists itself; pass --self to include it.
+// The catalog this script ships in is searched too (file-only), so a clone or plugin install finds its sibling skills.
+// A skill with `disable-model-invocation: true` cannot be started by the Skill tool, so its hit says to read the file.
 import { existsSync, readdirSync, readFileSync, realpathSync, statSync } from 'node:fs';
 import { homedir } from 'node:os';
-import { join, resolve } from 'node:path';
+import { basename, dirname, join, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const MAX_DEPTH = 2; // <root>/<name>/SKILL.md or <root>/<group>/<name>/SKILL.md
 const STOP = new Set(['the', 'a', 'an', 'to', 'of', 'for', 'and', 'or', 'in', 'on', 'my', 'me', 'i', 'it', 'is', 'we', 'with', 'that', 'this', 'want', 'need', 'please']);
 
-export function defaultRoots(cwd = process.cwd(), home = homedir()) {
+const HERE = dirname(fileURLToPath(import.meta.url));
+
+export function defaultRoots(cwd = process.cwd(), home = homedir(), here = HERE) {
+  const own = [join(here, '../../..'), join(here, '../..')].filter((d) => basename(resolve(d)) === 'skills');
   return [
     { dir: join(cwd, 'skills'), loaded: false },
     { dir: join(cwd, '.cursor/skills'), loaded: true },
@@ -25,6 +31,7 @@ export function defaultRoots(cwd = process.cwd(), home = homedir()) {
     { dir: join(cwd, '.agents/skills'), loaded: true },
     { dir: join(home, '.claude/skills'), loaded: true },
     { dir: join(home, '.agents/skills'), loaded: true },
+    ...own.map((dir) => ({ dir: resolve(dir), loaded: false })),
   ];
 }
 
@@ -46,6 +53,7 @@ export function readSkill(file) {
     }
     out[kv[1]] = v;
   }
+  out.manual = lines.some((l) => /^disable-model-invocation:\s*true\s*$/.test(l));
   return out.name ? out : null;
 }
 
@@ -81,13 +89,16 @@ export function collect(roots) {
         const fm = readSkill(file);
         if (!fm || names.has(fm.name)) continue;
         names.add(fm.name);
-        const skill = { name: fm.name, description: fm.description ?? '', path: file, root, loaded };
+        const skill = { name: fm.name, description: fm.description ?? '', path: file, root, loaded, manual: fm.manual };
         byReal.set(real, skill);
         skills.push(skill);
       }
     }
   }
-  return skills.map((s) => ({ ...s, invoke: s.loaded ? `Skill tool: ${s.name}` : `read ${s.path} and follow it` }));
+  return skills.map((s) => ({
+    ...s,
+    invoke: s.loaded && !s.manual ? `Skill tool: ${s.name}` : `read ${s.path} and follow it`,
+  }));
 }
 
 const stem = (w) => (w.length > 4 ? w.replace(/(ing|ed|es|s)$/, '') : w);
@@ -139,7 +150,8 @@ function main(argv) {
   }
   for (const s of shown) {
     const first = s.description.split(/(?<=[.!?])\s/)[0].slice(0, 160);
-    console.log(`${query ? `${s.score}\t` : ''}${s.name}\t${s.loaded ? 'loaded' : 'file-only'}\t${s.path}\n\t${first}`);
+    const mode = s.loaded && !s.manual ? 'loaded' : 'file-only';
+    console.log(`${query ? `${s.score}\t` : ''}${s.name}\t${mode}\t${s.path}\n\t${first}`);
   }
 }
 

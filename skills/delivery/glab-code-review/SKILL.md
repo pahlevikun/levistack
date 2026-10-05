@@ -98,3 +98,10 @@ Never set `reviewer_state=approved` from automation. Immediate publish via `scri
 | "review and draft all" | 1 then 2 |
 
 If ambiguous, ask: preview only, draft selected findings, or publish existing drafts.
+
+## Related skills
+
+- `super-noslop`: check the diff for slop.
+- `super-verify`: check a review comment before you act.
+- `super-refactor`: apply a change safely.
+- `write-mr-description`: write the MR text.
