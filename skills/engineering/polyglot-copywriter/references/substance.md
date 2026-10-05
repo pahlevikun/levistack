@@ -24,6 +24,33 @@ and dialect. This file owns truth, source, and how hard to edit.
    forms outside the active pack.
 6. Make the least invasive change that solves the request. A polish does
    not authorize a new argument. A review does not authorize a rewrite.
+7. Show before you send. Text that goes out in the user's name to other
+   people is a draft until they say it is not. See [Send gate](#send-gate).
+
+## Send gate
+
+Outside readers act on what is sent in the user's name. Sending is hard to
+undo, and a person may have read it before anyone can correct it.
+
+Show a draft first, then send or post only after the user says so, when the
+text is:
+
+- an email, a chat or channel message, or a reply in someone else's thread
+- a comment on a ticket, MR, PR or issue
+- a public post or a page that others will read
+
+Say what you will do and where, in one line: "Draft below. Post it as a
+comment on PROJ-123?" Do not make the user read two versions.
+
+Skip the gate when:
+
+- the user already said to send, post or commit this exact text
+- the text is a local file, or a reply to the user in this session
+- the caller skill keeps its own review step, such as a draft MR the user
+  opens before it goes live
+
+A change of state the user did not ask for (close, reassign, tag a person,
+mark done) is never part of the draft. Leave it out and ask.
 
 ## Job of the piece
 

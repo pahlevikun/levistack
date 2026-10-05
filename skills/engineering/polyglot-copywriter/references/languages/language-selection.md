@@ -60,4 +60,4 @@ farhan_voice:
 
 ## Coverage
 
-97 real languages, 4 fictional fixtures, 163 overlays, 18 use cases — see [README.md](../../README.md) for the full matrix and counts.
+97 real languages, 4 fictional fixtures, 163 overlays, 23 use cases — see [README.md](../../README.md) for the full matrix and counts.

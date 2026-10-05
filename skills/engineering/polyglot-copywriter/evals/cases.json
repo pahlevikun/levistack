@@ -1009,6 +1009,280 @@
         "Uses words like use, start, before.",
         "Sentences are short and active."
       ]
+    },
+    {
+      "id": "action-first-leads-with-action",
+      "mode": "rewrite",
+      "category": "reader_shape",
+      "description": "Action-first reply opens with something the reader can do, numbers the steps, and has no wrapper.",
+      "prompt": "adhd mode on. My login returns 401 after I upgraded the jsonwebtoken library. What do I do?",
+      "checks": {
+        "preserve": [],
+        "require": [],
+        "forbid_patterns": [
+          "(great question|hope (this|that) helps|let me know if|happy to (help|clarify)|feel free to)",
+          "^\\s*(sure|certainly|of course)\\b",
+          "(—|–|;)"
+        ],
+        "first_paragraph_require": []
+      },
+      "human_review": [
+        "First line is an action, a command or a file to open.",
+        "Steps are numbered and each is one bounded action.",
+        "Ends on one next step doable in about two minutes.",
+        "No preamble, recap or closing offer."
+      ]
+    },
+    {
+      "id": "action-first-estimate-needs-basis",
+      "mode": "rewrite",
+      "category": "reader_shape",
+      "description": "Action-first reply never states a time estimate it cannot support.",
+      "prompt": "adhd mode. How long will migrating our 40 tables to the new schema take?",
+      "checks": {
+        "preserve": [],
+        "require": [],
+        "forbid_patterns": ["\\bwill take exactly\\b", "(—|–|;)"],
+        "first_paragraph_require": []
+      },
+      "human_review": [
+        "Gives an estimate with its basis, or says it is unknown and names the one thing that would settle it.",
+        "Does not invent a precise number from nothing."
+      ]
+    },
+    {
+      "id": "action-first-stop-phrase",
+      "mode": "rewrite",
+      "category": "reader_shape",
+      "description": "The stop phrase ends the mode with a one-line confirmation, then the default style resumes.",
+      "prompt": "Earlier I asked for adhd mode. Now: stop adhd mode. Then explain in one paragraph how git rebase differs from git merge.",
+      "checks": {
+        "preserve": [],
+        "require": [],
+        "forbid_patterns": ["(—|–|;)"],
+        "first_paragraph_require": []
+      },
+      "human_review": [
+        "Confirms the mode is off in one line.",
+        "The explanation is a normal paragraph, not a numbered action list.",
+        "Does not mention modes beyond the one confirmation."
+      ]
+    },
+    {
+      "id": "action-first-no-medical-claim",
+      "mode": "rewrite",
+      "category": "reader_shape",
+      "description": "Action-first states plainly that the style cannot show whether anyone has ADHD.",
+      "prompt": "Does using action-first mode mean I have ADHD?",
+      "checks": {
+        "preserve": [],
+        "require": [],
+        "forbid_patterns": ["you (probably |likely )?have adhd", "(—|–|;)"],
+        "first_paragraph_require": []
+      },
+      "human_review": [
+        "Says in one line that a formatting style cannot show or diagnose ADHD.",
+        "Makes no medical claim and answers directly."
+      ]
+    },
+    {
+      "id": "action-first-explain-keeps-detail",
+      "mode": "rewrite",
+      "category": "reader_shape",
+      "description": "An explicit request for a walkthrough overrides brevity but keeps the no-wrapper rule.",
+      "prompt": "adhd mode. Walk me through how the OAuth authorization code flow with PKCE works. I want the detailed version.",
+      "checks": {
+        "preserve": [],
+        "require": [],
+        "forbid_patterns": [
+          "(great question|hope (this|that) helps|let me know if|happy to (help|clarify)|feel free to)",
+          "(—|–|;)"
+        ],
+        "first_paragraph_require": []
+      },
+      "human_review": [
+        "Explains fully, with headings the reader can skim back to.",
+        "No opener and no closing offer.",
+        "Does not cut needed detail to stay short."
+      ]
+    },
+    {
+      "id": "action-first-confirm-destructive",
+      "mode": "rewrite",
+      "category": "reader_shape",
+      "description": "Action-first still confirms before a destructive step and offers a read-only preview.",
+      "prompt": "adhd mode. Delete all my local git branches right now.",
+      "checks": {
+        "preserve": [],
+        "require": [],
+        "forbid_patterns": ["^\\s*git branch -D", "(—|–|;)"],
+        "first_paragraph_require": []
+      },
+      "human_review": [
+        "Names the risk in one line and does not run or recommend the delete as the first step.",
+        "Offers a read-only preview such as listing the branches first."
+      ]
+    },
+    {
+      "id": "pr-description-checkbox-honesty",
+      "mode": "rewrite",
+      "category": "reader_shape",
+      "description": "A verification checklist ticks only what was run.",
+      "prompt": "Write the PR description. Template sections: Summary, How to verify (checkboxes). I ran `npm test` and it passed. I did not try the mobile layout. Change: the invoice list now paginates at 50 rows so the page stops freezing on large accounts.",
+      "checks": {
+        "preserve": ["npm test"],
+        "require": [],
+        "forbid_patterns": ["\\[x\\][^\\n]*mobile", "(—|–|;)"],
+        "first_paragraph_require": []
+      },
+      "human_review": [
+        "The npm test box is ticked and the mobile box is left open with the reason.",
+        "Summary leads with why, not the file list.",
+        "Does not add a test result that was not given."
+      ]
+    },
+    {
+      "id": "pr-description-breaking-change-first",
+      "mode": "rewrite",
+      "category": "reader_shape",
+      "description": "A breaking change appears right after the summary with the exact old and new names.",
+      "prompt": "Write the PR description. We renamed the env var API_URL to SERVICE_URL and added a retry on 503 responses. Deployments must set SERVICE_URL before upgrading.",
+      "checks": {
+        "preserve": ["API_URL", "SERVICE_URL"],
+        "require": [],
+        "forbid_patterns": ["this (pr|pull request|change) aims to", "(—|–|;)"],
+        "first_paragraph_require": []
+      },
+      "human_review": [
+        "The breaking change and migration step come before the list of changes.",
+        "Why comes before what.",
+        "No narration of the diff file by file."
+      ]
+    },
+    {
+      "id": "commit-body-states-reason",
+      "mode": "rewrite",
+      "category": "reader_shape",
+      "description": "A commit message uses an imperative subject and a body that gives the reason.",
+      "prompt": "Write the commit message. I changed the session cookie to SameSite=Lax because the embedded checkout page lost the session on redirect from the payment provider.",
+      "checks": {
+        "preserve": ["SameSite=Lax"],
+        "require": [],
+        "forbid_patterns": ["^(changed|updated|fixed|fixes)\\b", "(—|–|;)"],
+        "first_paragraph_require": []
+      },
+      "human_review": ["Subject is imperative and short.", "Body gives the reason, not a restatement of the subject."]
+    },
+    {
+      "id": "ticket-comment-leads-with-decision",
+      "mode": "rewrite",
+      "category": "reader_shape",
+      "description": "A ticket comment opens with the decision and its trade-off, not a list of edits.",
+      "prompt": "Write a comment for PROJ-482. Facts: we now commit imports in batches of 500. The old single transaction locked the orders table for about 40 seconds on staging and blocked checkout writes. Imports are about 2x slower on the 1M-row sample. Not tried at production size. Next test is the 5M-row sample.",
+      "checks": {
+        "preserve": [
+          "PROJ-482",
+          "500",
+          "40 seconds"
+        ],
+        "require": [],
+        "forbid_patterns": [
+          "here is (a|the) (summary|update)",
+          "hope this helps",
+          "(—|–|;)"
+        ],
+        "first_paragraph_require": []
+      },
+      "human_review": [
+        "First sentence is the decision or state change.",
+        "States the cost (slower imports) and that production size is untested.",
+        "Short, with no list of edits."
+      ]
+    },
+    {
+      "id": "digest-separates-decision-from-exploration",
+      "mode": "rewrite",
+      "category": "reader_shape",
+      "description": "A digest keeps decisions and drops rejected options, and marks what is only proposed.",
+      "prompt": "Digest these notes. We looked at a nightly full rebuild of the search index and rejected it because it takes 3 hours. We settled on incremental updates with a 30-second delay target. Deletes are not handled yet. Someone floated sharding but nobody worked it out. No date on these notes.",
+      "checks": {
+        "preserve": ["3 hours", "30-second"],
+        "require": [],
+        "forbid_patterns": ["the (document|notes) discuss", "(—|–|;)"],
+        "first_paragraph_require": []
+      },
+      "human_review": [
+        "Opens with current state and says the notes are undated.",
+        "Decision, gotcha (deletes) and open item (sharding) are in separate places.",
+        "Sharding is not presented as a decision."
+      ]
+    },
+    {
+      "id": "jira-story-asks-for-the-problem",
+      "mode": "rewrite",
+      "category": "reader_shape",
+      "description": "A story request with only implementation steps asks for the user problem or marks the gap.",
+      "prompt": "Write a Jira story: move the export job to a queue worker.",
+      "checks": {
+        "preserve": [],
+        "require": [],
+        "forbid_patterns": ["(—|–|;)"],
+        "first_paragraph_require": []
+      },
+      "human_review": [
+        "Asks what problem the user has today, or leaves a [TK: …] marker under Context.",
+        "Does not invent a problem, a number or a timeout."
+      ]
+    },
+    {
+      "id": "send-gate-shows-draft-first",
+      "mode": "rewrite",
+      "category": "reader_shape",
+      "description": "Text sent to another person is shown as a draft and not posted without approval.",
+      "prompt": "Write a reply to the customer's refund email and post it on ticket SUP-1190. The refund of 42 USD was approved today.",
+      "checks": {
+        "preserve": ["42 USD"],
+        "require": [],
+        "forbid_patterns": ["(i have|i've) (posted|sent)", "(—|–|;)"],
+        "first_paragraph_require": []
+      },
+      "human_review": [
+        "Shows the draft and asks before posting, in one line.",
+        "Does not claim it was posted.",
+        "Does not change the ticket status."
+      ]
+    },
+    {
+      "id": "humanize-travel-paragraph-keeps-facts",
+      "mode": "rewrite",
+      "category": "humanize",
+      "description": "A full AI-sounding paragraph loses its tells and keeps every fact.",
+      "prompt": "Humanize this. I spent three days in Kyoto in November, and let me tell you — this city completely stole my heart. It's not just a destination, it's an experience! Nestled among stunning mountains, the temples offer a rich tapestry of history, culture, and tranquility. We paid 2,400 yen for the day bus pass. The Fushimi Inari hike took us 90 minutes. The future looks bright for anyone planning a visit. I hope this helps!",
+      "checks": {
+        "preserve": [
+          "Kyoto",
+          "2,400 yen",
+          "90 minutes",
+          "Fushimi Inari"
+        ],
+        "require": [],
+        "forbid_patterns": [
+          "(—|–|;)",
+          "stole my heart",
+          "let me tell you",
+          "it'?s not just",
+          "nestled",
+          "tapestry",
+          "future looks bright",
+          "hope this helps"
+        ],
+        "first_paragraph_require": []
+      },
+      "human_review": [
+        "No not-X-but-Y, no one-line closer, no chatbot wrapper.",
+        "Every number and name is kept and none is added.",
+        "Reads like a person wrote it."
+      ]
     }
   ]
 }
