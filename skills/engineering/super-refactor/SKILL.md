@@ -82,13 +82,11 @@ Retained content from `refactor` (examples and checklists):
 
 ## Related skills
 
-- `super-tdd`: add a safety net before you move code.
-- `super-verify`: prove behavior is unchanged after each step.
-- `output-savers`: keep the diff minimal.
-- `super-codebase-learner`: map the smells before you plan.
-- `super-architecture`: name the target style.
-- `glab-code-review`: review the refactor diff.
-- `atomic-semantic-commit`: commit each safe step on its own.
+- `super-tdd`: add a test first.
+- `super-verify`: prove behavior is the same.
+- `output-savers`: keep the diff small.
+- `super-codebase-learner`: find the smells.
+- `atomic-semantic-commit`: commit each step.
 
 ## Done when
 

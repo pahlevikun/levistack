@@ -22,7 +22,7 @@ Do not stop at a recommendation. Gather what is missing, map the job to skills, 
    node <this-skill-dir>/scripts/catalog.mjs <2-4 keywords> [--limit 8]
    ```
    Run it twice with different words (verb, then object or domain), and check the skill list the host already shows. It scans `./skills`, `./.cursor/skills`, `./.claude/skills`, `./.agents/skills`, `~/.claude/skills`, `~/.agents/skills`, and the catalog this skill ships in. A hit shows `loaded` or `file-only`; `--json` adds an `invoke` field. Score is a keyword count, so read descriptions before trusting the order. A skill in the map but not on disk is still ours: offer its install line from `routing.md`.
-3. **Compose the chain.** Pick the fewest skills that cover the job, at most four. Give each a role: **Prepare** (gather facts, plan), **Do** (produce the result), **Verify** (`super-verify`, review, lint). Skip a role the job does not need. Prefer a skill that already names its next skill; its `Related skills` section lists the hand-offs. State the plan in one to four lines, `skill: why`. If every step is local and nothing is destructive or outward-facing, go on without asking.
+3. **Compose the chain.** Pick the fewest skills that cover the job, at most four. Give each a role: **Prepare** (gather facts, plan), **Do** (produce the result), **Verify** (`super-verify`, review, lint). Skip a role the job does not need. Prefer a skill that names its next skill. If it has a `Related skills` section, that section lists the hand-offs. State the plan in one to four lines, `skill: why`. If every step is local and nothing is destructive or outward-facing, go on without asking.
 4. **Run the chain.** Load each skill when its step starts, not all up front.
    - `loaded`: start it with the Skill tool by name.
    - `file-only`, or the hit says model invocation is disabled: read its `SKILL.md` and follow it, resolving relative links against that folder. If the user will reuse it, offer to install or link it so it becomes `loaded`.
@@ -53,9 +53,10 @@ Find where it lives before changing it. A symlink in `~/.claude/skills` points a
 
 ## Keep the catalog connected
 
-After you add, rename or remove a catalog skill, run `node <this-skill-dir>/scripts/links.mjs`. It fails when a skill has no `## Related skills` section, names a skill that does not exist, or is missing from `routing.md`. It also lists one-way links and skills nothing points at. Fix the errors, add the new skill to `routing.md`, and link it from the skills it hands work to.
+A `## Related skills` section is optional. Add one only when a skill hands work to another skill. Keep each line short: `name`: what it does.
+
+After you add, rename or remove a catalog skill, run `node <this-skill-dir>/scripts/links.mjs`. It fails when a Related skills line names a skill that does not exist, or when a skill is missing from `routing.md`. It also lists one-way links and skills that nothing points at. Fix the errors and add the new skill to `routing.md`.
 
 ## Related skills
 
-- `create-skill`: no skill fits and the task will repeat.
-- `handoff`: the chain spans sessions.
+- `create-skill`: write a skill when none fits.

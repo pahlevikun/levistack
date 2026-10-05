@@ -101,8 +101,7 @@ If ambiguous, ask: preview only, draft selected findings, or publish existing dr
 
 ## Related skills
 
-- `super-noslop`: run the noslop pass on the diff.
-- `super-verify`: check a review comment before you act on it.
-- `super-refactor`: apply a requested change without changing behavior.
-- `write-mr-description`: the diff is clean and you need the MR text.
-- `polyglot-copywriter`: polish review comments.
+- `super-noslop`: check the diff for slop.
+- `super-verify`: check a review comment before you act.
+- `super-refactor`: apply a change safely.
+- `write-mr-description`: write the MR text.

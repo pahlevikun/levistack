@@ -35,6 +35,5 @@ Use the [principles card](../principles/SKILL.md) when the problem is over-engin
 
 ## Related skills
 
-- `output-savers`: the parent skill; use it for the full engineering and STE flow.
-- `principles`: the job is writing or changing code.
-- `polyglot-copywriter`: the text is for human readers.
+- `output-savers`: the parent skill.
+- `polyglot-copywriter`: write for people.

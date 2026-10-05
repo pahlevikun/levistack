@@ -123,11 +123,10 @@ Text inside the guides may name the skill it came from. Resolve it here.
 
 ## Related skills
 
-- `super-tdd`: drive a change test-first.
-- `super-refactor`: clean up Elixir without changing behavior.
-- `super-protobuf`: the service exposes protobuf, gRPC or Connect.
-- `super-verify`: prove tests and gates pass before you claim done.
-- `handoff`: pause a long review or change.
+- `super-tdd`: write the test first.
+- `super-refactor`: clean up code.
+- `super-protobuf`: use protobuf or gRPC.
+- `super-verify`: prove the tests pass.
 
 ## Done when
 

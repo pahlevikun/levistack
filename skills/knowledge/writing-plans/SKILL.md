@@ -169,8 +169,7 @@ After saving the plan, offer execution choice:
 
 ## Related skills
 
-- `super-challenge-me`: stress-test the spec before you plan it.
-- `super-tdd`: implement each task test-first.
-- `super-verify`: prove each task before you tick it.
-- `create-jira-story`: turn tasks into tickets.
-- `handoff`: pause mid-plan with the state saved.
+- `super-challenge-me`: test the spec first.
+- `super-tdd`: build each task test-first.
+- `super-verify`: prove each task.
+- `create-jira-story`: write tickets.

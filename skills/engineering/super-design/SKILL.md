@@ -49,10 +49,9 @@ Run from `specialities/design-system/`. Token scripts: `embed-tokens.cjs` embeds
 
 ## Related skills
 
-- `super-challenge-me`: stress-test a design before you build it.
-- `writing-plans`: turn the design into a build plan.
-- `super-verify`: prove accessibility or visual claims.
-- `handoff`: pause the work and keep the state.
+- `super-challenge-me`: test the design.
+- `writing-plans`: plan the build.
+- `super-verify`: prove accessibility claims.
 
 ## Done when
 

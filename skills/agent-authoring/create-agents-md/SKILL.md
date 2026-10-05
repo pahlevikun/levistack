@@ -89,11 +89,10 @@ Use headings and bullets. Use backticks around any path you do not want imported
 
 ## Related skills
 
-- `create-rule`: a standard should apply by file glob or path.
-- `create-skill`: a long procedure belongs outside AGENTS.md.
-- `create-hook`: something must be enforced, not just asked.
-- `super-codebase-learner`: the file must describe a codebase you have not read yet.
-- `concise`: keep the file short and plain.
+- `create-rule`: set a rule for some files.
+- `create-skill`: move a long procedure out of AGENTS.md.
+- `create-hook`: enforce a rule.
+- `super-codebase-learner`: read a repo you do not know.
 
 ## Done when
 

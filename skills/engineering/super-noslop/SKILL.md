@@ -119,8 +119,7 @@ Run [delivery-gate.md](references/core/delivery-gate.md) every pass on executabl
 
 ## Related skills
 
-- `super-noslop-code`: the task edits comments only.
-- `glab-code-review`: review a diff with the noslop dimension.
-- `write-mr-description`: the filtered change is ready for an MR.
-- `super-refactor`: the slop needs a structural fix, not a delete.
-- `polyglot-copywriter`: rewrite prose in comments or docs.
+- `super-noslop-code`: edit comments only.
+- `glab-code-review`: review a diff.
+- `super-refactor`: fix slop in the structure.
+- `polyglot-copywriter`: rewrite prose.

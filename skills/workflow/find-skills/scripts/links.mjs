@@ -3,9 +3,9 @@
 //
 //   node links.mjs [--root <skills dir>] [--json]
 //
+// "## Related skills" is optional. A skill may have none.
 // Errors (exit 1):
-//   - a skill has no "## Related skills" section
-//   - a backticked name in that section is not a skill in the catalog
+//   - a backticked name in a Related skills section is not a skill in the catalog
 //   - a skill is missing from references/routing.md, so find-skills cannot route to it
 // Notes (exit 0): one-way links, and skills no other skill points at.
 // Nested skills (a skill folder inside a skill) count as catalog skills.
@@ -45,7 +45,6 @@ export function audit(root, routingFile) {
   const inbound = new Map([...skills.keys()].map((n) => [n, new Set()]));
 
   for (const [name, s] of skills) {
-    if (s.links === null) errors.push(`${name}: no "## Related skills" section`);
     for (const to of s.links ?? []) {
       if (!skills.has(to)) errors.push(`${name}: related skill "${to}" is not in the catalog`);
       else if (to !== name) inbound.get(to).add(name);

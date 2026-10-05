@@ -66,11 +66,10 @@ Infer the intent from the request; ask only if it is unclear. If the conversatio
 
 ## Related skills
 
-- `create-skill`: the job is a procedure the main agent runs, not a delegate.
-- `create-command`: the job is a saved prompt you type as /name.
-- `create-hook`: the job must run on an event, with no model decision.
-- `create-rule`: the guidance must apply on every task.
-- `convert-as-skill`: turn an existing agent into a skill.
+- `create-skill`: write a skill.
+- `create-command`: write a /name prompt.
+- `create-hook`: run code on an event.
+- `create-rule`: set a rule for every task.
 
 ## Done when
 

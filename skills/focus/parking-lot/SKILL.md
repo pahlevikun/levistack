@@ -20,6 +20,6 @@ Tangents are fine. Chasing them mid-task is how the original task never gets fin
 
 ## Related skills
 
-- `one-next-action`: pick the next step after you park a tangent.
-- `writing-plans`: a parked item grew into real work.
-- `handoff`: carry the parking lot into the next session.
+- `one-next-action`: pick the next step.
+- `writing-plans`: plan an idea that grew.
+- `handoff`: carry the list to the next session.

@@ -120,5 +120,4 @@ Run with the core Delivery Gate. All answers must be **yes**:
 
 ## Related skills
 
-- `super-noslop`: the parent skill; use it for code, not just comments.
-- `principles`: delete first, build only what the task needs.
+- `super-noslop`: the parent skill.

@@ -80,12 +80,10 @@ Retained from `test-driven-development`:
 
 ## Related skills
 
-- `super-verify`: prove the suite passes before you claim done.
-- `super-refactor`: the refactor step grows past a small tidy.
-- `super-elixir`: the code is Elixir (use its tdd speciality).
-- `writing-plans`: the seams are not clear and the work is large.
-- `atomic-semantic-commit`: commit each green step.
-- `handoff`: pause between slices.
+- `super-verify`: prove the tests pass.
+- `super-refactor`: the refactor step is large.
+- `super-elixir`: the code is Elixir.
+- `writing-plans`: plan a large change.
 
 ## Done when
 

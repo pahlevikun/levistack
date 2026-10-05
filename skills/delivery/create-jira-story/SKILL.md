@@ -82,7 +82,6 @@ For multiple stories, separate blocks with a horizontal rule `---` or numbered h
 
 ## Related skills
 
-- `writing-plans`: the work is not broken down yet.
-- `super-challenge-me`: stress-test the scope before you write tickets.
-- `polyglot-copywriter`: polish the story text.
-- `standup`: report ticket movement in the daily update.
+- `writing-plans`: break the work down first.
+- `super-challenge-me`: test the scope.
+- `polyglot-copywriter`: improve the text.

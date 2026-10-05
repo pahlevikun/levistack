@@ -93,12 +93,11 @@ Never write into a tool's built-in folder (for example Cursor's `skills-cursor`)
 
 ## Related skills
 
-- `create-agent`: the job is a delegate with its own context and tools.
-- `create-command`: the job is a saved prompt you type as /name.
-- `create-rule`: the guidance must apply on every task.
-- `create-hook`: the job must run on an event.
-- `convert-as-skill`: the source material already exists.
-- `find-skills`: check whether a skill for this already exists before you write one.
+- `create-agent`: make a subagent.
+- `create-command`: make a /name prompt.
+- `create-rule`: make a rule.
+- `convert-as-skill`: start from existing material.
+- `find-skills`: check if a skill exists first.
 
 ## Done when
 

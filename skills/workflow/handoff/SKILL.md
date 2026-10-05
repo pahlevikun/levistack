@@ -62,8 +62,7 @@ Use this when the user says "continue", "resume", "pick up", or names a handoff 
 
 ## Related skills
 
-- `super-verify`: check what is proven before you write the note.
-- `one-next-action`: resume with one concrete step.
-- `parking-lot`: carry parked ideas into the note.
-- `standup`: the next day starts with a standup.
-- `writing-plans`: the note says the plan is missing.
+- `super-verify`: check what is proven.
+- `one-next-action`: resume with one step.
+- `standup`: start the next day.
+- `writing-plans`: write the missing plan.

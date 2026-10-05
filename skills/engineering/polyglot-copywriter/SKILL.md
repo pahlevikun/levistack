@@ -112,8 +112,7 @@ Follow the style without announcing mode names. Explain config only when the use
 
 ## Related skills
 
-- `atomic-semantic-commit`: the text is a commit message.
-- `write-mr-description`: the text is an MR or PR description.
-- `create-jira-story`: the text is a ticket.
-- `standup`: the text is a daily update.
-- `glab-code-review`: the text is a review comment.
+- `atomic-semantic-commit`: write a commit message.
+- `write-mr-description`: write an MR description.
+- `create-jira-story`: write a ticket.
+- `standup`: write a daily update.

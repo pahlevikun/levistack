@@ -60,7 +60,7 @@ When another skill calls this one, it names the job. Skip detection.
 
 ## Related skills
 
-- `super-refactor`: the change is a behavior-preserving refactor.
-- `super-tdd`: the change is a feature or fix that needs a test first.
-- `super-noslop`: filter generated backend, UI or test code.
-- `polyglot-copywriter`: the text is for human readers, not for agents.
+- `super-refactor`: change code and keep behavior.
+- `super-tdd`: write the test first.
+- `super-noslop`: check generated code.
+- `polyglot-copywriter`: write for people.

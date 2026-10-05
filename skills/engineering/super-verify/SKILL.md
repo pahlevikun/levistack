@@ -76,11 +76,10 @@ A clean result is a valid result. Do not invent findings to look thorough, and d
 
 ## Related skills
 
-- `super-tdd`: the fix needs a failing test first.
-- `glab-code-review`: verify a review comment before you act on it.
-- `atomic-semantic-commit`: the work is proven and ready to commit.
-- `write-mr-description`: the work is proven and ready for an MR.
-- `handoff`: say what was and was not verified when you stop.
+- `super-tdd`: write a failing test first.
+- `glab-code-review`: check a review comment.
+- `atomic-semantic-commit`: commit proven work.
+- `write-mr-description`: write the MR.
 
 ## Done when
 

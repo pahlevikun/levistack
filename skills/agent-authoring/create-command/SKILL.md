@@ -78,10 +78,9 @@ Default to a command when the repo or target tool uses one; Cursor and catalog `
 
 ## Related skills
 
-- `create-skill`: the prompt needs scripts, references or model-triggered loading.
-- `create-hook`: the action must run on an event, not on /name.
-- `convert-as-skill`: turn a command into a skill.
-- `create-agent`: the job needs its own context and tools.
+- `create-skill`: add scripts or references to the prompt.
+- `create-hook`: run on an event, not on /name.
+- `create-agent`: give the job its own context.
 
 ## Done when
 

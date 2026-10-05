@@ -70,7 +70,6 @@ Bruno desktop feature parity, cloud sync, and generating a collection from live 
 
 ## Related skills
 
-- `super-nodejs`: the routes come from a Node service.
-- `super-protobuf`: the surface is gRPC or Connect described by .proto files.
-- `super-verify`: run the collection and show the result as proof.
-- `write-mr-description`: attach the collection to an MR.
+- `super-nodejs`: the routes come from Node.
+- `super-protobuf`: the surface is gRPC.
+- `super-verify`: run the collection.

@@ -79,10 +79,9 @@ A hook is a script or check the harness runs on an agent event. The harness runs
 
 ## Related skills
 
-- `create-rule`: a request is enough and nothing must be enforced.
-- `create-command`: the action should run on /name, not on an event.
-- `create-skill`: the automation needs a procedure the model follows.
-- `create-agent`: the event should start a delegated job.
+- `create-rule`: ask for a behavior, do not enforce it.
+- `create-command`: run on /name, not on an event.
+- `create-skill`: give the model a procedure.
 
 ## Done when
 

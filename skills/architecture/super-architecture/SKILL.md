@@ -116,11 +116,10 @@ Detect returns a style, a confidence, evidence with paths, deviations and violat
 
 ## Related skills
 
-- `super-codebase-learner`: you need facts about the current system first.
-- `super-tech-blueprint`: the style is chosen and the stack is not.
-- `super-challenge-me`: stress-test the choice before you commit to it.
-- `super-refactor`: move an existing codebase toward the chosen style, one safe step at a time.
-- `super-nodejs`: build the chosen style in a Node service.
+- `super-codebase-learner`: read the current system first.
+- `super-tech-blueprint`: choose the stack.
+- `super-challenge-me`: test the choice.
+- `super-refactor`: move code to the new style.
 
 ## Done when
 

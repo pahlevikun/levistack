@@ -41,12 +41,10 @@ Order of precedence: a security finding, then the user's explicit words, then th
 
 ## Related skills
 
-- `super-architecture`: pick or review the service structure.
-- `super-caching`: add or tune a cache layer.
-- `super-protobuf`: the service exposes gRPC or Connect.
-- `super-tdd`: build or fix a handler test-first.
-- `super-noslop`: filter generated handlers and errors for slop.
-- `create-bruno-collection`: document and run the API as a Bruno collection.
+- `super-architecture`: plan the service structure.
+- `super-caching`: add a cache.
+- `super-protobuf`: add gRPC or Connect.
+- `super-tdd`: write a handler test first.
 
 ## Done when
 

@@ -53,10 +53,10 @@ Scripts: `scripts/classify.mjs`, `scripts/convert.mjs` (rules/agents only), `scr
 
 ## Related skills
 
-- `create-skill`: write a skill from scratch, fix the result after conversion, grow it into a router, or check that it is still accurate.
-- `create-rule`: the source is a rule and it should stay a rule.
-- `create-command`: the source is a saved prompt and it should stay a command.
-- `create-agent`: the source is a subagent and it should stay one.
+- `create-skill`: write a new skill, or fix one.
+- `create-rule`: keep a rule as a rule.
+- `create-command`: keep a command as a command.
+- `create-agent`: keep a subagent as a subagent.
 
 ## Done when
 

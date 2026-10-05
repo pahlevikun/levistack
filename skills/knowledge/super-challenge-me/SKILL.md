@@ -83,13 +83,11 @@ Templates: [round.md](templates/round.md), [decision-map.md](templates/decision-
 
 ## Related skills
 
-- `super-codebase-learner`: questions need facts about the current system.
-- `super-tech-blueprint`: the open question is which stack to pick.
-- `writing-plans`: the grilled design is settled and needs a plan.
-- `create-jira-story`: the plan is settled and needs tickets.
-- `super-refactor`: the plan is a refactor.
-- `super-design`: the design under review is a UI or a design system.
-- `handoff`: save open questions for the next session.
+- `super-codebase-learner`: get facts first.
+- `super-tech-blueprint`: choose a stack.
+- `writing-plans`: plan the settled design.
+- `create-jira-story`: write tickets.
+- `super-design`: test a UI design.
 
 ## Done when
 

@@ -64,10 +64,9 @@ A rule is a short, standing instruction that is loaded into context, always or w
 
 ## Related skills
 
-- `create-hook`: the rule must be enforced, not just asked.
-- `create-skill`: the guidance is a procedure, not a standing rule.
-- `create-agents-md`: the rule belongs in AGENTS.md or CLAUDE.md.
-- `convert-as-skill`: turn a rule into a skill.
+- `create-hook`: enforce a rule.
+- `create-skill`: write a procedure, not a rule.
+- `create-agents-md`: put the rule in AGENTS.md.
 
 ## Done when
 

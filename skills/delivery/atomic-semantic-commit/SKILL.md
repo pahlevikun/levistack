@@ -112,10 +112,10 @@ Write in English by default. If the repository history is in another language, w
 
 ## Related skills
 
-- `super-verify`: prove the gates pass before you commit.
-- `write-mr-description`: the commits are ready and you need the MR.
-- `glab-code-review`: review the diff before you open the MR.
-- `polyglot-copywriter`: polish commit wording for people.
+- `super-verify`: run the checks first.
+- `glab-code-review`: review the diff.
+- `write-mr-description`: write the MR.
+- `polyglot-copywriter`: improve the wording.
 
 ## Done when
 

@@ -48,11 +48,10 @@ Run from `specialities/stack-evaluator/`. `format_detector.py` detects the input
 
 ## Related skills
 
-- `super-codebase-learner`: current-state facts are missing.
-- `super-challenge-me`: stress-test the pick before you commit.
-- `super-architecture`: choose the architecture style for the target stack.
-- `writing-plans`: turn the migration into a step-by-step plan.
-- `create-jira-story`: split the plan into tickets.
+- `super-codebase-learner`: get facts about the current system.
+- `super-challenge-me`: test the choice.
+- `super-architecture`: choose the architecture style.
+- `writing-plans`: plan the migration.
 
 ## Done when
 

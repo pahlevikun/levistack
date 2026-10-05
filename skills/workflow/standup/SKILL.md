@@ -164,7 +164,6 @@ Write the standup to `<outputDir>/<end>.md` (default `~/standups`), where `<end>
 
 ## Related skills
 
-- `handoff`: read the last note to recover yesterday's context.
-- `polyglot-copywriter`: polish the final message.
-- `create-jira-story`: a done item has no ticket.
-- `parking-lot`: read parked items for what is next.
+- `handoff`: read the last note.
+- `polyglot-copywriter`: polish the message.
+- `create-jira-story`: add a missing ticket.
