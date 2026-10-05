@@ -1,15 +1,8 @@
-# Conversation to skill
+# From a conversation
 
-Turn a session where something worked into a skill the next session can reuse. There is no source file, so the work is extraction and judgment, not copying.
+Turn a session where something worked into a skill the next session can reuse. There is no source file, so the work is extraction and judgment, not copying. Do not run this GUIDE when files were classified as another kind.
 
-## Contents
-- Is it worth a skill?
-- Get the material
-- Harvest
-- Draft and review
-- Write and test
-- What to leave out
-- Example
+Worksheet: [harvest.md](../../templates/harvest.md). Write the skill with `create-skill`.
 
 ## Is it worth a skill?
 
@@ -23,12 +16,13 @@ Do not make a skill for a one-off, for a fact that is simply true of the repo (t
 ## Get the material
 
 1. Use the conversation in context. Re-read it from the start; do not rely on the last few turns.
-2. If it is long or was compacted, ask the user for the transcript path or a pasted summary of the middle. State what you could not see.
-3. Ask one question only if the intent is unclear: "Which part should become the skill?" A session often holds several tasks; convert one skill per task.
+2. If the user named a **prior session** ("last time we wrote skills", "the previous convert-as-skill session"), find that session's transcripts first and harvest from those, not from a guess. State the transcript path you used. If you cannot see it, ask once.
+3. If the current thread is long or was compacted, ask for the transcript path or a pasted summary of the middle. State what you could not see.
+4. Ask one question only if the intent is unclear: "Which part should become the skill?" A session often holds several tasks; convert one skill per task.
 
 ## Harvest
 
-Fill the worksheet `templates/harvest.md` (linked from `SKILL.md`). Pull from the conversation, in this order:
+Fill [harvest.md](../../templates/harvest.md). Pull from the conversation, in this order:
 
 | Extract | From | Becomes |
 |---|---|---|

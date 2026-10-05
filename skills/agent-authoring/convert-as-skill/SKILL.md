@@ -1,73 +1,58 @@
 ---
 name: convert-as-skill
-description: "Convert existing material into a skill: agent-requested rules, slash commands, subagents, or the current conversation (a workflow that just worked). Use when asked to migrate rules, commands or agents to skills, turn a command into a SKILL.md, save this session as a skill, or capture what we just did as a reusable skill."
+description: "Convert existing material into a skill, or merge existing skills into one. Use when asked to convert a rule, command or agent to a skill, save a conversation as a skill, turn a PDF or docs folder into a skill, or merge two skills into one. Not for writing a skill from scratch (`create-skill`)."
 ---
 
 # Convert as skill
 
-Skills are the more capable format: supporting files, a trigger description, optional `paths` scoping, and Claude Code has merged commands into them. This skill moves existing material over, or captures a session as a skill, through four mechanisms.
+One skill, five use cases. A classifier picks exactly one, or asks. Load only that use case's GUIDE. Copy, extract, distill and compose are different jobs.
 
-For writing a skill from scratch use `create-skill`. For new rules, commands or agents use `create-rule`, `create-command` or `create-agent`.
+For a new skill with no source file use `create-skill`. For a new rule, command or agent use `create-rule`, `create-command` or `create-agent`.
 
 ## Principles
 
-1. **Copy file-based sources verbatim.** A rule, command or agent body is not rewritten during conversion. Improvements are a separate, reviewed change. The only allowed edits are the description and, for a subagent, lines that speak as a separate agent; list them.
-2. **Convert only what fits a skill.** An always-on rule must stay a rule. An agent that exists for isolation or a tool limit should stay an agent.
-3. **The description is the part to write well.** Rules have one; commands usually do not (the script drafts one and flags it); a conversation has none.
-4. **Preview before writing, and never delete on your own.** Dry-run first. Remove originals only after the user has reviewed the skill and asked.
-5. **A conversation is evidence, not a spec.** Keep what worked and what the user confirmed; leave out dead ends, secrets and one-offs.
+1. **Classify first.** Run `scripts/classify.mjs` before opening a GUIDE. File layout beats wording. Never default to conversation.
+2. **One use case per input.** A PDF is never copied as a rule. Mixed kinds are sequential jobs, or `ask` — not one blended skill.
+3. **Copy vs extract vs distill vs compose.** Rules and agents copy the body. A conversation extracts what worked. A document distills structure. Merge composes a new skill and leaves the sources.
+4. **Preview, then write. Never delete on your own.** Dry-run first. Remove originals only after the user has reviewed the result and asked.
+5. **Third-party books stay private.** Do not commit a generated book skill to this catalog.
 
-## What do you want to convert?
+## Step 0 — classify
 
-| Source | Mechanism | Go to |
-|---|---|---|
-| A rule (`.mdc` or `.md`, agent-requested) | Script, body verbatim | [Rules and commands](#rules-and-commands), [mapping.md](references/mapping.md) |
-| A slash command | Script, body verbatim | [Rules and commands](#rules-and-commands), [mapping.md](references/mapping.md) |
-| A subagent | Decide keep, wrap or convert; script with `--fork` | [subagent.md](references/subagent.md) |
-| This conversation, or one the user pastes | Extraction and review, then `create-skill` | [conversation.md](references/conversation.md), worksheet [harvest.md](templates/harvest.md) |
-| A long section of `CLAUDE.md` or `AGENTS.md` | Extract by hand with `create-skill` | not scripted |
+```bash
+node scripts/classify.mjs [--text "<user request>"] [--json] [path...]
+```
 
-If the request names one, go straight to it. A request like "convert these" with several kinds means run each mechanism on its own files. Ask only if it is unclear whether "this" means a file or the conversation.
+| Status | Do |
+|---|---|
+| `ok` | State the kind and reason. Load **only** that GUIDE. |
+| `ask` | Ask the printed question. Load no GUIDE. |
+| `reject` | Stop. Use the named create-* skill instead. |
 
-## What converts
+`from-command` uses the from-rule GUIDE; the kind stays distinct in logs.
 
-| Source | Converts? | Result |
-|---|---|---|
-| Rule with `description`, no globs, not always-on | Yes | `name` + `description`, body verbatim |
-| Rule with `globs` or `paths` | Only with `--paths` | Scope kept as `paths`; behavior changes |
-| Rule with `alwaysApply: true`, or no frontmatter | No | Stays a rule |
-| Command, with or without frontmatter | Yes | `name`, `description`, `disable-model-invocation: true`, other keys kept |
-| Subagent | Yes, with loss | `name`, `description`, `model`, body; `tools` and other agent-only keys dropped; `--fork` keeps isolation |
-| Conversation | Yes, by extraction | A new skill written with `create-skill` |
+## Use cases
 
-## Rules and commands
+| Kind | Source | What happens | GUIDE |
+|---|---|---|---|
+| `from-rule` / `from-command` | `.mdc`, `rules/`, `commands/` | **Copy** the body | [from-rule](specialities/from-rule/GUIDE.md) |
+| `from-agent` | `agents/*.md` | Keep / wrap / convert, then **copy** | [from-agent](specialities/from-agent/GUIDE.md) |
+| `from-conversation` | Chat / transcript, no files | **Extract** what worked | [from-conversation](specialities/from-conversation/GUIDE.md) |
+| `from-document` | PDF, docs folder, HTML, URL | **Distill** structure | [from-document](specialities/from-document/GUIDE.md) |
+| `merge-skills` | Two or more skill folders | **Compose** one new skill | [merge-skills](specialities/merge-skills/GUIDE.md) |
 
-1. **Find the sources** using the locations in [mapping.md](references/mapping.md). Skip anything in a tool's built-in folder (for example Cursor's `skills-cursor`).
-2. **Choose the destination:** the project's skills folder (`.claude/skills/`, `.cursor/skills/` or `.agents/skills/`), the user's, or a catalog's `skills/<group>/`. Match what the project already uses. In a catalog repo follow its maintenance instructions and add the group's `DESCRIPTION.md` if the group is new.
-3. **Preview:**
-
-   ```bash
-   node scripts/convert.mjs <source...> --out <skills-dir> --dry-run
-   ```
-
-   It prints what it would convert, what it skipped and why, and warnings. `--kind rule|command|agent` is inferred from the path (`rules/`, `commands/`, `agents/`); pass it for a file elsewhere. `--name` and `--description` apply to one source.
-4. **Write the descriptions.** For each warning about an inferred description, rewrite it as what the skill does plus `Use when ...` with the words a user would say, then re-run with `--description "..."` for that file.
-5. **Convert:** run again without `--dry-run`. It refuses to overwrite an existing skill unless you pass `--force`.
-6. **Verify:** diff each body against its source (the text after the frontmatter must be identical). Lint with the `create-skill` linter (`<create-agent>/scripts/lint.mjs <skill-dir>`). In a catalog repo run its sync and validate commands.
-7. **Try it:** run `/name` for a command, or ask for something the description should match. Confirm it loads.
-8. **Originals:** report the source paths and what replaced them. Delete them only when the user asks; offer to restore from version control if the conversion is rejected.
+Scripts: `scripts/classify.mjs`, `scripts/convert.mjs` (rules/agents only), `scripts/extract_document.py`, `scripts/merge.mjs`. Document parsers live in `scripts/extractor/` (`pdf.py`, `html.py`, `docx.py`, `epub.py`, `text.py`, `rtf.py`, `sanitize.py`, `dependencies.py`, `config.py`, `exceptions.py`, `scan_generated_skill.py`). Templates: [harvest.md](templates/harvest.md), [merge-outline.md](templates/merge-outline.md).
 
 ## Do not
 
-- Delete or edit a source file during conversion.
-- Convert an always-on or file-scoped rule unless the user wants on-demand loading.
-- Turn an isolation-first subagent into an inline skill without telling the user what is lost.
-- Write into a tool's built-in skills folder.
-- Put secrets, personal paths or session-specific values into a skill made from a conversation.
+- Open a GUIDE before classify, or load two GUIDEs for one input.
+- Treat "verbatim" as a use case. It is only how from-rule / from-agent copy the body.
+- Default "convert this" with no files to a conversation.
+- Run `convert.mjs` on a PDF or a skill folder, or `extract_document.py` on `rules/` / `commands/` / `agents/`.
+- Delete sources, or commit a third-party book dump to this catalog.
 
 ## Done when
 
-- Every converted skill has `name` equal to its folder, a one-line quoted `description`, and (for file sources) a body identical to the source apart from listed edits.
-- The linter reports no errors, and each skipped file has a stated reason.
-- A skill made from a conversation was shown to the user as an outline first and replayed once on its original request.
+- Classify printed one kind (or asked / redirected) and only that GUIDE ran.
+- The new skill lints clean. Skipped or refused inputs have a stated reason.
 - The user knows which originals remain and how to remove or restore them.

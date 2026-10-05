@@ -5,7 +5,6 @@ A subagent and a skill are different tools. Converting one loses something, so d
 ## Contents
 - Keep, wrap or convert?
 - What maps and what is lost
-- Steps
 - Example
 
 ## Keep, wrap or convert?
@@ -25,20 +24,12 @@ Default to keeping or wrapping. Convert only when isolation and the tool list do
 | `name` | `name` (must equal the folder) |
 | `description` | `description`. Rewrite if it says only when to call an agent; a skill description should say what it does and `Use when ...` |
 | `model` | `model` is kept |
-| Body (system prompt) | The body, verbatim. Check it reads as instructions to the current agent, not "You are a separate agent" |
+| Body (system prompt) | The body, copied. Check it reads as instructions to the current agent, not "You are a separate agent" |
 | `tools`, `disallowedTools` | **Lost.** A skill's `allowed-tools` only pre-approves tools; it does not restrict them. Remove tool-limit statements from the body or accept they are advisory |
 | `permissionMode`, `maxTurns`, `mcpServers`, `hooks`, `memory`, `skills`, `isolation` | **Lost** |
 | Isolated context and a summarized return | **Lost** unless `context: fork` is set |
 
 With `--fork` the converted skill carries `context: fork`, so it runs in a subagent. That subagent is a general-purpose one, not the original definition, so the tool restrictions still do not apply.
-
-## Steps
-
-1. Read the subagent. List the fields from the table that would be lost and say so to the user before converting.
-2. Preview: `node scripts/convert.mjs agents/<name>.md --out <skills-dir> --dry-run` (add `--fork` to keep it isolated).
-3. Rewrite the description and fix any body lines that speak as a separate agent ("Return a summary to the caller"). Those edits are the one allowed deviation from verbatim; list them.
-4. Convert, lint with the `create-skill` linter, and try it on the task the agent was built for.
-5. Keep the subagent file until the skill has been tried. Roster docs (for example `docs/agents/README.md`) must change only if the agent is removed, and removal is the user's call.
 
 ## Example
 

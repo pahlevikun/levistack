@@ -1,6 +1,6 @@
 # Rule and command conversion mapping
 
-Subagents are in `subagent.md`; conversations are in `conversation.md`.
+Agents are in the [from-agent GUIDE](../from-agent/GUIDE.md). Conversations are in the [from-conversation GUIDE](../from-conversation/GUIDE.md).
 
 ## Contents
 - Source and destination locations
