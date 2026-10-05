@@ -8,7 +8,7 @@
 
 **Architecture:** Classifier script + one speciality folder per use case. Adding a use case is one classifier branch, one `specialities/<use-case>/`, and tests.
 
-**Tech Stack:** Node ≥ 20. Optional PATH extractors for PDFs. No required Python package.
+**Tech Stack:** Split by job. Node `.mjs` for classify, from-rule, from-agent, merge (matches `convert.mjs` and `npm test`). **Python 3** for from-document (PDF, HTML, web page, DOCX, EPUB). Not TypeScript: this catalog's gate is Node ≥ 20 + `.mjs` tests; TS needs Node 22.18+ strip-types and does not improve parsers. Python packages are optional with stdlib fallbacks; `--check` reports what is installed. No required `package.json` dependency.
 
 ## What "verbatim" meant (and why we drop it as a name)
 
@@ -28,6 +28,17 @@ The plan now names **use cases**, not copy modes.
 
 Copy vs extract vs distill vs compose are different on purpose. That is why they are different use cases, not one "verbatim" bucket plus extras.
 
+## Language: not TypeScript; Python only for documents
+
+TypeScript does not parse PDFs or messy HTML better than JavaScript. This catalog's `package.json` is Node ≥ 20 with zero npm deps; native `.ts` needs Node 22.18+. Other skills that use TS (`output-savers/concise`) already warn about that. Do not add a compiler for convert-as-skill.
+
+| Job | Language | Why |
+|---|---|---|
+| Classify, copy a rule/agent, merge skills | Node `.mjs` | `convert.mjs` and `npm test` already live here. Text in, text out. |
+| Read PDF, DOCX, EPUB, HTML, a URL | Python 3 | That is the document stack (pypdf, pdfminer, Docling, BeautifulSoup, python-docx). book-to-skill is Python. `create-skill` already shows pdfplumber as the PDF example. This repo already ships Python in other skills. |
+
+Extractor policy: stdlib first (html.parser, zipfile for DOCX/EPUB, urllib for a user-supplied URL). Optional extras via `--check`. Missing Docling is a skip with an install hint, not a crash. Do not add Cheerio/pdfjs to `package.json`.
+
 ---
 
 ## Global Constraints
@@ -36,7 +47,7 @@ Copy vs extract vs distill vs compose are different on purpose. That is why they
 - `SKILL.md` is a classifier, under ~150 lines. Each use case lives in `specialities/<use-case>/GUIDE.md`.
 - Path choice is deterministic. `ask` when unproven. Never default to conversation.
 - One use case per input. A PDF is never copied as a rule. A conversation is never merged with a skill folder unless the user asked to merge.
-- Node-only tests. Optional `pdftotext` / Docling on PATH.
+- Repo gate stays `node --test tests/*.test.mjs`. Document extractor tests are Python (`unittest` or pytest) run from the from-document GUIDE and from a small Node wrapper test that asserts `--check` exits 0. Optional `pdftotext` / Docling / BeautifulSoup; stdlib fallbacks required so missing extras skip with a hint, not a crash.
 - No secrets, employer names, or copyrighted book dumps in this catalog. Document use case: keep generated book skills private.
 - Provenance in `THIRD_PARTY.md` if book-to-skill or retro procedure is copied.
 
@@ -87,9 +98,9 @@ Separate from files. User: "save this session as a skill," "what we just did," "
 
 ### 4. From a document (`specialities/from-document/`)
 
-User: "turn this PDF into a skill," "convert the docs folder."
+User: "turn this PDF into a skill," "convert the docs folder," "convert this URL."
 
-- Extract → fingerprint check → outline → distill (indexes + on-demand chapters). book-to-skill as material, not a vendored Python package.
+- Extract with `scripts/extract_document.py` (book-to-skill as material: format parsers + fallbacks; do not vendor the whole package). Fingerprint → outline → distill. Fetch a URL only when the user passed it (no crawling).
 - Scanned PDF abort. Copyright: do not commit third-party book skills to this catalog.
 
 ### 5. Merge skills (`specialities/merge-skills/`) — new
@@ -197,7 +208,7 @@ skills/agent-authoring/convert-as-skill/
 ├── scripts/
 │   ├── classify.mjs
 │   ├── convert.mjs              # from-rule / from-command / from-agent bodies
-│   ├── extract-document.mjs
+│   ├── extract_document.py      # PDF / HTML / URL / DOCX / EPUB
 │   └── merge.mjs                # list sources, detect skill folders, draft tree
 ├── specialities/
 │   ├── from-rule/GUIDE.md       # + mapping.md
@@ -210,7 +221,7 @@ skills/agent-authoring/convert-as-skill/
     └── merge-outline.md
 ```
 
-Script guards: `convert.mjs` refuses PDFs and skill-folder merges. `extract-document.mjs` refuses `rules/` `commands/` `agents/`. `merge.mjs` refuses unless every input is a skill directory.
+Script guards: `convert.mjs` refuses PDFs and skill-folder merges. `extract_document.py` refuses `rules/` `commands/` `agents/`. `merge.mjs` refuses unless every input is a skill directory.
 
 ---
 
