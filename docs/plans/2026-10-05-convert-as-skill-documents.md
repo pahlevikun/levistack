@@ -208,7 +208,12 @@ skills/agent-authoring/convert-as-skill/
 ├── scripts/
 │   ├── classify.mjs
 │   ├── convert.mjs              # from-rule / from-command / from-agent bodies
-│   ├── extract_document.py      # PDF / HTML / URL / DOCX / EPUB
+│   ├── extract_document.py      # thin CLI (ours): refuse rules/, fetch user URLs
+│   ├── extractor/               # reused from virgiliojr94/book-to-skill (MIT)
+│   │   ├── parsers/             # pdf, html, docx, epub, text, rtf
+│   │   ├── sanitize.py
+│   │   ├── dependencies.py      # --check
+│   │   └── config.py
 │   └── merge.mjs                # list sources, detect skill folders, draft tree
 ├── specialities/
 │   ├── from-rule/GUIDE.md       # + mapping.md
@@ -222,6 +227,44 @@ skills/agent-authoring/convert-as-skill/
 ```
 
 Script guards: `convert.mjs` refuses PDFs and skill-folder merges. `extract_document.py` refuses `rules/` `commands/` `agents/`. `merge.mjs` refuses unless every input is a skill directory.
+
+## Reuse from book-to-skill (checked)
+
+Repo: https://github.com/virgiliojr94/book-to-skill (MIT, copyright virgiliojr94). The generator is **not a script** — it is the 862-line `SKILL.md`. The reusable code is the Python extractor package.
+
+**Copy into `scripts/extractor/` (keep LICENSE notice, list in `THIRD_PARTY.md`):**
+
+| Their file | Why reuse |
+|---|---|
+| `parsers/pdf.py` | pdftotext → pypdf → pdfminer → Docling; scanned-PDF abort (`looks_image_only`); header/footer cleanup |
+| `parsers/html.py` | trafilatura → bs4 → stdlib `html.parser` (file HTML; we add URL fetch in our CLI) |
+| `parsers/docx.py` | python-docx + zip/XML fallback; XXE / DTD guard |
+| `parsers/epub.py` | ebooklib → stdlib zip |
+| `parsers/text.py` | BOM-aware decode |
+| `parsers/rtf.py` | optional; small |
+| `sanitize.py` | strip zero-width / bidi / tag-block injection from extracted text |
+| `dependencies.py` | `--check` report of optional tools |
+| `config.py` | extensions + optional package names |
+
+**Adapt, do not copy wholesale:** `utils.extract_single_file`, `detect_structure` (chapter/ToC), `reuse_is_safe` (sha256). Those sit inside a 1.4k-line `utils.py` mixed with sponsor notes and CLI. Lift the functions we need into our `extract_document.py`.
+
+**Also reuse after distill:** `tools/scan_generated_skill.py` — advisory prompt-injection scan of the generated skill. Call it from the from-document GUIDE.
+
+**Do not reuse:**
+
+| Their file | Why not |
+|---|---|
+| `utils.py` as a whole | Host probing, usage/sponsor prints, mixed with extraction |
+| `pdf_inspector_integration.py` | Extra optional accelerator; not needed in v1 |
+| `parsers/calibre.py` | MOBI/AZW; out of v1 |
+| `tools/discovery_tax.py` + `tools/evals/` | Benchmarks, not conversion |
+| `tools/validate_skill.py` | We already lint with `create-agent/scripts/lint.mjs` |
+| Their `SKILL.md` generator | Wrong destinations, 862 lines, not a script |
+| `pip install book-to-skill` | Pulls their CLI and host behavior into this catalog |
+
+**URL / web HTML:** they parse HTML **files**, they do not fetch. Our `extract_document.py` fetches only a URL the user passed, then calls `extract_html_content`.
+
+**retro** (mattpocock): no scripts. Procedure only.
 
 ---
 
