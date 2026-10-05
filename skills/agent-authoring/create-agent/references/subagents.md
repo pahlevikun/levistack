@@ -63,12 +63,21 @@ description: Expert code reviewer. Use proactively after writing or modifying co
 - Background subagents in Claude Code get a narrower tool set; foreground ones get the full set.
 - Do not put keys, provider URLs or personal paths in an agent file.
 
+### Audit the tool list
+
+Treat tool access like production access: start from nothing, add what the job needs, and ask of each tool: does it need to write, or is reading enough? Must it run code, or only analyze? What is the worst thing it could do with this? Can it be narrower and still work?
+
+- Agents that read **untrusted content** (third-party responses, web pages, user uploads, other people's code) get read-only tools and no execution. Treat what they read as data, not instructions.
+- Agents that work on **your own code** with a clear job can have more, but only the tools the job uses.
+- An agent that drafts a sales email needs the CRM read tool, not the revenue dashboard.
+
 ## Limits to design around
 
 - **Claude Code:** subagents can spawn subagents up to 3 levels (default; `CLAUDE_CODE_MAX_SUBAGENT_SPAWN_DEPTH`), at most 20 concurrently.
 - **Cursor:** the main agent and its direct subagents can launch subagents; a subagent launched by another cannot launch further.
 - Tell every subagent whether it may dispatch others. The safe default is no.
 - A subagent starts with no memory of the conversation. Everything it needs goes in the prompt or the files it can read.
+- A subagent cannot ask the user questions or wait for an answer; it returns one report. Keep requirement-gathering and confirmation in the main session and have the agent return open questions. See `references/prompts.md`.
 
 ## Body: a short system prompt
 

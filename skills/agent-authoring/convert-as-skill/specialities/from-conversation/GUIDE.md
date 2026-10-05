@@ -16,7 +16,7 @@ Do not make a skill for a one-off, for a fact that is simply true of the repo (t
 ## Get the material
 
 1. Use the conversation in context. Re-read it from the start; do not rely on the last few turns.
-2. If the user named a **prior session** ("last time we wrote skills", "the previous convert-as-skill session"), find that session's transcripts first and harvest from those, not from a guess. State the transcript path you used. If you cannot see it, ask once. (Procedure inspired by [mattpocock/retro](https://www.skills.sh/mattpocock/skills/retro); no upstream files were copied.)
+2. If the user named a **prior session** ("last time we wrote skills", "the previous convert-as-skill session"), find that session's transcripts first and harvest from those, not from a guess. State the transcript path you used. If you cannot see it, ask once.
 3. If the current thread is long or was compacted, ask for the transcript path or a pasted summary of the middle. State what you could not see.
 4. Ask one question only if the intent is unclear: "Which part should become the skill?" A session often holds several tasks; convert one skill per task.
 
@@ -46,9 +46,12 @@ Keep the user's exact wording for any instruction they dictated. Generalize valu
 
 ## Write and test
 
+Write the minimum first. A first version needs the goal, the working steps, the corrections and the done criteria; add examples, edge cases and references when a test shows the need.
+
 1. Write the skill with `create-skill` (template, location, description rules, lint).
 2. Test the way the skill will be used: in a fresh session, give the original first request in the user's words. It should trigger and reach the same result without the back-and-forth. Then give one near-miss request that should not trigger it.
-3. Adjust by symptom (never triggers: add the user's words; skipped a step: move it into a numbered step).
+3. Adjust by symptom (never triggers: add the user's words; skipped a step: move it into a numbered step). One change per round.
+   If you can, also note what a fresh session does with no skill on the same request, so you can tell whether the skill improved anything (`create-skill` `references/maintain.md`).
 4. Report the path and say that the conversation is the only test so far.
 
 ## What to leave out

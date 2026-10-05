@@ -67,7 +67,7 @@ Do not commit or push unless asked.
 - **Edit only** catalog paths above, plus `docs/agents/README.md` when the agent roster changes, and `.cursor/` for stack tooling.
 - **Never hand-edit** `.claude-plugin/`, `.cursor-plugin/`, `.codex-plugin/`, `skills/<group>/.claude-plugin/`, `generated/`, `hooks/hooks.json`, or the generated tables in `README.md` and `hooks/README.md`. Run `npm run sync`.
 - Skill folder name = frontmatter `name`. `description` is one quoted line, ≤ 1024 characters, and says when to use the skill.
-- No employer-owned content, secrets, or personal paths. No repo-root `THIRD_PARTY.md`; keep import licenses and `UPSTREAM.md` beside copied code.
+- No employer-owned content, secrets, or personal paths. No `THIRD_PARTY.md`, `UPSTREAM.md`, or other import-provenance manifests in this catalog.
 
 ## Where to look
 

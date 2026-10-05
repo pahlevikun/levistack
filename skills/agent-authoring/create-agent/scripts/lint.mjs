@@ -23,6 +23,10 @@ const AGENT_KEYS = new Set([
 const WHEN = /\b(use (when|for|this|if|to|after|before|on|in|it|proactively|immediately|whenever)|when (the )?(user|you|a|an|asked)|whenever|invoke (when|after|before))\b/i;
 const SKIP_DIRS = new Set(['node_modules', '.git', 'templates', 'references', 'assets', 'scripts', '_docs']);
 const SKIP_AGENT_FILES = new Set(['README.md', 'readme.md']);
+const FIRST_PERSON = /^\s*(I|We)\s|\bI (can|will|'ll|help|am)\b|\bhelps? you\b|\byou can (use|ask)\b/;
+const RESERVED_NAME = /(^|-)(anthropic|claude)(-|$)/;
+const XML_TAG = /<\/?[a-z][a-z0-9_-]*(\s[^>]*)?>/i;
+const NEEDS_USER = /\bAskUserQuestion\b|\bask the user\b|\bask (them|me) (a|for|which|whether)\b|\bwait for (the )?(user|confirmation|approval)\b|\bpresent (the )?options to the user\b/i;
 export const BODY_LINES_SKILL = 500;
 export const BODY_LINES_AGENT = 120;
 
@@ -85,6 +89,9 @@ function lintSkill(file, add) {
     if (desc.length + (data.when_to_use?.length ?? 0) > 1536) add('warn', 'listing-budget', file, 'description plus when_to_use is over 1,536 chars; Claude Code truncates the listing');
     if (!WHEN.test(desc) && !data.when_to_use) add('warn', 'no-trigger', file, 'description has no "Use when ..." trigger');
   }
+  if (desc && FIRST_PERSON.test(desc)) add('warn', 'first-person', file, 'description is not in the third person ("I can help you ..."); write what the skill does ("Extracts ...")');
+  if (name && RESERVED_NAME.test(name)) add('warn', 'reserved-name', file, `name "${name}" contains a word that Anthropic's skill guidance reserves ("anthropic", "claude"); choose another`);
+  if ((desc && XML_TAG.test(desc)) || (name && XML_TAG.test(name))) add('warn', 'xml-in-description', file, 'name or description contains an XML-like tag; the skill listing does not allow them');
   if (unsafe.includes('description') || unsafe.includes('name')) add('error', 'yaml-unquoted', file, 'a value contains ": " or "#" unquoted; strict YAML parsers (including the skills CLI) skip the skill. Quote it');
   for (const k of keys) if (!SKILL_KEYS.has(k)) add('warn', 'unknown-field', file, `unknown frontmatter field "${k}"`);
   if (!body.trim()) add('error', 'empty-body', file, 'SKILL.md has no instructions');
@@ -160,6 +167,7 @@ function lintAgent(file, add) {
   if (tools.some((t) => /^shell$/i.test(t))) add('warn', 'tool-name', file, '"Shell" is not a Claude Code tool name; use "Bash"');
   const writes = tools.some((t) => /^(write|edit|multiedit|notebookedit)$/i.test(t));
   if (writes && /read-only|never edit (any )?files|do not edit (any )?files|don't edit (any )?files/i.test(body)) add('warn', 'tools-vs-body', file, 'body says read-only but tools include Write or Edit');
+  if (tools.some((t) => /^askuserquestion$/i.test(t)) || NEEDS_USER.test(body)) add('warn', 'needs-user', file, 'a subagent cannot ask the user (it runs in its own context and returns one report). Return open questions in the report, and keep the questioning in the main session');
   if (data.model && /\s/.test(data.model)) add('warn', 'model-format', file, `model "${data.model}" contains whitespace`);
   if (!body.trim()) add('error', 'empty-body', file, 'the body is the system prompt and is empty');
   const n = bodyLines(body);

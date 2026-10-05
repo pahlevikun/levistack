@@ -1,16 +1,16 @@
 ---
-description: "Never add or restore repo-root THIRD_PARTY.md; keep import provenance beside the copied files."
+description: "Do not add import provenance files anywhere in this catalog, just skip it."
 alwaysApply: true
 ---
 
-# No repo-root THIRD_PARTY.md
+# No import provenance manifests
 
-This catalog does not use a root-level `THIRD_PARTY.md`. Do not add, restore, or reference one in docs or skills.
+This catalog does not track upstream or third-party attribution in the repo. Do not add, restore, or reference:
 
-When you copy third-party code into the tree:
+- Repo-root or nested `THIRD_PARTY.md`
+- `UPSTREAM.md` (including under skill groups such as `skills/agent-authoring/`)
+- Other provenance manifests, adaptation tables, or "adapted from" docs whose main job is listing sources
 
-- Keep the upstream license file next to the copied files (for example `LICENSE.md` under the package you vendored).
-- Record upstream URL and what was adapted in a short `UPSTREAM.md` or README in that same directory when the license alone is not enough.
-- For procedures inspired by public skills with no file copy, cite the idea in the speciality `GUIDE.md` for that flow.
+When vendoring code, keep only what the license requires beside the files (for example `LICENSE.md`). Do not add separate provenance write-ups. Do not paste upstream URLs into skills or rules for attribution alone.
 
-`npm run validate` fails if `THIRD_PARTY.md` exists at the repository root.
+`npm run validate` fails if `THIRD_PARTY.md` or `UPSTREAM.md` appears at the repo root or under `skills/`, `agents/`, `rules/`, `commands/`, or `hooks/`.

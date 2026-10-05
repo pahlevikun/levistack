@@ -73,6 +73,10 @@ Merge `CLAUDE.md`, `.cursor/rules`, and copilot instructions into one `AGENTS.md
 
 ## Content rules
 
+**The test for every line:** would the agent do something different without it? If it would do the same anyway, or the fact is one `grep` away, cut it. A file full of true but unneeded lines buries the few that matter, and an agent working from a noisy file fails for lack of signal, not lack of ability.
+
+**Wording:** firm and checkable. "Run `npm test -- <path>` before committing" and "Never edit `generated/`" bind; "try to", "generally" and "consider" do not (see `create-rule`).
+
 **Belongs:** commands, non-default conventions, boundaries, traps with rationale, verification steps, git rules.
 **Does not belong:** directory trees and dependency lists (they go stale and the agent can read them), architecture overviews derivable from code, generic advice ("write clean code"), persona text, anything already in the README, long prose, secrets, tokens, personal paths, or `@`-imports of files that may not exist.
 Use headings and bullets. Use backticks around any path you do not want imported (`@path` outside backticks is an import in Claude).

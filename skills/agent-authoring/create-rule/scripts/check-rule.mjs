@@ -8,6 +8,9 @@ import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { basename, extname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+// Words that make an obligation optional or leave the condition open. A rule that hedges is easy to ignore.
+const HEDGES = /\b(try to|try and|should probably|you may want to|you might want to|if possible|where possible|where appropriate|as appropriate|appropriately|generally|ideally|consider|best practices?)\b/gi;
+
 export const INFO_LINES = 50;
 export const WARN_LINES = 200;
 
@@ -84,6 +87,9 @@ export function checkRule(file, text = readFileSync(file, 'utf8')) {
   const n = body.replace(/\s+$/, '').split('\n').length;
   if (body.trim() && n > WARN_LINES) add('warn', 'too-long', `body is ${n} lines; split it into one concern per rule`);
   else if (body.trim() && n > INFO_LINES) add('info', 'long', `body is ${n} lines; rules work best under ${INFO_LINES}`);
+  const prose = body.replace(/```[\s\S]*?```/g, '').replace(/`[^`\n]*`/g, '');
+  const hedges = [...new Set([...prose.matchAll(HEDGES)].map((m) => m[0].toLowerCase()))];
+  if (hedges.length) add('info', 'hedged-language', `vague or optional wording (${hedges.slice(0, 4).map((h) => `"${h}"`).join(', ')}): say what to do and name the exception`);
   if (/(api[_-]?key|secret|token|password)\s*[:=]\s*['"][A-Za-z0-9_-]{16,}['"]/i.test(text)) add('error', 'secret', 'looks like a secret');
   return findings;
 }

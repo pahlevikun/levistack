@@ -9,6 +9,10 @@ Short patterns to copy into a skill body. Pick the one that fits the step; do no
 - Workflow checklist
 - Feedback loop
 - Conditional workflow
+- Plan, validate, execute
+- Phase checkpoints
+- Error recovery
+- Iterative refinement
 - Scripts
 - Concise versus verbose
 
@@ -87,6 +91,48 @@ For quality-critical steps: run a validator, fix, repeat, and only proceed when 
 ```
 
 Keep each branch short; move long branches into one reference file each.
+
+## Plan, validate, execute
+
+For open-ended or irreversible work, write the plan to a file, check it, and only then act. Errors surface while they are still cheap.
+
+```markdown
+1. Analyze the input and the requirements.
+2. Write every intended change to `changes.json`.
+3. Run `node scripts/validate-changes.mjs changes.json`. Fix and re-run until it prints no errors.
+4. Apply: `node scripts/apply-changes.mjs changes.json`.
+5. Verify the output against the success criteria.
+```
+
+Use it when the operation is complex, hard to undo, or the plan can be validated on its own. The originals are never touched until step 4.
+
+## Phase checkpoints
+
+For long work, end each phase with a check that must pass before the next begins. A failure in phase 1 should not cost phase 3.
+
+```markdown
+Phase 1, collect (steps 1-3). Checkpoint: the data is complete. Continue only if it is.
+Phase 2, process (steps 4-6). Checkpoint: the transformations validate. Continue only if they do.
+Phase 3, output (steps 7-9). Checkpoint: the output file validates. Deliver only if it does.
+```
+
+At each checkpoint: run the validator, read its output, confirm there are no errors or warnings.
+
+## Error recovery
+
+Say what to do when something fails, including when to stop.
+
+```markdown
+If validation fails: read the message; if the input is corrupt go back to step 1 with different input; if the logic is wrong fix it and go back to step 1; if only the format is wrong fix it and re-run step 2.
+If a save fails: check disk space, permissions and the path; retry once with the corrected condition.
+If it still fails after 3 attempts: write down what was tried, save partial results, and report to the user. Do not keep trying the same thing.
+```
+
+Retry transient failures (network, locks, rate limits) a bounded number of times with a pause, then fall back. An unbounded retry wastes tokens and can hit limits.
+
+## Iterative refinement
+
+When quality improves with passes: draft, validate, refine, validate, finalize. Each validation gives specific feedback to act on; the last one must pass cleanly. Use it where perfect output matters more than speed.
 
 ## Scripts
 

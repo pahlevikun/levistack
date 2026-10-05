@@ -1,6 +1,6 @@
 ---
 name: create-hook
-description: "Create, wire up and test agent hooks: Claude Code settings.json or plugin hooks, Cursor hooks.json, or a shared hooks/ tree. Use when asked to run something automatically on an agent event, block or rewrite a tool call, format after edits, inject session context, or debug a hook that never fires."
+description: "Create, wire up, test and debug agent hooks: Claude Code settings.json or plugin hooks, Cursor hooks.json, or a shared hooks/ tree, with working recipes. Use when asked to run something automatically on an agent event, block or rewrite a tool call, format after edits, gate Stop on tests, protect files, send notifications, inject session context, choose between a command and a prompt hook, or debug a hook that never fires."
 ---
 
 # Create a hook
@@ -13,9 +13,19 @@ A hook is a script or check the harness runs on an agent event. The harness runs
 2. **Narrowest event, narrowest matcher.** `PreToolUse` on `Bash` is better than a hook on every event. Filter in the script when a matcher gets tricky.
 3. **Fail open unless it is a deliberate blocker.** A crash, a timeout or unexpected input should let the action proceed. Reserve blocking (`deny`, exit 2, `failClosed`) for a rule you would defend.
 4. **Fast and quiet.** A hook on the hot path runs on every call. Set a short `timeout`, do no network work, and keep stdout to the JSON the harness expects.
-5. **Deterministic over clever.** A script beats a `prompt` hook when the result must be auditable. Use a `prompt` hook only for policy that is easier to describe than to code.
+5. **Deterministic over clever.** A script beats a `prompt` hook when the result must be auditable. Use a `prompt` hook only for policy that is easier to describe than to code, and never on an event that fires on every tool call ([handlers.md](references/handlers.md)).
 6. **Portable.** Prefer Node over shell, and verify every binary the script calls exists on the hook's `PATH`.
 7. **Opt-in for personal tooling.** A hook shared through a plugin or repo affects everyone who installs it. Keep it conservative, or gate it behind a flag file.
+
+## What do you want to do?
+
+| Request | Go to |
+|---|---|
+| A new hook | [Steps](#steps) |
+| A ready recipe (guard, protect, format, stop gate, context, notify) | [recipes.md](references/recipes.md) |
+| Command or prompt hook | [handlers.md](references/handlers.md) |
+| It does not fire, fails, blocks too much, loops, is slow | [troubleshooting.md](references/troubleshooting.md) |
+| Events, matchers, exit codes, fields | [claude-code.md](references/claude-code.md), [cursor.md](references/cursor.md) |
 
 ## Steps
 
@@ -34,9 +44,9 @@ A hook is a script or check the harness runs on an agent event. The harness runs
    | A shared hooks tree (`hooks/<name>.mjs` with a launcher) | the tree's own convention | its `hooks/README.md` |
 
    If a repo already has hooks, extend its setup and keep unrelated entries.
-3. **Choose the event** from the table in the reference for your target. Check what that event can return; not every event can block.
-4. **Write the script** (Node by default). Read the JSON from stdin, decide, print only the output JSON, and exit 0. Block with the event's documented decision or with exit 2, never with prose on stdout. Ambiguous input returns allow.
-5. **Wire it up** with the smallest matcher that works. Start with no matcher or a simple one and tighten after it fires. Quote path placeholders (`"$CLAUDE_PROJECT_DIR"`), because paths contain spaces.
+3. **Choose the event** from the table in the reference for your target. Check what that event can return; not every event can block. Look for a ready recipe first ([recipes.md](references/recipes.md)): guard shell commands, protect files, format after edits, gate Stop on tests, add session context, notify.
+4. **Write the script** (Node by default), starting from `scripts/recipes/` when one fits. Read the JSON from stdin inside a `try`, decide, print only the output JSON, and exit 0. Block with the event's documented decision or with exit 2, never with prose on stdout. Ambiguous or unreadable input returns allow. Decide command or prompt with [handlers.md](references/handlers.md).
+5. **Wire it up** with the smallest matcher that works. Start with no matcher or a simple one and tighten after it fires. Quote path placeholders (`"$CLAUDE_PROJECT_DIR"`), because paths contain spaces. Merge into the existing config, then check the JSON parses (`node -e "JSON.parse(require('fs').readFileSync('.claude/settings.json','utf8'))"`): a syntax error can disable the whole file.
 6. **Try it by hand** before the harness does:
 
    ```bash
@@ -44,7 +54,7 @@ A hook is a script or check the harness runs on an agent event. The harness runs
    ```
 
    It builds a Claude Code payload, runs the command, and reports the exit code, the decision and any invalid JSON. `--json '<payload>'` sends a raw payload for other events or for Cursor. Run it for one input that should trigger and one that should pass. A hook behind an opt-in flag file reports allow until the flag exists.
-7. **Trigger it for real** in a session and read the harness's hook log (`claude --debug-file <path>`, or Cursor's Hooks tab). Confirm the matcher matched.
+7. **Trigger it for real** in a session and read the harness's hook log (`claude --debug-file <path>`, or Cursor's Hooks tab). Confirm the matcher matched. If it did not fire, or fails, or blocks too much, go to [troubleshooting.md](references/troubleshooting.md).
 8. **Check the repo's gates.** In a catalog with its own hook tests or sync step, add a test and run them.
 
 ## Output at a glance
@@ -63,6 +73,9 @@ A hook is a script or check the harness runs on an agent event. The harness runs
 - Add a `Stop` hook that blocks without checking `stop_hook_active`; it can loop.
 - Put secrets or personal paths in a shared hook, or call the network in a hot-path hook.
 - Overwrite a user's existing `settings.json` hooks; merge.
+- Put a model-judged `prompt` hook on `PreToolUse` or `PostToolUse` without a narrow matcher or `if` filter: it runs, and costs, on every call.
+- Treat a deny list as a sandbox. It catches the common spelling, not every spelling.
+- Use `timeout` in milliseconds: Claude Code reads seconds.
 
 ## Related skills
 
@@ -77,3 +90,4 @@ A hook is a script or check the harness runs on an agent event. The harness runs
 - `try-hook.mjs` shows the expected decision for one triggering input and one passing input.
 - It fired in a real session, and the log shows the expected result.
 - It fails open on bad input, unless blocking is its stated purpose.
+- The config file still parses, and unrelated hooks are intact.

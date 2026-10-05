@@ -114,7 +114,6 @@ The usual flow: `context-harvester` first, then `planner`, `coordinator`, `explo
 
 - `commands/`: slash commands. `/handoff` is the one I use most.
 - `statusline/`: a one-line status for Claude Code, Cursor CLI and Codex. It shows the branch, model, your 5-hour and weekly limits, and context use. `node scripts/install-statusline.mjs --dry-run` first. See [`statusline/README.md`](statusline/README.md).
-- Import provenance lives next to vendored code (for example `skills/agent-authoring/convert-as-skill/scripts/extractor/UPSTREAM.md` and `LICENSE.md`), not in a repo-root file.
 
 ## Status
 

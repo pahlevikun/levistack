@@ -28,6 +28,7 @@ Default to keeping or wrapping. Convert only when isolation and the tool list do
 | `tools`, `disallowedTools` | **Lost.** A skill's `allowed-tools` only pre-approves tools; it does not restrict them. Remove tool-limit statements from the body or accept they are advisory |
 | `permissionMode`, `maxTurns`, `mcpServers`, `hooks`, `memory`, `skills`, `isolation` | **Lost** |
 | Isolated context and a summarized return | **Lost** unless `context: fork` is set |
+| Cannot ask the user questions | **Changes.** An inline skill can ask the user and wait; a forked one cannot, as with any subagent. If the agent's prompt says "return open questions in the report", an inline skill can ask them instead |
 
 With `--fork` the converted skill carries `context: fork`, so it runs in a subagent. That subagent is a general-purpose one, not the original definition, so the tool restrictions still do not apply.
 

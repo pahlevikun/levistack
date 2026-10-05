@@ -35,11 +35,32 @@ function walkText(dir, acc = []) {
   return acc;
 }
 
+const PROVENANCE_MANIFESTS = new Set(['THIRD_PARTY.md', 'UPSTREAM.md']);
+
+function findProvenanceManifests(root) {
+  const hits = [];
+  for (const name of PROVENANCE_MANIFESTS) {
+    const atRoot = join(root, name);
+    if (existsSync(atRoot)) hits.push(name);
+  }
+  for (const sub of ['skills', 'agents', 'rules', 'commands', 'hooks']) {
+    const base = join(root, sub);
+    if (!existsSync(base)) continue;
+    for (const f of walkText(base)) {
+      const baseName = f.slice(f.lastIndexOf('/') + 1);
+      if (PROVENANCE_MANIFESTS.has(baseName)) hits.push(f.slice(root.length + 1));
+    }
+  }
+  return hits;
+}
+
 export function validateTree(root, { strict = false } = {}) {
   const errors = [];
   const warnings = [];
-  if (existsSync(join(root, 'THIRD_PARTY.md'))) {
-    errors.push('THIRD_PARTY.md: remove this file; use per-package LICENSE/UPSTREAM beside copied code (see rules/core/no-third-party-md.md)');
+  for (const rel of findProvenanceManifests(root)) {
+    errors.push(
+      `${rel}: remove import provenance manifests (see rules/core/no-third-party-md.md); keep LICENSE beside copied code only when the license requires it`,
+    );
   }
   const tree = scanTree(root);
 
