@@ -1,0 +1,20 @@
+{
+  "title": "levistack: Murk, the mug",
+  "sections": [
+    {
+      "heading": "Primary mark",
+      "body": "Murk, a tired mug built from three stacked layers with a fish-hook handle, floating in dusky fog. 512 px squircle icon on ink #17152e.",
+      "assets": ["docs/assets/icon.svg", "docs/assets/icon-animated.svg"]
+    },
+    {
+      "heading": "README hero",
+      "body": "904 x 256 banner: the mug, the levistack wordmark with the gold stack, and the seven-step use-levistack route with step 06 prove in gold.",
+      "assets": ["docs/assets/logo.svg", "docs/assets/logo-animated.svg"]
+    },
+    {
+      "heading": "Treatments considered",
+      "body": "A full scene (chosen), B mug only, C one-colour stamp for small or printed uses.",
+      "assets": ["docs/assets/kit/concepts/a-full-scene.svg", "docs/assets/kit/concepts/b-mug-only.svg", "docs/assets/kit/concepts/c-mono-stamp.svg"]
+    }
+  ]
+}

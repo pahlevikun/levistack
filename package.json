@@ -1,0 +1,22 @@
+{
+  "name": "levistack",
+  "version": "0.1.0",
+  "description": "Personal agent skills, rules, subagents, commands and hooks in Hermes-style groups.",
+  "type": "module",
+  "private": true,
+  "author": {
+    "name": "Farhan Yuda Pahlevi"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "sync": "node scripts/sync.mjs",
+    "validate": "node scripts/validate.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "check:publish": "node scripts/sync.mjs --check && node scripts/validate.mjs --strict && node --test tests/*.test.mjs",
+    "check": "node scripts/sync.mjs --check && node scripts/validate.mjs && node --test tests/*.test.mjs",
+    "statusline:install": "node scripts/install-statusline.mjs"
+  }
+}

@@ -1,0 +1,18 @@
+---
+description: "Phoenix LiveView: keep LiveViews thin, one owner per external connection, untrusted params, supervised processes."
+globs: "**/*live*.ex,**/*_web/**/*.{ex,heex}"
+alwaysApply: false
+---
+
+# Phoenix LiveView
+
+- **LiveViews and LiveComponents are transport.** No business or formatting logic in `render` or `handle_event`. Put it in a context or helper module and call it.
+- **One owner per external connection.** A single client process owns the gRPC channel; a single process owns the WebSocket feed. LiveViews call these clients and never open a competing connection.
+- **Long-lived processes** start only under the application supervisor.
+- **Treat params as untrusted:** LiveView params, RPC responses and external JSON. Validate at the boundary and never turn them into atoms.
+- **Never put secrets in assigns,** and never log a whole response, socket or state map (`inspect(socket)`, `inspect(state)`).
+- **Streams and PubSub:** subscribe in `mount` once connected (`connected?/1`), broadcast minimal payloads, and clean up on terminate.
+- **Reproducing a design?** Follow `pixel-perfect-ui`.
+
+## Done checklist
+`mix compile --warnings-as-errors` and the format check are clean; changed behavior has a test (see `elixir-testing`); the boundaries above still hold.

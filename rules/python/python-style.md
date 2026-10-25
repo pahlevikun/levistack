@@ -1,0 +1,39 @@
+---
+description: "Python style: ruff gate, typed signatures with parameters, named constants, early returns, memory hygiene."
+globs: "**/*.py"
+alwaysApply: false
+---
+
+# Python style
+
+## Gate
+After editing Python, run lint and format and fix the issues you introduced. Do not fix pre-existing warnings in code you did not touch.
+```bash
+uv run ruff check . && uv run ruff format --check .
+```
+
+## Types
+- Type hints on every function that is not a one-line lambda.
+- Never use bare `dict` or `list` in a signature; give type parameters (`dict[str, object]`). Prefer `object` over `Any`.
+- Alias repeated shapes (`JsonDict = dict[str, object]`). Coerce external values (`str(...)`, `float(...)`) at the boundary, and `cast()` when narrowing `.json()` results.
+
+## Constants and names
+- Hoist **domain** literals (column names, statuses, error templates, markers) to module-level `_`-prefixed constants.
+- Keep API path segments and request or response JSON keys **inline** at the call site.
+- Read tunables from config, not from literals.
+- Use domain names, not `x`, `result` or `data`.
+
+## Control flow
+- Early `return` / `continue` over nested `if` / `else`.
+- Catch the exception you expect. Let bugs raise (see `failure-visibility`).
+
+## Imports
+stdlib, then third-party, then local. One blank line between groups, alphabetical within a group. Import HTTP through the project's wrapper, not directly, when one exists.
+
+## Memory hygiene in hot loops
+Free large payloads as soon as they are consumed (`del resp` after `.json()`, the raw body after extracting what you need, a row after writing it). Do not accumulate results you can stream.
+
+## Anti-patterns
+- A payload variable still alive after its data was written out.
+- A domain literal inlined where a constant belongs, or a JSON key hoisted into a constant.
+- A skipped item returned as an empty record instead of `None`.

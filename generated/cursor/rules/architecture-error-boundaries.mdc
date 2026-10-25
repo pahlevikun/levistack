@@ -1,0 +1,25 @@
+---
+description: "Adapters return transport outcomes, the domain owns error meaning, and exactly one place maps errors to the wire."
+alwaysApply: false
+---
+<!-- generated from rules/architecture/error-boundaries.md; do not edit -->
+
+# Error boundaries
+
+## The split
+- **Adapters (database, HTTP clients)** report what happened on the wire: `ok`, `not_found`, a constraint violation, `circuit_open`, a timeout. They give no business meaning.
+- **The domain** owns error meaning: one error type with a stable `type`/code, a message and optional details (`not_found`, `invalid_input`, `already_exists`...). The use-case boundary decides what an adapter outcome means for the operation.
+- **One mapper** translates domain errors to the wire format (status code, error body). The domain-type to status table lives there and nowhere else. New error types are added to it, not ad hoc in handlers.
+
+## Rules
+- Domain and application functions return a tagged result (`ok` / `error(DomainError)`), or the equivalent in your language.
+- A handler converts adapter outcomes to domain errors at the call site, then raises or returns the domain error. It never builds a wire error itself.
+- Unhandled exceptions are caught at the outer boundary, logged once with the stack trace, and returned as a generic internal error. Never leak stack traces, ORM internals or exception messages to callers.
+- Match on the typed error, never on message text.
+- Every transport has its own mapper (HTTP, RPC, WebSocket) but the same domain errors feed all of them. Do not invent a second error shape per handler.
+
+## Auto-reject in review
+- An adapter or client returning a domain error, or raising a transport-specific error.
+- A handler building a wire error directly, bypassing the mapper.
+- A bare untyped `error(reason)` reaching the mapper, which degrades to a generic internal error and hides the cause from the caller and the logs.
+- Matching on `Exception.message` or `err.Error()` content.

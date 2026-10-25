@@ -1,0 +1,26 @@
+---
+description: "Elixir naming, structure and the format/compile/lint gates to run after editing .ex and .exs files."
+globs: "**/*.{ex,exs}"
+alwaysApply: false
+---
+<!-- generated from rules/elixir/elixir-style.md; do not edit -->
+
+# Elixir style and gates
+
+## Naming and layout
+- `snake_case` for files, functions, variables and atoms. `PascalCase` modules matching the file path (`lib/app_web/live/trade_live.ex` is `AppWeb.TradeLive`).
+- Boolean functions end in `?` (`connected?`). Reserve `is_*` for guards.
+- Public functions first, then private helpers, roughly in the order the public API calls them.
+- `@spec` on exported functions. `@doc` where the contract is not obvious from the module doc. Prefer short cohesive functions, tagged errors and function clauses over deep branching.
+
+## Gates after editing `.ex` / `.exs`
+1. Focused test for the change.
+2. `mix format` (or `mix format --check-formatted` when nothing formats on save).
+3. `mix compile --warnings-as-errors`; fix warnings you introduced.
+4. Run the linters the project **actually has** (Credo, Sobelow, Dialyzer, `mix deps.audit`). Check `mix.exs` first. Never invent a step the repo does not configure, and do not copy gates from another project.
+5. A project alias (`mix precommit`, `mix check`) is the shortest route when it exists.
+
+Do not fix pre-existing warnings outside your diff unless asked.
+
+## Comments and docs
+Follow `comments`. `@moduledoc` and `@doc` are documentation, not disposable comments: keep them accurate, and update or delete them in the same change as the code.

@@ -1,0 +1,38 @@
+---
+description: "Go security: trust boundaries, PII, secrets and constant-time compare, input validation, vulnerability gates."
+globs: "**/*.go"
+alwaysApply: false
+---
+
+# Go security
+
+Run `security-reviewer` on diffs that touch these areas.
+
+## Trust boundaries
+- Validate every payload at the handler and task boundary. Do not trust arbitrary headers for identity: authenticate at the gateway and read identity from the validated token or payload.
+- Forward only an allowlist of headers to upstream calls. Never cookies or `Authorization` by pass-through.
+- Queue job arguments and webhook payloads are untrusted. Validate IDs and shapes before calling upstreams.
+- When copying actor-identity headers, copy before delete (`Get`, `Set`, `Del`).
+
+## PII and logging
+- No PII or credentials at any level (see `pii-logging`). Redact sensitive fields from logged upstream error bodies.
+
+## Secrets and crypto
+- Secrets come from config, env or a secret store. Never hardcode, log, or commit them.
+- Compare tokens and HMACs with `crypto/subtle.ConstantTimeCompare`, not `==`.
+- Load signing and crypto keys at startup and fail closed if config is missing.
+- No custom crypto. Use stdlib `crypto/*` and vetted algorithms.
+- SQL: parameterized queries only. Never concatenate user input.
+- `exec.Command`: separate arguments, never a shell string.
+- File paths from untrusted input: scope to an allowed root and reject `..` and absolute paths.
+- Server-side fetches of user-supplied URLs: validate against a host allowlist (SSRF).
+
+## Input validation
+Validate with typed enums and a `Validate()` at the boundary. An unknown enum value is a typed error, never a silent default.
+
+## Gates
+```bash
+govulncheck ./...
+go test -race ./...
+# gosec ./...   when installed
+```

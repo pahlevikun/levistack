@@ -1,0 +1,13 @@
+{
+  "name": "levistack-product",
+  "version": "0.1.0",
+  "description": "Product and UI work on a real product: audit, user-journey QA, UI/UX polish, design systems, tokens, branding and motion.",
+  "author": {
+    "name": "Farhan Yuda Pahlevi"
+  },
+  "license": "MIT",
+  "skills": [
+    "./design-system-kit",
+    "./product-polish-workflow"
+  ]
+}

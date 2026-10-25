@@ -1,0 +1,19 @@
+---
+description: "One audit event envelope, written in the same transaction as the mutation, built from allowlisted fields only."
+alwaysApply: false
+---
+
+# Audit events
+
+- **One persisted audit envelope and one producer.** Do not add a second audit logger or write a legacy table.
+- **Mutations:** build one activity event plus any linked data-change events. Reuse one `activity_id` across everything the mutation caused. Insert the business state and the outbox rows in the **same transaction**; an audit failure rolls the mutation back. Generate event IDs and timestamps before a retryable transaction starts.
+- **Reads:** emit one **best-effort** activity event after the result is known. A failure to persist the audit event must never replace the read result. Health, readiness, liveness, cache internals and dispatcher polling are not business reads.
+- **Denials:** authentication and rate-limit failures emit one denied activity that matches the terminal transport status.
+- **Allowlisted projections only.** Build audit snapshots from explicit per-context projection modules. Never pass request bodies, schemas, changesets or arbitrary maps. Classify a field's sensitivity before adding it.
+- **Actors** are internal service names, irreversible credential fingerprints or anonymous classifications. Never persist credentials or raw peer addresses.
+- **One dispatcher** leases bounded batches from the outbox, copies events idempotently to the audit store, retries transient failures and dead-letters permanent ones.
+- **Delivered events and outbox payloads are immutable.**
+- **Separate credentials** for querying audit events and for administering delivery.
+
+## Common failures
+A business mutation committed without its outbox rows (separate transactions); an arbitrary object passed into a snapshot, leaking sensitive data and unbounded JSON; a second audit path.

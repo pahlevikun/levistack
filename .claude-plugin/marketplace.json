@@ -1,0 +1,74 @@
+{
+  "name": "levistack",
+  "owner": {
+    "name": "Farhan Yuda Pahlevi"
+  },
+  "metadata": {
+    "description": "Personal agent skills, rules, subagents, commands and hooks in Hermes-style groups."
+  },
+  "plugins": [
+    {
+      "name": "levistack",
+      "source": "./",
+      "description": "Every group: all skills, agents, commands and opt-in hooks."
+    },
+    {
+      "name": "levistack-agent-authoring",
+      "source": "./skills/agent-authoring",
+      "description": "Creating agents, skills, rules, hooks, commands and AGENTS.md files for coding assistants."
+    },
+    {
+      "name": "levistack-architecture",
+      "source": "./skills/architecture",
+      "description": "System design and stack choices: super-architecture (detect, select, build, evaluate, migrate and document architecture), super-caching, Node backends, super-protobuf, target-stack evaluation and blueprints."
+    },
+    {
+      "name": "levistack-delivery",
+      "source": "./skills/delivery",
+      "description": "Shipping work: atomic commits, code review (local diff, request, receive, GitLab glab drafts), merge request descriptions, tickets and API collections."
+    },
+    {
+      "name": "levistack-engineering",
+      "source": "./skills/engineering",
+      "description": "Engineering habits: tdd (test-first red-green-refactor across stacks), safe-refactor (behavior-preserving refactors), verify (evidence before claims), noslop (no-slop filter for backend, API, frontend, database, config and comments) and output-savers (YAGNI, DRY, SOLID and plain STE replies)."
+    },
+    {
+      "name": "levistack-focus",
+      "source": "./skills/focus",
+      "description": "ADHD-friendly daily tools: shrink a task to one next action, list tangents for later, and write today's standup from what you really did."
+    },
+    {
+      "name": "levistack-knowledge",
+      "source": "./skills/knowledge",
+      "description": "Understand, question and plan: how the code works today (one flow or the whole repo), why it is shaped that way or why it broke (trace), a second opinion on a change, grilling plans, execution-ready API specs and step-by-step implementation plans."
+    },
+    {
+      "name": "levistack-product",
+      "source": "./skills/product",
+      "description": "Product and UI work on a real product: audit, user-journey QA, UI/UX polish, design systems, tokens, branding and motion."
+    },
+    {
+      "name": "levistack-workflow",
+      "source": "./skills/workflow",
+      "description": "How to work with this stack: the use-levistack entry point and router, finding and installing skills, and handing a session off to the next one."
+    },
+    {
+      "name": "polyglot-copywriter",
+      "source": {
+        "source": "github",
+        "repo": "pahlevikun/polyglot-copywriter"
+      },
+      "description": "Default writing skill for everyday prose: write, rewrite, humanize and de-AI text in simple words, 97 languages and 163 dialect overlays.",
+      "category": "upstream"
+    },
+    {
+      "name": "logo-kit-svg",
+      "source": {
+        "source": "github",
+        "repo": "pahlevikun/logo-kit-svg"
+      },
+      "description": "Ship a four-file SVG brand system (icon and README banner, static and animated) plus a tiered kit: platform icons, social cards and boards, with script QA.",
+      "category": "upstream"
+    }
+  ]
+}

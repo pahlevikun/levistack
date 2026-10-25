@@ -1,0 +1,17 @@
+{
+  "name": "levistack-knowledge",
+  "version": "0.1.0",
+  "description": "Understand, question and plan: how the code works today (one flow or the whole repo), why it is shaped that way or why it broke (trace), a second opinion on a change, grilling plans, execution-ready API specs and step-by-step implementation plans.",
+  "author": {
+    "name": "Farhan Yuda Pahlevi"
+  },
+  "license": "MIT",
+  "skills": [
+    "./challenge-me",
+    "./codebase-learner",
+    "./execution-ready-spec-plan",
+    "./second-opinion",
+    "./trace",
+    "./write-plan"
+  ]
+}

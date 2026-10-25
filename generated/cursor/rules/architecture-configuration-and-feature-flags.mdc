@@ -1,0 +1,23 @@
+---
+description: "One typed path for runtime config, loud failure for missing required values, and named functions for feature flags."
+alwaysApply: false
+---
+<!-- generated from rules/architecture/configuration-and-feature-flags.md; do not edit -->
+
+# Configuration and feature flags
+
+## Config
+- **One canonical path.** Parse environment variables in one runtime-config file, expose them through a typed accessor, and consume them only through that accessor. No scattered direct reads of the application environment.
+- **Treat config changes as schema changes.** Review the variable name, type, default, required-versus-optional behavior and every caller together.
+- **Make the effective value obvious.** A reviewer should be able to answer "what does this boot with if the variable is missing?" from the code.
+- **Fail loudly.** Missing required secrets and critical knobs crash the boot with a clear message. No silent `nil`. Never default a secret in staging or production.
+- **Keep app-local boot toggles narrow.** A setting that matters across apps or to an operator belongs in the shared schema; a toggle only one app cares about can be read locally with an inline default.
+- Secrets are read only in the runtime-config layer and never logged.
+
+## Feature flags
+- The flag library is called from **one module**. Raw flag names are never referenced elsewhere.
+- Every flag in use has a **named, discoverable function** (`rate_limiting_enabled?`). Application code calls the named function, not `enabled?(:some_flag)`.
+- **Defaults:** a kill switch guarding already-shipped behavior defaults to **enabled** (turning it off is an emergency action). A flag gating new behavior defaults to **disabled**.
+- Persistence is wired at boot by the layer that owns the database; the config layer takes no database dependency.
+- Delete a flag's function when the flag is removed. Do not copy the pattern of a stale one.
+- Audit evidence is not feature-flagged.

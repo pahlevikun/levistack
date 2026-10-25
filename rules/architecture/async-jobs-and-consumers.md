@@ -1,0 +1,20 @@
+---
+description: "Background jobs and message consumers: thin callbacks, idempotent processing, defined success/retry/drop behavior."
+alwaysApply: false
+---
+
+# Async jobs and consumers
+
+Applies to job queues, message consumers, schedulers and fan-out.
+
+- **The callback is transport.** A worker or consumer callback validates its input, calls the domain exactly as an HTTP handler would, and translates the result into what the runtime understands (ack, retry, snooze, dead-letter). No business decisions, persistence mapping or retry loops inside it.
+- **Define success, retry and drop before the code lands.** "Let the library decide" is not enough. Acknowledgement strategy is reviewed together with idempotency and failure policy.
+- **Idempotency is the processor's job.** Any message or job may be delivered twice. Check "already done" first, or make the operation naturally idempotent. If replay is unsafe, the design is incomplete.
+- **Dropped work leaves an operator-visible trail:** structured logs, metrics or a dead-letter record.
+- **Never swallow every error and report success.** That hides real failures and defeats the runtime's retry policy. Swallow only an error you decided is non-retryable and non-alertable.
+- **Permanent failures stop retrying** (cancel or dead-letter); transient ones return an error for backoff.
+- **Payloads are persisted and broadcast.** No PII or secrets in job arguments or message bodies; send the minimal shape.
+- **Name queues for bounded contexts,** not a generic bucket, so dashboards and metrics stay meaningful as job types grow.
+- **Do not emulate durable retries** with ad hoc supervised-task loops.
+- **Polling a business table for work is wrong.** A purpose-built durable queue with leasing, retries, idempotency and dead-letter state is the deliberate exception.
+- **Do not present a runtime you have not installed** (consumer groups, offsets, pipelines) as current behavior.

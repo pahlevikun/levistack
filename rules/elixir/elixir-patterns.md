@@ -1,0 +1,51 @@
+---
+description: "Elixir idioms: pattern matching, guards, with/<-, tagged tuples, no dynamic atoms, minimal function contracts."
+globs: "**/*.{ex,exs,heex}"
+alwaysApply: false
+---
+
+# Elixir patterns
+
+## Match in function heads
+Reach for function-head matching before `if` / `case` in a body. Order clauses most specific to least specific; the catch-all goes last.
+```elixir
+defp cancel_idle_timer(%{idle_timer_ref: nil} = state), do: state
+defp cancel_idle_timer(state), do: %{state | idle_timer_ref: nil}
+```
+
+## Smallest function contract
+- Zero arity when the caller supplies nothing; scalars or structs for stable internal calls; maps only for document-shaped boundaries.
+- For map input, match the required keys in the head, guard primitive types, and return an explicit tagged error for missing keys and non-map values.
+- Use a struct when the shape is known (`%PlaceOrder{}`), not a bare map. `%{}` matches **any** map: use `map_size(map) == 0` when "empty" is meant.
+- Transport owns string keys. The domain validates into atom-keyed values or structs. The data layer never interprets arbitrary request maps.
+
+## Guards use `and` / `or` / `not`
+Never `&&`, `||`, `!` in a guard: they are not guard-safe.
+
+## `with`: every failable step is `<-`
+```elixir
+# WRONG: swallows {:error, _} and binds it to `parsed`
+with {:ok, ch} <- connect(), parsed = parse(ch), {:ok, r} <- validate(parsed) do
+
+# RIGHT
+with {:ok, ch} <- connect(), {:ok, parsed} <- parse(ch), {:ok, r} <- validate(parsed) do
+```
+List each distinct error shape in `else`; avoid one catch-all.
+
+## Tagged tuples, not exceptions
+`{:ok, value} | {:error, reason}` for expected failures. Reserve `raise` / `rescue` for truly unexpected crashes and for the one deliberate boundary that translates errors (see `error-boundaries`).
+
+## No atoms from external input
+`String.to_atom/1` on request params, RPC fields or JSON is an unbounded atom-table leak. Use `String.to_existing_atom/1` or match a known set.
+
+## Small habits
+- Prepend (`[x | list]`), do not append (`list ++ [x]`), anywhere that runs more than once; reverse once at the end if order matters.
+- Defaults via `Keyword.get(opts, :k, default)`, not `case ... nil ->`.
+- Start a pipe with raw data. Do not pipe a single call for style.
+- Prefer plain functions. Add a process only for bounded runtime state, a resource, concurrency, a timer or fault isolation (see `elixir-otp`).
+
+| Wrong | Right |
+|---|---|
+| `parsed = parse(x)` inside `with` | `{:ok, parsed} <- parse(x)` |
+| `String.to_atom(param)` | `String.to_existing_atom/1` or a known-set match |
+| `assert result` (truthy only) | `assert {:ok, %{id: _}} = result` |

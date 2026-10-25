@@ -1,0 +1,33 @@
+---
+description: "Comments are a last resort: only for non-obvious constraints, gotchas and trade-offs the code cannot express."
+globs: "**/*.{go,ts,tsx,js,jsx,py,rb,ex,exs,md}"
+alwaysApply: false
+---
+
+# Comments: extremely rare by design
+
+Comments cost tokens, rot silently and hide bad naming. **Default: do not write one.** Add one only when names, types, structure, tests and error handling cannot express the truth.
+
+## Allowed
+- A subtle correctness, security or concurrency gotcha the types do not make obvious.
+- A non-obvious performance, ordering or consistency trade-off ("must run before X because of Y").
+- An external constraint invisible in the code ("the gateway already rate-limits this; do not add another check"), ideally with a link to the decision record.
+- A contract detail on an exported symbol that the name, signature and tests still leave ambiguous (improve the name first).
+
+## Never
+- Narrating the next line ("build the request", "call the client", "return the result").
+- Restating what a test or assertion already verifies.
+- Describing the change you just made ("added X for Y").
+- Section dividers or paraphrasing a function name in a doc comment.
+- Planning notes the decision record should hold.
+
+## Prefer instead
+Better names, smaller functions, stronger types (enums and newtypes over "this bool means X"), tests as executable specification, structured config over magic comments.
+
+If you feel the urge to explain *what* the code does, rename or restructure instead. When reviewing, delete narrative comments.
+
+## Documentation is not a comment
+Module and function docs, architecture notes, API contracts, migration notes and skills are documentation, not disposable comments. Keep them accurate and explanatory, and **update or delete stale documentation in the same change as the code.**
+
+## Docs comments
+Exported-symbol docs (godoc, docstrings) are allowed when the name and signature do not communicate the contract or an important caveat. Restating the name is forbidden, same bar as inline comments.

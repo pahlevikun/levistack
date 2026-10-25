@@ -1,0 +1,16 @@
+---
+description: "Handling money and sensitive financial data: exact decimals, idempotent audited writes, no card secrets, explicit state machines."
+alwaysApply: false
+---
+
+# Financial and sensitive data
+
+- **Money uses exact decimals** (decimal strings or fixed precision) with an ISO 4217 currency. Never binary floating point.
+- **Writes are idempotent and auditable.** A retried request must not move money twice.
+- **Lifecycle changes use an explicit state machine** with immutable history where required. Do not model a mutable balance as ordinary CRUD.
+- **Identifiers fixed at creation stay immutable** (account number, product, currency).
+- **Never store** card PAN, CVV or PIN, passwords, raw provider payloads, or a mother's name as an authentication factor.
+- **Government identifiers, identity documents, ownership, screening and risk data** are not exposed or accepted through ordinary profile endpoints until encryption or tokenization, key ownership, retention, authorization and audit policy are approved.
+- **Do not implement** balances, ledger postings, KYC decisions, transfers, reversals or payment-rail fields by assumption from a draft. Build what the approved contract states.
+- New external fields are **sensitive by default** until explicitly classified (see `pii-logging`).
+- Public CRUD cannot verify identity checks; treat verification as a separate, authorized flow.

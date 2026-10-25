@@ -1,0 +1,15 @@
+{
+  "description": "Skills that live in their own repository and ship as their own plugin. The levistack marketplace lists them as GitHub sources, and the levistack root plugin depends on them, so installing or updating levistack installs and updates them too. Edit them in their own repository, not here.",
+  "plugins": [
+    {
+      "name": "polyglot-copywriter",
+      "repo": "pahlevikun/polyglot-copywriter",
+      "description": "Default writing skill for everyday prose: write, rewrite, humanize and de-AI text in simple words, 97 languages and 163 dialect overlays."
+    },
+    {
+      "name": "logo-kit-svg",
+      "repo": "pahlevikun/logo-kit-svg",
+      "description": "Ship a four-file SVG brand system (icon and README banner, static and animated) plus a tiered kit: platform icons, social cards and boards, with script QA."
+    }
+  ]
+}

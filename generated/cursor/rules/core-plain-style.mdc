@@ -1,0 +1,16 @@
+---
+description: "Writing style for replies and docs: direct, concrete, economical, no filler."
+alwaysApply: false
+---
+<!-- generated from rules/core/plain-style.md; do not edit -->
+
+- Lead with the answer or result.
+- Report what was verified versus assumed.
+- No filler openers, no closing recaps that repeat the body.
+
+## Be economical, not lossy
+- Use concise professional sentences with normal grammar. Remove filler and repetition.
+- Load only the context the task needs: the request, the nearest `AGENTS.md`, the selected workflow, and the specific rules, source and tests involved.
+- Run targeted discovery and focused checks before broader gates.
+- Preserve exact commands, decisive errors, negations, numbers, contract fields, query predicates, security conditions and limitations. Never compress these.
+- Brevity never excuses incomplete validation, authorization, transaction safety, bound queries, tests, docs or required verification. Stop when acceptance is freshly proven.

@@ -1,0 +1,52 @@
+{
+  "name": "levistack",
+  "version": "0.1.0",
+  "description": "Personal agent skills, rules, subagents, commands and hooks in Hermes-style groups.",
+  "author": {
+    "name": "Farhan Yuda Pahlevi"
+  },
+  "license": "MIT",
+  "skills": [
+    "./skills/agent-authoring/convert-as-skill",
+    "./skills/agent-authoring/create-agent",
+    "./skills/agent-authoring/create-agents-md",
+    "./skills/agent-authoring/create-command",
+    "./skills/agent-authoring/create-hook",
+    "./skills/agent-authoring/create-rule",
+    "./skills/agent-authoring/create-skill",
+    "./skills/architecture/super-architecture",
+    "./skills/architecture/super-caching",
+    "./skills/architecture/super-elixir",
+    "./skills/architecture/super-nodejs",
+    "./skills/architecture/super-protobuf",
+    "./skills/architecture/super-tech-blueprint",
+    "./skills/delivery/atomic-semantic-commit",
+    "./skills/delivery/create-bruno-collection",
+    "./skills/delivery/create-jira-story",
+    "./skills/delivery/glab-code-review",
+    "./skills/delivery/write-mr-description",
+    "./skills/engineering/noslop",
+    "./skills/engineering/output-savers",
+    "./skills/engineering/safe-refactor",
+    "./skills/engineering/tdd",
+    "./skills/engineering/verify",
+    "./skills/focus/get-moving",
+    "./skills/focus/later-list",
+    "./skills/focus/standup",
+    "./skills/knowledge/challenge-me",
+    "./skills/knowledge/codebase-learner",
+    "./skills/knowledge/execution-ready-spec-plan",
+    "./skills/knowledge/second-opinion",
+    "./skills/knowledge/trace",
+    "./skills/knowledge/write-plan",
+    "./skills/product/design-system-kit",
+    "./skills/product/product-polish-workflow",
+    "./skills/workflow/find-skills",
+    "./skills/workflow/handoff",
+    "./skills/workflow/use-levistack"
+  ],
+  "dependencies": [
+    "polyglot-copywriter",
+    "logo-kit-svg"
+  ]
+}

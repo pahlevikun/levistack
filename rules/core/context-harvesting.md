@@ -1,0 +1,26 @@
+---
+description: "Before non-trivial work, read project knowledge in layers (prompt, rules, docs, code, history) using the smallest evidence set."
+alwaysApply: false
+---
+
+# Context harvesting
+
+For non-trivial design or implementation work, gather context before proposing a design or editing code. Use the smallest evidence set that answers the task. Skip it for trivial or fully specified changes.
+
+## Order
+1. The prompt, attachments and explicit constraints.
+2. `AGENTS.md` / `CLAUDE.md` and project rules.
+3. Project docs: `docs/`, ADRs, runbooks, `README`, `CHANGELOG`.
+4. A knowledge-base or memory tool, if the project configures one. Search first, then read only the hits.
+5. The code: siblings of what you will change, tests, config.
+6. Git history on the touched paths (`git log`, `git blame`) when intent is unclear.
+
+## Habits
+- Run `context-harvester` alone and first when delegating; never in parallel with implementation.
+- Prefer a targeted search over reading whole trees. Use offsets and limits for large files, or `bulk-reader`.
+- Repo facts outrank generic patterns. When docs and code disagree, say so.
+- Report gaps. Never fill a missing fact with a guess.
+- **Memory is context, not authority.** Use notes and memory tools to recover prior decisions and earlier attempts, then reconcile with the live repo and git history. If memory conflicts with the code, trust the code. Never commit raw personal memory; extract only the engineering decision.
+- **Skip a source that is not available** (no memory tool, no vault on this machine) and continue. None is a hard requirement.
+- **Re-read before editing** when the tree may be changing concurrently. Check `git status` rather than trusting an earlier read in a long session.
+- Write reusable findings back to the project docs only when they will help the next person.

@@ -1,0 +1,35 @@
+---
+description: "Go concurrency: goroutine exit paths, bounded parallelism, leak avoidance, race tests, retry ownership."
+globs: "**/*.go"
+alwaysApply: false
+---
+
+# Go concurrency
+
+Prefer a synchronous call, a managed job queue, or `errgroup` inside one task over fire-and-forget `go func()`.
+
+## Before every `go func()`
+- [ ] **Exit path:** `select` on `ctx.Done()`. Never block on an unbuffered send without a receiver.
+- [ ] **Wait:** `errgroup.WithContext` + `SetLimit(n)` when errors matter; `WaitGroup` only for fire-and-forget with no error.
+- [ ] **Ownership:** the creator or sender closes the channel. Use `chan<-` / `<-chan` directions.
+- [ ] **`wg.Add(1)` before `go`,** never inside it.
+- [ ] **No mutex held across I/O.** Keep critical sections short.
+- [ ] **No `time.After` in hot loops.** Reuse `time.NewTimer` and `Reset`.
+
+## Leak avoidance
+| Risk | Prevention |
+|---|---|
+| Goroutine leak | `ctx.Done()` in every `select`; bounded pools; no unbounded spawn per request |
+| HTTP body leak | `defer resp.Body.Close()` after every `Do`; drain on error paths |
+| Context leak | `defer cancel()` right after `WithTimeout` / `WithCancel` |
+| Channel leak | Buffered, or a guaranteed receiver; sender closes |
+| Timer churn | One timer, `Reset` in loops |
+| Slice and map growth | Preallocate when size is known; cap retries and batch sizes |
+| Hot allocations | `sync.Pool` for reusable buffers, `Reset()` before `Put()` |
+| Stuck async work | Register the worker and run it. Jobs enqueued with no worker wait forever |
+
+## Retries and job queues
+Know which layer owns retry. If the queue retries, do not also loop in the task. Permanent failures (403, a wrong 409) should cancel the job, not retry it; transient 5xx should return the error for backoff.
+
+## Tests
+The race detector is mandatory (`go test -race`). Add `go.uber.org/goleak` (`VerifyNone`) in packages that spawn goroutines. A race failure is a bug: fix it before merge.

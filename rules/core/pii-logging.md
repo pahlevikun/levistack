@@ -1,0 +1,45 @@
+---
+description: "Never log PII or credentials at any level; choose log levels deliberately; log each failure once at the boundary."
+alwaysApply: true
+---
+
+# PII-safe logging
+
+Never log raw PII or credentials at **any** level, including debug. Development and staging systems often hold real customer data, and log files get shared.
+
+**Sensitive values:** access tokens, `Authorization` headers, API keys, session cookies, passwords, private keys, full phone numbers, full email addresses, government IDs, bank-account numbers, and raw request or response bodies that contain them.
+
+Log stable identifiers and derived facts instead:
+
+| Instead of | Log |
+|---|---|
+| Full phone | user ID, masked prefix (`+628****`) |
+| Full email | user ID, domain only (`@example.com`) |
+| Government or KYC ID | user ID, request or execution ID |
+| Bank account | user ID, request ID |
+| Token or header | that auth was applied, never the value |
+
+Redact before persistence and before rendering errors to a terminal. Encryption is not redaction. Automatic HTTP logging should record method, URL and status, never bodies or headers. Do not widen it.
+
+## Never log whole objects
+Do not `inspect` / dump whole request params, entity or customer structs, adapter results, process or socket state, configuration, database errors or provider responses. Log the specific field you need. A map named like a secret store (config, state, headers) is a secret store.
+
+- **Classify new fields.** A new external field is sensitive by default until its logging classification is explicit.
+- **Allowlist, do not blocklist.** Safe context is minimal: request or correlation ID, stable internal error code, method and route template, a non-sensitive entity ID when policy allows, SQLSTATE without parameters, elapsed time.
+- **Key-name redaction is a safety net.** Substring redaction of keys like `password` or `token` does not catch `user_email`. Parameter filtering is defense in depth, not permission to log a map.
+- **Derived values are still derived from PII.** A hash or an encrypted field is safer than plaintext but not automatically safe to log. For a secret that needs a loggable identifier, log an irreversible fingerprint (a truncated hash), never the value or a prefix of it.
+- **Idempotency keys and command digests** are not substitutes for raw content in logs.
+- **Job arguments, queue messages and broadcast payloads are persisted or shipped:** apply this rule to them too.
+
+## Levels
+| Level | Use for |
+|---|---|
+| `debug` | Entry and exit, intermediate decisions, verbose tracing |
+| `info` | Meaningful transitions: started, completed, skipped |
+| `warn` | Expected rejected or degraded outcomes: validation failure, upstream denial, fallback taken |
+| `error` | System failures and should-never-happen conditions: timeouts, unexpected nil |
+
+Wrong levels bury real failures in routine noise. Do not log **and** return the same error at every layer: the boundary that owns the outcome records it once.
+
+## Output files inherit this rule
+Do not add raw PII columns to CSV or JSON outputs unless that is the explicit purpose. Even then, document it and treat the file as sensitive. Never commit data files.

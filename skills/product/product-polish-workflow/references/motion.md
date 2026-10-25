@@ -1,0 +1,15 @@
+# Motion design for existing products
+
+Choose **audit** for a request to review current motion and **create** for an authorized animation change. In mixed polish work, inspect current motion first, then implement only defects or additions in scope. Use the product's platform conventions and existing motion tokens before adding another animation system.
+
+## Decide whether motion earns its cost
+
+For each candidate, name its user purpose: action feedback, state change, spatial orientation, progress or a rare brand moment. Then note trigger frequency and input method. Repeated productivity actions and keyboard-driven operations should feel immediate; a rare onboarding or celebratory moment can carry more expression. Remove motion that delays a frequent task, hides content, competes with the primary action or adds constant idle movement without a user benefit. A visual effect is not required just because a state changes.
+
+Write a small motion contract: trigger; affected element and property; start/end values; duration/easing or native spring; interruption/reversal; final state; focus and input behavior; and Reduced Motion result. Define a modest duration/easing vocabulary from the incumbent product. Use timing examples as hypotheses to inspect on the target device, not universal caps. Entrances may ease toward rest and exits may leave promptly; choose the exact curve by the perceived task and platform. Prefer opacity/transform where they preserve layout and clarity, but use the platform's appropriate mechanism for genuine layout transitions. Avoid `transition: all` and long-distance travel in task-dense screens.
+
+For a multi-element transition, identify the one element that carries meaning. Order dependent elements so the user can follow the change; keep stagger and simultaneous movement small enough that the task remains responsive. Secondary or ambient animation is optional and should be absent when it adds noise. A loading state represents actual work; success/error feedback appears when the result is known. Never make business state, content visibility, focus restoration or cleanup depend solely on an animation-complete callback.
+
+Reduced Motion reaches the same usable final state, with a still or non-spatial cue if feedback remains needed. Content must be available when animation is disabled or fails to start. Avoid flashing, involuntary large movement and autoplay loops that cannot be paused where applicable. Check input during animation, rapid repetition, cancellation, resize and switching appearance or motion preference.
+
+Audit actual playback on the matching surface: purpose, frequency, duration, distance, property, hierarchy, frame smoothness where measurable, interruption, final hold and reduced-motion behavior. Use saved captures or bounded recordings when helpful. A screenshot, source inspection, build or typecheck alone cannot establish perceived timing. Report observed behavior separately from inferred source behavior; do not invent a motion score or force a branded HTML report.

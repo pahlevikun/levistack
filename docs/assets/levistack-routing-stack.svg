@@ -1,0 +1,302 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1480" height="1440" viewBox="0 0 1480 1440" role="img" aria-labelledby="title desc">
+  <title id="title">The levistack routing stack</title>
+  <desc id="desc">Every task routed through use-levistack takes seven steps: route, prime, invoke, hunt, apply, prove, deliver. Rules, hooks, agents, one-shots, focus skills and upstream plugins wrap the session.</desc>
+  <defs>
+    <marker id="arrow-ink" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#17152E"/>
+    </marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#4F5A8F"/>
+    </marker>
+    <style>
+      .sans { font-family: Inter, Helvetica, Arial, sans-serif; }
+      .mono { font-family: "SFMono-Regular", Menlo, Consolas, monospace; }
+      .ink { fill: #17152E; }
+      .muted { fill: #5E6275; }
+      .blue { fill: #4F5A8F; }
+      .gold { fill: #9A6F22; }
+      .inkline { stroke: #17152E; stroke-width: 1.5; fill: none; }
+      .blueline { stroke: #4F5A8F; stroke-width: 2; fill: none; }
+      .dash { stroke: #5E6275; stroke-width: 1.5; fill: none; stroke-dasharray: 6 5; }
+      .bluedash { stroke: #4F5A8F; stroke-width: 1.5; fill: none; stroke-dasharray: 6 5; }
+      .envline { stroke: #A3A6B4; stroke-width: 1.2; fill: none; stroke-dasharray: 10 6; }
+      .chip { fill: #ECEDF4; stroke: #B5BAD3; stroke-width: 1; }
+      .card { fill: #ECEDF4; stroke: #B5BAD3; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <rect width="1480" height="1440" fill="#F3F1EC"/>
+
+  <!-- Header -->
+  <g class="sans">
+    <text x="32" y="52" class="ink" font-size="28" font-weight="700">Every task takes the same seven steps.</text>
+    <text x="32" y="82" class="muted" font-size="15">Nothing counts as done without proof. Nothing leaves the session without your yes.</text>
+    <text x="32" y="110" class="blue" font-size="15" font-weight="700">Type /use-levistack and your task. It picks the skill, runs it, proves it and shapes the reply.</text>
+    <text x="32" y="130" class="muted" font-size="12">Prime and deliver always run. Hunt runs only when no first skill is clear. A skill you name skips step 04.</text>
+
+    <rect x="152" y="148" width="1296" height="44" rx="4" fill="#E6E4DE" stroke="#ADB0BC"/>
+    <text x="168" y="168" class="ink" font-size="11" font-weight="700">levistack@levistack</text>
+    <text x="168" y="184" class="muted" font-size="10">root install: 37 skills, 11 agents, 42 rules, 5 opt-in hooks, and 2 upstream plugins as dependencies &#183; group plugins ship skills only</text>
+  </g>
+
+  <!-- Envelopes and step separator -->
+  <rect x="152" y="212" width="800" height="1176" rx="6" class="envline"/>
+  <rect x="972" y="212" width="476" height="1176" rx="6" class="envline"/>
+  <line x1="136" y1="212" x2="136" y2="1388" stroke="#C3C5CD" stroke-width="1"/>
+
+  <!-- Step labels -->
+  <g class="mono" font-size="10" letter-spacing="0.8">
+    <text x="32" y="262" class="muted">01</text><text x="32" y="276" class="ink" font-weight="700">ROUTE</text>
+    <text x="32" y="374" class="muted">02</text><text x="32" y="388" class="ink" font-weight="700">PRIME</text>
+    <text x="32" y="486" class="muted">03</text><text x="32" y="500" class="ink" font-weight="700">INVOKE</text>
+    <text x="32" y="698" class="muted">04</text><text x="32" y="712" class="ink" font-weight="700">HUNT</text>
+    <text x="32" y="810" class="muted">05</text><text x="32" y="824" class="ink" font-weight="700">APPLY</text>
+    <text x="32" y="1062" class="muted">06</text><text x="32" y="1076" class="ink" font-weight="700">PROVE</text>
+    <text x="32" y="1234" class="muted">07</text><text x="32" y="1248" class="ink" font-weight="700">DELIVER</text>
+  </g>
+  <g class="sans" font-size="11">
+    <text x="32" y="292" class="muted">Which skill?</text>
+    <text x="32" y="404" class="muted">Read the ask first</text>
+    <text x="32" y="516" class="muted">Pick the first skill</text>
+    <text x="32" y="728" class="muted">Search the catalog</text>
+    <text x="32" y="840" class="muted">Do the work</text>
+    <text x="32" y="1092" class="muted">Proof, then your yes</text>
+    <text x="32" y="1264" class="muted">Shape the reply</text>
+  </g>
+
+  <!-- 01 ROUTE -->
+  <g class="sans">
+    <rect x="184" y="236" width="200" height="80" rx="4" fill="#F3F1EC" stroke="#ADB0BC"/>
+    <text x="200" y="266" class="ink" font-size="15" font-weight="700">Your task</text>
+    <text x="200" y="286" class="muted" font-size="11">a goal, a question,</text>
+    <text x="200" y="301" class="muted" font-size="11">or a skill you name</text>
+    <line x1="388" y1="276" x2="426" y2="276" class="inkline" marker-end="url(#arrow-ink)"/>
+    <rect x="432" y="236" width="488" height="80" rx="5" fill="#E3E5F0" stroke="#4F5A8F" stroke-width="2.5"/>
+    <text x="452" y="268" class="blue" font-size="22" font-weight="700">use-levistack</text>
+    <text x="452" y="290" class="muted" font-size="11">Start here. The entry point for every task.</text>
+    <text x="452" y="305" class="muted" font-size="11">A skill you name inside it runs as a one-shot.</text>
+  </g>
+  <line x1="552" y1="320" x2="552" y2="344" class="blueline" marker-end="url(#arrow-blue)"/>
+
+  <!-- 02 PRIME -->
+  <g class="sans">
+    <rect x="184" y="348" width="736" height="80" rx="4" fill="#E3E5F0" stroke="#4F5A8F" stroke-width="1.5"/>
+    <text x="204" y="374" class="blue" font-size="15" font-weight="700">output-savers, step 0 (prime)</text>
+    <text x="204" y="396" class="muted" font-size="12">Reads your prompt to pick the job, the safety needs and the reply length. It never rewrites your words.</text>
+    <text x="204" y="416" class="muted" font-size="11">It also notes what the workspace already answers: the branch, git status, the latest handoff note.</text>
+  </g>
+  <line x1="552" y1="432" x2="552" y2="456" class="blueline" marker-end="url(#arrow-blue)"/>
+
+  <!-- 03 INVOKE -->
+  <g class="sans">
+    <rect x="184" y="460" width="736" height="180" rx="4" fill="#F3F1EC" stroke="#4F5A8F" stroke-width="1.5"/>
+    <text x="204" y="486" class="blue" font-size="15" font-weight="700">invoke.md</text>
+    <text x="204" y="507" class="muted" font-size="12">Picks the first skill from what you want. No clear fit goes to step 04.</text>
+  </g>
+  <g class="mono" font-size="9" letter-spacing="0.8">
+    <text x="204" y="534" class="muted">UNDERSTAND</text>
+    <text x="384" y="534" class="muted">DECIDE AND PLAN</text>
+    <text x="564" y="534" class="muted">BUILD</text>
+    <text x="744" y="534" class="muted">REVIEW AND SHIP</text>
+  </g>
+  <g class="sans" font-size="11">
+    <rect x="204" y="542" width="164" height="24" rx="3" class="chip"/><text x="214" y="558" class="ink">codebase-learner</text>
+    <rect x="204" y="572" width="164" height="24" rx="3" class="chip"/><text x="214" y="588" class="ink">trace</text>
+    <rect x="204" y="602" width="164" height="24" rx="3" class="chip"/><text x="214" y="618" class="ink">super-architecture</text>
+    <rect x="384" y="542" width="164" height="24" rx="3" class="chip"/><text x="394" y="558" class="ink">challenge-me</text>
+    <rect x="384" y="572" width="164" height="24" rx="3" class="chip"/><text x="394" y="588" class="ink">execution-ready-spec-plan</text>
+    <rect x="384" y="602" width="164" height="24" rx="3" class="chip"/><text x="394" y="618" class="ink">write-plan</text>
+    <rect x="564" y="542" width="164" height="24" rx="3" class="chip"/><text x="574" y="558" class="ink">tdd</text>
+    <rect x="564" y="572" width="164" height="24" rx="3" class="chip"/><text x="574" y="588" class="ink">safe-refactor</text>
+    <rect x="564" y="602" width="164" height="24" rx="3" class="chip"/><text x="574" y="618" class="ink">a super-* domain router</text>
+    <rect x="744" y="542" width="156" height="24" rx="3" class="chip"/><text x="754" y="558" class="ink">second-opinion</text>
+    <rect x="744" y="572" width="156" height="24" rx="3" class="chip"/><text x="754" y="588" class="ink">verify</text>
+    <rect x="744" y="602" width="156" height="24" rx="3" class="chip"/><text x="754" y="618" class="ink">atomic-semantic-commit</text>
+  </g>
+  <line x1="552" y1="644" x2="552" y2="668" class="blueline" marker-end="url(#arrow-blue)"/>
+
+  <!-- 04 HUNT -->
+  <g class="sans">
+    <rect x="184" y="672" width="736" height="80" rx="4" fill="#E6E4DE" stroke="#ADB0BC" stroke-width="1.2"/>
+    <text x="204" y="698" class="ink" font-size="15" font-weight="700">find-skills (hunt)</text>
+    <text x="204" y="720" class="muted" font-size="12">Asks at most three questions, searches the catalog, and builds a chain of up to four skills.</text>
+    <text x="204" y="740" class="muted" font-size="11">Goes to skills.sh only when nothing here fits, and installs only after your yes.</text>
+  </g>
+  <line x1="552" y1="756" x2="552" y2="780" class="blueline" marker-end="url(#arrow-blue)"/>
+
+  <!-- 05 APPLY -->
+  <g class="sans">
+    <rect x="184" y="784" width="736" height="220" rx="5" fill="none" stroke="#4F5A8F" stroke-width="1.6" stroke-dasharray="8 5"/>
+    <text x="204" y="810" class="blue" font-size="15" font-weight="700">skill groups (apply)</text>
+    <text x="204" y="831" class="muted" font-size="12">Runs the chain one skill at a time. Each result goes to the next skill in one sentence.</text>
+
+    <rect x="204" y="846" width="170" height="64" rx="4" class="card"/>
+    <text x="218" y="868" class="ink" font-size="13" font-weight="700">engineering</text>
+    <text x="218" y="884" class="blue" font-size="11" font-weight="700">5 skills</text>
+    <text x="218" y="899" class="muted" font-size="10">tdd, verify, safe-refactor</text>
+
+    <rect x="384" y="846" width="170" height="64" rx="4" class="card"/>
+    <text x="398" y="868" class="ink" font-size="13" font-weight="700">knowledge</text>
+    <text x="398" y="884" class="blue" font-size="11" font-weight="700">6 skills</text>
+    <text x="398" y="899" class="muted" font-size="10">learn, trace, review, plans</text>
+
+    <rect x="564" y="846" width="170" height="64" rx="4" class="card"/>
+    <text x="578" y="868" class="ink" font-size="13" font-weight="700">architecture</text>
+    <text x="578" y="884" class="blue" font-size="11" font-weight="700">6 skills</text>
+    <text x="578" y="899" class="muted" font-size="10">super-* domain routers</text>
+
+    <rect x="744" y="846" width="156" height="64" rx="4" class="card"/>
+    <text x="758" y="868" class="ink" font-size="13" font-weight="700">delivery</text>
+    <text x="758" y="884" class="blue" font-size="11" font-weight="700">5 skills</text>
+    <text x="758" y="899" class="muted" font-size="10">commits, MRs, tickets</text>
+
+    <rect x="204" y="920" width="170" height="64" rx="4" class="card"/>
+    <text x="218" y="942" class="ink" font-size="13" font-weight="700">agent-authoring</text>
+    <text x="218" y="958" class="blue" font-size="11" font-weight="700">7 skills</text>
+    <text x="218" y="973" class="muted" font-size="10">skills, agents, rules, hooks</text>
+
+    <rect x="384" y="920" width="170" height="64" rx="4" class="card"/>
+    <text x="398" y="942" class="ink" font-size="13" font-weight="700">product</text>
+    <text x="398" y="958" class="blue" font-size="11" font-weight="700">2 skills</text>
+    <text x="398" y="973" class="muted" font-size="10">product polish, design systems</text>
+
+    <rect x="564" y="920" width="170" height="64" rx="4" class="card"/>
+    <text x="578" y="942" class="ink" font-size="13" font-weight="700">workflow</text>
+    <text x="578" y="958" class="blue" font-size="11" font-weight="700">3 skills</text>
+    <text x="578" y="973" class="muted" font-size="10">router, find-skills, handoff</text>
+
+    <rect x="744" y="920" width="156" height="64" rx="4" class="card"/>
+    <text x="758" y="942" class="ink" font-size="13" font-weight="700">focus</text>
+    <text x="758" y="958" class="blue" font-size="11" font-weight="700">3 skills</text>
+    <text x="758" y="973" class="muted" font-size="10">get-moving, later-list, standup</text>
+
+    <text x="204" y="998" class="muted" font-size="10">37 skills in 8 groups &#183; a subagent can take one bounded job and report back</text>
+  </g>
+  <line x1="552" y1="1008" x2="552" y2="1032" class="blueline" marker-end="url(#arrow-blue)"/>
+
+  <!-- 06 PROVE -->
+  <g class="sans">
+    <rect x="184" y="1036" width="736" height="148" rx="4" fill="#F3F1EC" stroke="#17152E" stroke-width="1.6"/>
+    <text x="204" y="1062" class="ink" font-size="15" font-weight="700">prove.md (prove)</text>
+    <text x="204" y="1083" class="muted" font-size="12">Every claim gets fresh proof before the reply says done. Anything that leaves the session waits for you.</text>
+
+    <rect x="204" y="1098" width="216" height="70" rx="4" fill="#E3E5F0" stroke="#4F5A8F" stroke-width="1.5"/>
+    <text x="218" y="1121" class="blue" font-size="13" font-weight="700">verify</text>
+    <text x="218" y="1139" class="muted" font-size="10">fresh proof that matches the claim</text>
+    <text x="218" y="1154" class="muted" font-size="10">says what was not checked</text>
+
+    <line x1="424" y1="1133" x2="452" y2="1133" class="blueline" marker-end="url(#arrow-blue)"/>
+
+    <rect x="456" y="1098" width="216" height="70" rx="4" fill="#F4E7CC" stroke="#B2853A" stroke-width="2.5"/>
+    <text x="470" y="1121" class="gold" font-size="15" font-weight="700">YOUR YES</text>
+    <text x="470" y="1139" class="muted" font-size="10">push, MR, posted comment,</text>
+    <text x="470" y="1154" class="muted" font-size="10">publish, install, delete</text>
+
+    <line x1="676" y1="1133" x2="704" y2="1133" class="inkline" marker-end="url(#arrow-ink)"/>
+
+    <rect x="708" y="1098" width="192" height="70" rx="4" fill="#F3F1EC" stroke="#17152E" stroke-width="1.2"/>
+    <text x="722" y="1121" class="ink" font-size="13" font-weight="700">Re-check</text>
+    <text x="722" y="1139" class="muted" font-size="10">the MR exists, the push landed,</text>
+    <text x="722" y="1154" class="muted" font-size="10">the tests still pass</text>
+  </g>
+  <line x1="552" y1="1188" x2="552" y2="1206" class="inkline" marker-end="url(#arrow-ink)"/>
+
+  <!-- 07 DELIVER -->
+  <g class="sans">
+    <rect x="184" y="1210" width="736" height="160" rx="5" fill="none" stroke="#4F5A8F" stroke-width="1.6" stroke-dasharray="8 5"/>
+    <text x="204" y="1236" class="blue" font-size="15" font-weight="700">deliver.md (deliver)</text>
+    <text x="204" y="1257" class="muted" font-size="12">The same session shapes the reply before it leaves the chat.</text>
+
+    <rect x="204" y="1268" width="696" height="44" rx="4" fill="#E6E4DE" stroke="#5E6275" stroke-width="1.2" stroke-dasharray="6 4"/>
+    <text x="220" y="1287" class="ink" font-size="13" font-weight="700">1. polyglot-copywriter</text>
+    <text x="220" y="1303" class="muted" font-size="10">plain words for text people read: MR text, comments, email &#183; code, ids and commands stay exact</text>
+
+    <rect x="204" y="1318" width="696" height="44" rx="4" fill="#E3E5F0" stroke="#4F5A8F" stroke-width="1.2" stroke-dasharray="6 4"/>
+    <text x="220" y="1337" class="blue" font-size="13" font-weight="700">2. output-savers</text>
+    <text x="220" y="1353" class="muted" font-size="10">last gate on the reply &#183; keeps proof lines, rollback steps and "not verified" lines</text>
+  </g>
+
+  <!-- Right envelope: around every step -->
+  <g class="sans">
+    <text x="1004" y="252" class="ink" font-size="16" font-weight="700">Around every step</text>
+    <text x="1004" y="272" class="muted" font-size="11">Wraps the whole session. Not a numbered step.</text>
+
+    <!-- Rules -->
+    <rect x="1004" y="290" width="412" height="170" rx="4" fill="#F3F1EC" stroke="#17152E" stroke-width="1.4"/>
+    <text x="1022" y="316" class="ink" font-size="14" font-weight="700">rules (42)</text>
+    <text x="1022" y="336" class="muted" font-size="11">5 core rules are always on. The rest load by topic or file.</text>
+    <text x="1022" y="360" class="ink" font-size="10">core 15 &#183; architecture 15 &#183; elixir 7 &#183; go 3 &#183; python 1 &#183; design 1</text>
+    <text x="1022" y="382" class="ink" font-size="10">noslop &#183; testing &#183; commit-messages &#183; pii-logging</text>
+    <text x="1022" y="400" class="ink" font-size="10">failure-visibility &#183; plain-style &#183; git-workflow</text>
+    <text x="1022" y="428" class="gold" font-size="11" font-weight="700">the agent proves / you approve what goes out</text>
+
+    <!-- Hooks -->
+    <rect x="1004" y="476" width="412" height="170" rx="4" fill="#F3F1EC" stroke="#17152E" stroke-width="1.4"/>
+    <text x="1022" y="502" class="ink" font-size="14" font-weight="700">hooks (5, opt-in)</text>
+    <text x="1022" y="522" class="muted" font-size="11">Run on tool calls, so they work even when the agent forgets.</text>
+    <text x="1022" y="546" class="ink" font-size="10">careful-guard &#183; asks before rm -rf, force-push, reset --hard</text>
+    <text x="1022" y="564" class="ink" font-size="10">generated-file-guard &#183; asks before it edits generated files</text>
+    <text x="1022" y="582" class="ink" font-size="10">large-read-guard &#183; blocks full reads over 350 lines</text>
+    <text x="1022" y="600" class="ink" font-size="10">session-start &#183; adds a digest of the always-on rules</text>
+    <text x="1022" y="618" class="ink" font-size="10">notify-done &#183; pings you when the agent finishes</text>
+    <text x="1022" y="636" class="muted" font-size="10">turn one on: touch ~/.levistack/&lt;hook&gt;.on</text>
+
+    <!-- One-shot -->
+    <rect x="1004" y="662" width="412" height="120" rx="4" fill="none" stroke="#5E6275" stroke-width="1.4" stroke-dasharray="6 5"/>
+    <text x="1022" y="688" class="ink" font-size="14" font-weight="700">Named skill (one-shot)</text>
+    <text x="1022" y="708" class="muted" font-size="11">Name a skill inside /use-levistack: prime, run it, prove,</text>
+    <text x="1022" y="724" class="muted" font-size="11">deliver. There is no step 04 hunt.</text>
+    <rect x="1022" y="734" width="376" height="24" rx="3" class="chip"/>
+    <text x="1034" y="750" class="mono ink" font-size="10">/use-levistack second-opinion on my branch</text>
+    <text x="1022" y="774" class="muted" font-size="10">A bare /skill call runs that skill alone, with no prime or deliver.</text>
+
+    <!-- Agents -->
+    <rect x="1004" y="830" width="412" height="170" rx="4" fill="#ECEDF4" stroke="#4F5A8F" stroke-width="1.5"/>
+    <text x="1022" y="856" class="blue" font-size="14" font-weight="700">agents/ (optional spawn)</text>
+    <text x="1022" y="876" class="muted" font-size="11">A helper takes one bounded job and reports back.</text>
+    <text x="1022" y="891" class="muted" font-size="11">Routing stays in the session.</text>
+  </g>
+  <g class="sans" font-size="10">
+    <rect x="1022" y="902" width="122" height="20" rx="3" fill="#F3F1EC" stroke="#B5BAD3"/><text x="1030" y="916" class="ink">context-harvester</text>
+    <rect x="1150" y="902" width="122" height="20" rx="3" fill="#F3F1EC" stroke="#B5BAD3"/><text x="1158" y="916" class="ink">explorer</text>
+    <rect x="1278" y="902" width="122" height="20" rx="3" fill="#F3F1EC" stroke="#B5BAD3"/><text x="1286" y="916" class="ink">planner</text>
+    <rect x="1022" y="926" width="122" height="20" rx="3" fill="#F3F1EC" stroke="#B5BAD3"/><text x="1030" y="940" class="ink">coordinator</text>
+    <rect x="1150" y="926" width="122" height="20" rx="3" fill="#F3F1EC" stroke="#B5BAD3"/><text x="1158" y="940" class="ink">scaffolder</text>
+    <rect x="1278" y="926" width="122" height="20" rx="3" fill="#F3F1EC" stroke="#B5BAD3"/><text x="1286" y="940" class="ink">implementer</text>
+    <rect x="1022" y="950" width="122" height="20" rx="3" fill="#F3F1EC" stroke="#B5BAD3"/><text x="1030" y="964" class="ink">tdd-runner</text>
+    <rect x="1150" y="950" width="122" height="20" rx="3" fill="#F3F1EC" stroke="#B5BAD3"/><text x="1158" y="964" class="ink">reviewer</text>
+    <rect x="1278" y="950" width="122" height="20" rx="3" fill="#F3F1EC" stroke="#B5BAD3"/><text x="1286" y="964" class="ink">security-reviewer</text>
+    <rect x="1022" y="974" width="122" height="20" rx="3" fill="#F3F1EC" stroke="#B5BAD3"/><text x="1030" y="988" class="ink">bulk-reader</text>
+    <rect x="1150" y="974" width="122" height="20" rx="3" fill="#F3F1EC" stroke="#B5BAD3"/><text x="1158" y="988" class="ink">template-writer</text>
+  </g>
+  <line x1="921" y1="915" x2="1003" y2="915" class="bluedash"/>
+
+  <g class="sans">
+    <!-- Focus -->
+    <rect x="1004" y="1040" width="412" height="120" rx="4" fill="none" stroke="#5E6275" stroke-width="1.4" stroke-dasharray="6 5"/>
+    <text x="1022" y="1066" class="ink" font-size="14" font-weight="700">focus (any step)</text>
+    <text x="1022" y="1086" class="muted" font-size="11">Stuck or pulled off track? These work at any point.</text>
+    <rect x="1022" y="1098" width="184" height="46" rx="3" class="chip"/>
+    <text x="1034" y="1117" class="ink" font-size="12" font-weight="700">get-moving</text>
+    <text x="1034" y="1133" class="muted" font-size="10">one next action, 25 minutes</text>
+    <rect x="1214" y="1098" width="184" height="46" rx="3" class="chip"/>
+    <text x="1226" y="1117" class="ink" font-size="12" font-weight="700">later-list</text>
+    <text x="1226" y="1133" class="muted" font-size="10">a tangent goes on LATER.md</text>
+
+    <!-- Upstream -->
+    <rect x="1004" y="1210" width="412" height="160" rx="4" fill="none" stroke="#4F5A8F" stroke-width="1.5" stroke-dasharray="6 5"/>
+    <text x="1022" y="1236" class="blue" font-size="14" font-weight="700">upstream plugins (2)</text>
+    <text x="1022" y="1256" class="muted" font-size="11">Own repos, own plugins. Installing or updating</text>
+    <text x="1022" y="1272" class="muted" font-size="11">levistack pulls them in as dependencies.</text>
+    <rect x="1022" y="1286" width="376" height="34" rx="3" class="chip"/>
+    <text x="1034" y="1302" class="ink" font-size="12" font-weight="700">polyglot-copywriter</text>
+    <text x="1034" y="1314" class="mono muted" font-size="9">github: pahlevikun/polyglot-copywriter</text>
+    <rect x="1022" y="1326" width="376" height="34" rx="3" class="chip"/>
+    <text x="1034" y="1342" class="ink" font-size="12" font-weight="700">logo-kit-svg</text>
+    <text x="1034" y="1354" class="mono muted" font-size="9">github: pahlevikun/logo-kit-svg</text>
+  </g>
+  <line x1="901" y1="1290" x2="1021" y2="1302" class="bluedash"/>
+
+  <!-- Footer -->
+  <text x="32" y="1420" class="mono muted" font-size="11" letter-spacing="0.6">37 skills &#183; 11 agents &#183; 42 rules &#183; 5 hooks &#183; 2 upstream &#183; 25 OCT 2026</text>
+</svg>
