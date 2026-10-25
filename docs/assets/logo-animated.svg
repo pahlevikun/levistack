@@ -99,7 +99,7 @@
   <g transform="translate(186, 152)" font-family="IBM Plex Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" font-weight="600">
     <rect x="0" y="0" width="92" height="26" rx="6" fill="#3a3358" stroke="#b2853a" stroke-width="1.2"/>
     <circle cx="13" cy="13" r="3.5" fill="#c99d48"/>
-    <text x="23" y="17" fill="#e8e4f4">37 skills</text>
+    <text x="23" y="17" fill="#e8e4f4">the stack</text>
     <rect x="100" y="0" width="146" height="26" rx="6" fill="#3a3358" stroke="#3c7f7c" stroke-width="1.2"/>
     <text x="111" y="17" fill="#c6cddb">proof before done</text>
   </g>
@@ -143,8 +143,8 @@
     </g>
     <line x1="0" y1="180" x2="424" y2="180" stroke="#566782" stroke-width="1.2"/>
     <g font-family="IBM Plex Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10.5" font-weight="600">
-      <text x="18" y="200" fill="#98a2b6">37 skills &#183; 11 agents &#183; 42 rules &#183; 5 hooks</text>
-      <text x="336" y="200" fill="#c99d48">+2 upstream</text>
+      <text x="18" y="200" fill="#98a2b6">skills &#183; agents &#183; rules &#183; hooks</text>
+      <text x="336" y="200" fill="#c99d48">upstream</text>
     </g>
   </g>
 </svg>
