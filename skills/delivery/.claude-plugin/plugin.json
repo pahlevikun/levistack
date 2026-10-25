@@ -12,6 +12,7 @@
     "./create-documentation",
     "./create-tickets",
     "./glab-code-review",
+    "./second-opinion",
     "./write-mr-description"
   ]
 }
