@@ -1,0 +1,18 @@
+{
+  "_doc": "Shape kits. radius values are px. border is the default component border width in px. elevation names a kit in elevations below. pad is the base control padding scale (y, x) in px for the medium control. describe is prose for DESIGN.md.",
+  "elevations": {
+    "flat":   { "describe": "No shadows. Depth comes from tone steps and 1px rules.", "levels": ["none", "none", "none"] },
+    "tonal":  { "describe": "Depth comes from lighter or darker surface tones. Shadows are rare and very faint.", "levels": ["none", "0 1px 0 {shadow}", "0 2px 0 {shadow}"] },
+    "soft":   { "describe": "Wide, low-opacity shadows tinted with the brand hue, never pure black.", "levels": ["0 1px 2px {shadow}", "0 6px 18px -4px {shadow}", "0 18px 40px -12px {shadow}"] },
+    "crisp":  { "describe": "Tight, short shadows with a clear edge, like paper lifted a few millimetres.", "levels": ["0 1px 1px {shadow}", "0 3px 6px -1px {shadow}", "0 8px 16px -4px {shadow}"] },
+    "offset": { "describe": "Hard, unblurred offset shadows in the ink color, like a printed sticker.", "levels": ["2px 2px 0 {ink}", "4px 4px 0 {ink}", "6px 6px 0 {ink}"] }
+  },
+  "sharp":     { "radius": { "xs": 0,  "sm": 0,  "md": 2,  "lg": 2,  "xl": 4,  "full": 9999 }, "border": 1, "elevation": "flat",   "pad": [10, 16], "tags": ["formal","editorial","technical"], "describe": "Square corners and fine rules. It reads exact, serious and printed." },
+  "crisp":     { "radius": { "xs": 2,  "sm": 4,  "md": 6,  "lg": 8,  "xl": 12, "full": 9999 }, "border": 1, "elevation": "crisp",  "pad": [10, 16], "tags": ["trust","tool","calm"], "describe": "Small, even radii. Friendly enough, but still precise." },
+  "soft":      { "radius": { "xs": 4,  "sm": 8,  "md": 12, "lg": 16, "xl": 24, "full": 9999 }, "border": 1, "elevation": "soft",   "pad": [12, 18], "tags": ["friendly","wellness","consumer"], "describe": "Generous radii on everything. Nothing has a hard corner, so the screen feels safe." },
+  "pebble":    { "radius": { "xs": 8,  "sm": 14, "md": 20, "lg": 28, "xl": 40, "full": 9999 }, "border": 0, "elevation": "soft",   "pad": [14, 22], "tags": ["playful","calm","kids"], "describe": "Big, pebble-like shapes with no outlines. Tone changes do the separating." },
+  "pill":      { "radius": { "xs": 8,  "sm": 12, "md": 9999, "lg": 24, "xl": 32, "full": 9999 }, "border": 0, "elevation": "tonal", "pad": [12, 22], "tags": ["modern","consumer","food"], "describe": "Pill-shaped controls and chips, with softly rounded cards around them." },
+  "mixed":     { "radius": { "xs": 0,  "sm": 2,  "md": 9999, "lg": 4,  "xl": 8,  "full": 9999 }, "border": 1, "elevation": "flat", "pad": [11, 20], "tags": ["editorial","premium","fashion"], "describe": "Square cards and images, pill-shaped buttons. The contrast is the signature." },
+  "brut":      { "radius": { "xs": 0,  "sm": 2,  "md": 4,  "lg": 6,  "xl": 8,  "full": 9999 }, "border": 2, "elevation": "offset", "pad": [10, 18], "tags": ["bold","rebellious","creative"], "describe": "Thick borders, small radii and hard offset shadows. Loud on purpose." },
+  "rules":     { "radius": { "xs": 0,  "sm": 0,  "md": 0,  "lg": 0,  "xl": 0,  "full": 9999 }, "border": 1, "elevation": "flat",   "pad": [9, 14],  "tags": ["editorial","data","technical"], "describe": "No boxes. Hairline rules and spacing carry the structure." }
+}

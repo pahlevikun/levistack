@@ -1,7 +1,7 @@
 ---
 name: standup
 version: 2.0.0
-description: "Write today's standup from what you actually did yesterday: machine history, browser history, GitLab or GitHub (MRs, reviews, comments, reactions), Jira movement, then a final Lark polish. Handles weekends and holidays. Use when the user says standup, daily update, what did I do yesterday, yesterday summary, or standup report. Also runs a read-only multi-branch consolidation room when asked to reconcile worktrees, branches or PRs."
+description: "Write today's standup from what you actually did yesterday: machine history, browser history, GitLab or GitHub (MRs, reviews, comments, reactions), Jira movement, then a final Lark polish. Handles weekends and holidays. Use when the user says standup, daily update, what did I do yesterday, yesterday summary, or standup report. Also runs a read-only multi-branch consolidation room when asked to reconcile worktrees, branches or PRs. Not for rebuilding your own context before you start work (use handoff, recall mode)."
 allowed-tools:
   - Bash
   - Read
@@ -166,5 +166,5 @@ Write the standup to `<outputDir>/<end>.md` (default `~/standups`), where `<end>
 
 - `handoff`: read the last note to recover yesterday's context.
 - `polyglot-copywriter`: polish the final message.
-- `create-jira-story`: a done item has no ticket.
+- `create-tickets`: a done item has no ticket.
 - `later-list`: read the later list for what is next.

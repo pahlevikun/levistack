@@ -8,6 +8,7 @@
 //
 // Options: --types=base   only the seven semantic types (otherwise perf, build, ci, revert are allowed)
 //          --strict       warnings also fail
+//          --diff-lines=N the size of the staged change (added plus removed lines). A large change needs a body
 //          --json         machine-readable output
 // Exit code 1 when a message has an error (or a warning with --strict).
 import { execFileSync } from 'node:child_process';
@@ -16,10 +17,15 @@ import { fileURLToPath } from 'node:url';
 
 export const BASE_TYPES = ['feat', 'fix', 'docs', 'style', 'refactor', 'test', 'chore'];
 export const EXTRA_TYPES = ['perf', 'build', 'ci', 'revert'];
-export const SUBJECT_AIM = 50;
+export const SUBJECT_AIM = 60;
 export const SUBJECT_MAX = 72;
 export const BODY_WRAP = 72;
 export const SENTENCE_MAX = 20;
+export const BODY_DIFF_LINES = 40;
+export const ADD_SHARE_MAX = 0.4;
+const BODY_TYPES = ['feat', 'fix', 'refactor', 'perf'];
+// After "add", a purpose or a condition makes the subject descriptive. These words usually start one.
+const CONNECTOR = /\b(to|for|so|when|on|in|with|if|before|after|from|by|that|until|instead|without|per|across|between|into|over|under|while|at|as|than|unless|whenever)\b/i;
 
 const NOT_IMPERATIVE = /^(added|fixed|removed|updated|changed|renamed|moved|replaced|created|deleted|improved|implemented|refactored|extracted|adds|fixes|removes|updates|changes|renames|moves|replaces|creates|deletes|improves|adding|fixing|removing|updating|changing|renaming|moving|replacing|creating|deleting|improving|implementing)\b/i;
 const VAGUE = /\b(various|several|some stuff|stuff|things|misc|miscellaneous|etc|wip|tweaks?|minor changes?|small (fix|fixes|changes?)|improvements?|enhancements?)\b/i;
@@ -64,9 +70,17 @@ export function checkMessage(raw, opts = {}) {
     if (NOT_IMPERATIVE.test(text)) add('warn', 'mood', 'use the imperative, present tense: "add", "fix", "remove". Not "added", "adds", "adding"');
     if (/^[A-Z][a-z]+$/.test(text.split(/\s+/)[0])) add('warn', 'case', 'start the subject in lowercase, unless the repository does otherwise');
     if (VAGUE.test(text)) add('warn', 'vague', `vague word "${text.match(VAGUE)[0]}". Say what changed`);
+    const addMatch = text.match(/^add\s+(.+)$/i);
+    if (addMatch && addMatch[1].trim().split(/\s+/).length <= 3 && !CONNECTOR.test(addMatch[1])) {
+      add('warn', 'bare-add', `"${text}" names the thing and not what it does. Say the effect or the reason, for example "add retry on timeout so uploads finish"`);
+    }
     if (SECOND_ACTION.test(text)) add('warn', 'two-actions', 'the subject names a second action after "and". Split the commit');
     if (/[—–;]/.test(text)) add('warn', 'punctuation', 'no em dash, en dash or semicolon. Use a period or a colon');
     if (bang && !lines.slice(1).some((l) => l.trim())) add('warn', 'breaking-body', 'a breaking change needs a body that says what breaks and what to do');
+    const bodyText = lines.slice(1).some((l) => l.trim());
+    if (opts.diffLines >= BODY_DIFF_LINES && BODY_TYPES.includes(type) && !bodyText) {
+      add('warn', 'body-missing', `the change is ${opts.diffLines} lines. Write a body: why the change is needed, and what is different now`);
+    }
     if (type === 'revert' && lines.length < 3) add('warn', 'revert-body', 'a revert needs a body that gives the reason');
   }
   if (subject.length > SUBJECT_MAX) add('error', 'subject-length', `the subject is ${subject.length} characters. The hard limit is ${SUBJECT_MAX}`);
@@ -100,18 +114,26 @@ export function checkMessage(raw, opts = {}) {
   return findings;
 }
 
+/** How many subjects start with "add". A history made mostly of "add" says little about the effect. */
+export function addShare(subjects) {
+  const subs = subjects.map((s) => s.replace(/^[a-z]+(?:\([^)]*\))?!?:\s*/i, '')).filter(Boolean);
+  const adds = subs.filter((s) => /^add\b/i.test(s)).length;
+  return { total: subs.length, adds, share: subs.length ? adds / subs.length : 0 };
+}
+
 function splitLogOutput(out) {
   return out.split('\u0000').map((s) => s.replace(/^\n+/, '')).filter((s) => s.trim());
 }
 
 function parseArgs(argv) {
-  const o = { messages: [], files: [], range: null, stdin: false, json: false, strict: false, baseOnly: false };
+  const o = { messages: [], files: [], range: null, stdin: false, json: false, strict: false, baseOnly: false, diffLines: 0 };
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
     if (a === '--json') o.json = true;
     else if (a === '--strict') o.strict = true;
     else if (a === '--stdin') o.stdin = true;
     else if (a === '--types=base') o.baseOnly = true;
+    else if (a.startsWith('--diff-lines=')) o.diffLines = Number(a.slice('--diff-lines='.length)) || 0;
     else if (a === '--file') o.files.push(argv[++i]);
     else if (a === '--range') o.range = argv[++i];
     else if (!a.startsWith('--')) o.messages.push(a);
@@ -125,7 +147,13 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
   for (const f of o.files) items.push({ label: f, text: readFileSync(f, 'utf8') });
   if (o.stdin) items.push({ label: 'stdin', text: readFileSync(0, 'utf8') });
   if (o.range) {
-    const out = execFileSync('git', ['log', '--format=%h %s%n%b%x00', o.range], { encoding: 'utf8' });
+    let out;
+    try {
+      out = execFileSync('git', ['log', '--format=%h %s%n%b%x00', o.range], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
+    } catch (e) {
+      console.error(`cannot read the range "${o.range}": ${String(e.stderr || e.message).split('\n')[0]}`);
+      process.exit(2);
+    }
     for (const chunk of splitLogOutput(out)) {
       const [first, ...rest] = chunk.split('\n');
       const sp = first.indexOf(' ');
@@ -136,8 +164,10 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
     console.error('usage: node check-message.mjs "<message>" | --file <path> | --range <a..b> | --stdin [--types=base] [--strict] [--json]');
     process.exit(2);
   }
-  const results = items.map((it) => ({ label: it.label, findings: checkMessage(it.text, { baseOnly: o.baseOnly }) }));
+  const results = items.map((it) => ({ label: it.label, findings: checkMessage(it.text, { baseOnly: o.baseOnly, diffLines: o.diffLines }) }));
+  const share = addShare(items.map((it) => it.text.split('\n')[0]));
   const failing = results.some((r) => r.findings.some((f) => f.severity === 'error' || (o.strict && f.severity === 'warn')));
+  const crowded = items.length >= 5 && share.share > ADD_SHARE_MAX;
   if (o.json) console.log(JSON.stringify(results, null, 2));
   else {
     for (const r of results) {
@@ -145,6 +175,9 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
       console.log(`${real.length ? (real.some((f) => f.severity === 'error') ? 'FAIL' : 'WARN') : 'OK  '} ${r.label}`);
       for (const f of r.findings) console.log(`     ${f.severity.toUpperCase().padEnd(5)} ${f.code.padEnd(15)} line ${f.line}: ${f.message}`);
     }
+  }
+  if (crowded && !o.json) {
+    console.log(`NOTE ${share.adds} of ${share.total} subjects start with "add". Pick the verb that names the effect: reject, retry, skip, cache, show, hide, cap, group, stop, keep. See references/descriptive-messages.md`);
   }
   if (failing) process.exitCode = 1;
 }

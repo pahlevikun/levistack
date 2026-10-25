@@ -6,7 +6,7 @@
 
 <p align="left"><em>Meet Murk, the mug. Overskilled, underslept, and one cron job away from a nap.</em></p>
 
-The agent skills I use every day, in one repo. 37 skills (plus 2 [upstream](#upstream-skills)), 11 subagents, 42 rules and 5 hooks for Claude Code, Codex, Cursor, Antigravity, Trae and the skills CLI.
+The agent skills I use every day, in one repo. 41 skills (plus 2 [upstream](#upstream-skills)), 11 subagents, 42 rules and 5 hooks for Claude Code, Codex, Cursor, Antigravity, Trae and the skills CLI.
 
 **Not sure which skill fits?** Start with `/use-levistack <what you want>`. It picks the skill, runs it, proves the result and shapes the reply.
 
@@ -99,7 +99,7 @@ Every task that goes through [`use-levistack`](skills/workflow/use-levistack/SKI
 |---|---|---|
 | 1. Route | `use-levistack` takes your task. If you name a skill, it runs as a one-shot. | [`use-levistack`](skills/workflow/use-levistack/SKILL.md) |
 | 2. Prime | `output-savers` reads your prompt to pick the job, the safety needs and the reply length. It never rewrites your words. | [`prime.md`](skills/workflow/use-levistack/playbooks/prime.md) |
-| 3. Invoke | Pick the first skill from what you want: `codebase-learner`, `trace`, `challenge-me`, `execution-ready-spec-plan`, `tdd`, `second-opinion` and more. No clear fit goes to step 4. | [`invoke.md`](skills/workflow/use-levistack/playbooks/invoke.md) |
+| 3. Invoke | Pick the first skill from what you want: `codebase-learner`, `trace`, `challenge-me`, `ready-spec`, `tdd`, `second-opinion` and more. No clear fit goes to step 4. | [`invoke.md`](skills/workflow/use-levistack/playbooks/invoke.md) |
 | 4. Hunt | `find-skills` asks at most three questions, searches the catalog and builds a chain of up to four skills. It goes to skills.sh only when nothing here fits. | [`find-skills`](skills/workflow/find-skills/SKILL.md) |
 | 5. Apply | The chain runs one skill at a time. Each result goes to the next skill. | the [groups](#groups) |
 | 6. Prove | `verify` checks every claim with fresh proof. A push, MR, posted comment, install or publish waits for your yes. After it runs, the agent checks the result. | [`prove.md`](skills/workflow/use-levistack/playbooks/prove.md) |
@@ -141,11 +141,11 @@ Want to build your own? The `agent-authoring` group has a skill for each piece: 
 |---|---|---|
 | `agent-authoring` | Creating agents, skills, rules, hooks, commands and AGENTS.md files for coding assistants. | `convert-as-skill`, `create-agent`, `create-agents-md`, `create-command`, `create-hook`, `create-rule`, `create-skill` |
 | `architecture` | System design and stack choices: super-architecture (detect, select, build, evaluate, migrate and document architecture), super-caching, Node backends, super-protobuf, target-stack evaluation and blueprints. | `super-architecture`, `super-caching`, `super-elixir`, `super-nodejs`, `super-protobuf`, `super-tech-blueprint` |
-| `delivery` | Shipping work: atomic commits, code review (local diff, request, receive, GitLab glab drafts), merge request descriptions, tickets and API collections. | `atomic-semantic-commit`, `create-bruno-collection`, `create-jira-story`, `glab-code-review`, `write-mr-description` |
+| `delivery` | Shipping work: atomic commits, code review (local diff, request, receive, GitLab glab drafts), merge request descriptions, documentation (pages, API references, doc comments, docs checks after a change), tickets (sliced into end-to-end pieces with blockers) and API collections. | `atomic-semantic-commit`, `create-bruno-collection`, `create-documentation`, `create-tickets`, `glab-code-review`, `write-mr-description` |
 | `engineering` | Engineering habits: tdd (test-first red-green-refactor across stacks), safe-refactor (behavior-preserving refactors), verify (evidence before claims), noslop (no-slop filter for backend, API, frontend, database, config and comments) and output-savers (YAGNI, DRY, SOLID and plain STE replies). | `noslop`, `output-savers`, `safe-refactor`, `tdd`, `verify` |
 | `focus` | ADHD-friendly daily tools: shrink a task to one next action, list tangents for later, and write today's standup from what you really did. | `get-moving`, `later-list`, `standup` |
-| `knowledge` | Understand, question and plan: how the code works today (one flow or the whole repo), why it is shaped that way or why it broke (trace), a second opinion on a change, grilling plans, execution-ready API specs and step-by-step implementation plans. | `challenge-me`, `codebase-learner`, `execution-ready-spec-plan`, `second-opinion`, `trace`, `write-plan` |
-| `product` | Product and UI work on a real product: audit, user-journey QA, UI/UX polish, design systems, tokens, branding and motion. | `design-system-kit`, `product-polish-workflow` |
+| `knowledge` | Understand, question and plan: how the code works today (one flow or the whole repo), why it is shaped that way or why it broke (trace), a second opinion on a change, grilling plans, execution-ready API specs and step-by-step implementation plans. | `challenge-me`, `codebase-learner`, `ready-spec`, `second-opinion`, `trace`, `write-plan` |
+| `product` | Product and UI work, five jobs with one owner each: a design system and its tokens (design-system-kit), colors, themes and modes (color-kit), one screen or component with UX and motion (ui-ux-kit), polish and journey QA of a shipped product (product-polish-workflow), and a throwaway prototype or wireframe (prototype-wireframe). Covers mobile, desktop, web, TV and car. | `color-kit`, `design-system-kit`, `product-polish-workflow`, `prototype-wireframe`, `ui-ux-kit` |
 | `workflow` | How to work with this stack: the use-levistack entry point and router, finding and installing skills, and handing a session off to the next one. | `find-skills`, `handoff`, `use-levistack` |
 <!-- groups:end -->
 
@@ -168,11 +168,11 @@ The usual flow: `context-harvester` first, then `planner`, `coordinator`, `explo
 
 ## Rules
 
-42 rules in `rules/`, by topic: `core`, `architecture`, `elixir`, `go`, `python` and `design`. The core ones cover things like commit messages, comments, testing, failure visibility and PII in logs. Cursor `.mdc` copies are generated into `generated/cursor/rules/`.
+41 rules in `rules/`, by topic: `core`, `architecture`, `elixir`, `go`, `python` and `design`. The core ones cover things like commit messages, comments, testing, failure visibility and PII in logs. Cursor `.mdc` copies are generated into `generated/cursor/rules/`.
 
 ## Also in the box
 
-- `commands/`: slash commands. `/handoff` is the one I use most.
+- `commands/`: 13 slash commands. `/handoff` is the one I use most. `/start` routes any task. `/commit` and `/ship` finish work. `/palette`, `/screen`, `/design-system`, `/prototype` and `/polish` run the product skills. `/review-diff`, `/tickets`, `/docs` and `/enhance-skill` cover review, tickets, docs and skill upgrades.
 - `statusline/`: a one-line status for Claude Code, Cursor CLI and Codex. It shows the branch, model, your 5-hour and weekly limits, and context use. `node scripts/install-statusline.mjs --dry-run` first. See [`statusline/README.md`](statusline/README.md).
 - Import provenance lives next to vendored code (for example `skills/agent-authoring/convert-as-skill/scripts/extractor/UPSTREAM.md` and `LICENSE.md`), not in a repo-root file.
 
@@ -182,8 +182,8 @@ The usual flow: `context-harvester` first, then `planner`, `coordinator`, `explo
 |---|---|
 | `npx skills add` (nested `skills/<group>/<skill>`) | Not yet verified against the published repo |
 | Claude Code marketplace and per-group plugins | Check with `claude plugin validate . --strict` |
-| Cursor plugin | `.cursor-plugin/` lists all 37 skills by path (the nested layout needs it, the same way official Cursor plugins such as CockroachDB do), plus `agents/` and the generated `.mdc` rules. Not load-tested in the Cursor app. `link-skills.sh --cursor` links skills and agents into `~/.cursor` |
-| Codex plugin | Tested with Codex CLI 0.163: installs from this repo's marketplace and loads all 37 skills (it also lists five inner mode files of `output-savers` and `noslop` as skills). Upstream plugins are separate marketplaces in Codex. No agents, rules or hooks |
+| Cursor plugin | `.cursor-plugin/` lists all 41 skills by path (the nested layout needs it, the same way official Cursor plugins such as CockroachDB do), plus `agents/` and the generated `.mdc` rules. Not load-tested in the Cursor app. `link-skills.sh --cursor` links skills and agents into `~/.cursor` |
+| Codex plugin | Tested with Codex CLI 0.163: installs from this repo's marketplace and loads all 41 skills (it also lists five inner mode files of `output-savers` and `noslop` as skills). Upstream plugins are separate marketplaces in Codex. No agents, rules or hooks |
 | Antigravity | Root `plugin.json` and `.antigravity-plugin/plugin.json` for `agy plugin install`, and `link-skills.sh --antigravity` for the app and IDE (flat `skills/`, `agents/`, the 5 always-on core rules). Not load-tested: Antigravity's docs do not say if the nested `skills/<group>/` layout of a GitHub install is found, so use the link script if skills are missing |
 | Trae | No plugin format. `link-skills.sh --trae` links skills, agents (`levistack-*.md`) and the 5 always-on core rules into `~/.trae`. Not load-tested |
 | Hooks | Claude Code only |

@@ -1,13 +1,13 @@
 ---
 name: second-opinion
-description: "Adversarial read-only review of a diff, branch or named files that drives every open decision to a commitment. It restates the change and confirms it, then turns the brief, the reviewers' questions and every open finding into one decision tree and resolves it in dependency order: explore first, then exactly one question per node, each with a recommended answer. Independent reviewers on different models challenge the change through what-to-check lenses and a code-quality lens, and it buckets findings into Act on, Consider, Noted or Dismissed. Exits only when zero nodes are open, with a decision ledger, and offers CONTEXT.md terms and decision records. Uses codebase-learner for context and why before removing a guard. Never applies fixes. Use for 'second opinion', 'interrogate', 'adversarial review', 'challenge this code', 'find blind spots', or 'what did I miss' before merge. Not for the routine MR review loop (glab-code-review) or a plan or doc (challenge-me)."
+description: "Adversarial read-only review of a diff, branch or named files that drives every open decision to a commitment. It restates the change and confirms it, then turns the brief, the reviewers' questions and every open finding into one decision tree and resolves it in dependency order: explore first, then exactly one question per node, each with a recommended answer. Independent reviewers on different models challenge the change through what-to-check lenses and a code-quality lens, and it buckets findings into Act on, Consider, Noted or Dismissed. Exits only when zero nodes are open, with a decision ledger, and offers CONTEXT.md terms and decision records. Quick triage first. Uses codebase-learner for context and why before removing a guard. Never applies fixes. Use for 'second opinion', 'interrogate', 'adversarial review', 'challenge this code', 'find blind spots', or 'what did I miss' before merge. Not for the routine MR review loop (glab-code-review) or a plan or doc (challenge-me)."
 ---
 
 # Second opinion
 
 Spawn independent reviewers to adversarially review a code change, then drive every open decision about it to a commitment with the author. The adversarial signal comes from model diversity, not assigned personas. The deliverable is a **decision ledger** with zero open nodes. Do NOT auto-apply changes.
 
-Adapted from pstack's `interrogate` (MIT, Lauren Tan). The node states, dependency order, ledger format and the two optional files are in [references/decision-tree.md](references/decision-tree.md). Read it before Step 2.
+How to open, pace and close the conversation is in [references/author-talk.md](references/author-talk.md). The node states, dependency order, ledger format and the two optional files are in [references/decision-tree.md](references/decision-tree.md). Read it before Step 2.
 
 ## How to ask
 
@@ -25,6 +25,10 @@ Q3 (F2). <one question, one decision, binary or small multiple choice>
 - The user can confirm, pick another option, push back or defer. Pushback means: read the code again, then re-ask or change the recommendation. Defer means: mark the node DEFERRED with their reason.
 - "Your call" resolves the current node with the recommendation (source `user (accepted recommendation)`) and moves on. It does not end the review.
 
+## Step 0. Triage
+
+Ask what you already know about the change and what is missing. A tiny change with a plain intent gets one quick pass from you, with no reviewers and no tree: say what you checked. An author who says "just run it" gets the reviewers with defaults stated in one line, and the ledger and the gate still apply. Everything else gets the full review. Then say how big the review is (small, standard or large) and let the author override it. Details: [author-talk.md](references/author-talk.md).
+
 ## Step 1. Gather (no questions yet)
 
 Find what to review from context:
@@ -40,11 +44,11 @@ Package the diff or file contents with the surrounding context files reviewers n
 
 ## Step 2. Restate and confirm (node N1)
 
-Restate the change in one paragraph: what it does, for whom, and the goal it serves. Ask the user to confirm that this is the change being reviewed. **Do not go on with a wrong restatement.** If the user corrects it, restate again and re-confirm. Reviewers never question the intent, so it must be right first.
+Restate the change in one paragraph (about 150 words): what it does, for whom, and the goal it serves. Add what you found about how the touched area works today and what the change reaches, and flag a surprise (a hidden caller, a conflict, a cheaper path) if there is one. If the author did not ask for an interview, add one light line offering to just run the reviewers. Ask the user to confirm that this is the change being reviewed. **Do not go on with a wrong restatement.** If the user corrects it, restate again and re-confirm. Reviewers never question the intent, so it must be right first.
 
 ## Step 3. Resolve the brief (nodes N2 to N6)
 
-Build the brief nodes from [decision-tree.md](references/decision-tree.md): scope, focus, risk, merge pressure, known gaps. Create only the nodes that apply. Resolve them in dependency order, one question each, inferring every node the workspace already answers.
+Build the brief nodes from [decision-tree.md](references/decision-tree.md): scope, focus, risk, merge pressure, known gaps. Treat them as territory to cover, not a form to read out: build each question on the last answer or on what you found. After the brief, play it back in 100 to 200 words with your assumptions marked as yours ([author-talk.md](references/author-talk.md)). When looking further would help (callers, CI history, incidents), offer it and let the author decide. Create only the nodes that apply. Resolve them in dependency order, one question each, inferring every node the workspace already answers.
 
 How the brief changes the review:
 
@@ -98,7 +102,8 @@ Show the buckets, then resolve each F-n node in order (Act on first), one questi
 | Finding | Ask | Recommend |
 |---|---|---|
 | Act on, one clear fix | "Fix now in this branch, or block the merge on it?" | fix now |
-| Act on, several reasonable fixes | first F-n, then F-n.fix: "Which fix: A <one line> or B <one line>?" | the smaller fix that removes the cause |
+| Act on, several reasonable fixes | first F-n, then F-n.fix, which goes in a message of its own with a short trade-off table (what each fix gives up, when it wins): "Which fix: A <one line> or B <one line>?" | the smaller fix that removes the cause |
+| Reviewers disagree, or the author says "that cannot happen" | offer a throwaway check (a failing test in a scratch copy, a one-off script), then go back to the node | what the check shows |
 | Consider | "Fix now, follow-up, or leave it?" | from the risk and merge-pressure nodes |
 | The user pushes back | "Is <the reviewer's assumption> wrong here? If yes, I dismiss it." | what the code shows |
 
@@ -107,6 +112,12 @@ More than six F-n nodes open? Ask one question first: "Go one at a time, or take
 **Exit only when zero nodes are open.** DEFERRED nodes do not block the exit. Then ask one closing question: "Hand the 'fix now' items to `tdd` (or `safe-refactor` for structure-only fixes) now?" Still apply nothing yourself.
 
 If the user stops answering, deliver the ledger with the remaining nodes marked open. Do not call the review done.
+
+**Play back the buckets** before the first F-n question: 100 to 200 words on what the review found, with anything you assumed marked as yours.
+
+**Cold read (large reviews).** When the review is large or the ledger will leave this chat, give the output contract to a fresh reader before you hand it over. Sort their questions into answered, minor and the author's, and ask only the author's, in one message. Steps and prompt: [references/cold-read.md](references/cold-read.md).
+
+**The gate.** Nothing in the reviewed change is edited until the author approves the ledger. The "fix now" items go to `tdd` or `safe-refactor` after that yes.
 
 ## Step 8. Offer the files
 
@@ -149,6 +160,8 @@ Short and pasteable. No prose summary. No hedging.
 
 | File | Use it for |
 |---|---|
+| [author-talk.md](references/author-talk.md) | Triage, the first message, asking by territory, play-backs, recon offers, fix trade-offs, throwaway checks, sizing, the gate, red flags |
+| [cold-read.md](references/cold-read.md) | A fresh reader checks that the ledger stands on its own |
 | [decision-tree.md](references/decision-tree.md) | Node states, dependencies, the resolve loop, the ledger, `CONTEXT.md` and decision records |
 | [question-bank.md](references/question-bank.md) | Ready-made questions per node, and good versus bad questions |
 | [scope-and-context.md](references/scope-and-context.md) | Base branch, diff size, exclusions, context files, filling `{BRIEF}` |
@@ -169,6 +182,8 @@ Short and pasteable. No prose summary. No hedging.
 - **Applying patches "to be helpful".** The user decides. `tdd` or `safe-refactor` does the fix, and `verify` proves it.
 - **Treating one reviewer's nit as Act on** without context.
 - **Running it on a plan or doc.** That is `challenge-me`.
+- **Reading the brief out like a form.** Cover the ground in conversation, built on the last answer.
+- **Keeping a throwaway check.** It was only there to settle a node. Keeping it is a new request.
 
 ## Related skills
 

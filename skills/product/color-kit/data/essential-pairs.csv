@@ -1,0 +1,73 @@
+name,fg,bg,need,mode
+body text on page,text,background,4.5,light
+body text on card,text,surface,4.5,light
+body text on raised surface,text,surface-raised,4.5,light
+muted text on page,text-muted,background,4.5,light
+muted text on card,text-muted,surface,4.5,light
+muted text on raised surface,text-muted,surface-raised,4.5,light
+link on page,link,background,4.5,light
+link on card,link,surface,4.5,light
+primary button label,on-primary,primary,4.5,light
+primary button label on hover,on-primary,primary-hover,4.5,light
+primary button label pressed,on-primary,primary-pressed,4.5,light
+primary fill against page,primary,background,3,light
+primary tint label,on-primary-subtle,primary-subtle,4.5,light
+secondary button label,on-secondary,secondary,4.5,light
+secondary tint label,on-secondary-subtle,secondary-subtle,4.5,light
+tertiary label,on-tertiary,tertiary,4.5,light
+input edge against page,border-strong,background,3,light
+input edge against card,border-strong,surface,3,light
+focus ring against page,focus-ring,background,3,light
+focus ring against card,focus-ring,surface,3,light
+success label,on-success,success,4.5,light
+success tint label,on-success-subtle,success-subtle,4.5,light
+success fill against page,success,background,3,light
+warning label,on-warning,warning,4.5,light
+warning tint label,on-warning-subtle,warning-subtle,4.5,light
+warning fill against page,warning,background,3,light
+danger label,on-danger,danger,4.5,light
+danger tint label,on-danger-subtle,danger-subtle,4.5,light
+danger fill against page,danger,background,3,light
+info label,on-info,info,4.5,light
+info tint label,on-info-subtle,info-subtle,4.5,light
+info fill against page,info,background,3,light
+body text on page,text,background,4.5,dark
+body text on card,text,surface,4.5,dark
+body text on raised surface,text,surface-raised,4.5,dark
+muted text on page,text-muted,background,4.5,dark
+muted text on card,text-muted,surface,4.5,dark
+muted text on raised surface,text-muted,surface-raised,4.5,dark
+link on page,link,background,4.5,dark
+link on card,link,surface,4.5,dark
+primary button label,on-primary,primary,4.5,dark
+primary button label on hover,on-primary,primary-hover,4.5,dark
+primary button label pressed,on-primary,primary-pressed,4.5,dark
+primary fill against page,primary,background,3,dark
+primary tint label,on-primary-subtle,primary-subtle,4.5,dark
+secondary button label,on-secondary,secondary,4.5,dark
+secondary tint label,on-secondary-subtle,secondary-subtle,4.5,dark
+tertiary label,on-tertiary,tertiary,4.5,dark
+input edge against page,border-strong,background,3,dark
+input edge against card,border-strong,surface,3,dark
+focus ring against page,focus-ring,background,3,dark
+focus ring against card,focus-ring,surface,3,dark
+success label,on-success,success,4.5,dark
+success tint label,on-success-subtle,success-subtle,4.5,dark
+success fill against page,success,background,3,dark
+warning label,on-warning,warning,4.5,dark
+warning tint label,on-warning-subtle,warning-subtle,4.5,dark
+warning fill against page,warning,background,3,dark
+danger label,on-danger,danger,4.5,dark
+danger tint label,on-danger-subtle,danger-subtle,4.5,dark
+danger fill against page,danger,background,3,dark
+info label,on-info,info,4.5,dark
+info tint label,on-info-subtle,info-subtle,4.5,dark
+info fill against page,info,background,3,dark
+input text on its ground,text,surface-sunken,4.5,light
+placeholder or muted text on its ground,text-muted,surface-sunken,4.5,light
+link on raised surface,link,surface-raised,4.5,light
+tertiary fill against page,tertiary,background,3,light
+input text on its ground,text,surface-sunken,4.5,dark
+placeholder or muted text on its ground,text-muted,surface-sunken,4.5,dark
+link on raised surface,link,surface-raised,4.5,dark
+tertiary fill against page,tertiary,background,3,dark

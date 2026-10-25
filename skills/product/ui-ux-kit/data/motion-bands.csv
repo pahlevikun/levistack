@@ -1,0 +1,21 @@
+purpose,how often seen,duration,easing,platform,note
+press or tap feedback,every click,100 to 160 ms,ease-out,all,scale to 0.97 and a tone change. Show the result before the animation ends
+toggle or checkbox,every click,100 to 160 ms,ease-out,all,move the thumb and change the color together
+tooltip or small popover,frequent,125 to 200 ms,ease-out,all,no delay after the first tooltip in a group
+dropdown or select,frequent,150 to 250 ms,ease-out,all,grow from its trigger
+tab or segmented switch,frequent,150 to 250 ms,ease-out,all,move the indicator and keep content still or cross-fade
+hover color change,tens per day,100 to 150 ms,ease,web and desktop,pointer only and never required
+modal or dialog,occasional,200 to 300 ms,ease-out,all,fade and a small rise from where it was opened
+bottom sheet or drawer,occasional,200 to 300 ms desktop and 200 to 500 ms mobile,"drawer curve (0.32, 0.72, 0, 1)",all,origin from the edge it came from and the page behind retreats a little
+toast or snackbar,occasional,150 to 250 ms,ease-out,all,leave the way it came
+page or route change,occasional,250 to 350 ms,ease-out,all,keep a direction cue and a shared element when it helps
+list insert or remove,occasional,200 to 300 ms,ease-in-out,all,animate the layout change and not each field
+skeleton to content,every load,150 to 250 ms,ease-out,all,fade in and no layout shift
+progress or loading bar,during work,during work,linear,all,show real progress when it is known
+number change,live,150 to 250 ms,ease-out,all,tabular figures and animate only the changed digits
+expand or accordion,occasional,200 to 300 ms,ease-in-out,all,animate height with a transform or grid technique
+drag follow,gesture,none (1:1),none,touch,no delay and no easing while the finger is down
+drag release or fling,gesture,spring,spring with no bounce unless the flick had momentum,touch,commit on distance or speed and settle to a detent
+onboarding or celebration,rare,400 to 800 ms,ease-out,all,delight is allowed here and never gates content
+car,any,under 200 ms,ease-out,car,only motion that carries meaning such as a turn cue
+tv focus move,every key press,150 to 250 ms,ease-out,tv,ring and scale together and keep a trail so the eye can follow

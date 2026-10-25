@@ -27,9 +27,9 @@
 
 - **Wordmark:** `levi` in `--fg` + `stack` in `--accent`. Cursor at `x=350` (measured from the render, the formula's 366 left a gap).
 - **Tagline:** `for people tired of AI slop.` (28 chars, from the repo description)
-- **Pill 1:** `37 skills` with dot, `width=92`. **Pill 2:** `proof before done`, `x=100`, `width=146`.
+- **Pill 1:** `41 skills` with dot, `width=92`. **Pill 2:** `proof before done`, `x=100`, `width=146`.
 - **Motto:** `Meet Murk: overskilled and underslept.` (from the README line)
-- **Column 3:** chip `/use-levistack <task>`, seven rows (route, prime, invoke, hunt, apply, prove, deliver), step 06 in gold, footer `37 skills · 11 agents · 42 rules · 5 hooks` and `+2 upstream`.
+- **Column 3:** chip `/use-levistack <task>`, seven rows (route, prime, invoke, hunt, apply, prove, deliver), step 06 in gold, footer `41 skills · 11 agents · 42 rules · 5 hooks` and `+2 upstream`.
 
 ## Tokens (all from `docs/assets/murk.svg`)
 

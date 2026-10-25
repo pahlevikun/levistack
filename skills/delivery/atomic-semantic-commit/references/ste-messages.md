@@ -9,12 +9,12 @@ A commit message is not a reply. It has a fixed format, so use these rules and n
 | Rule | Do | Do not |
 |---|---|---|
 | Mood | Imperative, present tense: `add`, `fix`, `remove` | `added`, `adds`, `adding` |
-| Length | 50 characters or fewer. Hard limit 72 | A subject that wraps |
+| Length | Aim for 60 characters. Hard limit 72 | A subject that wraps |
 | End | No period | `fix login bug.` |
 | Case | Lowercase after the colon | `Fix Login Bug` |
 | Size | One idea. The thing and the action | Two actions joined by `and` |
 | Names | Keep identifiers exact: `fix(parser): handle empty token` | Paraphrase a function name |
-| Subject | Say what changed in the product or code | List file names |
+| Subject | Say what changed in the product or code, and when | List file names, or name an object with no effect (`add retry`) |
 
 ## Words
 
@@ -37,6 +37,7 @@ Say what, not that:
 | Weak | Strong |
 |---|---|
 | `fix stuff in login` | `fix(login): reject expired tokens` |
+| `feat: add retry` | `feat(sync): retry upload up to 3 times on timeout` |
 | `update dependencies` | `chore(deps): bump eslint to 9.4` |
 | `improve performance` | `perf(search): cache the index per request` |
 | `refactor code` | `refactor(cart): extract price calculation` |
@@ -101,5 +102,9 @@ node scripts/check-message.mjs "fix(auth): retry token refresh on 401"
 node scripts/check-message.mjs --file .git/COMMIT_EDITMSG
 node scripts/check-message.mjs --range HEAD~5..HEAD
 ```
+
+Pass the size of the staged change with `--diff-lines=N`. A change of 40 lines or more to `feat`, `fix`, `refactor` or `perf` then needs a body. `--range` also tells you when most subjects start with `add`.
+
+For the subject formula, the verb ladder and the body order, read `descriptive-messages.md`.
 
 The script checks the format and the rules above. It cannot judge whether the message is true. A human or the agent reads the diff for that.

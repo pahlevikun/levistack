@@ -1,0 +1,23 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{background:#2A221C}
+.screen{width:390px;height:844px;background:#F7F1E8;position:relative;overflow:hidden;
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  color:#3D2C23;display:flex;flex-direction:column}
+/* design tokens (warm paper + terracotta; swap to match the app) */
+.serif{font-family:Georgia,'Iowan Old Style',serif;font-weight:600}
+.muted{color:#7A6558}.terra{color:#C46A4A}.sage{color:#6B8F71}.gold{color:#C9A227}
+.btn{display:flex;align-items:center;justify-content:center;min-height:48px;border-radius:14px;
+  background:#C46A4A;color:#FFFDF8;font-weight:600;font-size:17px;padding:0 20px}
+.polaroid{background:#FFFDF8;border-radius:4px;box-shadow:0 8px 24px rgba(61,44,35,.16);overflow:hidden}
+.polaroid .img{position:relative}
+.polaroid .cap{padding:10px 14px 12px;font-size:13px;color:#7A6558}
+.smileimg{background:radial-gradient(circle at 50% 30%,#f6cfae 0%,#e9a97b 45%,#d98a63 100%)}
+.row{display:flex;align-items:center;gap:12px}
+.statusbar{position:absolute;top:0;left:0;right:0;height:44px;display:flex;align-items:center;
+  justify-content:space-between;padding:0 22px;font-size:14px;font-weight:700}
+</style></head><body>
+<div class="screen">
+  <div class="statusbar"><span>9:41</span><span style="color:#7A6558">●●●</span></div>
+  <!-- screen body: flex column; use margin-top:auto for a bottom tab bar -->
+</div></body></html>

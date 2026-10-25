@@ -1,6 +1,6 @@
 ---
 name: tdd
-description: "Language-agnostic test-driven development: plan public seams, write one failing test, watch it fail, implement the smallest pass, then refactor only while green. Vertical slices (one test then one implementation), not all tests then all code. Bug fixes prove the failure first; skip a forced test only when impractical and say why. Use when implementing a new feature, fixing a bug, refactoring with tests, red-green-refactor, test-first, ExUnit, mix test, Jest, Vitest, go test, pytest, React Testing Library, failing tests first, or continuing from a plan.md TDD handoff."
+description: "Language-agnostic test-driven development: plan public seams, write one failing test, watch it fail, implement the smallest pass, then refactor only while green, or audit an existing suite for weak tests. Vertical slices (one test then one implementation), not all tests then all code. Bug fixes prove the failure first; skip a forced test only when impractical and say why. Use when implementing a new feature, fixing a bug, refactoring with tests, red-green-refactor, test-first, ExUnit, mix test, Jest, Vitest, go test, pytest, React Testing Library, failing tests first, or continuing from a plan.md TDD handoff."
 metadata:
   version: "1.0.0"
 ---
@@ -25,6 +25,7 @@ Do this first; do not announce it. Full signal table: [references/core/auto-dete
 | Bug fix, regression, "prove it" | **bug-fix** | [bug-fix-prove-it.md](references/core/bug-fix-prove-it.md) |
 | Public API vs internals, tests breaking on rename | **seams** | [seams.md](references/core/seams.md) |
 | Mocks, all-tests-then-all-code, test-only production methods | **anti-patterns** | [anti-patterns.md](references/core/anti-patterns.md), [catalog-anti-patterns.md](references/legacy/catalog-anti-patterns.md) |
+| Audit an existing suite: weak, duplicate or implementation-coupled tests | **audit** | [audit-tests.md](references/core/audit-tests.md) |
 | Cleanup after green | **refactor** | [safe-refactor](../safe-refactor/SKILL.md) — not a second refactor guide |
 | Go files, `go test` | **language: Go** | [golang.md](references/tech/golang.md) |
 | Elixir / ExUnit / `mix test` | **language: Elixir** | [elixir.md](references/tech/elixir.md) → `super-elixir` tdd |

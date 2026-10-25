@@ -134,7 +134,7 @@ Follow [root-cause.md](references/root-cause.md):
 1. Pin Why 1 with proof. A live failure with no confirmed mechanism goes to `verify` (investigate-first) first.
 2. Build the chain, one link per why, each with evidence and a tier. `DEPTH` defaults to 5 but is a guide.
 3. Branch when a why has more than one cause. Mark causes as necessary, independent or contributing.
-4. Run every check in [cause-checks.md](references/cause-checks.md) on every chain: backward read, counterfactual, falsification, timeline, competing chain, human-error rule, scope.
+4. Run every check in [cause-checks.md](references/cause-checks.md) on every chain: backward read, counterfactual, falsification, timeline, competing chain, human-error rule, scope, and the shared-assumption check when earlier fixes failed.
 5. Stop at a systemic cause in the team's control: missing validation, docs, process, automation, test or alert. Never at "human error", "a third party failed" or "bad luck".
 6. Propose a fix per root cause, with containment labeled separately, how to verify, and what to watch for recurrence.
 
@@ -162,5 +162,5 @@ Present the result. You may edit lightly for clarity, but **do not rewrite the c
 - `verify`: reproduce and confirm the mechanism of a live failure (Why 1) before the chain.
 - `second-opinion`: the history explains a guard a reviewer wants to remove.
 - `tdd` or `safe-refactor`: carry out a root-cause fix the user chose.
-- `execution-ready-spec-plan`: the constraints are known and the change needs a plan.
+- `ready-spec`: the constraints are known and the change needs a plan.
 - `challenge-me`: the user wants to test whether an old decision still holds.

@@ -1,0 +1,20 @@
+{
+  "_doc": "Extra forbid lists per domain. They stop the mixer from drawing a shape, motion or signature that clashes with the kind of product. The mixer merges them into domains.json at load time. Unlisted options are still allowed, so surprising combinations stay possible.",
+  "domain_forbid": {
+    "wellness-meditation": { "shapes": ["sharp", "rules", "brut", "crisp"], "signatures": ["terminal-labels", "big-type-hero"] },
+    "health-medical": { "shapes": ["brut", "pebble"], "motion": ["theatrical", "springy"] },
+    "kids-education": { "shapes": ["sharp", "rules", "brut"], "motion": ["still", "snappy-tech"] },
+    "legal-gov": { "shapes": ["pebble", "brut", "pill"], "motion": ["springy", "theatrical"] },
+    "fashion-luxury": { "shapes": ["pebble", "brut", "pill"], "motion": ["springy"] },
+    "fintech-banking": { "shapes": ["brut", "pebble"] },
+    "food-delivery": { "shapes": ["sharp", "rules", "brut"] },
+    "restaurant-cafe": { "shapes": ["brut", "sharp"] },
+    "beauty-cosmetics": { "shapes": ["brut", "sharp", "rules"] },
+    "pets-family": { "shapes": ["sharp", "rules", "brut"] },
+    "religion-community": { "shapes": ["brut", "pill"], "motion": ["springy", "theatrical"] },
+    "analytics-bi": { "shapes": ["brut", "pebble"] },
+    "ai-assistant": { "shapes": ["brut"] },
+    "automotive-mobility": { "shapes": ["pebble", "brut"], "motion": ["springy"] },
+    "smart-home-iot": { "shapes": ["brut", "sharp"] }
+  }
+}

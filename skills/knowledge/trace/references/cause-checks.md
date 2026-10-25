@@ -1,6 +1,6 @@
 # Cause checks
 
-Run every check on every chain before you accept a root cause. They catch the two common failures: a chain that sounds right but does not hold, and a chain that stops at a symptom.
+Run every check on every chain before you accept a root cause. They catch the common failures: a chain that sounds right but does not hold, and a chain that stops at a symptom.
 
 ## 1. Backward read
 
@@ -61,6 +61,14 @@ Ask whether the root cause explains **only this case** or **the whole class**:
 - Other places with the same shape (other migrations, other test configs, other Dockerfiles): search for them. If they share the flaw, the root cause is confirmed and the fix must cover them too.
 - If this is the only place with the flaw, the root may still be one why higher: why was this place different?
 
+## 8. Shared-assumption check
+
+Use this when the history shows two or more fixes that failed the same way: a test that stayed red, an alert that fired again, an incident that came back. Suspect what the fixes have in common.
+
+1. Write down what each failed fix assumed. Find the assumption they share.
+2. Test that assumption before you add another link to the chain. Find an observation that would look different if it were false, and make it.
+3. If the result contradicts the assumption, start a new branch from what the failures have in common.
+
 ## Before you report
 
 - Every link has a citation or a tier of `Speculative` with what would confirm it.
@@ -69,4 +77,5 @@ Ask whether the root cause explains **only this case** or **the whole class**:
 - The timeline holds.
 - At least one competing chain was considered.
 - No link stops at human error.
+- If earlier fixes failed, the assumption they share was written down and tested.
 - "What we don't know" names specific gaps. If it is empty, be suspicious.

@@ -20,7 +20,7 @@ import { fileURLToPath } from 'node:url';
 export const NAMES = ['AGENTS.md', 'AGENTS.override.md', 'CLAUDE.md', 'CLAUDE.local.md'];
 export const CODEX_LIMIT = 32 * 1024;
 export const LINE_WARN = 200;
-const SKIP = new Set(['node_modules', '.git', 'dist', 'build', 'target', 'vendor', '_build', 'deps', '.venv', '.next', 'coverage']);
+const SKIP = new Set(['node_modules', '.git', 'scratch', 'dist', 'build', 'target', 'vendor', '_build', 'deps', '.venv', '.next', 'coverage']);
 const SECRET = /\b(?:sk-[A-Za-z0-9]{20,}|ghp_[A-Za-z0-9]{30,}|AKIA[0-9A-Z]{16}|xox[baprs]-[A-Za-z0-9-]{10,})\b|(?:api[_-]?key|secret|token|password)\s*[:=]\s*['"][A-Za-z0-9_\-]{16,}['"]/i;
 
 export function findFiles(root) {

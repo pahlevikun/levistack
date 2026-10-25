@@ -1,0 +1,24 @@
+the user says,knobs,why
+calmer or softer or quieter,--mood calm --chroma low --ground soft,Low chroma and soft lightness steps feel restful. Similar hues sit together
+more premium or less cheap,--mood premium --chroma low --signature one-loud-accent,Restraint reads as price. One accent and warm neutrals
+punchier or more energy,--mood energetic --chroma high --harmony complement,Hue contrast makes the foreground pop
+warmer,--temp 0.5,Warming moves hue and chroma together. Reds and oranges gain life and blues turn gray
+cooler,--temp -0.5,The reverse shift
+friendlier or rounder,--mood gentle --neutral linen,Tender moods use soft neutrals
+more serious or formal,--mood trustworthy --chroma mid --harmony analogous,Close hues and steady contrast
+more modern or fresh,--mood fresh --neutral snow,Clean neutrals and a bright accent
+darker,--ground dark,Compose a dark mode as the default ground. It is not an inversion
+looks generic,--neutral <other> --signature <other> then change the hue,The neutral and the signature are what people remember
+keep my brand color,--hue <OKLCH hue of the brand> --chroma <its chroma>,The ramp is built around the brand step. The brand color is pinned or snapped on purpose
+different accent,--accent-hue <degrees> or --harmony <id>,Second hue sets the accent
+for kids,--mood playful --chroma high --harmony triad,Bright clear hues on a calm ground and strong text contrast
+for food,--mood appetizing --temp 0.4,Warm reds oranges and yellows raise appetite. Keep the ground warm
+for health,--mood clinical --chroma low,Calm blues and teals. Red keeps its meaning for errors
+for night or sleep,--mood serene-night --ground dark,Low contrast steps with a lifted ground and no pure black
+for the car,--platform car,"Sets a dark default ground, a high contrast floor and car sizes. Day and night values are still yours to compose and measure by hand"
+for TV,--platform tv,"Sets a dark default ground, a high contrast floor and TV sizes. Make the app start in dark. Avoid large pure white areas by hand"
+for sport,--mood sporty --chroma high,Saturated and high contrast
+for editorial,--mood editorial --chroma low,Paper neutrals and one accent
+for a tool people use all day,--mood focused --chroma low,Spend color on state and on the one main action
+for faith or community,--mood calm --chroma low and ask the community,Follow their own visual language
+for finance,--mood trustworthy --signature oversized-numerals,Trust blue or a refined violet or teal. Numbers lead

@@ -56,6 +56,8 @@ Before marking a change done, trace what else it touches:
 
 Skip for leaf changes with no callbacks and no persisted state.
 
+For a claim that a change is safe, or a wide change you do not trust, use `prove-safe.md`. It finds the one fact the safety rests on and proves it by running real code.
+
 ## Traps that look like proof
 
 - A falling lint count with a corrupted file: most linters report only the first parse error per file. Use a parser or build.

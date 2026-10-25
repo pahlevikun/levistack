@@ -22,6 +22,7 @@ You cannot test everything. Before the first test in **plan** or **loop**:
 2. List the seams you will test (usually one or two for a slice).
 3. Confirm with the user when the interface is new or controversial.
 4. Prioritize critical paths and complex logic, not every edge.
+5. Reuse a seam that already exists before you add one. Test at the highest seam that still shows the behavior. If you must add a seam, add it as high as you can. Fewer seams is better, and one is ideal.
 
 Ask: "What is the public interface, and which seams should we test?"
 

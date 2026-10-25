@@ -1,0 +1,18 @@
+{
+  "_doc": "Neutral families. hue 'brand' means follow the primary hue. chroma is OKLCH C for mid steps. temp is a plain label.",
+  "paper":     { "hue": 85,  "chroma": 0.014, "temp": "warm",   "describe": "warm cream, like uncoated paper" },
+  "linen":     { "hue": 70,  "chroma": 0.010, "temp": "warm",   "describe": "soft oat and linen" },
+  "sand":      { "hue": 78,  "chroma": 0.020, "temp": "warm",   "describe": "dry sand with a little yellow in it" },
+  "clay":      { "hue": 42,  "chroma": 0.016, "temp": "warm",   "describe": "baked clay and terracotta dust" },
+  "stone":     { "hue": 60,  "chroma": 0.006, "temp": "neutral","describe": "plain stone, barely tinted" },
+  "graphite":  { "hue": 250, "chroma": 0.004, "temp": "neutral","describe": "pencil graphite, near neutral" },
+  "snow":      { "hue": 250, "chroma": 0.002, "temp": "neutral","describe": "clean white and cool charcoal" },
+  "mist":      { "hue": 230, "chroma": 0.010, "temp": "cool",   "describe": "morning mist, a breath of blue-green" },
+  "sea-glass": { "hue": 190, "chroma": 0.012, "temp": "cool",   "describe": "sea glass and wet slate" },
+  "slate":     { "hue": 255, "chroma": 0.020, "temp": "cool",   "describe": "blue slate, crisp and technical" },
+  "dusk":      { "hue": 290, "chroma": 0.018, "temp": "cool",   "describe": "dusk violet-gray" },
+  "plum":      { "hue": 335, "chroma": 0.014, "temp": "warm",   "describe": "plum ink and rose-gray" },
+  "moss":      { "hue": 140, "chroma": 0.012, "temp": "neutral","describe": "moss and lichen gray-green" },
+  "olive":     { "hue": 110, "chroma": 0.014, "temp": "warm",   "describe": "olive and dry herbs" },
+  "tinted":    { "hue": "brand", "chroma": 0.012, "temp": "brand", "describe": "the brand hue, diluted almost to gray" }
+}

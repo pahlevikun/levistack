@@ -1,0 +1,14 @@
+{
+  "brief": "a calming meditation app for phone and TV",
+  "seed": "1",
+  "domain": "wellness-meditation",
+  "mood": "calm,gentle",
+  "platform": "mobile,tv",
+  "ground": "soft",
+  "chroma": "low",
+  "temp": -0.1,
+  "neutral": "mist",
+  "harmony": "analogous",
+  "color_amount": 1,
+  "neutral_temp": "as-built"
+}

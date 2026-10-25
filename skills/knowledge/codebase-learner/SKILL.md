@@ -157,11 +157,12 @@ These skill folders were merged and removed:
 
 ## Related skills
 
+- `create-documentation`: write pages for readers, or check which docs a change made stale.
 - `trace`: the question is why the code is shaped this way.
 - `second-opinion`: a change needs review, and the explain mode gives the reviewers context.
 - `super-tech-blueprint`: choose or migrate to a target stack.
 - `super-architecture`: name the current style or choose one.
-- `execution-ready-spec-plan` or `write-plan`: the mental model is clear and the change needs a plan.
+- `ready-spec` or `write-plan`: the mental model is clear and the change needs a plan.
 - `challenge-me`: stress-test the findings or the next step.
 - `safe-refactor`: act on the smells you found.
 - `create-agents-md`: write the findings into AGENTS.md or CLAUDE.md.

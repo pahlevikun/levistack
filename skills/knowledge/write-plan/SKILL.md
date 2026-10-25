@@ -1,6 +1,6 @@
 ---
 name: write-plan
-description: "Write a bite-sized implementation plan (files, tasks, tests, commits) for a multi-step change that an engineer or agent with no context can follow. Use when you have a spec or requirements for a multi-step task, before touching code. Not for a backend or API contract spec with lifecycle and error catalog (execution-ready-spec-plan)."
+description: "Write a bite-sized implementation plan (files, tasks, tests, commits) for a multi-step change that an engineer or agent with no context can follow. Use when you have a spec or requirements for a multi-step task, before touching code. Not for a backend or API contract spec with lifecycle and error catalog (ready-spec)."
 ---
 
 # Write a plan
@@ -42,6 +42,8 @@ deliverable needs them; split only where a reviewer could meaningfully
 reject one task while approving its neighbor. Each task ends with an
 independently testable deliverable.
 
+For a large plan, cut the work into vertical slices first, with the slices that block each one. The rules are in [slicing.md](references/slicing.md).
+
 ## Bite-Sized Task Granularity
 
 **Each step is one action (2-5 minutes):**
@@ -80,6 +82,8 @@ include this section.]
 
 ````markdown
 ### Task N: [Component Name]
+
+**Blocked by:** [task numbers that must finish first, or "None"]
 
 **Files:**
 - Create: `exact/path/to/file.py`
@@ -170,8 +174,9 @@ After saving the plan, offer execution choice:
 ## Related skills
 
 - `challenge-me`: stress-test the spec before you plan it.
-- `execution-ready-spec-plan`: the change is a backend or API contract and needs a full spec first.
+- `ready-spec`: the change is a backend or API contract and needs a full spec first.
 - `tdd`: implement each task test-first.
 - `verify`: prove each task before you tick it.
-- `create-jira-story`: turn tasks into tickets.
+- `create-tickets`: turn tasks into tickets. Slices keep their blocking links.
+- `challenge-me`: the work is too big to see the end of, so map the decisions first (huge-work section of the decision map).
 - `handoff`: pause mid-plan with the state saved.

@@ -1,20 +1,22 @@
 ---
 name: verify
-description: "Evidence before claims and before fixes. Use before saying work is done, fixed, passing or ready (tests pass, build succeeds, bug fixed, ready to merge, handing off, before a commit, push or PR), when asked only to verify or run the gates, or when a failure has an unknown cause and must be diagnosed before editing. Requires a fresh, claim-matched proof, honest reporting of what was and was not checked, and stopping once the proof is complete."
-when_to_use: "Use proactively when about to write 'done', 'fixed', 'all tests pass' or 'ready to merge'; when the user says 'verify', 'validate', 'run the gates', 'prove it', 'is it really fixed' or 'why does this fail'; when a subagent reports success; or when a request has an ambiguous scope before editing."
+description: "Evidence before claims and before fixes. Use before saying work is done, fixed, passing or ready (tests pass, build succeeds, bug fixed, ready to merge, handing off, before a commit, push or PR), when asked only to verify or run the gates, or when a failure has an unknown cause and must be diagnosed before editing, when someone claims a change is safe or asks what it could break, or before you report a measured performance number. Requires a fresh, claim-matched proof, honest reporting of what was and was not checked, and stopping once the proof is complete."
+when_to_use: "Use proactively when about to write 'done', 'fixed', 'all tests pass' or 'ready to merge'; when the user says 'verify', 'validate', 'run the gates', 'prove it', 'is it really fixed' or 'why does this fail'; when a subagent reports success; when a request has an ambiguous scope before editing; or when the user asks 'is this safe', 'what could this break', 'blast radius', 'is this speedup real' or 'benchmark this'."
 metadata:
   version: "1.0.0"
 ---
 
 # Verify
 
-A claim is only as good as the evidence behind it, and a fix is only as good as the diagnosis behind it. This skill does three jobs:
+A claim is only as good as the evidence behind it, and a fix is only as good as the diagnosis behind it. This skill does five jobs:
 
 | Job | When | Where |
 |---|---|---|
 | **Gate a claim** (default) | You are about to say something is done, fixed, passing or ready | This file |
 | **Verify only** | The task is validation, not change: run the gates, prove acceptance, stop | [verify-only.md](references/verify-only.md) |
 | **Investigate first** | A failure has an unknown cause, or the problem is intermittent or a regression | [investigate-first.md](references/investigate-first.md) |
+| **Prove it is safe** | Someone says a change is safe, or asks what it could break elsewhere | [prove-safe.md](references/prove-safe.md) |
+| **Vet a number** | You are about to report a measured number: a speedup, a regression, a benchmark | [vet-a-number.md](references/vet-a-number.md) |
 
 ## The rule
 
@@ -67,7 +69,9 @@ A clean result is a valid result. Do not invent findings to look thorough, and d
 | Situation | Read |
 |---|---|
 | The task is only to verify or run the gates | [verify-only.md](references/verify-only.md) |
-| Unknown cause, intermittent failure, regression, "why" | [investigate-first.md](references/investigate-first.md) |
+| Unknown cause, intermittent failure, regression, "why", or fixes that keep failing | [investigate-first.md](references/investigate-first.md) |
+| "Is this safe", "what could this break", a wide change you do not trust | [prove-safe.md](references/prove-safe.md) |
+| A speedup, a regression, a throughput or latency number, a benchmark | [vet-a-number.md](references/vet-a-number.md) |
 | Choosing the right check for a change | [proof-by-change.md](references/proof-by-change.md) |
 | Dirty tree, upgrades, strict validation, fixture vs live | [proof-integrity.md](references/proof-integrity.md) |
 | Empty results, wrapper scripts, wrong binary, totals that add up | [trustworthy-output.md](references/trustworthy-output.md) |
@@ -77,6 +81,7 @@ A clean result is a valid result. Do not invent findings to look thorough, and d
 ## Related skills
 
 - `trace`: the immediate cause is proven, and the user wants the root cause behind it.
+- `second-opinion`: a wide change needs reviewers on different models. `prove-safe` supplies the proof, and `second-opinion` supplies the review.
 - `tdd`: the fix needs a failing test first.
 - `glab-code-review`: verify a review comment before you act on it.
 - `atomic-semantic-commit`: the work is proven and ready to commit.

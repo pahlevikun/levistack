@@ -18,5 +18,5 @@ Pitch, PRD fragment, feature request, landing-page copy used as a spec. New vs e
 ## Do not
 
 - Invent the tech stack (`super-tech-blueprint`).
-- Write tickets until they ask (`create-jira-story`).
+- Write tickets until they ask (`create-tickets`).
 - Run a 10-persona workshop; four approaches then a rec is enough.

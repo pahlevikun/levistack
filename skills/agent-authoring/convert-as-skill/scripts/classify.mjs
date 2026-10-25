@@ -21,16 +21,19 @@ export const GUIDES = {
   'from-conversation': 'specialities/from-conversation/GUIDE.md',
   'from-document': 'specialities/from-document/GUIDE.md',
   'merge-skills': 'specialities/merge-skills/GUIDE.md',
+  'enhance-skill': 'specialities/enhance-skill/GUIDE.md',
 };
 
 const DOCS_DIRS = new Set(['docs', 'documentation', 'doc', 'handbook', 'manuals', 'papers']);
-const KIND_ORDER = ['merge-skills', 'from-agent', 'from-command', 'from-rule', 'from-document', 'from-conversation'];
+const KIND_ORDER = ['enhance-skill', 'merge-skills', 'from-agent', 'from-command', 'from-rule', 'from-document', 'from-conversation'];
 
 const SCRATCH = /\b(from scratch|new skill|write a skill|create a skill|add a skill)\b/i;
 const NEW_RULE = /\b(new rule|create a rule|write a rule|add a rule)\b/i;
 const NEW_COMMAND = /\b(new command|create a command|write a (slash )?command|add a command)\b/i;
 const NEW_AGENT = /\b(new (sub)?agent|create (an |a )?(sub)?agent|write (an |a )?(sub)?agent|add (an |a )?(sub)?agent)\b/i;
 const MERGE = /\b(merge|combine|into one skill)\b/i;
+// One skill gets better by learning from other sources. The words must name that intent.
+const ENHANCE = /\b(enhance|enhancing|improve|improving|upgrade|extend|refine|strengthen|level up|learn from|learning from|upstream)\b/i;
 const CONVO = /\b(conversation|this (chat|session)|prior session|previous session|last (time|session)|what we just did|save this session|harvest|transcript)\b/i;
 
 export function inspectPath(file, fs = { existsSync, statSync, readdirSync }) {
@@ -111,6 +114,17 @@ export function classify({ paths = [], text = '', inspect = inspectPath } = {}) 
   const mergeWords = MERGE.test(text);
   const convoWords = CONVO.test(text);
 
+  const enhanceWords = ENHANCE.test(text) && !mergeWords;
+  if (skillDirs.length === 1 && enhanceWords) {
+    const sources = [...items.filter((it) => it.kind !== 'skill-dir' && it.kind !== 'unknown').map((it) => it.path), ...urls.filter((u) => !paths.includes(u))];
+    return ok([job('enhance-skill', [skillDirs[0], ...sources], 'one skill folder plus enhance wording. The other inputs are sources to learn from')]);
+  }
+  if (skillDirs.length >= 2 && enhanceWords) {
+    return ask('Which one is the skill to enhance? The others will be read as sources. Or say merge to combine them.', [job('enhance-skill', skillDirs, 'two or more skill folders with enhance wording')]);
+  }
+  if (!skillDirs.length && enhanceWords && /\bskill\b/i.test(text) && (urls.length || knownKinds.includes('from-document'))) {
+    return ask('Which skill folder should be enhanced? Give its path. I will read the links as sources.');
+  }
   if (skillDirs.length >= 2 && mergeWords && knownKinds.length === 0) {
     return ok([job('merge-skills', skillDirs, 'merge/combine wording with two or more skill folders')]);
   }
@@ -124,7 +138,7 @@ export function classify({ paths = [], text = '', inspect = inspectPath } = {}) 
     return ask('Which skill folders should be merged? Each must contain SKILL.md.');
   }
   if (skillDirs.length === 1 && knownKinds.length === 0 && !convoWords) {
-    return ask('That path is already a skill. Merge it with another skill, or edit it with create-skill.');
+    return ask('That path is already a skill. Enhance it from other sources, merge it with another skill, or edit it with create-skill.');
   }
   if (skillDirs.length && knownKinds.length) {
     return ask('A skill folder plus another kind is mixed. Merge skills, or convert the other files, as separate jobs.');

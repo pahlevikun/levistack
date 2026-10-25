@@ -1,6 +1,6 @@
 ---
 name: use-levistack
-description: "Start here. The entry point that routes any prompt through levistack in seven fixed steps: route, prime, invoke, hunt, apply, prove, deliver. Picks the first skill (codebase-learner, trace, second-opinion, challenge-me, execution-ready-spec-plan, or a named one), hunts the catalog with find-skills when nothing obvious fits, runs the chain, proves every claim, and shapes the reply. Use when the user does not know which skill fits, says 'where do I start', 'help me with', 'what should I use', 'just handle it', gives a goal with no skill named, or types /use-levistack with a task. A named skill inside it runs as a one-shot."
+description: "Start here. The entry point that routes any prompt through levistack in seven fixed steps: route, prime, invoke, hunt, apply, prove, deliver. Picks the first skill (codebase-learner, trace, second-opinion, challenge-me, ready-spec, or a named one), hunts the catalog with find-skills when nothing obvious fits, runs the chain, proves every claim, and shapes the reply. Use when the user does not know which skill fits, says 'where do I start', 'help me with', 'what should I use', 'just handle it', gives a goal with no skill named, or types /use-levistack with a task. A named skill inside it runs as a one-shot."
 ---
 
 # Use levistack
@@ -59,5 +59,5 @@ Example chains: [references/worked-chains.md](references/worked-chains.md).
 - `output-savers`: step 2 prime and step 7 last gate.
 - `verify`: step 6 proof.
 - `polyglot-copywriter`: step 7 prose for people.
-- `codebase-learner`, `trace`, `second-opinion`, `challenge-me`, `execution-ready-spec-plan`: step 3 first picks.
+- `codebase-learner`, `trace`, `second-opinion`, `challenge-me`, `ready-spec`: step 3 first picks.
 - `get-moving`: the user is stuck on the work, not on the skill.

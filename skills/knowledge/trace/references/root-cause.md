@@ -27,7 +27,7 @@ Keep the symptom and the cause apart. "Checkout returns 500" is a symptom. "The 
 
 Why 1 must be the mechanism that directly produces the symptom, with proof.
 
-- **The failure is live and the mechanism is not confirmed:** run `verify` in investigate-first mode (reproduce, bound, trace, falsify) before you build the chain. A chain built on a guessed Why 1 is fiction.
+- **The failure is live and the mechanism is not confirmed:** run `verify` in investigate-first mode (build a red-capable loop first, then reproduce, bound, trace, falsify) before you build the chain. A chain built on a guessed Why 1 is fiction. The same loop later shows the fix worked.
 - **The failure is past (an incident, a postmortem):** take Why 1 from the record: error tracking, logs, the incident doc, the fixing commit. Use the investigators from rationale mode for the categories that hold this evidence (observability, error tracking, chat, tickets, source control).
 
 ## 3. Build the chain
@@ -59,7 +59,7 @@ One why often has more than one cause. Give each its own branch (A, B, …) and 
 
 ## 5. Double-check every chain
 
-Run every check in `cause-checks.md` before you accept a root cause: the backward read, the counterfactual, falsification, the timeline, the competing chain, and the human-error rule. A chain that fails a check is not done. Fix the failing link, or mark the chain `not established` and say what evidence is missing.
+Run every check in `cause-checks.md` before you accept a root cause: the backward read, the counterfactual, falsification, the timeline, the competing chain, the human-error rule, and the shared-assumption check when earlier fixes already failed. A chain that fails a check is not done. Fix the failing link, or mark the chain `not established` and say what evidence is missing.
 
 ## 6. Know when to stop
 

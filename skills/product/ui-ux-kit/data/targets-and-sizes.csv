@@ -1,0 +1,11 @@
+platform,form,input,smallest target,body text,chrome,safe area and scaling,own guide
+ios,phone and tablet,touch,44 pt,17 pt body and 11 pt floor,49 pt tab bar and 44 pt nav bar,safe area and Dynamic Type,Human Interface Guidelines
+android,phone and tablet,touch,48 dp with 8 dp gaps,16 sp body and 11 sp floor,80 dp bottom bar and 64 dp app bar,window insets and font scale,Material 3
+react-native,phone and tablet,touch,44 pt on iOS and 48 dp on Android,16 body,native tab bar and header,useSafeAreaInsets and maxFontSizeMultiplier,the platform's own guide
+flutter mobile,phone and tablet,touch,44 pt on iOS and 48 dp on Android,16 body,platform navigation,MediaQuery.sizeOf and SafeArea,Material 3 and Cupertino
+flutter desktop,window,pointer and keyboard,24 px,13 to 14 px body,menu bar and resizable panes,min window size,Flutter adaptive guide
+macos,window,pointer and keyboard,24 px,13 pt body,menu bar and toolbar,native controls,Human Interface Guidelines
+windows,window,pointer and keyboard,24 px,14 px body,title bar and command bar,system accent,Fluent design
+web,responsive,touch and pointer and keyboard,24 px minimum and 44 px for touch,16 px body and 16 px input,responsive nav,safe-area insets and dvh,WCAG 2.2
+tv,10-foot,D-pad focus,64 px item and 4 px focus ring,28 px body at 1080p,side menu and rails,5 percent safe area,tvOS and Android TV guides
+car,glance,touch and rotary and voice,76 dp,24 px body,host template,host safe area,host guide and the OEM kit

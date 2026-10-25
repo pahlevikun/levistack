@@ -1,0 +1,18 @@
+{
+  "_doc": "Signature moves. Each project gets one (sometimes two). Each is a single recognisable device that makes the result unlike the default. tags help the mixer match moods and domains. effect is a hint the emitters read.",
+  "tinted-shadows":      { "tags": ["soft","calm","food","wellness"], "effect": "shadow-from-brand", "describe": "Every shadow is made from a dark version of the brand hue, never gray or black. Depth feels warm and part of the palette." },
+  "hairline-rules":      { "tags": ["editorial","premium","data"],   "effect": "rules",             "describe": "1px rules, not boxes, divide content. Cards lose their fill and their shadow." },
+  "oversized-numerals":  { "tags": ["fintech","fitness","food","data"], "effect": "display-numerals", "describe": "Prices, stats and times are set very large in the display face with tabular figures. The numbers are the hero." },
+  "color-block-sections":{ "tags": ["playful","consumer","energetic"], "effect": "section-tints",    "describe": "Full-width sections alternate between brand tints. The page reads as a stack of bold, calm blocks." },
+  "one-loud-accent":     { "tags": ["premium","tool","minimal","editorial"], "effect": "single-accent", "describe": "Everything is neutral except one accent, used once per screen for the single most important action." },
+  "paper-wash":          { "tags": ["calm","editorial","food","wellness"], "effect": "ground-wash",   "describe": "The ground is a very faint two-hue wash instead of a flat color. It adds air without adding noise." },
+  "asymmetric-corners":  { "tags": ["playful","creative","soft"],    "effect": "corner-asymmetry", "describe": "Cards use one tight corner and three generous ones. It gives the layout a signature silhouette." },
+  "inverse-section":     { "tags": ["premium","tool","editorial","bold"], "effect": "inverse-block", "describe": "One section on each page flips to the dark ground. It resets attention and marks the key moment." },
+  "sticker-labels":      { "tags": ["playful","food","kids","creative"], "effect": "stickers",       "describe": "Badges are slightly tilted, outlined and flat, like stickers on a notebook." },
+  "terminal-labels":     { "tags": ["technical","futuristic","rebellious"], "effect": "label-voice",  "describe": "Small labels use a mono face with a `//` prefix and wide tracking." },
+  "photo-first":         { "tags": ["food","travel","fashion","real-estate"], "effect": "photo-led",    "describe": "Photography leads every card. Interface colors step back and borrow tones from the images." },
+  "edge-light":          { "tags": ["futuristic","technical","night","music"], "effect": "edge-highlight", "describe": "Dark surfaces carry a faint 1px highlight on their top edge, as if lit from above." },
+  "quiet-grid":          { "tags": ["clinical","legal","data","trust"], "effect": "grid",            "describe": "A visible, calm column grid with generous gutters organises everything. Nothing floats free." },
+  "soft-focus-glow":     { "tags": ["calm","night","wellness","music"], "effect": "glow",            "describe": "Primary actions carry a low, wide glow in the brand hue. It feels like a lamp left on." },
+  "big-type-hero":       { "tags": ["bold","editorial","creative","sporty"], "effect": "type-hero",   "describe": "Headlines are set extra large and tight, and carry the visual weight that images carry elsewhere." }
+}

@@ -31,12 +31,12 @@
   <g class="sans">
     <text x="32" y="52" class="ink" font-size="28" font-weight="700">Every task takes the same seven steps.</text>
     <text x="32" y="82" class="muted" font-size="15">Nothing counts as done without proof. Nothing leaves the session without your yes.</text>
-    <text x="32" y="110" class="blue" font-size="15" font-weight="700">Type /use-levistack and your task. It picks the skill, runs it, proves it and shapes the reply.</text>
+    <text x="32" y="110" class="blue" font-size="15" font-weight="700">Type /start (or /use-levistack) and your task. It picks the skill, runs it, proves it and shapes the reply.</text>
     <text x="32" y="130" class="muted" font-size="12">Prime and deliver always run. Hunt runs only when no first skill is clear. A skill you name skips step 04.</text>
 
     <rect x="152" y="148" width="1296" height="44" rx="4" fill="#E6E4DE" stroke="#ADB0BC"/>
     <text x="168" y="168" class="ink" font-size="11" font-weight="700">levistack@levistack</text>
-    <text x="168" y="184" class="muted" font-size="10">root install: 37 skills, 11 agents, 42 rules, 5 opt-in hooks, and 2 upstream plugins as dependencies &#183; group plugins ship skills only</text>
+    <text x="168" y="184" class="muted" font-size="10">root install: 41 skills, 11 agents, 41 rules, 13 commands, 5 opt-in hooks, 2 upstream plugins as dependencies &#183; group plugins ship skills only</text>
   </g>
 
   <!-- Envelopes and step separator -->
@@ -104,7 +104,7 @@
     <rect x="204" y="572" width="164" height="24" rx="3" class="chip"/><text x="214" y="588" class="ink">trace</text>
     <rect x="204" y="602" width="164" height="24" rx="3" class="chip"/><text x="214" y="618" class="ink">super-architecture</text>
     <rect x="384" y="542" width="164" height="24" rx="3" class="chip"/><text x="394" y="558" class="ink">challenge-me</text>
-    <rect x="384" y="572" width="164" height="24" rx="3" class="chip"/><text x="394" y="588" class="ink">execution-ready-spec-plan</text>
+    <rect x="384" y="572" width="164" height="24" rx="3" class="chip"/><text x="394" y="588" class="ink">ready-spec</text>
     <rect x="384" y="602" width="164" height="24" rx="3" class="chip"/><text x="394" y="618" class="ink">write-plan</text>
     <rect x="564" y="542" width="164" height="24" rx="3" class="chip"/><text x="574" y="558" class="ink">tdd</text>
     <rect x="564" y="572" width="164" height="24" rx="3" class="chip"/><text x="574" y="588" class="ink">safe-refactor</text>
@@ -147,8 +147,8 @@
 
     <rect x="744" y="846" width="156" height="64" rx="4" class="card"/>
     <text x="758" y="868" class="ink" font-size="13" font-weight="700">delivery</text>
-    <text x="758" y="884" class="blue" font-size="11" font-weight="700">5 skills</text>
-    <text x="758" y="899" class="muted" font-size="10">commits, MRs, tickets</text>
+    <text x="758" y="884" class="blue" font-size="11" font-weight="700">6 skills</text>
+    <text x="758" y="899" class="muted" font-size="10">commits, MRs, docs, tickets</text>
 
     <rect x="204" y="920" width="170" height="64" rx="4" class="card"/>
     <text x="218" y="942" class="ink" font-size="13" font-weight="700">agent-authoring</text>
@@ -157,8 +157,8 @@
 
     <rect x="384" y="920" width="170" height="64" rx="4" class="card"/>
     <text x="398" y="942" class="ink" font-size="13" font-weight="700">product</text>
-    <text x="398" y="958" class="blue" font-size="11" font-weight="700">2 skills</text>
-    <text x="398" y="973" class="muted" font-size="10">product polish, design systems</text>
+    <text x="398" y="958" class="blue" font-size="11" font-weight="700">5 skills</text>
+    <text x="398" y="973" class="muted" font-size="10">system, color, UI, polish, proto</text>
 
     <rect x="564" y="920" width="170" height="64" rx="4" class="card"/>
     <text x="578" y="942" class="ink" font-size="13" font-weight="700">workflow</text>
@@ -170,7 +170,7 @@
     <text x="758" y="958" class="blue" font-size="11" font-weight="700">3 skills</text>
     <text x="758" y="973" class="muted" font-size="10">get-moving, later-list, standup</text>
 
-    <text x="204" y="998" class="muted" font-size="10">37 skills in 8 groups &#183; a subagent can take one bounded job and report back</text>
+    <text x="204" y="998" class="muted" font-size="10">41 skills in 8 groups &#183; a subagent can take one bounded job and report back</text>
   </g>
   <line x1="552" y1="1008" x2="552" y2="1032" class="blueline" marker-end="url(#arrow-blue)"/>
 
@@ -223,9 +223,9 @@
 
     <!-- Rules -->
     <rect x="1004" y="290" width="412" height="170" rx="4" fill="#F3F1EC" stroke="#17152E" stroke-width="1.4"/>
-    <text x="1022" y="316" class="ink" font-size="14" font-weight="700">rules (42)</text>
+    <text x="1022" y="316" class="ink" font-size="14" font-weight="700">rules (41)</text>
     <text x="1022" y="336" class="muted" font-size="11">5 core rules are always on. The rest load by topic or file.</text>
-    <text x="1022" y="360" class="ink" font-size="10">core 15 &#183; architecture 15 &#183; elixir 7 &#183; go 3 &#183; python 1 &#183; design 1</text>
+    <text x="1022" y="360" class="ink" font-size="10">core 14 &#183; architecture 15 &#183; elixir 7 &#183; go 3 &#183; python 1 &#183; design 1</text>
     <text x="1022" y="382" class="ink" font-size="10">noslop &#183; testing &#183; commit-messages &#183; pii-logging</text>
     <text x="1022" y="400" class="ink" font-size="10">failure-visibility &#183; plain-style &#183; git-workflow</text>
     <text x="1022" y="428" class="gold" font-size="11" font-weight="700">the agent proves / you approve what goes out</text>
@@ -242,13 +242,14 @@
     <text x="1022" y="636" class="muted" font-size="10">turn one on: touch ~/.levistack/&lt;hook&gt;.on</text>
 
     <!-- One-shot -->
-    <rect x="1004" y="662" width="412" height="120" rx="4" fill="none" stroke="#5E6275" stroke-width="1.4" stroke-dasharray="6 5"/>
+    <rect x="1004" y="662" width="412" height="146" rx="4" fill="none" stroke="#5E6275" stroke-width="1.4" stroke-dasharray="6 5"/>
     <text x="1022" y="688" class="ink" font-size="14" font-weight="700">Named skill (one-shot)</text>
     <text x="1022" y="708" class="muted" font-size="11">Name a skill inside /use-levistack: prime, run it, prove,</text>
     <text x="1022" y="724" class="muted" font-size="11">deliver. There is no step 04 hunt.</text>
     <rect x="1022" y="734" width="376" height="24" rx="3" class="chip"/>
     <text x="1034" y="750" class="mono ink" font-size="10">/use-levistack second-opinion on my branch</text>
     <text x="1022" y="774" class="muted" font-size="10">A bare /skill call runs that skill alone, with no prime or deliver.</text>
+    <text x="1022" y="796" class="muted" font-size="10">13 commands save a flow: /start /commit /ship /palette /screen</text>
 
     <!-- Agents -->
     <rect x="1004" y="830" width="412" height="170" rx="4" fill="#ECEDF4" stroke="#4F5A8F" stroke-width="1.5"/>
@@ -298,5 +299,5 @@
   <line x1="901" y1="1290" x2="1021" y2="1302" class="bluedash"/>
 
   <!-- Footer -->
-  <text x="32" y="1420" class="mono muted" font-size="11" letter-spacing="0.6">37 skills &#183; 11 agents &#183; 42 rules &#183; 5 hooks &#183; 2 upstream &#183; 25 OCT 2026</text>
+  <text x="32" y="1420" class="mono muted" font-size="11" letter-spacing="0.6">41 skills &#183; 11 agents &#183; 41 rules &#183; 13 commands &#183; 5 hooks &#183; 2 upstream &#183; 25 OCT 2026</text>
 </svg>

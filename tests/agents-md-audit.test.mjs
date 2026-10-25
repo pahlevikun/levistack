@@ -92,7 +92,7 @@ test('counts the root-to-leaf chain against the Codex budget and honors override
 });
 
 test('skips node_modules and .git', () => {
-  const root = fixture({ 'node_modules/x/AGENTS.md': '# dep\n', '.git/AGENTS.md': '# g\n', 'AGENTS.md': '# a\n' });
+  const root = fixture({ 'node_modules/x/AGENTS.md': '# dep\n', '.git/AGENTS.md': '# g\n', 'scratch/clone/AGENTS.md': '# s\n', 'AGENTS.md': '# a\n' });
   try {
     assert.deepEqual(audit(root).files.map((f) => f.path), ['AGENTS.md']);
   } finally {

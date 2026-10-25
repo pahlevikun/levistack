@@ -93,7 +93,18 @@ See `skills/engineering/noslop/references/core/slop-patterns.md` and `mandatory-
 - MR description matches the diff (no 💥 without proof).
 - Stale fixtures, test data, or comments referencing old error codes.
 
-## 10. Output format (preview)
+## 10. Spec match and smells
+
+**Spec match.** Find the issue or spec behind the MR: ids in commit messages (`#123`, `Closes #45`, `!67`), the MR description, or a file under `docs/` or `specs/` that matches the branch. If none exists, skip this check and say "no spec found".
+- Does each requirement have code and a test?
+- Does the code do something the spec forbids, or extra things nobody asked for?
+- Was a requirement dropped or quietly changed?
+
+**Smells.** Flag a code smell only as a judgment call ("possible long function", "possible feature envy"). The repo's written standards win. Skip anything a linter already enforces. The full list is in `skills/knowledge/second-opinion/references/what-to-check.md`.
+
+Use the dimension `spec` for spec gaps and `principles` for smells.
+
+## 11. Output format (preview)
 
 Present findings in a table:
 
@@ -112,7 +123,7 @@ Present findings in a table:
 - 🟡 **Medium** — should fix; reviewer would comment
 - 🟢 **Low** — nitpick or optional improvement
 
-**Dimensions** (Dim column): `compat`, `security`, `correctness`, `api`, `tests`, `perf`, `principles`, `noslop`, `docs`.
+**Dimensions** (Dim column): `compat`, `security`, `correctness`, `api`, `tests`, `perf`, `principles`, `noslop`, `docs`, `spec`.
 
 End preview with:
 

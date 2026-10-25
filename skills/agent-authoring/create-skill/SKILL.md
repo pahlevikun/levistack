@@ -54,6 +54,22 @@ This skill covers skills only. For subagents use `create-agent`; for rules, hook
 8. **Lint.** `node <create-agent>/scripts/lint.mjs <skill-dir>`, where `<create-agent>` is the sibling `create-agent` skill folder. If it is not installed, walk [audit.md](references/audit.md) by hand.
 9. **Test.** Run the real requests from step 1 plus one that should not trigger it. Fix by symptom and re-run. See [format.md](references/format.md#test-and-iterate).
 
+## Pointers and the two loads
+
+Everything you add to a skill spends one of two budgets. Know which one before you add it.
+
+- **Context load:** text that sits in the agent's window every turn, whether or not it is used. A skill description and a line in `AGENTS.md` are context load. Keep them short.
+- **Reader load:** the effort a person spends remembering which documents exist and when to open each. Spend it where human judgment matters. Cut it where it does not.
+
+A **pointer** is a short line in always-loaded text that names material kept elsewhere and says when to open it. A skill description is a pointer. A good pointer says what the material is, then lists the distinct cases that should trigger it. Put the strongest trigger word first. If two phrases name the same case, keep one.
+
+Material behind a pointer costs only the pointer's line until it is needed. Material with no pointer costs the reader's memory. So:
+
+- Keep `SKILL.md` to the steps that every run needs. Move detail that only some cases need into a `references/` file, and point to it from the step that uses it.
+- Keep each fact in one place. If the environment already holds it (a script in `package.json`, a `--help` text), point to that instead of copying it.
+- Remove a sentence when the model already does it by default. It costs load and changes nothing.
+- End each step with a clear way to tell it is done. A vague finish ("understood") invites stopping early.
+
 ## Where it goes
 
 | Target | Path |

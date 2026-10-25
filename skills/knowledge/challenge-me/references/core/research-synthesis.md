@@ -23,7 +23,7 @@ Captured while merging prior catalog grilling skills with public challenge and b
 ## Gaps this skill fills
 
 - One router for grill / grill-docs / challenge / brainstorm / decision-map / calibrate.
-- Explicit handoffs: learner (facts), tech-blueprint (target stack), write-plan / safe-refactor (execution), create-jira-story (tickets).
+- Explicit handoffs: learner (facts), tech-blueprint (target stack), write-plan / safe-refactor (execution), create-tickets (tickets).
 - Intensity including opt-in thermonuclear that still forbids attacking the person.
 
 ## Out of scope

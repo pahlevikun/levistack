@@ -1,0 +1,109 @@
+id,area,platform,rule,check,severity,evidence
+A11Y-01,accessibility,all,Every control has an accessible name and a role,Icon-only buttons expose a label and the right role,critical,source
+A11Y-02,accessibility,all,Text follows the system size setting with no clipping at 200 percent,"Run Dynamic Type, font scale or browser zoom at the largest step",high,render
+A11Y-03,accessibility,all,Color is never the only signal,"Every state also has an icon, a word or a shape",high,render
+A11Y-04,accessibility,all,Focus is always visible and follows reading order,"Tab, D-pad or switch through the whole screen",critical,render
+A11Y-05,accessibility,all,The reduced motion setting is honored,Turn it on and check movement is gone but state still shows,critical,render
+A11Y-06,accessibility,all,Every gesture has a button or key alternative,"List swipe, drag and long press actions and find the other path",critical,render
+A11Y-07,accessibility,all,Dynamic changes are announced,"Loading, error and success reach the screen reader",medium,device
+A11Y-08,accessibility,all,Decorative icons are hidden and meaningful ones are labeled,Read the accessibility tree,medium,source
+A11Y-09,accessibility,web,Sticky bars and overlays never hide the focused control,Tab with a sticky header and a cookie bar open,high,render
+A11Y-10,accessibility,web,The page reflows at 320 px and at 400 percent zoom with no sideways scroll,Resize and zoom,high,render
+A11Y-11,accessibility,all,Sign-in allows password managers and paste and has a non-puzzle path,Try a password manager and a paste,critical,test
+A11Y-12,accessibility,all,Time limits can be extended and auto-rotating content can be paused,Find every timer and carousel,high,render
+TOUCH-01,touch,ios,Targets are at least 44 by 44 pt,Measure the hit region,critical,render
+TOUCH-02,touch,android,Targets are at least 48 by 48 dp with 8 dp between them,Measure the hit region,critical,render
+TOUCH-03,touch,web,Targets are at least 24 px (WCAG 2.2) and about 44 px for touch,Measure on a coarse pointer,high,render
+TOUCH-04,touch,all,A small icon gets an expanded hit area,hitSlop or padding makes the target big enough,medium,source
+TOUCH-05,touch,all,One primary gesture per region,No nested tap and drag conflicts and no clash with system gestures,high,device
+TOUCH-06,touch,all,Press feedback appears within 100 ms,Tap and watch,high,device
+TOUCH-07,touch,mobile,"Frequent in-content actions sit in the lower half of the screen, unless the platform puts the action in a bar",Check thumb reach on a large phone,medium,render
+TOUCH-08,touch,tv,Every item is reachable with the D-pad and focus is never lost,Walk every screen with the remote only,critical,device
+TOUCH-09,touch,car,Targets are at least 76 dp with generous gaps and the host minimum is respected,Measure the hit region,critical,device
+NAV-01,navigation,ios,The edge swipe back stays alive,Swipe from the left edge on every pushed screen,critical,device
+NAV-02,navigation,android,System back works and predictive back is honored,Use the back gesture and button on every screen,critical,device
+NAV-03,navigation,all,Top-level destinations number three to five with visible labels. Two destinations need no tab bar,Settings and logout are not tabs,medium,render
+NAV-04,navigation,all,Every modal has an explicit close,"Close or Cancel is visible, not swipe alone",high,render
+NAV-05,navigation,all,Detail screens are deep-linkable and land with a sane back stack,Open a deep link cold,medium,test
+NAV-06,navigation,all,One header owns the title and there are no nested tab bars,Look for a repeated title or two bars,medium,render
+NAV-07,navigation,tablet,Structure changes with the width class,Rail or split view on wide windows,high,render
+NAV-08,navigation,all,A screen that opens more than two kinds of sheet is hiding structure,Count sheet kinds per screen,medium,source
+NAV-09,navigation,desktop,Every command has a keyboard path and the shortcut is shown,Use the app without the mouse,high,render
+FORM-01,forms,all,A visible label sits above each field and a placeholder is not a label,Clear the placeholder and read the form,high,render
+FORM-02,forms,all,Fields use the right keyboard type and autofill hints,Type an email and an address,medium,device
+FORM-03,forms,all,Errors sit next to the field and say cause and fix,Submit a bad form,high,render
+FORM-04,forms,all,Validate after blur or a pause and not on every key,Type slowly into each field,medium,render
+FORM-05,forms,all,The submit control stays visible with the keyboard open,Open the keyboard on the smallest phone,high,device
+FORM-06,forms,all,Space for helper and error text is reserved,Trigger an error and watch the layout,medium,render
+FORM-07,forms,all,The flow never asks again for something already given,Walk the flow,medium,render
+FORM-08,forms,car,No free text while driving and voice is offered for input,Check every input in the car flow,critical,device
+PAY-01,payments,mobile,Offer the native pay sheet before a card form,Open checkout on a device with a wallet,high,device
+PAY-02,payments,all,Card and address fields carry autofill hints and the right keyboard,Fill with the platform autofill,medium,device
+PAY-03,payments,all,A second submit is blocked while paying and the request is safe to repeat,Double tap pay on a slow network,critical,test
+PAY-04,payments,all,A failed payment keeps the cart and the typed fields and offers a retry or another method,Force a decline,high,render
+PAY-05,payments,car,No payment or checkout flow in the car. Hand it to the phone,Search the car flows for payment,critical,source
+FEED-01,feedback,all,Loading shows the final layout as skeleton and a spinner only for button-level work,Throttle the network,high,render
+FEED-02,feedback,all,An empty state teaches the next step and holds the action,Open a new account,medium,render
+FEED-03,feedback,all,An error appears inside the block that failed with a retry,Cut the network,high,render
+FEED-04,feedback,all,Success is silent when the result is already visible,No toast for a change the user can see,low,render
+FEED-05,feedback,mobile,Refreshing is distinct from first loading,Pull to refresh,medium,device
+FEED-06,feedback,all,Destructive actions confirm with the outcome named and a Cancel,Delete something,high,render
+FEED-07,feedback,all,Stale data carries a freshness stamp,Go offline,low,render
+FEED-08,feedback,all,A real zero is shown as zero and an unknown is shown as a dash,Open an empty chart,low,render
+MOTION-01,motion,all,Every motion has a one-sentence purpose,Write the sentence or delete the motion,high,source
+MOTION-02,motion,all,"Actions done 100 times a day or started by the keyboard get no transition, only an instant state change",List the frequent actions and confirm they change state without movement,high,source
+MOTION-03,motion,all,UI motion stays at or under 300 ms and mobile sheets may run longer,Read the durations,medium,source
+MOTION-04,motion,all,Entering and leaving elements use ease-out and plain ease-in is not used. Ease-in-out is for moves that stay on screen,Read the curves,medium,source
+MOTION-05,motion,web,Animate transform and opacity and not layout properties,"Search for animated width, height, top, left, margin",medium,source
+MOTION-06,motion,all,Reduced motion removes movement and keeps the meaning of state changes,Turn it on and use the app,critical,render
+MOTION-07,motion,all,Motion can be interrupted and reverses from where it is,Reverse a sheet half way,high,device
+MOTION-08,motion,all,Entrance animation does not replay in recycled list cells,Scroll a long list fast,medium,device
+MOTION-09,motion,car,"No looping motion, parallax or auto-advancing content",Watch each screen for ten seconds,critical,device
+MOTION-10,motion,mobile,A drag tracks the finger one to one then damps past the edge and commits on distance or speed,Drag slowly and flick,high,device
+MOTION-11,motion,all,Nothing flashes more than three times per second,Review every animation,critical,render
+LAYOUT-01,layout,mobile,Safe areas come from the platform API and not from magic numbers,Check a notch phone and a gesture-bar phone,high,device
+LAYOUT-02,layout,all,Scroll content is not hidden behind fixed bars,Scroll to the end,high,render
+LAYOUT-03,layout,all,Spacing comes from the scale with one pair of gutters,Measure the gaps,medium,render
+LAYOUT-04,layout,tablet,Restructure for wide windows and do not stretch the phone layout,Open on a tablet and in split view,high,device
+LAYOUT-05,layout,all,Reading text keeps 45 to 75 characters per line,Check a large window,medium,render
+LAYOUT-06,layout,all,One base height is shared across a row of controls,Compare an input and a button,low,render
+LAYOUT-07,layout,flutter,Layout reads constraints and breakpoints and never the device type and orientation is not locked,Search for device type checks,high,source
+LAYOUT-08,layout,web,No fixed pixel container widths and no 100vh hero,Use dvh or svh and test on a phone,medium,render
+TYPE-01,type,mobile,Body text is at least 16 and the smallest text at least 11,Read the type tokens,high,source
+TYPE-02,type,all,Sizes come from the type scale with at most five on a screen,Count sizes,medium,source
+TYPE-03,type,web,Inputs are at least 16 px so iOS does not zoom,Focus an input on an iPhone,high,device
+TYPE-04,type,all,Numbers that align or change use tabular figures,Watch a live number,medium,render
+TYPE-05,type,tv,Body text is at least 28 px at 1080p with no thin weights,Read from 3 meters,critical,device
+THEME-01,theming,all,Components use roles and never raw hex,Search for color literals,high,source
+THEME-02,theming,all,Light and dark are measured separately,Run the contrast gate in both,critical,test
+THEME-03,theming,all,"Pressed, focused and disabled states are clear in both modes",Check each state in each mode,high,render
+THEME-04,theming,ios,Semantic system colors and one tint drive the UI,Search for hard-coded colors,medium,source
+THEME-05,theming,android,Material color roles and tonal elevation are used,Check shadows and roles,medium,source
+THEME-06,theming,react-native,iOS shadow props and Android elevation are set together,Search for shadowColor without elevation,medium,source
+PERF-01,performance,all,Long lists are virtualized,Check list components,high,source
+PERF-02,performance,mobile,Animation runs on the UI thread,Check the driver and worklets,high,source
+PERF-03,performance,all,Space for images is reserved so layout does not jump,Throttle and reload,medium,render
+PERF-04,performance,all,First paint shows the right background and fonts,Cold start on a slow device,low,device
+PERF-05,performance,all,High-frequency events are debounced or throttled,"Scroll, resize and type fast",medium,source
+CONTENT-01,content,all,Labels name the action and errors name the problem and the way out,Read every string,medium,render
+CONTENT-02,content,all,Truncation follows a rule and essential text is never cut,Test long and localized text,high,render
+CONTENT-03,content,all,Content is believable with no lorem and no totals that do not add up,Read the sample data,low,render
+CONTENT-04,content,car,Labels are three words or fewer,Read the car strings,high,render
+PERM-01,permissions,mobile,A permission is asked at the moment of intent with context,Cold start and first use,high,device
+HAPTIC-01,haptics,mobile,Haptics mark selection and outcomes and never plain taps,Use the app with haptics on,low,device
+CAR-01,car,car,Each task fits in two or three glances and about 12 seconds of eyes-off-road,Time the task with the car template,critical,device
+CAR-02,car,car,Host templates and components are used where they exist,List the template per screen,high,source
+CAR-03,car,car,Day and night switch by themselves and both are high contrast,Test in glare and at night,high,device
+CAR-04,car,car,Anything that needs typing offers voice,Check every input,critical,device
+CAR-05,car,car,Lists are short or paged,Count items per screen,high,render
+CAR-06,car,car,No video in Android Auto or CarPlay apps. On Automotive OS only with the maker approval and only when parked,Check the platform and the driving state,critical,device
+CAR-07,car,car,Glare and a dark cabin were both tested,Test outdoors and at night,medium,device
+TV-01,tv,tv,Focus has a ring of 4 px or more and a scale-up and is obvious from 3 meters,Look from across the room,critical,device
+TV-02,tv,tv,Content stays inside the safe area of about 5 percent,Overlay a safe-area guide,high,render
+TV-03,tv,tv,The last focus is remembered and the order is predictable and Back always works,Walk back and forth,high,device
+TV-04,tv,tv,Few choices per screen and rails for lists,Count choices,medium,render
+TV-05,tv,tv,The ground is dark and large pure white and pure red areas are avoided,View on a real panel,medium,device
+DESK-01,desktop,desktop,"Hover, right-click and drag are shortcuts and never the only way",Use keyboard only,high,render
+DESK-02,desktop,desktop,The window resizes with a minimum width and panes that grow,Resize the window,high,render
+DESK-03,desktop,desktop,Scrollbars are visible and read-only text is selectable,Check scroll areas and labels,medium,render
+DESK-04,desktop,desktop,"Window controls, menus, dialogs and button order follow the OS",Compare with a native app,medium,render

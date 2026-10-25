@@ -13,22 +13,29 @@ Group → plugin: `levistack-<group>`. Group `upstream` means the skill ships as
 | Why code is shaped this way, what tradeoff or incident caused it | `trace` | knowledge |
 | Root cause of a bug, an incident, a flaky or slow pipeline; postmortem; five whys | `verify` (if the failure is live and unexplained), `trace` (root-cause mode) | knowledge |
 | Onboard, map a codebase, find architecture smells | `codebase-learner` | knowledge |
+| Write docs for a feature, module or API, or check which docs a change made stale | `create-documentation` | delivery |
 | Pick a framework, compare X vs Y, cost a migration, plan a greenfield stack | `codebase-learner` (only if facts are missing), `super-tech-blueprint` | architecture |
 | Name or choose an architecture style, scaffold in one | `super-architecture` | architecture |
 | Grill a plan, stress-test an idea, brainstorm a design | `challenge-me` | knowledge |
+| Make a task prompt deeper before running it | `challenge-me` (sharpen mode) | knowledge |
+| Plan work too big for one session as a map of decisions | `challenge-me` (decision-map, huge work), then `write-plan` | knowledge |
 | Cache design, invalidation, CDN, Redis, offline | `super-caching` | architecture |
 | Node.js service, API, middleware, auth | `super-nodejs` | architecture |
 | `.proto`, buf, gRPC or Connect, schema breaks | `super-protobuf` | architecture |
-| UI critique, design tokens, component specs, accessibility | `design-system-kit` | product |
+| A palette, brand colors, a theme, dark mode, color tokens, a contrast fix, a color audit, a theme for Flutter or Compose or SwiftUI | `color-kit` | product |
+| Build or review one screen, a component, an interaction, a gesture, a transition or motion for iOS, Android, React Native, Flutter, desktop, web, car (driving) or TV | `ui-ux-kit` | product |
+| A whole design system, token file, DESIGN.md, governance, extract a site's design, critique a UI against a system (calls `color-kit` and `ui-ux-kit`) | `design-system-kit` | product |
+| Build a throwaway prototype, a wireframe or a screen map to answer a design or behavior question | `prototype-wireframe` | product |
 | Logo, icon, README banner or SVG brand kit | `logo-kit-svg` | upstream |
-| Audit or polish an existing product: code, UI, journeys, branding, motion | `product-polish-workflow` (`design-system-kit` for design-system depth), `verify` | product |
+| Audit or polish a shipped product: code, journeys, branding, motion audit (calls `color-kit`, `ui-ux-kit` and `design-system-kit` for their parts), `verify` | `product-polish-workflow` | product |
 
 ## Plan and build
 
 | The user wants to… | Chain | Group |
 |---|---|---|
 | Plan a multi-step change before code | `challenge-me` (if the spec is soft), `write-plan` | knowledge |
-| Spec a backend or API change (lifecycle, errors, compatibility) | `codebase-learner` (if the flow is unknown), `execution-ready-spec-plan`, `write-plan` | knowledge |
+| Slice a big plan into end-to-end pieces with blockers | `write-plan` (slicing), `create-tickets` for tickets | knowledge |
+| Spec a backend or API change (lifecycle, errors, compatibility) | `codebase-learner` (if the flow is unknown), `ready-spec`, `write-plan` | knowledge |
 | Build a feature or fix a bug test-first | `tdd`, `verify` | engineering |
 | Elixir, Phoenix, Ecto, OTP work | `super-elixir` (its tdd speciality for test-first), `verify` | engineering |
 | Refactor without changing behavior | `tdd` (if no safety net), `safe-refactor`, `verify` | engineering |
@@ -40,11 +47,14 @@ Group → plugin: `levistack-<group>`. Group `upstream` means the skill ships as
 | The user wants to… | Chain | Group |
 |---|---|---|
 | Prove work is done, run the gates, find a failure's cause | `verify` | engineering |
+| Prove a change is safe, or find what it could break | `verify` (prove it is safe), `second-opinion` for a wide change | engineering |
+| Check a performance number before you report it | `verify` (vet a number) | engineering |
+| Prune weak or duplicate tests in an existing suite | `tdd` (audit mode) | engineering |
 | Adversarial review, blind spots before merge | `second-opinion`, `verify` for each Act on fix | knowledge |
 | Review a local diff or a merge request, act on review comments | `glab-code-review` (`noslop` dimension), `verify` for each comment | delivery |
 | Split a messy tree into commits | `atomic-semantic-commit` | delivery |
 | Open or describe an MR or PR | `atomic-semantic-commit` (if mixed), `glab-code-review` (self-review), `write-mr-description` | delivery |
-| Write Jira stories or tasks | `challenge-me` or `write-plan` (if not broken down), `create-jira-story` | delivery |
+| Write Jira stories or tasks | `challenge-me` or `write-plan` (if not broken down), `create-tickets` | delivery |
 | Build a Bruno API collection | `create-bruno-collection`, then `verify` to run it | delivery |
 
 ## Write
@@ -72,6 +82,7 @@ Group → plugin: `levistack-<group>`. Group `upstream` means the skill ships as
 | The user wants to… | Chain | Group |
 |---|---|---|
 | Stop or resume a session | `handoff` | workflow |
+| Catch up on a long chat, or rebuild context when there is no note | `handoff` (catch up or recall mode) | workflow |
 | Write today's standup | `standup`, `polyglot-copywriter` for the final polish | focus |
 | Overwhelmed, stuck or avoiding a task | `get-moving` | focus |
 | A tangent appeared mid-task | `later-list`, then back to the task | focus |
@@ -86,5 +97,5 @@ Group → plugin: `levistack-<group>`. Group `upstream` means the skill ships as
 | "Write an MR for this branch" | `atomic-semantic-commit` if the diff is mixed, `glab-code-review` self-review, `write-mr-description`. |
 | "Add an Elixir feature with tests" | `write-plan` if large, `tdd` (Elixir track), `super-elixir` code-review, `verify`. |
 | "Which stack should we move to?" | `codebase-learner`, `super-tech-blueprint`, `challenge-me` on the pick, `write-plan`. |
-| "Turn this plan into tickets" | `write-plan` if the plan is missing, `create-jira-story`. |
+| "Turn this plan into tickets" | `write-plan` if the plan is missing, `create-tickets`. |
 | "Ship this fix" | `tdd`, `verify`, `atomic-semantic-commit`, `write-mr-description`. |

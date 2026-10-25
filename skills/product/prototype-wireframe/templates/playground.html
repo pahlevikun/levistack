@@ -1,0 +1,95 @@
+<!doctype html>
+<!-- PROTOTYPE: throwaway page. The RULE block below is the part worth keeping. No persistence, no polish. Open this file to run it. -->
+<html><head><meta charset="utf-8"><title>PROTOTYPE</title><style>
+body{font:15px/1.45 ui-sans-serif,system-ui,sans-serif;background:#F7F7F5;color:#2B2B2B;max-width:760px;margin:24px auto;padding:0 16px}
+.tag{background:#2B2B2B;color:#F7F7F5;padding:2px 8px;font:12px ui-monospace,Menlo,monospace}
+h1{font-size:20px;margin:10px 0 2px} .sub{color:#6b6b6b;margin:0 0 14px}
+.panel{background:#fff;border:1px solid #C9C9C9;padding:10px 14px;margin:10px 0}
+.fields{display:grid;grid-template-columns:max-content 1fr;gap:4px 14px}
+.fields dt{color:#6b6b6b} .fields dd{margin:0;font-weight:600}
+.changed{background:#FFF1B8}
+#state{font-size:28px;margin:4px 0}
+button{font:inherit;padding:6px 10px;margin:4px 4px 0 0;border:1px solid #2B2B2B;background:#fff;cursor:pointer}
+button:disabled{opacity:.35;cursor:not-allowed}
+.tabs button[aria-selected=true]{background:#2B2B2B;color:#F7F7F5}
+.step.done{opacity:.5}
+pre{background:#fff;border:1px solid #C9C9C9;padding:8px;min-height:60px;white-space:pre-wrap;font:13px ui-monospace,Menlo,monospace}
+</style></head><body>
+<span class="tag">PROTOTYPE</span>
+<h1 id="q"></h1><p class="sub" id="what"></p>
+
+<div class="panel"><div id="state"></div><dl class="fields" id="fields"></dl></div>
+
+<h3>Free play</h3><div id="events"></div>
+
+<h3>Walkthroughs</h3>
+<div class="tabs" id="tabs" role="tablist"></div>
+<div class="panel" id="walk"></div>
+
+<h3>What happened</h3><pre id="log"></pre>
+<button onclick="reset()">Reset</button>
+
+<script>
+// ===== RULE: pure, no page access. This is the part you lift into the real code. =====
+const RULE = {
+  question: "What happens when a payment times out after the user paid?",
+  what: "Click the buttons in any order, or follow a walkthrough. Watch the state change.",
+  start: "cart",
+  context: { tries: 0 },
+  // state: { event: { to: nextState, set: { key: value or fn(ctx) } } }
+  states: {
+    cart:    { pay: { to: "paying" } },
+    paying:  { ok: { to: "paid" }, timeout: { to: "unknown", set: { tries: c => c.tries + 1 } } },
+    unknown: { check: { to: "paid" }, retry: { to: "paying" } },
+    paid:    {}
+  },
+  // Plain words for the people who will click. Add one for every state, event and field.
+  words: {
+    state: { cart: "In the cart", paying: "Paying", unknown: "Payment unclear", paid: "Paid" },
+    event: { pay: "Press Pay", ok: "Bank says OK", timeout: "Bank goes silent", check: "Ask the bank", retry: "Try again" },
+    field: { tries: "Timeouts so far" }
+  },
+  // Walkthroughs: a situation, what to watch for, and the buttons to press in order.
+  walks: {
+    "Happy path":      { story: "The bank answers at once.",                steps: ["pay", "ok"] },
+    "Silent bank":     { story: "The bank never answers. Watch the money.", steps: ["pay", "timeout", "check"] },
+    "Retry too soon":  { story: "The user retries before checking.",        steps: ["pay", "timeout", "retry", "timeout"] },
+    "Should be illegal": { story: "Try to pay twice. It must be refused.",  steps: ["pay", "pay"] }
+  }
+};
+function legal(state, ev){ return (RULE.states[state] || {})[ev]; }
+function step(state, ctx, ev){                       // pure: returns the next world or a refusal
+  const m = legal(state, ev);
+  if(!m) return { ok:false, state, ctx, note:`Refused: "${ev}" is not allowed while "${state}".` };
+  const next = { ...ctx };
+  for(const [k,v] of Object.entries(m.set || {})) next[k] = typeof v === "function" ? v(ctx) : v;
+  return { ok:true, state:m.to, ctx:next, note:`${state} -> ${m.to}` };
+}
+// ===== PAGE: throwaway shell. It calls the rule. The rule never calls it. =====
+let S, C, log, changed, walk, at;
+const W = RULE.words, $ = id => document.getElementById(id);
+const say = (k, key) => (W[k] && W[k][key]) || key;
+function reset(){ S = RULE.start; C = { ...RULE.context }; log = []; changed = {}; walk = null; at = 0; draw(); }
+function send(ev){
+  const r = step(S, C, ev); changed = {};
+  if(r.ok){ if(r.state !== S) changed.state = 1; for(const k in r.ctx) if(r.ctx[k] !== C[k]) changed[k] = 1; S = r.state; C = r.ctx; }
+  log.unshift(`${say("event", ev)}: ${r.ok ? say("state", S) : r.note}`); draw();
+}
+function draw(){
+  $("q").textContent = RULE.question; $("what").textContent = RULE.what;
+  $("state").textContent = say("state", S); $("state").className = changed.state ? "changed" : "";
+  $("fields").innerHTML = Object.entries(C).map(([k,v]) =>
+    `<dt>${say("field", k)}</dt><dd class="${changed[k] ? "changed" : ""}">${v}</dd>`).join("");
+  const evs = [...new Set(Object.values(RULE.states).flatMap(s => Object.keys(s)))];
+  $("events").innerHTML = evs.map(e => `<button ${legal(S, e) ? "" : "disabled"} onclick="send('${e}')">${say("event", e)}</button>`).join("");
+  $("tabs").innerHTML = Object.keys(RULE.walks).map(n => `<button role="tab" aria-selected="${n === walk}" onclick="start('${n}')">${n}</button>`).join("");
+  const w = RULE.walks[walk];
+  $("walk").innerHTML = w ? `<p>${w.story}</p>` + w.steps.map((e, i) =>
+    `<button class="step ${i < at ? "done" : ""}" ${i === at ? "" : "disabled"} onclick="go(${i})">${i + 1}. ${say("event", e)}</button>`).join("")
+    : "<p>Pick a walkthrough. It starts from a clean state every time.</p>";
+  $("log").textContent = log.join("\n");
+}
+function start(n){ const keep = n; reset(); walk = keep; draw(); }
+function go(i){ send(RULE.walks[walk].steps[i]); at = i + 1; draw(); }
+reset();
+</script></body></html>

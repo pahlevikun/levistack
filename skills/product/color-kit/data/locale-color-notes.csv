@@ -1,0 +1,11 @@
+region,color,risk,advice,confidence
+East and South Asia,red,Often means luck and celebration. An error shown only in red can look festive,Give errors an icon and words. Consider a different hue for promotions,Medium. Test with local users
+China and some finance apps,red and green for gain and loss,Gain is red and loss is green. The reverse of English finance apps,Make gain and loss per-locale tokens,High for China A-shares apps. Check each market
+Many regions,green,Can mean growth and also carry religious or political meaning,Do not use green alone for success or go,Medium
+Many regions,white,Can mean purity or mourning,Do not assume white is neutral for gifts or events,Medium
+Many regions,yellow and gold,Can mean prosperity or caution,Check the meaning before using it for warnings,Low
+Indonesia,black and white and red,A dictionary study links black to strength and also to badness. White links to honesty. Red links to appearance,Treat as a question for local users. Do not use it as a rule,Low. One dictionary source
+Southeast Asia,high chroma warm colors,Bright daylight may make warm saturated colors read better on screen,Test outdoors. This is a hypothesis,Low
+Japan,green,Often reads as vitality and youth,Check against your own audience,Low
+Right-to-left languages,direction cues,Arrows and progress bars and carousels flip. Gain and loss colors do not,Mirror layout and keep brand marks and numerals as they are,High
+Any region,regional guess from a name,A name does not tell you the region or the culture,Ask or use the product's market,High

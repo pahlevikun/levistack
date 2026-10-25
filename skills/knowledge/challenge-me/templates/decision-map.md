@@ -29,4 +29,4 @@ Cadence/tone: <from calibrate>
 ## Next
 
 - Resume by loading `challenge-me` in mode <grill|grill-docs|challenge|brainstorm> and this file.
-- Implementation-plan file only if asked → `write-plan`. Tickets → `create-jira-story`. Pause session → `handoff`.
+- Implementation-plan file only if asked → `write-plan`. Tickets → `create-tickets`. Pause session → `handoff`.

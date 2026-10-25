@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { spawnSync } from 'node:child_process';
+import { execFileSync, spawnSync } from 'node:child_process';
 import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
@@ -8,6 +8,8 @@ import { fileURLToPath } from 'node:url';
 import { classify } from '../skills/agent-authoring/convert-as-skill/scripts/classify.mjs';
 import { convertSource } from '../skills/agent-authoring/convert-as-skill/scripts/convert.mjs';
 import { mergeSkills } from '../skills/agent-authoring/convert-as-skill/scripts/merge.mjs';
+import { parseSource, plan, scratchStatus } from '../skills/agent-authoring/convert-as-skill/scripts/enhance.mjs';
+import { existsSync } from 'node:fs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const scripts = join(root, 'skills/agent-authoring/convert-as-skill/scripts');
@@ -112,6 +114,99 @@ test('extract_document: extracts HTML, refuses rules layout', () => {
     const bad = spawnSync('python3', [join(scripts, 'extract_document.py'), banned], { encoding: 'utf8', cwd: scripts });
     assert.notEqual(bad.status, 0);
     assert.match(bad.stderr, /from-rule or from-agent/);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+// ---- enhance-skill ---------------------------------------------------------------------------
+
+function makeSkill(dir, name, extra = '') {
+  mkdirSync(dir, { recursive: true });
+  writeFileSync(join(dir, 'SKILL.md'), `---\nname: ${name}\ndescription: "A skill. Use when needed."\n---\n# ${name}\n${extra}\n`);
+}
+
+test('classify: one skill folder with enhance wording is the enhance-skill use case', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'cas-enh-'));
+  try {
+    const target = join(dir, 'target');
+    const other = join(dir, 'other');
+    makeSkill(target, 'target');
+    makeSkill(other, 'other');
+    const r = classify({ paths: [target], text: 'enhance this skill using https://github.com/a/b/tree/main/skills/x' });
+    assert.equal(r.status, 'ok');
+    assert.deepEqual(kinds(r), ['enhance-skill']);
+    assert.equal(r.jobs[0].files[0], target);
+    assert.ok(r.jobs[0].files.includes('https://github.com/a/b/tree/main/skills/x'));
+    assert.equal(r.jobs[0].guide, 'specialities/enhance-skill/GUIDE.md');
+    assert.ok(existsSync(join(scripts, '..', r.jobs[0].guide)), 'the guide exists');
+    assert.deepEqual(kinds(classify({ paths: [target], text: 'improve it by learning from upstream' })), ['enhance-skill']);
+    assert.equal(classify({ paths: [target, other], text: 'enhance the first with the second' }).status, 'ask');
+    assert.deepEqual(kinds(classify({ paths: [target, other], text: 'merge these into one skill' })), ['merge-skills']);
+    assert.equal(classify({ text: 'improve the skill from https://github.com/a/b' }).status, 'ask');
+    assert.equal(classify({ paths: [target] }).status, 'ask', 'a skill folder alone still asks');
+    assert.match(classify({ paths: [target] }).question, /Enhance it/);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test('enhance: parseSource builds a safe fetch command for each kind of source', () => {
+  const gh = parseSource('https://github.com/mattpocock/skills/tree/main/skills/engineering/prototype', 'scratch/x');
+  assert.equal(gh.kind, 'github');
+  assert.equal(gh.fetch, 'git clone --depth 1 https://github.com/mattpocock/skills.git scratch/x/mattpocock__skills');
+  assert.equal(gh.focus, 'skills/engineering/prototype');
+  const sk = parseSource('https://www.skills.sh/meodai/skill.color-expert/color-expert', 'scratch/x');
+  assert.equal(sk.kind, 'skills.sh');
+  assert.equal(sk.focus, 'color-expert');
+  assert.match(sk.fetch, /meodai\/skill\.color-expert\.git/);
+  const page = parseSource('https://bencho.dev/', 'scratch/x');
+  assert.equal(page.kind, 'page');
+  assert.match(page.fetch, /^curl -sL https:\/\/bencho\.dev\/ -o scratch\/x\/singles\//);
+  assert.equal(parseSource('/definitely/not/here', 'scratch/x').kind, 'missing');
+  assert.equal(parseSource('/definitely/not/here', 'scratch/x').fetch, null);
+  assert.equal(parseSource(root, 'scratch/x').kind, 'dir');
+});
+
+test('enhance: plan inventories the target and refuses a scratch folder that git does not ignore', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'cas-plan-'));
+  try {
+    const g = (...a) => execFileSync('git', ['-C', dir, ...a], { encoding: 'utf8' });
+    g('init', '-q');
+    const target = join(dir, 'skills', 'demo');
+    makeSkill(target, 'demo', 'See [r](references/r.md)');
+    mkdirSync(join(target, 'references'));
+    writeFileSync(join(target, 'references', 'r.md'), '# r\n');
+    const bad = plan({ target, sources: ['https://github.com/a/b'], scratch: join(dir, 'scratch', 'demo-sources') });
+    assert.equal(bad.status, 'ok');
+    assert.equal(bad.target.name, 'demo');
+    assert.equal(bad.scratch.ignored, false);
+    assert.ok(bad.warnings.some((w) => /NOT ignored/.test(w)));
+    writeFileSync(join(dir, '.gitignore'), 'scratch/\n');
+    const good = plan({ target, sources: ['https://github.com/a/b'], scratch: join(dir, 'scratch', 'demo-sources') });
+    assert.equal(good.scratch.ignored, true);
+    assert.ok(!good.warnings.some((w) => /NOT ignored/.test(w)));
+    assert.ok(plan({ target, sources: [] }).warnings.some((w) => /no source/.test(w)));
+    assert.equal(plan({ target: dir }).status, 'error');
+    assert.equal(scratchStatus('/tmp/elsewhere', dir).ok, true);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test('enhance.mjs: cli prints the plan, is read-only and rejects two targets', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'cas-cli-'));
+  try {
+    const target = join(dir, 'demo');
+    makeSkill(target, 'demo');
+    const run = (...a) => spawnSync('node', [join(scripts, 'enhance.mjs'), ...a], { encoding: 'utf8' });
+    const r = run(target, '--source', 'https://github.com/a/b', '--scratch', join(dir, 'scratch'));
+    assert.equal(r.status, 0, r.stderr);
+    assert.match(r.stdout, /git clone --depth 1 https:\/\/github\.com\/a\/b\.git/);
+    assert.ok(!existsSync(join(dir, 'scratch')), 'the script must not create the scratch folder');
+    assert.equal(run(target, target).status, 2);
+    assert.equal(run().status, 2);
+    assert.ok(Array.isArray(JSON.parse(run(target, '--json').stdout).warnings));
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }

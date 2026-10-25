@@ -1,0 +1,51 @@
+id,topic,fact,product_use,check
+PER-01,perception,The same color looks different next to different neighbors. A gray looks lighter on a dark ground than on a light one.,Judge a color only on the real surface it will sit on.,Preview every swatch on the actual background and raised surface.
+PER-02,perception,Vivid colors look brighter than a gray with the same luminance (the Helmholtz-Kohlrausch effect).,A saturated accent can feel louder than its contrast number says. Do not separate two items by equal luminance alone.,Put a vivid accent next to a gray of equal lightness and look.
+PER-03,perception,Adding white to a hue shifts the hue you see (the Abney effect). Blue tints drift toward purple.,"Check the lightest steps of a ramp for hue drift, most of all for blue.",Compare step 100 and step 500 by eye on a white surface.
+PER-04,perception,Perceived hue changes with luminance (the Bezold-Brucke effect).,A dark and a light step of one ramp can read as slightly different hues. Bend the hue a little across a long ramp.,View a full ramp as one strip.
+PER-05,perception,In dim light the eye gets more sensitive to blue and less to red (the Purkinje shift).,Night modes and car cabins make red fade. Never let red alone carry a critical state in a dim setting.,Test night and car themes in a dark room.
+PER-06,perception,The eye adapts to its surroundings. A large white page glows in a dark room.,"Offer a dark mode, and avoid large pure white areas in it.",Check the dark theme at low screen brightness.
+PER-07,perception,"Equal hue steps do not look equal. Greens and cyans cover a wide range, reds and blues a narrow one.","Do not split 360 degrees evenly to make categories. Pick by distance in OKLab, as `theme.py scale` does.",Look at the categorical scale as swatches.
+PER-08,perception,Yellow cannot get dark. At low lightness it turns olive or brown.,"Use amber or yellow as a fill with dark text on it, not as text on white.",Measure warning text on its ground.
+PER-09,perception,Pure blue has very low luminance.,Blue text on a dark ground fails early. Move blue steps lighter in dark mode.,Measure the link color in both modes.
+PER-10,perception,About 1 in 12 men and 1 in 200 women have a red-green color deficiency.,Never use red against green as the only signal.,Run the CVD simulation in `theme.py build` and read its notes.
+PER-11,perception,Blue-yellow deficiency is rare but real. Some blue and yellow pairs collapse for those users.,Include the tritan view when you check a categorical scale.,"`theme.py scale` checks protan, deutan and tritan."
+PER-12,perception,Legibility comes from lightness difference. Hue difference does not make text readable.,"Judge text by contrast ratio, not by how different the hues look.",Convert the screen to grayscale and read it.
+SPC-01,spaces,sRGB is the default web gamut. Display P3 holds more saturated colors on screens that support it.,Define colors in sRGB first. Add P3 as an upgrade with a fallback.,Wrap P3 values in `@media (color-gamut: p3)`.
+SPC-02,spaces,HSL lightness is not perceptual. Yellow and blue at the same HSL lightness look very different in brightness.,Do not build ramps in HSL.,Compare the OKLCH lightness of two ramps that share an HSL lightness.
+SPC-03,spaces,"OKLab and OKLCH keep lightness and hue closer to what people see, so ramps come out even.",Build ramps and mixes in OKLCH.,Print the lightness of each ramp step and look for even gaps.
+SPC-04,spaces,Plain CIE LCH bends blue toward purple when you change lightness. OKLab fixes most of that.,"If a tool uses CIE LCH, check blue steps by eye.",View a blue ramp as a strip.
+SPC-05,spaces,Not every OKLCH triple fits inside sRGB. High chroma at very light or very dark values is out of range.,Lower chroma and keep lightness and hue. Never lower lightness to fit.,"Use `oklch_to_hex`, which clamps chroma."
+SPC-06,spaces,"Mixing sRGB values directly gives dark, muddy midpoints.","Mix tints, shades and gradients in OKLab or in linear light.",Run `theme.py mix` and compare spaces.
+SPC-07,spaces,The space of a gradient changes how it looks. Complementary colors mixed in sRGB pass through gray. In OKLCH they pass through other hues.,"Pick the space by intent: OKLab for calm blends, OKLCH for a hue sweep.",Preview the gradient both ways.
+SPC-08,spaces,A translucent color has no contrast of its own. The result depends on what is behind it.,"Measure the composite over the real ground, in each mode.","Use `theme.py contrast`, which composites alpha."
+SPC-09,spaces,Out-of-gamut or HDR values get clipped on screens that cannot show them.,Always ship an sRGB fallback.,Test on a standard display.
+LIG-01,lightness,Lightness describes a surface against white. Brightness describes how much light a screen gives off.,Use lightness for ramps. Remember that screen brightness settings can wash out low contrast outdoors.,Check contrast with the screen at low brightness.
+LIG-02,lightness,Chroma is colorfulness at a given lightness. HSL saturation is not comparable across hues.,"To calm a palette, lower chroma. Do not lower HSL saturation.",Compare a calm and a lively palette by chroma.
+LIG-03,lightness,"The WCAG ratio uses relative luminance, not lightness.",A pair can look fine and still fail. Compute the ratio.,Run the essential pairs.
+LIG-04,lightness,WCAG 2 ratios treat light-on-dark and dark-on-light the same. APCA models the difference.,"Use WCAG as the gate and APCA as advice, especially in dark mode.",Read the Lc column in `report.md`.
+WRM-01,warm-cool,Warm and cool are relative. Green and violet change temperature with their neighbors.,Judge temperature by the whole palette. Use the neutral temperature knob.,"Try cool, as built and warm in `live.html`."
+WRM-02,warm-cool,The idea that warm colors advance and cool ones recede is weak and depends on context.,Do not build depth on it. Use lightness and contrast.,Test with real content.
+WRM-03,warm-cool,The tint of the neutrals changes the mood of a screen more than the accent does.,Tint neutrals slightly toward the brand hue or toward the wanted temperature.,Compare two neutral tints with the same accent.
+MIX-01,mixing,Screens add light. Red light plus green light gives yellow. Paint subtracts light.,Do not trust paint intuition in RGB. Blue plus yellow is not green on a screen.,Run `theme.py mix` on blue and yellow.
+MIX-02,mixing,The red-yellow-blue wheel is a teaching tool. Complements differ by color model.,Compute harmonies as hue angles in OKLCH and check by eye.,Look at the harmony as swatches.
+MIX-03,mixing,A tint adds white and lowers chroma. A shade adds black and lowers lightness. A tone adds gray and does both.,"Define ramps by lightness and chroma targets, not by adding white or black.",Print L and C for each step.
+PRT-01,print,"Print inks (CMYK) cannot show some bright blues, greens and oranges that a screen can.",Ask about print early and check brand colors in CMYK.,Ask the printer for a proof.
+PRT-02,print,"A spot ink such as a Pantone color is a mixed ink, not a conversion of an RGB value.","Record the spot name and a screen hex, and say which one is the master.",Keep both in the brand sheet.
+PRT-03,print,Paper changes the color. Uncoated stock looks duller than coated stock.,Proof on the real paper.,Compare a printed swatch with the screen.
+PRT-04,print,The same hex looks different across devices. Screens are backlit and paper is reflective.,Set expectations early and test on the target devices.,"Check on one phone, one laptop and one external display."
+CUL-01,meaning,Color meaning depends on region. Red can mean luck or danger. White can mean purity or mourning.,Use `data/locale-color-notes.csv` when the audience is regional.,Ask a local reviewer.
+CUL-02,meaning,"For states, convention beats invention: red for error, green for success, amber for warning, blue for information.",Keep the conventions. Add an icon or a word so color is never alone.,Check each state with color removed.
+CUL-03,meaning,In some markets gain is red and loss is green.,Make gain and loss per-locale tokens.,Review the finance screens with a local user.
+CUL-04,meaning,A known brand hue is part of recognition.,Treat a confirmed brand color as fixed. Move other colors around it.,Ask which colors are confirmed.
+VIZ-01,data-viz,People can tell about six colors apart in a legend. Beyond that they need labels.,Cap a guaranteed categorical scale at 6. Label directly past that.,`theme.py scale categorical --n 8` reports the closest pair.
+VIZ-02,data-viz,"In a sequential scale, lightness carries the order. The hue should change little.",Move lightness in even steps and bend hue a few degrees at most.,Check the smallest lightness step.
+VIZ-03,data-viz,"A diverging scale needs a real midpoint, such as zero or a target.",Mirror the lightness on both sides of a neutral middle.,Convert the scale to grayscale. It should be symmetric.
+VIZ-04,data-viz,Touching marks blend in the eye.,Separate them with a 1 to 2 px stroke in the ground color.,Zoom on a stacked bar.
+VIZ-05,data-viz,Red against green for good against bad fails for many people.,"Add an icon, a sign or a position cue.",View the chart in the deutan simulation.
+VIZ-06,data-viz,Color is a weak way to show exact values. Direct labels beat a legend.,"Label marks. Use color to group, not to measure.",Remove the legend and see if the chart still reads.
+ACC-01,accessibility,"UI parts that carry meaning (input borders, icons, focus rings) need 3:1 against their neighbor.","Measure borders and focus rings, not only text.",Run the essential pairs.
+ACC-02,accessibility,"Normal text needs 4.5:1. Large text needs 3:1 (24 px, or 18.66 px bold).",Use 4.5:1 unless the text is clearly large.,Measure every text role.
+ACC-03,accessibility,Forced colors modes replace your colors with system colors.,Keep borders and use system color keywords where it matters.,Test with forced colors on.
+ACC-04,accessibility,Color alone fails users who cannot tell the colors apart.,"Add an icon, a label or a shape to every color signal.",Run the grayscale and CVD checks.
+ACC-05,accessibility,Phones offer an increased contrast setting that people turn on for a reason.,Offer a high contrast mode or stronger borders and text.,Test with the setting on.

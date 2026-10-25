@@ -1,8 +1,17 @@
-> **Speciality `design-system`**, merged from the `design-system` skill. Original description: Token architecture, component specifications, and slide generation. Three-layer tokens (primitive→semantic→component), CSS variables, spacing/typography scales, component specs, strategic slide creation. Use for design tokens, systematic design, brand-compliant presentations.
-> Paths such as `references/`, `scripts/` and `assets/` are relative to this folder.
-
-
 # Design System
+
+This folder is the toolbox of the design-system-kit pipeline. The steps live in [../../SKILL.md](../../SKILL.md) and the step guides in [../../references/](../../references/). Paths below are relative to this folder.
+
+| Pipeline step | What is here |
+|---|---|
+| 1 Discover | `scripts/theme/extract_site.py`, `scripts/theme/extract-in-browser.js`, `references/stitch-design-md.md`, `scripts/validate-tokens.cjs` |
+| 2 Direction and tokens | `scripts/theme/` (mixer, builder, writer), `data/theme/` (the ingredient library), `templates/design-tokens-starter.json`, `scripts/generate-tokens.cjs` |
+| 4 Components | `references/component-specs.md`, `component-tokens.md`, `states-and-variants.md`, `tailwind-integration.md` |
+| 5 Library and governance | `references/library-and-governance.md`, `references/token-architecture.md` |
+| 6 Validate | `scripts/validate-tokens.cjs`, `scripts/html-token-validator.py`, `scripts/theme/theme.py check`, `scripts/tests/` |
+| Slides | `scripts/generate-slide.py`, `scripts/search-slides.py`, `data/slide-*.csv` |
+
+The original notes follow, kept whole.
 
 Token architecture, component specifications, systematic design, slide generation.
 

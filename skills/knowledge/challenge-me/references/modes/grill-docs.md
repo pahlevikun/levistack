@@ -59,5 +59,5 @@ When they state how something works, verify the code. Surface contradictions:
 ## Do not
 
 - Choose a target stack (`super-tech-blueprint`).
-- Write implementation tickets (`create-jira-story` after they ask).
+- Write implementation tickets (`create-tickets` after they ask).
 - Run general code review (use the review skill the repo uses).

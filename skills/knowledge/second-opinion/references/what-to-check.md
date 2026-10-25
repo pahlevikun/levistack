@@ -75,3 +75,35 @@ For each security finding, trace the input through the code and show the path.
 - New endpoints with missing authentication or authorization.
 - Secrets in code, logs or error messages.
 - Time-of-check to time-of-use gaps (TOCTOU) in security-critical paths.
+
+## Spec match
+
+Does the change do what the issue or spec asked for?
+
+- **Find the spec.** Look for issue ids in commit messages (`#123`, `Closes #45`, `!67`), a path the user gave, or a file under `docs/`, `specs/` or `.scratch/` that matches the branch name. If you find none, write "no spec found" and skip this lens.
+- Does every requirement have code, and a test that checks it?
+- Does the code do something the spec forbids?
+- Does it do extra things nobody asked for (scope creep)?
+- Did a requirement get dropped or quietly changed?
+- Is each acceptance criterion met as written, not just in spirit?
+
+Report each gap as: the requirement, what the code does instead, and the evidence (`file:line`).
+
+## Smell baseline
+
+A short list of common code smells. Treat each as a **judgment call**, never a hard rule. Label it "possible <smell>". The repo's own written standards win over this list. Skip anything a linter or type checker already enforces.
+
+| Smell | What it looks like | Usual fix |
+|---|---|---|
+| Mysterious name | A name that does not say what the thing is or does | Rename it. If no honest name comes, the design is unclear |
+| Long function | One function does several jobs | Split it by job |
+| Copy-paste logic | The same logic in two places that change for the same reason | Keep one source of truth |
+| Feature envy | A method uses another object's data more than its own | Move it to that object |
+| Scattered change | One small change forces edits in many files | Group what changes together |
+| Primitive stand-ins | Plain strings or numbers that stand for a concept | Give the concept a small type |
+| Long parameter list | A call needs many arguments that travel together | Group them or split the function |
+| Speculative layer | A flag, hook or layer that nobody uses yet | Delete it |
+| Dead code | Code that nothing calls | Delete it |
+| Reaching through | `a.b().c().d()` chains that know too much | Ask the nearest object for what you need |
+| Comment on bad code | A comment that explains confusing code | Fix the code, then drop the comment |
+

@@ -5,7 +5,7 @@ import { tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
 import { test } from 'node:test';
 import { fileURLToPath } from 'node:url';
-import { checkMessage } from '../skills/delivery/atomic-semantic-commit/scripts/check-message.mjs';
+import { addShare, checkMessage } from '../skills/delivery/atomic-semantic-commit/scripts/check-message.mjs';
 import { analyze, classify, scopeOf } from '../skills/delivery/atomic-semantic-commit/scripts/group-changes.mjs';
 
 const repo = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -16,7 +16,7 @@ const all = (msg, opts) => checkMessage(msg, opts).map((f) => f.code);
 // ---- check-message ---------------------------------------------------------------------------
 
 test('accepts the gist example and a normal scoped message', () => {
-  assert.deepEqual(codes('feat: add hat wobble'), []);
+  assert.deepEqual(codes('feat: add hat wobble'), ['bare-add'], 'the gist example is valid but not descriptive');
   assert.deepEqual(codes('fix(auth): retry token refresh on 401'), []);
   assert.deepEqual(codes('feat(api)!: rename /v1/orders to /v1/checkout\n\nBREAKING CHANGE: use /v1/checkout. The old route returns 410.'), []);
 });
@@ -246,4 +246,56 @@ test('the atomic-semantic-commit skill passes the repo skill linter', async () =
   const { lintPath } = await import('../skills/agent-authoring/create-agent/scripts/lint.mjs');
   const bad = lintPath(join(repo, 'skills/delivery/atomic-semantic-commit')).findings.filter((f) => f.severity === 'error' || f.severity === 'warn');
   assert.deepEqual(bad, []);
+});
+
+// ---- descriptive subjects --------------------------------------------------------------------
+
+test('bare-add: "add" plus a short noun warns, a purpose or a condition passes', () => {
+  assert.ok(codes('feat: add retry').includes('bare-add'));
+  assert.ok(codes('feat(cart): add coupon support').includes('bare-add'));
+  assert.ok(codes('test: add tests').includes('bare-add'));
+  assert.deepEqual(codes('feat(sync): retry upload up to 3 times on timeout'), []);
+  assert.deepEqual(codes("feat(api): add GET /users/:id/orders to list a user's orders"), []);
+  assert.deepEqual(codes('feat(login): add a rate limit after 5 failed tries'), []);
+  assert.deepEqual(codes('feat(login): add rate limiting on the sign-in route'), []);
+  assert.ok(!codes('fix(cart): fix the crash on empty coupon').includes('bare-add'));
+});
+
+test('subject aim is 60 characters and the hard limit stays 72', () => {
+  assert.ok(!codes(`feat(a): ${'word '.repeat(10).trim()}`).includes('subject-long'));
+  assert.ok(codes(`feat(a): ${'word '.repeat(11).trim()}`).includes('subject-long'));
+  assert.ok(codes(`feat: ${'a'.repeat(80)}`).includes('subject-length'));
+});
+
+test('body-missing: a large change of a behavior type needs a body', () => {
+  assert.ok(codes('fix(cart): stop the crash on empty coupon', { diffLines: 120 }).includes('body-missing'));
+  assert.ok(!codes('fix(cart): stop the crash on empty coupon', { diffLines: 12 }).includes('body-missing'));
+  assert.ok(!codes('docs(readme): explain the seed script', { diffLines: 400 }).includes('body-missing'));
+  assert.ok(!codes('fix(cart): stop the crash on empty coupon\n\nThe coupon code was null. Skip the discount when it is null.', { diffLines: 120 }).includes('body-missing'));
+});
+
+test('addShare counts subjects that start with add, with or without a type', () => {
+  const r = addShare(['feat: add a', 'fix(x): fix b', 'add c', 'chore(deps): bump d']);
+  assert.deepEqual(r, { total: 4, adds: 2, share: 0.5 });
+  assert.equal(addShare([]).share, 0);
+});
+
+test('cli: --range warns when most subjects start with add, and a bad range exits 2', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'ac-add-'));
+  try {
+    const run = (...a) => spawnSync('node', [checkCli, ...a], { encoding: 'utf8', cwd: dir });
+    const g = (...a) => execFileSync('git', ['-c', 'user.name=t', '-c', 'user.email=t@t', ...a], { cwd: dir, encoding: 'utf8' });
+    g('init', '-q');
+    for (const n of ['one', 'two', 'three', 'four', 'five']) {
+      writeFileSync(join(dir, `${n}.txt`), n);
+      g('add', '.');
+      g('commit', '-q', '-m', `feat(app): add ${n} screen`);
+    }
+    const r = run('--range', 'HEAD');
+    assert.match(r.stdout, /NOTE 5 of 5 subjects start with "add"/);
+    assert.equal(run('--range', 'nope..HEAD').status, 2);
+    assert.ok(Array.isArray(JSON.parse(run('--range', 'HEAD~2..HEAD', '--json').stdout)), 'json stays an array');
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
 });

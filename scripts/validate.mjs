@@ -39,7 +39,7 @@ export function validateTree(root, { strict = false } = {}) {
   const errors = [];
   const warnings = [];
   if (existsSync(join(root, 'THIRD_PARTY.md'))) {
-    errors.push('THIRD_PARTY.md: remove this file; use per-package LICENSE/UPSTREAM beside copied code (see rules/core/no-third-party-md.md)');
+    errors.push('THIRD_PARTY.md: remove this file; keep license and UPSTREAM notes beside the copied code');
   }
   const tree = scanTree(root);
 

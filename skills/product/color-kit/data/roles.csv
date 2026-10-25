@@ -1,0 +1,48 @@
+role,group,used_for,light_rule,dark_rule,minimum,notes
+background,ground,The page behind everything,Lightest or near-lightest neutral step. Tinted a little toward the neutral hue,Darkest step but never pure black unless OLED is a stated choice,,Everything else is measured against it
+surface,ground,Cards and panels that sit on the page,One step lighter or a clean paper tone,One step lighter than the page,,Raised surfaces get lighter in dark mode because shadows do not show
+surface-raised,ground,Menus and popovers,Lightest tone,Lighter again,,Check text on this ground too
+surface-sunken,ground,Inputs and wells,One step darker than the page,Darker than the page,,Never a text ground unless text is measured on it
+border,edge,Dividers and card edges that only group,Pale neutral,Dark neutral,,Decorative so it has no contrast need
+border-strong,edge,The edge of a control that must be found,Mid neutral that passes 3:1 against page and card,Mid neutral that passes 3:1,3.0,Not the same role as border
+text,text,Body and headings,Darkest neutral steps,Lightest neutral steps,4.5,Soft contrast moods may use a lighter step but it still passes 4.5
+text-muted,text,Secondary text and captions,Mid-dark neutral,Mid-light neutral,4.5,Make it darker. Do not make it bigger
+text-subtle,text,Disabled text and hints that are not required to read,Mid neutral,Mid neutral,,Never carries meaning that is not shown elsewhere
+primary,brand,The one main action and the selected state,A mid step of the brand ramp,A lighter step so it stays visible,3.0,One filled primary per view
+on-primary,brand,Label on the primary fill,Paper or ink whichever reads better,Ink or paper whichever reads better,4.5,Chosen by measurement
+primary-hover,brand,Hover and focus-within fill,One step toward more contrast,One step toward more contrast,4.5,Label must still pass
+primary-pressed,brand,Pressed fill,Two steps toward more contrast,Two steps toward more contrast,4.5,
+secondary-hover,brand,Hover fill for secondary,One step toward more contrast,One step toward more contrast,4.5,Label must still pass
+secondary-pressed,brand,Pressed fill for secondary,Two steps toward more contrast,Two steps toward more contrast,4.5,
+primary-subtle,brand,Tint behind a selected row or a chip,Pale brand step,Dark brand step,,
+on-primary-subtle,brand,Text on the tint,Dark brand step,Light brand step,4.5,Same hue as the tint. Not gray
+secondary,brand,Supporting actions and illustration,Mid step of the second ramp,Lighter step,3.0,
+on-secondary,brand,Label on secondary,Paper or ink,Ink or paper,4.5,
+secondary-subtle,brand,Tint for secondary things,Pale step,Dark step,,
+on-secondary-subtle,brand,Text on secondary tint,Dark step,Light step,4.5,
+tertiary-hover,brand,Hover fill for tertiary,One step toward more contrast,One step toward more contrast,4.5,
+tertiary-pressed,brand,Pressed fill for tertiary,Two steps toward more contrast,Two steps toward more contrast,4.5,
+tertiary,brand,One small highlight per screen,Mid step of the third ramp,Lighter step,3.0,Use it for at most one thing per screen
+on-tertiary,brand,Label on tertiary,Paper or ink,Ink or paper,4.5,
+tertiary-subtle,brand,Tint for tertiary things,Pale step,Dark step,,
+on-tertiary-subtle,brand,Text on the tertiary tint,Dark step,Light step,4.5,
+link,brand,Links in text,A dark brand step that passes 4.5 on the page and on cards,A light brand step that passes 4.5,4.5,Underline when it sits in running text
+focus-ring,brand,Keyboard and remote focus,Brand step that passes 3:1 on page and card,Brand step that passes 3:1,3.0,Never removed. 4 px on TV and car
+success,status,Success fill and icon,Green mid step at least 0.12 lighter or darker than danger,Same rule in dark,3.0,Also use an icon or a word
+on-success,status,Label on success,Paper or ink,Ink or paper,4.5,
+success-subtle,status,Tint for a success banner,Pale green,Dark green,,
+on-success-subtle,status,Text on the success tint,Dark green,Light green,4.5,
+warning,status,Warning fill and icon,Amber mid step,Lighter amber,3.0,Amber needs dark label text
+on-warning,status,Label on warning,Ink,Ink,4.5,
+warning-subtle,status,Tint for a warning banner,Pale amber,Dark amber,,
+on-warning-subtle,status,Text on the warning tint,Dark amber,Light amber,4.5,
+danger,status,Errors and destructive actions,Red mid step,Lighter red,3.0,Give errors an icon and words. Some regions read red as luck
+on-danger,status,Label on danger,Paper,Ink or paper,4.5,
+danger-subtle,status,Tint for an error banner,Pale red,Dark red,,
+on-danger-subtle,status,Text on the error tint,Dark red,Light red,4.5,
+info,status,Info fill and icon,Blue mid step,Lighter blue,3.0,Keep 15 degrees of hue away from the brand primary
+on-info,status,Label on info,Paper or ink,Ink or paper,4.5,
+info-subtle,status,Tint for an info banner,Pale blue,Dark blue,,
+on-info-subtle,status,Text on the info tint,Dark blue,Light blue,4.5,
+scrim,overlay,Dim layer behind a sheet or dialog,Ink at 40 to 60 percent,Black at 60 to 70 percent,,Not emitted by the build. Write it by hand and measure the composed result over real content
+chart-1 to chart-6,data,Series colors,Alternating lightness around the brand hue,Lighter set,3.0,"Emitted as CSS variables --chart-1 to --chart-6 in theme.css, not as semantic roles. Add direct labels or markers. Never color alone"

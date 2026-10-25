@@ -16,9 +16,10 @@
 | Invoke picks from the intent map | verified | `playbooks/invoke.md` | The graphic shows 12 of the map's first picks. `how` was merged into `codebase-learner` (explain mode) |
 | Hunt: at most three questions, chain of up to four, skills.sh only for a gap | verified | `skills/workflow/find-skills/SKILL.md` | |
 | Prove: verify, then your yes for outward actions, then a re-check | verified | `playbooks/prove.md` | |
-| 37 skills in 8 groups, with the per-group counts shown | verified | `skills/*/*/SKILL.md` | Nested skills (`noslop-code`, `output-savers` modes) not counted |
-| 42 rules, 5 always on, per-topic counts | verified | `rules/*/*.md`, a line `alwaysApply: true` in the frontmatter of `rules/core/*.md` (the session-start hook uses the same test) | The graphic names seven core rules as examples |
+| 41 skills in 8 groups, with the per-group counts shown | verified | `skills/*/*/SKILL.md` | Nested skills (`noslop-code`, `output-savers` modes) not counted |
+| 41 rules, 5 always on, per-topic counts | verified | `rules/*/*.md`, a line `alwaysApply: true` in the frontmatter of `rules/core/*.md` (the session-start hook uses the same test) | The graphic names seven core rules as examples |
 | 11 agents | verified | `agents/*.md` | |
+| 13 commands, and the five named in the graphic (`/start`, `/commit`, `/ship`, `/palette`, `/screen`) | verified | `commands/*.md` | The graphic names five of the 13 |
 | 5 opt-in hooks and what each does | verified | `hooks/*.mjs`, README Hooks table | |
 | 2 upstream plugins installed as dependencies | verified | `upstream.json`, test install with an isolated Claude config | Claude Code only; skills CLI users install them separately |
 
@@ -38,16 +39,18 @@ After seeing this image for five seconds, the viewer should understand that ever
 
 - Title: Every task takes the same seven steps.
 - Supporting line: Nothing counts as done without proof. Nothing leaves the session without your yes.
+- Entry line: Type /start (or /use-levistack) and your task. It picks the skill, runs it, proves it and shapes the reply.
 - Steps: Route, Prime, Invoke, Hunt, Apply, Prove, Deliver
 - Envelope: rules, hooks, one-shot, agents, focus, upstream plugins
-- Source line: 37 skills, 11 agents, 42 rules, 5 hooks, 2 upstream, 25 Oct 2026
+- Source line: 41 skills, 11 agents, 41 rules, 13 commands, 5 hooks, 2 upstream, 25 Oct 2026
 
 ## Receipt
 
 - Final file: `docs/assets/levistack-routing-stack.png`
 - Vector source: `docs/assets/levistack-routing-stack.svg`
-- SVG SHA-256: `90342b160ddfa6bdd736ae2f3556380984a3e70934a519c4d53d26970035dbf4`
-- PNG SHA-256: `096dce41ae909f70da542753eea468b538c7d0d65902f1eb3a61c7c3088d5e31`
+- SVG SHA-256: `989e26bb710040dbf5559cd236fc333ca9f260f9ebd1bbdb5c2d173861b53452`
+- PNG SHA-256: `844e954d5f88f8630a6e4d6ae2d6cdab0163c0a725d0ef33b5c771bc68853af8`
 - QA score: 14 / 16 (mobile legibility 1, batch originality 1)
 - Limitations: the title and the spine survive a thumbnail. Box detail needs the full image. The skeleton follows the-catalyst graphic on purpose, so the two read as one family.
+- Last change: removed one core rule (rules 42 to 41, core 15 to 14), added the 13 commands and the `/start` entry line, and one commands line in the one-shot box.
 - Update rule: when a count or step changes, edit the SVG, re-render the PNG, and update the hashes here.

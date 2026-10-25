@@ -1,0 +1,54 @@
+stack,topic,do,dont
+swiftui,views,Keep views small structs and compose them,Do not build one giant body or use a class for a view
+swiftui,state,Use @State for local state and @Observable (iOS 17 and later) or ObservableObject for shared models,Do not mix three state systems in one screen
+swiftui,navigation,Use NavigationStack or NavigationSplitView with navigationDestination,Do not use the old NavigationView for new work
+swiftui,lists,Use Lazy stacks and List with stable identifiers,Do not use GeometryReader to size everything
+swiftui,accessibility,Support Dynamic Type and add accessibility labels and traits,Do not fix point sizes on text
+swiftui,motion,Use withAnimation and respect Reduce Motion,Do not animate on every state change
+swiftui,theme,Use the generated dynamic colors and one tint,Do not hard-code hex in a view
+compose,composables,Keep composables small and pure and pass state down and events up,Do not call a repository or a use case from UI code
+compose,state,Hoist state and expose immutable UI state from the view model,Do not store mutable collections in state
+compose,lists,Use LazyColumn with stable keys,Do not nest scroll containers or use Column for long lists
+compose,theme,Use MaterialTheme roles and a typography scale and keep a design system,Do not hard-code text styles or colors
+compose,layout,Use Row and Column and use Box only for overlap and use Modifier before extra layouts,Do not default to fillMaxSize or nest deeply
+compose,accessibility,Add semantics and content descriptions and test with testTag,Do not rely on color alone
+compose,motion,Use the Compose animation APIs and keep animation logic out of the view model,Do not animate in a coroutine you do not cancel
+react-native,components,Use functional components and TypeScript and keep files near their component,Do not use inline styles for everything
+react-native,styling,Use StyleSheet or the project's styling system and flexbox,Do not mix two styling systems
+react-native,navigation,Use the project's router and type the params and support deep links,Do not override Android back except to confirm a discard
+react-native,lists,Use FlatList or a faster list with stable keys and measured rows,Do not map items inside a ScrollView for unbounded data
+react-native,press,Use Pressable with press feedback and hitSlop for small targets,Do not use plain Touchable for new work
+react-native,motion,Use Reanimated on the UI thread and the gesture handler,Do not drive animation from state set in onScroll
+react-native,platform,Keep Platform differences in tokens and components,Do not scatter Platform checks across screens
+react-native,theme,Pair every iOS shadow with an Android elevation and read colors from roles,Do not set shadowColor alone
+flutter,widgets,Prefer stateless widgets and const constructors and keep widgets small,Do not call setState in build
+flutter,theme,Use ThemeData and ColorScheme and read them from context,Do not hard-code colors and do not use legacy accent properties
+flutter,layout,Use Row and Column with Expanded and LayoutBuilder and read constraints,Do not check device type or lock orientation
+flutter,lists,Use ListView.builder and keys for stateful items,Do not build long lists with Column
+flutter,navigation,Use a router such as GoRouter and PopScope for back handling,Do not pass untyped arguments
+flutter,motion,Choose implicit then explicit then physics then hero by need and dispose controllers,Do not leak an AnimationController
+flutter,desktop,Show scrollbars on desktop and make read-only text selectable and place confirm by OS,Do not ship a phone layout to desktop
+flutter,accessibility,Add Semantics and support large fonts and test with a screen reader,Do not use tap targets under the platform minimum
+react,state,Keep state small and lift it only when needed and use reducers for complex state,Do not store derived data in state
+react,effects,Clean up effects and list real dependencies and avoid effects for derived values,Do not use an effect where an event handler fits
+react,components,Keep components small and compose and type props,Do not drill props through many levels
+react,forms,Use semantic HTML and labels and controlled inputs where needed,Do not rely on placeholder as a label
+react,performance,Virtualize long lists and lazy load heavy routes and measure before memoizing,Do not memoize everything by habit
+react,accessibility,Manage focus and announce dynamic content,Do not use div as a button
+nextjs,rendering,Use Server Components by default and push Client Components to the leaves,Do not mark a whole tree as client
+nextjs,data,Fetch on the server and set caching on purpose and validate Server Action input,Do not trust request input
+nextjs,images and fonts,Use next/image with dimensions and next/font,Do not cause layout shift
+vue,components,Use script setup and the Composition API and define props and emits with types,Do not mutate props
+vue,state,Use ref for primitives and computed for derived values and Pinia for shared state,Do not mix v-if with v-for on one element
+vue,lists,Always give v-for a stable key,Do not use the index as a key for changing lists
+nuxt,data,Use useFetch or useAsyncData and handle loading and error and keep secrets in private config,Do not run side effects at the root of script setup
+nuxt,rendering,Use routeRules for per-route rendering and client or server suffixes on purpose,Do not read window during server render
+svelte,reactivity,Use runes in Svelte 5 for state and derived values and effects,Do not add effects for values that can be derived
+svelte,lists,Key every each block,Do not leave keys out of changing lists
+svelte,motion,Use the built-in transitions and give local scope where needed,Do not animate without a reduced motion path
+tailwind,tokens,Map semantic variables with @theme inline and use role utilities,Do not repeat dark variants per color
+tailwind,structure,Extract components and variants and not long class strings,Do not nest theme blocks inside a mode block
+shadcn,components,Use the component variants and compose with className and keep the registry source,Do not fork a primitive for one color
+shadcn,forms,Use Field and validation helpers and show errors on the field,Do not hide errors in a toast
+android views,legacy,Use Material components and window insets and sp for text,Do not mix View and Compose theming without a bridge
+uikit,legacy,Use system controls and trait collections and Dynamic Type,Do not draw custom controls to match a web design

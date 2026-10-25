@@ -1,8 +1,8 @@
 ---
 name: atomic-semantic-commit
-description: "Split a messy working tree into small commits, one purpose and one context per commit, with semantic commit messages (feat, fix, docs, style, refactor, test, chore) written in Simplified Technical English. Use when the user asks to commit, split commits, organize changes, clean up history or write a commit message, or when unrelated changes are staged together. Commits only when asked."
+description: "Split a messy working tree into small commits, one purpose and one context per commit, with descriptive semantic commit messages (feat, fix, docs, style, refactor, test, chore) written in Simplified Technical English. A subject says what changed for the reader and a body says why, so a message is never just "add" plus a name. Use when the user asks to commit, split commits, organize changes, clean up history or write a commit message, or when unrelated changes are staged together. Commits only when asked."
 metadata:
-  version: "2.0.0"
+  version: "2.1.0"
 allowed-tools: Bash(git:*) Bash(node:*)
 ---
 
@@ -10,7 +10,7 @@ allowed-tools: Bash(git:*) Bash(node:*)
 
 One commit has one purpose and one context. The message is a semantic commit written in Simplified Technical English (STE): short, exact, and easy to scan.
 
-Uses semantic commit types, STE message rules, and two helper scripts.
+Uses semantic commit types, STE message rules, a guide for descriptive subjects and bodies, and two helper scripts.
 
 ## Rules
 
@@ -19,7 +19,8 @@ Uses semantic commit types, STE message rules, and two helper scripts.
 3. **Every commit works alone.** It builds, and the tests for its context pass.
 4. **Prepare first, change second.** Refactor in one commit. Change behavior in the next.
 5. **Keep formatting apart.** A style-only change gets its own commit.
-6. **Commit only when the user asks.** Do not push unless asked. Add no trailers (`Co-authored-by`, `Generated with`) unless the user's rule requires them.
+6. **Describe the effect.** The subject says what changed for the reader and under which condition. `add` plus a name is not enough. The body says why.
+7. **Commit only when the user asks.** Do not push unless asked. Add no trailers (`Co-authored-by`, `Generated with`) unless the user's rule requires them.
 
 ## Workflow
 
@@ -27,8 +28,8 @@ Uses semantic commit types, STE message rules, and two helper scripts.
 2. **Plan.** Fill in [templates/commit-plan.md](templates/commit-plan.md): the commits in order, each with `type(scope)`, a subject, its files or hunks, and how to verify it. Show the plan before you commit if it has more than two commits or the user asked to see it first.
 3. **Stage exactly.** Use `git add <paths>`, or `git add -p` when one file holds two purposes. Run `git diff --cached --stat`. The staged files must match the plan.
 4. **Verify.** Run the focused test for the staged context. If the test needs unstaged changes, say so and stage them or split differently.
-5. **Write the message.** Follow the format and the STE rules below. Run `node scripts/check-message.mjs "<message>"` and fix every error.
-6. **Commit.** Run `git commit -m "<subject>"`. Add a body only when the reason is not clear from the subject.
+5. **Write the message.** First read the staged diff and answer three questions: what is different for the user or caller, why was it needed, and under which condition does it apply. Write the subject from the effect and the condition. Write the body from the reason (see [descriptive-messages.md](references/descriptive-messages.md)). Then follow the format and the STE rules below. Run `node scripts/check-message.mjs --diff-lines=<changed lines> "<message>"` and fix every error and every warning you agree with.
+6. **Commit.** Run `git commit -m "<subject>" -m "<body>"`. Write a body for any change of 40 lines or more, a bug fix, a migration, a security fix, a revert or a breaking change.
 7. **Repeat** from step 3 until `git status` shows a clean tree, or only the changes the user wants to keep.
 8. **Report.** Run `git log --oneline -n <count>` and show the new commits.
 
@@ -55,9 +56,10 @@ These seven are the base. Use `perf`, `build`, `ci` or `revert` only when the re
 ## Write the message in STE
 
 - **Subject:** imperative, present tense: `add`, `fix`, `remove`. Not `added`, `adds`, `adding`.
-- **Length:** aim for 50 characters. The hard limit is 72. No period at the end. Lowercase after the colon, unless the repository does otherwise.
-- **One idea.** Name the thing that changed and the action. Do not list files.
-- **Common words, one meaning.** Use `add`, `remove`, `fix`, `rename`, `move`, `replace`, `extract`. Avoid `improve`, `enhance`, `update stuff`, `various`, `misc`, `minor changes`.
+- **Effect, not object.** Pick the verb that names the effect (`reject`, `retry`, `cache`, `show`, `cap`, `stop`), and add the condition when it matters. `feat: add retry` becomes `feat(sync): retry upload up to 3 times on timeout`. Use `add` only when you also say what it is for. The verb ladder and 12 rewrites: [descriptive-messages.md](references/descriptive-messages.md).
+- **Length:** aim for 60 characters. The hard limit is 72. No period at the end. Lowercase after the colon, unless the repository does otherwise.
+- **One idea.** Name the thing that changed, the action and the condition. Do not list files.
+- **Common words, one meaning.** Use `remove`, `fix`, `rename`, `move`, `replace`, `extract` and the verbs in the ladder. Avoid `improve`, `enhance`, `update stuff`, `various`, `misc`, `minor changes`.
 - **Body:** explain why, not what. Use active voice. Use 20 words or fewer per sentence. One topic per paragraph. Wrap at 72 characters.
 - **Punctuation:** no em dash, no en dash, no semicolon. Use a period or a colon.
 - **Exact names.** Keep code, identifiers, commands and error text unchanged.
@@ -82,9 +84,9 @@ Do not put a test before the code it tests. That commit would fail on its own.
 Changes: a login page, an avatar bug, a README note, and new tests for the login page.
 
 ```
-fix(avatar): correct size on retina screens
-feat(login): add login page with validation      # includes its tests
-docs(readme): add login setup steps
+fix(avatar): pick the source size from the device pixel ratio
+feat(login): reject sign-in with an empty password   # includes its tests
+docs(readme): explain how to set up the login provider
 ```
 
 The login tests go with the login page, so the page commit passes on its own. The avatar fix and the README note do not depend on it, so they are separate.
@@ -92,10 +94,12 @@ The login tests go with the login page, so the page commit passes on its own. Th
 With a body, when the reason is not obvious:
 
 ```
-fix(avatar): correct size on retina screens
+fix(avatar): pick the source size from the device pixel ratio
 
 The image used the CSS pixel size. Retina screens showed it blurry.
 Use the device pixel ratio to pick the source size.
+
+Checked on a 2x and a 3x simulator.
 ```
 
 ## Language

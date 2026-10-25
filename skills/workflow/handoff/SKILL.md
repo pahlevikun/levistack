@@ -1,11 +1,20 @@
 ---
 name: handoff
-description: "Use when ending, pausing, or switching a session, or when resuming one: write a dated handoff note (goals, context, state, checklist, decisions, resume steps) that a fresh session can act on with no chat history, or read the latest one and verify it before continuing."
+description: "Use to carry work across time, in four modes. Write: when ending, pausing or switching a session, write a dated handoff note (goals, context, state, checklist, decisions, resume steps) that a fresh session can act on with no chat history. Resume: read the latest note and verify it before continuing. Catch up: in a long chat or unattended run, say in plain words what changed since the user's last message and list every call waiting on them, each with a pick. Recall: when no note exists, rebuild recent working context from past sessions, git and the shared record. Not for a report of yesterday's work for other people (use standup)."
 ---
 
 # Handoff
 
-Leave a note that lets a fresh session (or a teammate) continue without re-deriving anything. The reader has zero memory of this session. Write for that reader.
+Carry work across time. Pick the mode that fits:
+
+| Mode | When | Where |
+|---|---|---|
+| **Write** | You are ending, pausing or switching a session | This file |
+| **Resume** | A dated handoff note exists and the user says "continue" or "pick up" | This file |
+| **Catch up** | The user is back in a long chat or an unattended run: what changed, and what waits on them | [catch-up.md](references/catch-up.md) |
+| **Recall** | No note exists: rebuild recent context from past sessions, git and the shared record | [recall.md](references/recall.md) |
+
+Catch up and recall are read-only. The two modes below leave a note that lets a fresh session (or a teammate) continue without re-deriving anything. The reader has zero memory of this session. Write for that reader.
 
 A good handoff answers four questions:
 
@@ -63,7 +72,9 @@ Use this when the user says "continue", "resume", "pick up", or names a handoff 
 ## Related skills
 
 - `verify`: check what is proven before you write the note.
+- `trace`: recall uses its source playbooks for the shared record.
+- `polyglot-copywriter`: catch up and recall are written in plain words.
 - `get-moving`: resume with one concrete step.
 - `later-list`: carry open later-list items into the note.
-- `standup`: the next day starts with a standup.
+- `standup`: a report of yesterday's work for other people. Recall is for your own context, not a report.
 - `write-plan`: the note says the plan is missing.

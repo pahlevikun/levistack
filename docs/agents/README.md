@@ -8,7 +8,7 @@ Eleven generic subagents. They carry no project names; project specifics come fr
 | `bulk-reader` | Summarize big files into `path:line` bullets without flooding context | Read, Grep, Glob | haiku |
 | `context-harvester` | Search project knowledge (rules, docs, ADRs) and return a compact sourced summary | Read, Grep, Glob, Bash | default |
 | `planner` | Write the plan, evals and open decisions. Never implements | Read, Grep, Glob, Write, Edit | default |
-| `coordinator` | Route a task (JSON) or run a plan: task cards, dispatch, evaluate, escalate | Read, Grep, Glob, Bash | default |
+| `coordinator` | Route a task (JSON), run a plan (task cards, dispatch, evaluate, escalate), or race several candidates and merge the best | Read, Grep, Glob, Bash | default |
 | `implementer` | Bounded edits on paths the caller owns | Read, Grep, Glob, Write, Edit, Bash | default |
 | `scaffolder` | New module or feature skeleton from templates, plus registration wiring | Read, Grep, Glob, Write, Edit | default |
 | `template-writer` | Mechanical placeholder substitution into files | Read, Grep, Glob, Write, Edit | haiku |

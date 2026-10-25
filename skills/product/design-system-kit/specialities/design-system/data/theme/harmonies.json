@@ -1,0 +1,11 @@
+{
+  "_doc": "Hue offsets in degrees from the primary hue for the secondary and tertiary families. chroma_mul scales their chroma against the primary. Pop harmonies are for foreground accents (hue contrast); close harmonies are for calm (hue similarity).",
+  "mono":        { "secondary": [0],         "tertiary": [18, -18],   "chroma_mul": [0.55, 0.45], "kind": "calm",  "describe": "one hue family, varied by lightness" },
+  "analogous":   { "secondary": [30],       "tertiary": [-30],       "chroma_mul": [0.85, 0.7],  "kind": "calm",  "describe": "neighbours on the wheel" },
+  "analogous-wide": { "secondary": [45],    "tertiary": [-45],       "chroma_mul": [0.8, 0.7],   "kind": "calm",  "describe": "wider neighbours, more colour without clash" },
+  "complement":  { "secondary": [180],      "tertiary": [150],       "chroma_mul": [0.9, 0.6],   "kind": "pop",   "describe": "the opposite hue, used sparingly" },
+  "split":       { "secondary": [150],      "tertiary": [210],       "chroma_mul": [0.85, 0.85], "kind": "pop",   "describe": "two hues either side of the opposite" },
+  "triad":       { "secondary": [120],      "tertiary": [240],       "chroma_mul": [0.8, 0.8],   "kind": "pop",   "describe": "three evenly spaced hues" },
+  "pop-on-calm": { "secondary": [25],       "tertiary": [170],       "chroma_mul": [0.5, 1.0],   "kind": "pop",   "describe": "a quiet pair plus one loud contrast accent" },
+  "earth-and-spark": { "secondary": [-35],  "tertiary": [95],        "chroma_mul": [0.6, 1.1],   "kind": "pop",   "describe": "grounded neighbours and one bright spark" }
+}

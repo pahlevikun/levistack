@@ -263,5 +263,5 @@ If yes: `git push`
 - `atomic-semantic-commit`: the branch has mixed changes, split commits first.
 - `glab-code-review`: self-review the diff before you open the MR.
 - `verify`: prove the test plan before you write it down.
-- `create-jira-story`: the MR needs a linked ticket.
+- `create-tickets`: the MR needs a linked ticket.
 - `polyglot-copywriter`: polish the final wording.

@@ -52,7 +52,7 @@ Run from `specialities/stack-evaluator/`. `format_detector.py` detects the input
 - `challenge-me`: stress-test the pick before you commit.
 - `super-architecture`: choose the architecture style for the target stack.
 - `write-plan`: turn the migration into a step-by-step plan.
-- `create-jira-story`: split the plan into tickets.
+- `create-tickets`: split the plan into tickets.
 
 ## Done when
 
