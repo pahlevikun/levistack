@@ -4,11 +4,7 @@
 
 <h1 align="left">levistack</h1>
 
-<p align="left">
-  <img src="docs/assets/murk.svg" alt="Murk, the levistack mascot: a tired mug built from a stack of three muted layers, with a handle shaped like a fish hook, floating in a soft dusky fog" width="220">
-</p>
-
-<p align="center"><em>Meet Murk, the mug. Overskilled, underslept, and one cron job away from a nap.</em></p>
+<p align="left"><em>Meet Murk, the mug. Overskilled, underslept, and one cron job away from a nap.</em></p>
 
 The agent skills I use every day, in one repo. 37 skills (plus 2 [upstream](#upstream-skills)), 11 subagents, 42 rules and 5 hooks for Claude Code, Codex, Cursor, Antigravity, Trae and the skills CLI.
 
