@@ -1,0 +1,26 @@
+{
+  "skill_name": "create-documentation",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Use the create-documentation skill for a typical request that matches: asked to document a feature, module, project or API, write a README or guide, add doc comments, or check whether docs are still right after a diff. Not for a repo map (codebase-learner), an MR description (write-mr-descr. Follow SKILL.md and return the skill's normal deliverable shape.",
+      "expected_output": "Uses create-documentation per SKILL.md modes and boundaries. Delivers the documented output without skipping verification steps the skill requires.",
+      "assertions": [
+        "Uses create-documentation workflow",
+        "Honors read-only or approval rules from the skill",
+        "Names checks run or gaps when a gate could not run"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Handle a request that clearly belongs to a repo map (codebase-learner), an MR description (write-mr-description) or prose polish (polyglot-copywriter), not create-documentation. The user did not ask for create-documentation.",
+      "expected_output": "Does not run create-documentation as the primary workflow. Routes to the neighbor named in Not for or asks one clarifying question.",
+      "assertions": [
+        "Recognizes the Not for boundary",
+        "Does not apply create-documentation procedures to the wrong job"
+      ],
+      "files": []
+    }
+  ]
+}

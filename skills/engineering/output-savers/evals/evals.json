@@ -1,0 +1,26 @@
+{
+  "skill_name": "output-savers",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Use the output-savers skill for a typical request that matches: the task described in the skill description. Follow SKILL.md and return the skill's normal deliverable shape.",
+      "expected_output": "Uses output-savers per SKILL.md modes and boundaries. Delivers the documented output without skipping verification steps the skill requires.",
+      "assertions": [
+        "Uses output-savers workflow",
+        "Honors read-only or approval rules from the skill",
+        "Names checks run or gaps when a gate could not run"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Handle a request that clearly belongs to prose written for human readers, not output-savers. The user did not ask for output-savers.",
+      "expected_output": "Does not run output-savers as the primary workflow. Routes to the neighbor named in Not for or asks one clarifying question.",
+      "assertions": [
+        "Recognizes the Not for boundary",
+        "Does not apply output-savers procedures to the wrong job"
+      ],
+      "files": []
+    }
+  ]
+}

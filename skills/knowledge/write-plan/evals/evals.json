@@ -1,0 +1,26 @@
+{
+  "skill_name": "write-plan",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Use the write-plan skill for a typical request that matches: you have a spec or requirements for a multi-step task, before touching code. Not for a backend or API contract spec with lifecycle and error catalog (ready-spec). Follow SKILL.md and return the skill's normal deliverable shape.",
+      "expected_output": "Uses write-plan per SKILL.md modes and boundaries. Delivers the documented output without skipping verification steps the skill requires.",
+      "assertions": [
+        "Uses write-plan workflow",
+        "Honors read-only or approval rules from the skill",
+        "Names checks run or gaps when a gate could not run"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Handle a request that clearly belongs to a backend or API contract spec with lifecycle and error catalog (ready-spec), not write-plan. The user did not ask for write-plan.",
+      "expected_output": "Does not run write-plan as the primary workflow. Routes to the neighbor named in Not for or asks one clarifying question.",
+      "assertions": [
+        "Recognizes the Not for boundary",
+        "Does not apply write-plan procedures to the wrong job"
+      ],
+      "files": []
+    }
+  ]
+}

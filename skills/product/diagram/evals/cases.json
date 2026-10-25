@@ -1,0 +1,15 @@
+{
+  "cases": [
+    {"request": "Trace this API implementation and draw its success and failure sequence", "guide": "evidence and mermaid", "must": ["read router, serializer and calls", "cite source anchors", "preserve errors and order"]},
+    {"request": "Diagram the actual legacy deployment from these configs", "guide": "evidence", "must": ["separate local and production", "prove wiring", "mark disabled or unknown", "handoff full pages to create-documentation"]},
+    {"request": "Design an order schema and draw the ERD", "guide": "schema", "must": ["record access patterns", "show keys and optionality", "discuss constraints and index questions", "keep migration implementation with database owner"]},
+    {"request": "Convert a draw.io board to Excalidraw and preserve every connection", "guide": "native-editors", "must": ["native output", "fidelity ledger", "IDs and reciprocal text bindings", "native open and drag check or explicit gap"]},
+    {"request": "Make this Mermaid into an animated GIF and PNG without uploading it", "guide": "exports and svg-motion", "must": ["local renderer", "explicit semantic steps", "complete still", "inspect encoded frames", "preserve source"]},
+    {"request": "Render the Mermaid examples in this Markdown", "guide": "mermaid", "must": ["ignore fences nested inside literal code", "manifest per block", "do not replace source without request"]},
+    {"request": "Compress these diagram screenshots", "guide": "exports", "must": ["keep originals", "compare final size and readability", "report measured bytes"]},
+    {"request": "Make a logo and animated README brand banner", "owner": "logo-kit-svg", "must": ["do not create a competing brand workflow"]},
+    {"request": "Verify this flowchart then hand it to an editorial infographic poster", "guide": "infographic-handoff", "must": ["editable Mermaid or SVG source", "static export", "evidence ledger", "do not call infographic back"]},
+    {"request": "Animate this icon SVG like the levistack mug: float, steam dash, glint, with reduced motion", "guide": "css-svg-motion", "must": ["keyframes in defs style", "prefers-reduced-motion block", "static first frame", "role img and label", "no javascript required"]},
+    {"request": "Add a stepped spine animation to this workflow SVG for a logo banner", "guide": "css-svg-motion", "must": ["staggered animation-delay classes", "stroke-dashoffset or fill emphasis per step", "complete still without animation", "document class to step map"]}
+  ]
+}

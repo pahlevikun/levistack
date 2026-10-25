@@ -15,7 +15,7 @@
     {
       "name": "levistack-agent-authoring",
       "source": "./skills/agent-authoring",
-      "description": "Creating agents, skills, rules, hooks, commands and AGENTS.md files for coding assistants."
+      "description": "Create agents, skills, rules, hooks, commands and AGENTS.md files for coding assistants, and improve them from what went wrong."
     },
     {
       "name": "levistack-architecture",
@@ -40,12 +40,12 @@
     {
       "name": "levistack-knowledge",
       "source": "./skills/knowledge",
-      "description": "Understand, question and plan: how the code works today (one flow or the whole repo), why it is shaped that way or why it broke (trace), a second opinion on a change, grilling plans, execution-ready API specs and step-by-step implementation plans."
+      "description": "Understand code, trace causes, challenge plans, research primary sources or interview questions, review changes, write specs and plans."
     },
     {
       "name": "levistack-product",
       "source": "./skills/product",
-      "description": "Product and UI work, five jobs with one owner each: a design system and its tokens (design-system-kit), colors, themes and modes (color-kit), one screen or component with UX and motion (ui-ux-kit), polish and journey QA of a shipped product (product-polish-workflow), and a throwaway prototype or wireframe (prototype-wireframe). Covers mobile, desktop, web, TV and car."
+      "description": "Design systems, colors and themes, screens and interactions, technical diagrams and Mermaid, editorial infographics and motion exports, product polish, throwaway prototypes. Covers mobile, desktop, web, TV and car."
     },
     {
       "name": "levistack-workflow",

@@ -1,0 +1,26 @@
+{
+  "skill_name": "trace",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Use the trace skill for a typical request that matches: the task described in the skill description. Follow SKILL.md and return the skill's normal deliverable shape.",
+      "expected_output": "Uses trace per SKILL.md modes and boundaries. Delivers the documented output without skipping verification steps the skill requires.",
+      "assertions": [
+        "Uses trace workflow",
+        "Honors read-only or approval rules from the skill",
+        "Names checks run or gaps when a gate could not run"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Handle a request that clearly belongs to how code runs today (codebase-learner), or reproducing a live failure's mechanism (verify), not trace. The user did not ask for trace.",
+      "expected_output": "Does not run trace as the primary workflow. Routes to the neighbor named in Not for or asks one clarifying question.",
+      "assertions": [
+        "Recognizes the Not for boundary",
+        "Does not apply trace procedures to the wrong job"
+      ],
+      "files": []
+    }
+  ]
+}

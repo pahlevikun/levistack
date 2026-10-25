@@ -1,0 +1,26 @@
+{
+  "skill_name": "get-moving",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Use the get-moving skill for a typical request that matches: the user says they are stuck, overwhelmed, do not know where to start, have too much to do, keep putting something off, or asks 'what should I do next'. Not for picking a skill (use-levistack) or planning a whole project. Follow SKILL.md and return the skill's normal deliverable shape.",
+      "expected_output": "Uses get-moving per SKILL.md modes and boundaries. Delivers the documented output without skipping verification steps the skill requires.",
+      "assertions": [
+        "Uses get-moving workflow",
+        "Honors read-only or approval rules from the skill",
+        "Names checks run or gaps when a gate could not run"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Handle a request that clearly belongs to picking a skill (use-levistack) or planning a whole project (write-plan), not get-moving. The user did not ask for get-moving.",
+      "expected_output": "Does not run get-moving as the primary workflow. Routes to the neighbor named in Not for or asks one clarifying question.",
+      "assertions": [
+        "Recognizes the Not for boundary",
+        "Does not apply get-moving procedures to the wrong job"
+      ],
+      "files": []
+    }
+  ]
+}

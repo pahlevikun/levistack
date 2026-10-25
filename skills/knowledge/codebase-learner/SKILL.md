@@ -26,6 +26,7 @@ Pick a mode from the user's words, and load only that reference. Combine modes o
 | Read everything, prime, get up to speed on code | **deep-read** | [deep-read-protocol](references/deep-read-protocol.md) |
 | Join a repo, onboarding guide, understand the codebase, CLAUDE.md | **onboard** | [onboarding-flow](references/onboarding-flow.md) |
 | Document architecture, ARCHITECTURE.md, map the system, "edit here for X" | **summarize** | [architecture-doc-template](references/architecture-doc-template.md) |
+| Write reader-facing docs, API reference or doc comments, or check docs after a change | **document handoff** | `create-documentation`. Use **explain** first only when code facts are missing |
 | Current architecture friction, shallow modules, layering smells, HTML architecture review | **diagnose** | [diagnose-current-architecture](references/diagnose-current-architecture.md) |
 | Learn from the project, extract rules, discover conventions | **extract-rules** | [extract-project-rules](references/extract-project-rules.md) |
 | Sitemap, site structure, page hierarchy, IA, nav design, URL plan of a marketing site | **site-ia** | [site-information-architecture](references/site-information-architecture.md) |

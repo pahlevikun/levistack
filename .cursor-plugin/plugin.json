@@ -1,7 +1,7 @@
 {
   "name": "levistack",
   "displayName": "Levistack",
-  "version": "0.1.0",
+  "version": "1.1.0",
   "description": "Personal agent skills, rules, subagents, commands and hooks in Hermes-style groups.",
   "author": {
     "name": "Farhan Yuda Pahlevi"
@@ -21,6 +21,7 @@
     "./skills/agent-authoring/create-hook",
     "./skills/agent-authoring/create-rule",
     "./skills/agent-authoring/create-skill",
+    "./skills/agent-authoring/retrospective",
     "./skills/architecture/super-architecture",
     "./skills/architecture/super-caching",
     "./skills/architecture/super-elixir",
@@ -44,11 +45,14 @@
     "./skills/knowledge/challenge-me",
     "./skills/knowledge/codebase-learner",
     "./skills/knowledge/ready-spec",
+    "./skills/knowledge/research",
     "./skills/knowledge/second-opinion",
     "./skills/knowledge/trace",
     "./skills/knowledge/write-plan",
     "./skills/product/color-kit",
     "./skills/product/design-system-kit",
+    "./skills/product/diagram",
+    "./skills/product/infographic",
     "./skills/product/product-polish-workflow",
     "./skills/product/prototype-wireframe",
     "./skills/product/ui-ux-kit",

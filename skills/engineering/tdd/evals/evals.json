@@ -1,0 +1,26 @@
+{
+  "skill_name": "tdd",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Use the tdd skill for a typical request that matches: implementing a new feature, fixing a bug, refactoring with tests, red-green-refactor, test-first, ExUnit, mix test, Jest, Vitest, go test, pytest, React Testing Library, failing tests first, or continuing from a plan.md . Follow SKILL.md and return the skill's normal deliverable shape.",
+      "expected_output": "Uses tdd per SKILL.md modes and boundaries. Delivers the documented output without skipping verification steps the skill requires.",
+      "assertions": [
+        "Uses tdd workflow",
+        "Honors read-only or approval rules from the skill",
+        "Names checks run or gaps when a gate could not run"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Say hello and ask what I should work on next. Do not invent a tdd task.",
+      "expected_output": "Does not force tdd without a matching user request.",
+      "assertions": [
+        "Does not invoke skill workflow without a trigger",
+        "Stays conversational or asks what is needed"
+      ],
+      "files": []
+    }
+  ]
+}

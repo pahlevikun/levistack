@@ -129,6 +129,7 @@ function lintSkill(file, add) {
     if (p === file || p.endsWith('.md') && basename(p) === 'DESCRIPTION.md') continue;
     const rel = relative(dir, p);
     if (!rel.includes('/')) continue; // only files inside subfolders
+    if (rel.startsWith('evals/')) continue; // eval fixtures are referenced from SKILL.md by convention, not basename
     if (!all.includes(basename(p))) add('warn', 'unreferenced-file', p, `${rel} is not mentioned in any markdown file of the skill`);
   }
 }

@@ -1,0 +1,26 @@
+{
+  "skill_name": "use-levistack",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Use the use-levistack skill for a typical request that matches: the user does not know which skill fits, says 'where do I start', 'help me with', 'what should I use', 'just handle it', gives a goal with no skill named, or types /use-levistack with a task. A named skill inside it runs. Follow SKILL.md and return the skill's normal deliverable shape.",
+      "expected_output": "Uses use-levistack per SKILL.md modes and boundaries. Delivers the documented output without skipping verification steps the skill requires.",
+      "assertions": [
+        "Uses use-levistack workflow",
+        "Honors read-only or approval rules from the skill",
+        "Names checks run or gaps when a gate could not run"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Say hello and ask what I should work on next. Do not invent a use-levistack task.",
+      "expected_output": "Does not force use-levistack without a matching user request.",
+      "assertions": [
+        "Does not invoke skill workflow without a trigger",
+        "Stays conversational or asks what is needed"
+      ],
+      "files": []
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "skill_name": "super-caching",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Use the super-caching skill for a typical request that matches: choosing or fixing caching in web apps, mobile clients, APIs, distributed cache layers, or CDN headers — not for ORM query-plan cache, pure-function memoization, or CPU cache tuning. Follow SKILL.md and return the skill's normal deliverable shape.",
+      "expected_output": "Uses super-caching per SKILL.md modes and boundaries. Delivers the documented output without skipping verification steps the skill requires.",
+      "assertions": [
+        "Uses super-caching workflow",
+        "Honors read-only or approval rules from the skill",
+        "Names checks run or gaps when a gate could not run"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Say hello and ask what I should work on next. Do not invent a super-caching task.",
+      "expected_output": "Does not force super-caching without a matching user request.",
+      "assertions": [
+        "Does not invoke skill workflow without a trigger",
+        "Stays conversational or asks what is needed"
+      ],
+      "files": []
+    }
+  ]
+}

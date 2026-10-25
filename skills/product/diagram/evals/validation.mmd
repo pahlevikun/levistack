@@ -1,0 +1,6 @@
+flowchart LR
+    accTitle: Request validation
+    accDescr: A fictional client submits a request. Validation either stores it or rejects it.
+    client["Client"] -->|submit| gate{"Valid?"}
+    gate -->|yes| store["Store"]
+    gate -->|no| reject["Reject"]

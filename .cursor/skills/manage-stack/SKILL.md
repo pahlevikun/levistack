@@ -27,7 +27,8 @@ This skill maintains levistack. It is not part of the published catalog. Do not 
 1. Put it at `skills/<group>/<name>/SKILL.md`. `name` in the frontmatter equals `<name>`.
 2. The group needs `skills/<group>/DESCRIPTION.md` with a one-line `description`.
 3. `description` says what it does, then "Use when ...", is quoted, and is at most 1024 characters.
-4. Lint: `node skills/agent-authoring/create-agent/scripts/lint.mjs skills/<group>/<name>`
+4. Add `evals/evals.json` (or `evals/cases.json` for multi-scenario visual skills). Run `node scripts/bootstrap-skill-evals.mjs` for a starter file, then replace generic prompts with real scenarios. `npm run validate` requires every catalog skill to have one of these.
+5. Lint: `node skills/agent-authoring/create-agent/scripts/lint.mjs skills/<group>/<name>`
 
 ## Add or remove an upstream skill
 1. An upstream skill is its own plugin in its own GitHub repo (`SKILL.md` at its root or under `skills/`). Do not copy it into `skills/`.

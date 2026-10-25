@@ -53,6 +53,7 @@ This skill covers skills only. For subagents use `create-agent`; for rules, hook
 7. **Set invocation.** `disable-model-invocation: true` for side effects or anything you only want on `/name`. `user-invocable: false` (Claude Code) for background knowledge. Leave the default otherwise.
 8. **Lint.** `node <create-agent>/scripts/lint.mjs <skill-dir>`, where `<create-agent>` is the sibling `create-agent` skill folder. If it is not installed, walk [audit.md](references/audit.md) by hand.
 9. **Test.** Run the real requests from step 1 plus one that should not trigger it. Fix by symptom and re-run. See [format.md](references/format.md#test-and-iterate).
+10. **Eval fixtures.** Add `evals/evals.json` with `skill_name`, at least two scenarios (happy path and boundary), and assertions. Visual skills may use `evals/cases.json` instead. Point to them from `SKILL.md` when you change behavior. `node scripts/bootstrap-skill-evals.mjs` seeds missing files.
 
 ## Pointers and the two loads
 
@@ -60,6 +61,10 @@ Everything you add to a skill spends one of two budgets. Know which one before y
 
 - **Context load:** text that sits in the agent's window every turn, whether or not it is used. A skill description and a line in `AGENTS.md` are context load. Keep them short.
 - **Reader load:** the effort a person spends remembering which documents exist and when to open each. Spend it where human judgment matters. Cut it where it does not.
+
+Also count the text loaded when the agent opens a reference. It is absent from
+the always-loaded description, but it still costs context on that run. Split
+references by task so the agent reads only the part it needs.
 
 A **pointer** is a short line in always-loaded text that names material kept elsewhere and says when to open it. A skill description is a pointer. A good pointer says what the material is, then lists the distinct cases that should trigger it. Put the strongest trigger word first. If two phrases name the same case, keep one.
 

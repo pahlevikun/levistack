@@ -1,0 +1,26 @@
+{
+  "skill_name": "later-list",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Use the later-list skill for a typical request that matches: the user says 'park this', 'note that for later', 'side quest', 'remind me', or when a new idea or unrelated fix shows up mid-task. Not for blockers of the current task (handle those now). Follow SKILL.md and return the skill's normal deliverable shape.",
+      "expected_output": "Uses later-list per SKILL.md modes and boundaries. Delivers the documented output without skipping verification steps the skill requires.",
+      "assertions": [
+        "Uses later-list workflow",
+        "Honors read-only or approval rules from the skill",
+        "Names checks run or gaps when a gate could not run"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Handle a request that clearly belongs to blockers of the current task (handle those now), not later-list. The user did not ask for later-list.",
+      "expected_output": "Does not run later-list as the primary workflow. Routes to the neighbor named in Not for or asks one clarifying question.",
+      "assertions": [
+        "Recognizes the Not for boundary",
+        "Does not apply later-list procedures to the wrong job"
+      ],
+      "files": []
+    }
+  ]
+}

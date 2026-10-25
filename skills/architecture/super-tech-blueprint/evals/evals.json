@@ -1,0 +1,26 @@
+{
+  "skill_name": "super-tech-blueprint",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Use the super-tech-blueprint skill for a typical request that matches: comparing X vs Y, picking a framework, estimating migration cost, or producing a stack blueprint for greenfield or a target architecture. Not for documenting or diagnosing an existing codebase — use codebase-learner. Follow SKILL.md and return the skill's normal deliverable shape.",
+      "expected_output": "Uses super-tech-blueprint per SKILL.md modes and boundaries. Delivers the documented output without skipping verification steps the skill requires.",
+      "assertions": [
+        "Uses super-tech-blueprint workflow",
+        "Honors read-only or approval rules from the skill",
+        "Names checks run or gaps when a gate could not run"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Handle a request that clearly belongs to documenting or diagnosing an existing codebase — use codebase-learner, not super-tech-blueprint. The user did not ask for super-tech-blueprint.",
+      "expected_output": "Does not run super-tech-blueprint as the primary workflow. Routes to the neighbor named in Not for or asks one clarifying question.",
+      "assertions": [
+        "Recognizes the Not for boundary",
+        "Does not apply super-tech-blueprint procedures to the wrong job"
+      ],
+      "files": []
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "name": "levistack",
   "displayName": "Levistack",
-  "version": "0.1.0",
+  "version": "1.1.0",
   "description": "Personal agent skills, rules, subagents, commands and hooks in Hermes-style groups."
 }

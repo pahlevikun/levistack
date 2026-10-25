@@ -46,6 +46,8 @@ A good handoff answers four questions:
 
    > Read `<path>`. Verify the state it describes. Then continue from the first unchecked item in the checklist.
 
+If the session exposed repeated friction, offer `retrospective` after saving the handoff.
+
 ## Resume from a handoff
 
 Use this when the user says "continue", "resume", "pick up", or names a handoff file.
@@ -72,6 +74,7 @@ Use this when the user says "continue", "resume", "pick up", or names a handoff 
 ## Related skills
 
 - `verify`: check what is proven before you write the note.
+- `retrospective`: turn repeated session friction into proposed changes to agent tools.
 - `trace`: recall uses its source playbooks for the shared record.
 - `polyglot-copywriter`: catch up and recall are written in plain words.
 - `get-moving`: resume with one concrete step.

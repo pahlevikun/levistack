@@ -1,7 +1,7 @@
 {
   "name": "levistack-agent-authoring",
-  "version": "0.1.0",
-  "description": "Creating agents, skills, rules, hooks, commands and AGENTS.md files for coding assistants.",
+  "version": "1.1.0",
+  "description": "Create agents, skills, rules, hooks, commands and AGENTS.md files for coding assistants, and improve them from what went wrong.",
   "author": {
     "name": "Farhan Yuda Pahlevi"
   },
@@ -13,6 +13,7 @@
     "./create-command",
     "./create-hook",
     "./create-rule",
-    "./create-skill"
+    "./create-skill",
+    "./retrospective"
   ]
 }

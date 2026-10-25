@@ -1,0 +1,26 @@
+{
+  "skill_name": "color-kit",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Use the color-kit skill for a typical request that matches: the user asks for a palette, brand colors, a theme, dark mode, color tokens, a contrast fix or a color audit. Not for buttons, layout or motion (ui-ux-kit), the full token file and DESIGN.md (design-system-kit), or logo . Follow SKILL.md and return the skill's normal deliverable shape.",
+      "expected_output": "Uses color-kit per SKILL.md modes and boundaries. Delivers the documented output without skipping verification steps the skill requires.",
+      "assertions": [
+        "Uses color-kit workflow",
+        "Honors read-only or approval rules from the skill",
+        "Names checks run or gaps when a gate could not run"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Handle a request that clearly belongs to buttons, layout or motion (ui-ux-kit), the full token file and DESIGN, not color-kit. The user did not ask for color-kit.",
+      "expected_output": "Does not run color-kit as the primary workflow. Routes to the neighbor named in Not for or asks one clarifying question.",
+      "assertions": [
+        "Recognizes the Not for boundary",
+        "Does not apply color-kit procedures to the wrong job"
+      ],
+      "files": []
+    }
+  ]
+}

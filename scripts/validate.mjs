@@ -3,6 +3,7 @@ import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { scanTree } from './lib/tree.mjs';
+import { validateSkillEvalFixtures } from './lib/skill-evals.mjs';
 import { diffGenerated } from './sync.mjs';
 
 const MAX_DESC = 1024; // Agent Skills spec maximum
@@ -104,6 +105,7 @@ export function validateTree(root, { strict = false } = {}) {
   }
 
   errors.push(...diffGenerated(root).map((d) => `generated ${d}`));
+  errors.push(...validateSkillEvalFixtures(root));
   errors.warnings = warnings;
   return errors;
 }

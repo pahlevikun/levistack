@@ -17,6 +17,8 @@ Group → plugin: `levistack-<group>`. Group `upstream` means the skill ships as
 | Pick a framework, compare X vs Y, cost a migration, plan a greenfield stack | `codebase-learner` (only if facts are missing), `super-tech-blueprint` | architecture |
 | Name or choose an architecture style, scaffold in one | `super-architecture` | architecture |
 | Grill a plan, stress-test an idea, brainstorm a design | `challenge-me` | knowledge |
+| Answer a question from primary sources, the web, or read-only git history on docs and releases, or prepare questions for one person | `research` (sources or people mode) | knowledge |
+| Explain a system, schema, API or process with Mermaid, SVG, draw.io or Excalidraw, or export a diagram to an image or animation | `diagram` | product |
 | Make a task prompt deeper before running it | `challenge-me` (sharpen mode) | knowledge |
 | Plan work too big for one session as a map of decisions | `challenge-me` (decision-map, huge work), then `write-plan` | knowledge |
 | Cache design, invalidation, CDN, Redis, offline | `super-caching` | architecture |
@@ -62,6 +64,7 @@ Group → plugin: `levistack-<group>`. Group `upstream` means the skill ships as
 | The user wants to… | Chain | Group |
 |---|---|---|
 | Write or rewrite prose for people: email, chat, docs, comments, incident update | `polyglot-copywriter` | upstream |
+| Turn evidence into an editorial infographic, comparison, timeline or visual explanation, including Mermaid or animated figures | `infographic`, with `diagram` for technical source and exports | product |
 | Short replies, save tokens, plain technical style for agents | `output-savers` (`concise`; `concise-light` or `concise-heavy` for a level) | engineering |
 
 ## Author agent tooling
@@ -69,6 +72,9 @@ Group → plugin: `levistack-<group>`. Group `upstream` means the skill ships as
 | The user wants to… | Chain | Group |
 |---|---|---|
 | Write or fix a skill | `find-skills` (does one exist?), `create-skill` | agent-authoring |
+| Learn from a session or repeated mistakes across commits and reviews | `retrospective` (session or repo mode) | agent-authoring |
+| Retro an epic, initiative, or sprint; reconstruct what happened on a ticket or PR | `retrospective` (initiative or artifact mode) | agent-authoring |
+| Dev machine, container, or CI setup keeps failing the same way | `retrospective` (environment mode) | agent-authoring |
 | Turn a rule, command, agent, doc, PDF or chat into a skill; merge skills | `convert-as-skill`, then `create-skill` to polish | agent-authoring |
 | Write a subagent | `create-agent` | agent-authoring |
 | Write a slash command | `create-command` | agent-authoring |

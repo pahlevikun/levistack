@@ -53,7 +53,10 @@ Said is never enough. Aim for Ran when it is cheap. If you also watched it work 
 - Keep it in a scratch place outside the repo, or delete it after. Keep it only if the user wants it as a test.
 - It must exit with an error when the fact is false. If it is cheap, feed it one bad input first and watch it fail. Then you know it can fail.
 - Print the library version it used. A proof on the wrong version proves nothing.
-- Only read from shared systems. Ask before you touch anything in production. If the proof needs a write, give the user the command and stop.
+- Keep write probes in an isolated local fixture unless the task already
+  authorizes the target system. A production write needs its own authorization.
+  When that authority is missing, report the exact check that could not run and
+  continue the independent checks.
 
 ## Answer format
 

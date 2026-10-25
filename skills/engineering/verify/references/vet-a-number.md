@@ -46,7 +46,10 @@ Next to any micro result, measure the whole path a user waits on, with realistic
 
 ## A quick ballpark
 
-If the user only wants a rough number, one run is fine. Still do check 2 (errors and real work), and say it was one run. Skip the rest unless that run looks odd. A choice between options is never a ballpark.
+If the user only wants a rough number, one run is fine. Check that real work
+finished, count errors and name the likely limiter. Note machine load and cache
+state, and say repeatability was not established. Repeat the run if the result
+looks odd. Comparing options still needs fair settings and repeated runs.
 
 ## The report
 

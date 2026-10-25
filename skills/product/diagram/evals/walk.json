@@ -1,0 +1,8 @@
+{
+  "step_ms": 800,
+  "steps": [
+    {"id": "client", "label": "Client submits", "box": [40, 100, 180, 90]},
+    {"id": "gate", "label": "Validate request", "box": [300, 100, 180, 90]},
+    {"id": "store", "label": "Store the valid request", "box": [560, 100, 180, 90]}
+  ]
+}

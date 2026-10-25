@@ -1,0 +1,26 @@
+{
+  "skill_name": "challenge-me",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Use the challenge-me skill for a typical request that matches: the user says grill me, grill this doc, stress-test this plan, challenge this idea, poke holes, decision-map, sharpen this prompt, or brainstorm a design before coding. Not for executing a refactor (safe-refactor), writi. Follow SKILL.md and return the skill's normal deliverable shape.",
+      "expected_output": "Uses challenge-me per SKILL.md modes and boundaries. Delivers the documented output without skipping verification steps the skill requires.",
+      "assertions": [
+        "Uses challenge-me workflow",
+        "Honors read-only or approval rules from the skill",
+        "Names checks run or gaps when a gate could not run"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Handle a request that clearly belongs to executing a refactor (safe-refactor), writing implementation-plan files (write-plan), inventing a target stack (super-tech-blueprint), or reviewing code or a diff (second-opinion), not challenge-me. The user did not ask for challenge-me.",
+      "expected_output": "Does not run challenge-me as the primary workflow. Routes to the neighbor named in Not for or asks one clarifying question.",
+      "assertions": [
+        "Recognizes the Not for boundary",
+        "Does not apply challenge-me procedures to the wrong job"
+      ],
+      "files": []
+    }
+  ]
+}

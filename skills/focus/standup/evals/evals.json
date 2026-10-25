@@ -1,0 +1,26 @@
+{
+  "skill_name": "standup",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Use the standup skill for a typical request that matches: the user says standup, daily update, what did I do yesterday, yesterday summary, or standup report. Also runs a read-only multi-branch consolidation room when asked to reconcile worktrees, branches or PRs. Not for rebuil. Follow SKILL.md and return the skill's normal deliverable shape.",
+      "expected_output": "Uses standup per SKILL.md modes and boundaries. Delivers the documented output without skipping verification steps the skill requires.",
+      "assertions": [
+        "Uses standup workflow",
+        "Honors read-only or approval rules from the skill",
+        "Names checks run or gaps when a gate could not run"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Handle a request that clearly belongs to rebuilding your own context before you start work (use handoff, recall mode), not standup. The user did not ask for standup.",
+      "expected_output": "Does not run standup as the primary workflow. Routes to the neighbor named in Not for or asks one clarifying question.",
+      "assertions": [
+        "Recognizes the Not for boundary",
+        "Does not apply standup procedures to the wrong job"
+      ],
+      "files": []
+    }
+  ]
+}

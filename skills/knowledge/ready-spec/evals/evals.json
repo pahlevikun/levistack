@@ -1,0 +1,26 @@
+{
+  "skill_name": "ready-spec",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Use the ready-spec skill for a typical request that matches: the user asks for a detailed spec or design plan for an endpoint, event, consumer or contract change before an agent implements it. Not for a general step-by-step coding plan (write-plan) or grilling an idea (challenge-m. Follow SKILL.md and return the skill's normal deliverable shape.",
+      "expected_output": "Uses ready-spec per SKILL.md modes and boundaries. Delivers the documented output without skipping verification steps the skill requires.",
+      "assertions": [
+        "Uses ready-spec workflow",
+        "Honors read-only or approval rules from the skill",
+        "Names checks run or gaps when a gate could not run"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Handle a request that clearly belongs to a general step-by-step coding plan (write-plan) or grilling an idea (challenge-me), not ready-spec. The user did not ask for ready-spec.",
+      "expected_output": "Does not run ready-spec as the primary workflow. Routes to the neighbor named in Not for or asks one clarifying question.",
+      "assertions": [
+        "Recognizes the Not for boundary",
+        "Does not apply ready-spec procedures to the wrong job"
+      ],
+      "files": []
+    }
+  ]
+}

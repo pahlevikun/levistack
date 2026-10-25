@@ -1,0 +1,26 @@
+{
+  "skill_name": "prototype-wireframe",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Use the prototype-wireframe skill for a typical request that matches: the user says prototype this, try it, show me options, where is the wireframe, wire up every screen, or how should this behave. Not for polishing a shipped UI (product-polish-workflow) or tokens and component libraries (. Follow SKILL.md and return the skill's normal deliverable shape.",
+      "expected_output": "Uses prototype-wireframe per SKILL.md modes and boundaries. Delivers the documented output without skipping verification steps the skill requires.",
+      "assertions": [
+        "Uses prototype-wireframe workflow",
+        "Honors read-only or approval rules from the skill",
+        "Names checks run or gaps when a gate could not run"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Handle a request that clearly belongs to polishing a shipped UI (product-polish-workflow) or tokens and component libraries (design-system-kit), not prototype-wireframe. The user did not ask for prototype-wireframe.",
+      "expected_output": "Does not run prototype-wireframe as the primary workflow. Routes to the neighbor named in Not for or asks one clarifying question.",
+      "assertions": [
+        "Recognizes the Not for boundary",
+        "Does not apply prototype-wireframe procedures to the wrong job"
+      ],
+      "files": []
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "skill_name": "convert-as-skill",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Use the convert-as-skill skill for a typical request that matches: asked to convert a rule, command or agent to a skill, save a conversation as a skill, turn a PDF or docs folder into a skill, merge two skills into one, or improve a skill from other sources (keep, replace and drop each . Follow SKILL.md and return the skill's normal deliverable shape.",
+      "expected_output": "Uses convert-as-skill per SKILL.md modes and boundaries. Delivers the documented output without skipping verification steps the skill requires.",
+      "assertions": [
+        "Uses convert-as-skill workflow",
+        "Honors read-only or approval rules from the skill",
+        "Names checks run or gaps when a gate could not run"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Handle a request that clearly belongs to writing a skill from scratch (`create-skill`), not convert-as-skill. The user did not ask for convert-as-skill.",
+      "expected_output": "Does not run convert-as-skill as the primary workflow. Routes to the neighbor named in Not for or asks one clarifying question.",
+      "assertions": [
+        "Recognizes the Not for boundary",
+        "Does not apply convert-as-skill procedures to the wrong job"
+      ],
+      "files": []
+    }
+  ]
+}

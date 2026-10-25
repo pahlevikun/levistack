@@ -21,6 +21,12 @@
 | Prove something is done, run the gates, find why it fails | `verify` |
 | Audit or polish a shipped product's code, UI, journeys or branding. It calls the three skills below when it reaches colors, screens or the system | `product-polish-workflow` |
 | Write or rewrite text for people | `polyglot-copywriter` |
+| Answer from primary sources, the web, or git-recorded facts, or draft a questionnaire for one person | `research` |
+| Draw Mermaid, SVG, draw.io or Excalidraw diagrams, including animated exports | `diagram` |
+| Build an editorial infographic from evidence | `infographic` |
+| Learn from this session or repeated mistakes in a repo | `retrospective` |
+| Retro an initiative, or reconstruct what happened on a ticket, PR, or branch | `retrospective` (initiative or artifact) |
+| Repeated local or CI environment setup friction | `retrospective` (environment) |
 | Build a skill, agent, rule, hook, command or AGENTS.md | the matching `create-*` skill |
 | Stuck, overwhelmed, or a tangent showed up | `get-moving` or `later-list` |
 | Catch me up on this chat, what is waiting on me, or what was I doing last week | `handoff` (catch up or recall mode) |

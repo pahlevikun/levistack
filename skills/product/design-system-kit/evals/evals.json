@@ -1,0 +1,26 @@
+{
+  "skill_name": "design-system-kit",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Use the design-system-kit skill for a typical request that matches: the user wants a design system, token file, DESIGN.md or governance, to extract a site's design, or brand slides. Not for choosing a palette (color-kit), building one screen (ui-ux-kit) or brand identity. Follow SKILL.md and return the skill's normal deliverable shape.",
+      "expected_output": "Uses design-system-kit per SKILL.md modes and boundaries. Delivers the documented output without skipping verification steps the skill requires.",
+      "assertions": [
+        "Uses design-system-kit workflow",
+        "Honors read-only or approval rules from the skill",
+        "Names checks run or gaps when a gate could not run"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Handle a request that clearly belongs to choosing a palette (color-kit), building one screen (ui-ux-kit) or brand identity, not design-system-kit. The user did not ask for design-system-kit.",
+      "expected_output": "Does not run design-system-kit as the primary workflow. Routes to the neighbor named in Not for or asks one clarifying question.",
+      "assertions": [
+        "Recognizes the Not for boundary",
+        "Does not apply design-system-kit procedures to the wrong job"
+      ],
+      "files": []
+    }
+  ]
+}

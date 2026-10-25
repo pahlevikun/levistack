@@ -1,0 +1,26 @@
+{
+  "skill_name": "handoff",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Use the handoff skill for a typical request that matches: the task described in the skill description. Follow SKILL.md and return the skill's normal deliverable shape.",
+      "expected_output": "Uses handoff per SKILL.md modes and boundaries. Delivers the documented output without skipping verification steps the skill requires.",
+      "assertions": [
+        "Uses handoff workflow",
+        "Honors read-only or approval rules from the skill",
+        "Names checks run or gaps when a gate could not run"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Handle a request that clearly belongs to a report of yesterday's work for other people (use standup), not handoff. The user did not ask for handoff.",
+      "expected_output": "Does not run handoff as the primary workflow. Routes to the neighbor named in Not for or asks one clarifying question.",
+      "assertions": [
+        "Recognizes the Not for boundary",
+        "Does not apply handoff procedures to the wrong job"
+      ],
+      "files": []
+    }
+  ]
+}

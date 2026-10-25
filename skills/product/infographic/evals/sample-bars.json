@@ -1,0 +1,13 @@
+{
+  "title": "Fictional requests by outcome",
+  "unit": "requests",
+  "period": "Synthetic example",
+  "source": "Synthetic fixture. These counts are not observed data",
+  "synthetic": true,
+  "scale_max": 100,
+  "data": [
+    {"label": "Submitted", "value": 100},
+    {"label": "Accepted", "value": 75},
+    {"label": "Rejected", "value": 25}
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "skill_name": "product-polish-workflow",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Use the product-polish-workflow skill for a typical request that matches: an existing product needs a code or design audit, user-journey QA, UI/UX polish, branding work or a detailed next-feature plan. It keeps scope, evidence, code ownership, the journey tracker and verification, and calls co. Follow SKILL.md and return the skill's normal deliverable shape.",
+      "expected_output": "Uses product-polish-workflow per SKILL.md modes and boundaries. Delivers the documented output without skipping verification steps the skill requires.",
+      "assertions": [
+        "Uses product-polish-workflow workflow",
+        "Honors read-only or approval rules from the skill",
+        "Names checks run or gaps when a gate could not run"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Handle a request that clearly belongs to building a new palette, a new design system or a single new screen from scratch, not product-polish-workflow. The user did not ask for product-polish-workflow.",
+      "expected_output": "Does not run product-polish-workflow as the primary workflow. Routes to the neighbor named in Not for or asks one clarifying question.",
+      "assertions": [
+        "Recognizes the Not for boundary",
+        "Does not apply product-polish-workflow procedures to the wrong job"
+      ],
+      "files": []
+    }
+  ]
+}

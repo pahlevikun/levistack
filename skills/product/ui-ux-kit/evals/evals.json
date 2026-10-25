@@ -1,0 +1,26 @@
+{
+  "skill_name": "ui-ux-kit",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Use the ui-ux-kit skill for a typical request that matches: asked to build, redesign or review a screen, a component, an interaction, a transition or a gesture. Not for palettes and modes (color-kit), the whole token file (design-system-kit), a journey tracker for a shipped produ. Follow SKILL.md and return the skill's normal deliverable shape.",
+      "expected_output": "Uses ui-ux-kit per SKILL.md modes and boundaries. Delivers the documented output without skipping verification steps the skill requires.",
+      "assertions": [
+        "Uses ui-ux-kit workflow",
+        "Honors read-only or approval rules from the skill",
+        "Names checks run or gaps when a gate could not run"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Handle a request that clearly belongs to palettes and modes (color-kit), the whole token file (design-system-kit), a journey tracker for a shipped product (product-polish-workflow) or a throwaway answer (prototype-wireframe), not ui-ux-kit. The user did not ask for ui-ux-kit.",
+      "expected_output": "Does not run ui-ux-kit as the primary workflow. Routes to the neighbor named in Not for or asks one clarifying question.",
+      "assertions": [
+        "Recognizes the Not for boundary",
+        "Does not apply ui-ux-kit procedures to the wrong job"
+      ],
+      "files": []
+    }
+  ]
+}

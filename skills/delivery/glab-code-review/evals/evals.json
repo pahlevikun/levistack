@@ -1,0 +1,26 @@
+{
+  "skill_name": "glab-code-review",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Use the glab-code-review skill for a typical request that matches: reviewing your local git diff before opening a PR, requesting a git-range code review before merge, receiving and acting on review feedback with verify-first discipline, or reviewing a GitLab merge request via glab with . Follow SKILL.md and return the skill's normal deliverable shape.",
+      "expected_output": "Uses glab-code-review per SKILL.md modes and boundaries. Delivers the documented output without skipping verification steps the skill requires.",
+      "assertions": [
+        "Uses glab-code-review workflow",
+        "Honors read-only or approval rules from the skill",
+        "Names checks run or gaps when a gate could not run"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Handle a request that clearly belongs to an adversarial two-reviewer verdict (second-opinion), not glab-code-review. The user did not ask for glab-code-review.",
+      "expected_output": "Does not run glab-code-review as the primary workflow. Routes to the neighbor named in Not for or asks one clarifying question.",
+      "assertions": [
+        "Recognizes the Not for boundary",
+        "Does not apply glab-code-review procedures to the wrong job"
+      ],
+      "files": []
+    }
+  ]
+}

@@ -152,9 +152,9 @@ test('classify: one skill folder with enhance wording is the enhance-skill use c
 });
 
 test('enhance: parseSource builds a safe fetch command for each kind of source', () => {
-  const gh = parseSource('https://github.com/mattpocock/skills/tree/main/skills/engineering/prototype', 'scratch/x');
+  const gh = parseSource('https://github.com/acme-corp/skills/tree/main/skills/engineering/prototype', 'scratch/x');
   assert.equal(gh.kind, 'github');
-  assert.equal(gh.fetch, 'git clone --depth 1 https://github.com/mattpocock/skills.git scratch/x/mattpocock__skills');
+  assert.equal(gh.fetch, 'git clone --depth 1 https://github.com/acme-corp/skills.git scratch/x/acme-corp__skills');
   assert.equal(gh.focus, 'skills/engineering/prototype');
   const sk = parseSource('https://www.skills.sh/meodai/skill.color-expert/color-expert', 'scratch/x');
   assert.equal(sk.kind, 'skills.sh');

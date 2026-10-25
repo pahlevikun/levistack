@@ -1,0 +1,26 @@
+{
+  "skill_name": "noslop",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Use the noslop skill for a typical request that matches: generating or auditing code that must fit this repo—not a paste. Subskill noslop-code is comments-only. Default mode: during; after mode for audits. Follow SKILL.md and return the skill's normal deliverable shape.",
+      "expected_output": "Uses noslop per SKILL.md modes and boundaries. Delivers the documented output without skipping verification steps the skill requires.",
+      "assertions": [
+        "Uses noslop workflow",
+        "Honors read-only or approval rules from the skill",
+        "Names checks run or gaps when a gate could not run"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Say hello and ask what I should work on next. Do not invent a noslop task.",
+      "expected_output": "Does not force noslop without a matching user request.",
+      "assertions": [
+        "Does not invoke skill workflow without a trigger",
+        "Stays conversational or asks what is needed"
+      ],
+      "files": []
+    }
+  ]
+}
