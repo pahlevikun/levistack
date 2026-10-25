@@ -108,14 +108,14 @@ Every task that goes through [`use-levistack`](skills/workflow/use-levistack/SKI
 Some things sit outside the numbered steps:
 
 - **One-shots.** Name a skill inside `/use-levistack` (for example `/use-levistack second-opinion on my branch`). The router primes, runs that skill, proves and delivers. It skips the step 4 hunt. A bare `/skill` call without the router runs that skill alone.
-- **Agents.** In steps 3 to 6 the session can spawn one of the [11 subagents](docs/agents/README.md) for one bounded job, such as an `explorer` for `codebase-learner` or two reviewers for `second-opinion`. The agent reports back, and the session keeps the steps.
-- **Rules and hooks.** The [42 rules](#rules) apply to the whole session. The [5 hooks](#hooks) run on tool calls, so they still work when the agent forgets a rule.
+- **Agents.** In steps 3 to 6 the session can spawn one of the [subagents](docs/agents/README.md) for one bounded job, such as an `explorer` for `codebase-learner` or two reviewers for `second-opinion`. The agent reports back, and the session keeps the steps.
+- **Rules and hooks.** The [rules](#rules) apply to the whole session. The [hooks](#hooks) run on tool calls, so they still work when the agent forgets a rule.
 - **Focus.** `get-moving` and `later-list` work at any step, when you are stuck or a tangent shows up.
 - **Upstream plugins.** `polyglot-copywriter` and `logo-kit-svg` live in their own repos. The `levistack` plugin installs them as [dependencies](#upstream-skills).
 
 ## Where to start
 
-You do not need all 37. These are the ones I would try first.
+You do not need all of them. These are the ones I would try first.
 
 | Skill | What you get |
 |---|---|
@@ -162,7 +162,7 @@ These skills live in their own repos and ship as their own plugins. The levistac
 
 ## Subagents
 
-Eleven generic ones in `agents/`. They carry no project names. Your project's own `AGENTS.md` supplies the specifics.
+Generic ones in `agents/`. They carry no project names. Your project's own `AGENTS.md` supplies the specifics.
 
 The usual flow: `context-harvester` first, then `planner`, `coordinator`, `explorer` or `scaffolder`, then `implementer` or `tdd-runner`, and `reviewer` at the end (plus `security-reviewer` when you touch a trust boundary). Two of them, `bulk-reader` and `template-writer`, run on a small model on purpose, so keep judgment work away from them. Full roster: [`docs/agents/README.md`](docs/agents/README.md).
 
@@ -182,8 +182,8 @@ The usual flow: `context-harvester` first, then `planner`, `coordinator`, `explo
 |---|---|
 | `npx skills add` (nested `skills/<group>/<skill>`) | Not yet verified against the published repo |
 | Claude Code marketplace and per-group plugins | Check with `claude plugin validate . --strict` |
-| Cursor plugin | `.cursor-plugin/` lists all 41 skills by path (the nested layout needs it, the same way official Cursor plugins such as CockroachDB do), plus `agents/` and the generated `.mdc` rules. Not load-tested in the Cursor app. `link-skills.sh --cursor` links skills and agents into `~/.cursor` |
-| Codex plugin | Tested with Codex CLI 0.163: installs from this repo's marketplace and loads all 41 skills (it also lists five inner mode files of `output-savers` and `noslop` as skills). Upstream plugins are separate marketplaces in Codex. No agents, rules or hooks |
+| Cursor plugin | `.cursor-plugin/` lists every skill by path (the nested layout needs it, the same way official Cursor plugins such as CockroachDB do), plus `agents/` and the generated `.mdc` rules. Not load-tested in the Cursor app. `link-skills.sh --cursor` links skills and agents into `~/.cursor` |
+| Codex plugin | Tested with Codex CLI 0.163: installs from this repo's marketplace and loads every skill (it also lists five inner mode files of `output-savers` and `noslop` as skills). Upstream plugins are separate marketplaces in Codex. No agents, rules or hooks |
 | Antigravity | Root `plugin.json` and `.antigravity-plugin/plugin.json` for `agy plugin install`, and `link-skills.sh --antigravity` for the app and IDE (flat `skills/`, `agents/`, the 5 always-on core rules). Not load-tested: Antigravity's docs do not say if the nested `skills/<group>/` layout of a GitHub install is found, so use the link script if skills are missing |
 | Trae | No plugin format. `link-skills.sh --trae` links skills, agents (`levistack-*.md`) and the 5 always-on core rules into `~/.trae`. Not load-tested |
 | Hooks | Claude Code only |
@@ -200,3 +200,12 @@ npm run check              # sync --check, validate, tests
 Needs Node 20 or newer. To add a skill, create `skills/<group>/<name>/SKILL.md`, run `npm run sync`, then `npm run check`. Conventions are in [`AGENTS.md`](AGENTS.md).
 
 PRs and issues are welcome. If a skill never triggers or gets in your way, tell me. That is how these got better.
+
+## Releasing
+
+Push a version tag and GitHub creates the release for you. Notes are built from commit messages and merged PR titles, so prefixes like `feat:`, `fix:` and `docs:` keep them easy to scan.
+
+```bash
+git tag v1.1.0
+git push origin v1.1.0
+```

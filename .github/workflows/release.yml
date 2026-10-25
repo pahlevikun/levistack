@@ -1,0 +1,19 @@
+# Cut a release by pushing a version tag:
+#   git tag v1.1.0 && git push origin v1.1.0
+# GitHub Actions then creates the release and writes the notes from commits and merged PRs.
+name: release
+on:
+  push:
+    tags: ['v*']
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: gh release create "$GITHUB_REF_NAME" --generate-notes --verify-tag
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
