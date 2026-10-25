@@ -32,7 +32,6 @@
     "./skills/delivery/create-documentation",
     "./skills/delivery/create-tickets",
     "./skills/delivery/glab-code-review",
-    "./skills/delivery/second-opinion",
     "./skills/delivery/write-mr-description",
     "./skills/engineering/noslop",
     "./skills/engineering/output-savers",
