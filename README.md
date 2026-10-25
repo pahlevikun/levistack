@@ -200,3 +200,12 @@ npm run check              # sync --check, validate, tests
 Needs Node 20 or newer. To add a skill, create `skills/<group>/<name>/SKILL.md`, run `npm run sync`, then `npm run check`. Conventions are in [`AGENTS.md`](AGENTS.md).
 
 PRs and issues are welcome. If a skill never triggers or gets in your way, tell me. That is how these got better.
+
+## Releasing
+
+Push a version tag and GitHub creates the release for you. Notes are built from commit messages and merged PR titles, so prefixes like `feat:`, `fix:` and `docs:` keep them easy to scan.
+
+```bash
+git tag v1.1.0
+git push origin v1.1.0
+```
