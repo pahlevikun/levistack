@@ -6,10 +6,18 @@
     {"request": "Convert a draw.io board to Excalidraw and preserve every connection", "guide": "native-editors", "must": ["native output", "fidelity ledger", "IDs and reciprocal text bindings", "native open and drag check or explicit gap"]},
     {"request": "Make this Mermaid into an animated GIF and PNG without uploading it", "guide": "exports and svg-motion", "must": ["local renderer", "explicit semantic steps", "complete still", "inspect encoded frames", "preserve source"]},
     {"request": "Render the Mermaid examples in this Markdown", "guide": "mermaid", "must": ["ignore fences nested inside literal code", "manifest per block", "do not replace source without request"]},
+    {"request": "Turn every mermaid block in this README into PNG for GitHub Pages", "guide": "mermaid-batch-export", "must": ["prefer mmdc offline", "descriptive filenames", "remote only with explicit consent", "receipt lists paths"]},
+    {"request": "Animate this mermaid flowchart as a looping GIF for a blog post", "guide": "mermaid-playwright-gif", "must": ["pick style from context", "allow-network only when user agrees", "still PNG or SVG for a11y", "inspect encoded GIF"]},
     {"request": "Compress these diagram screenshots", "guide": "exports", "must": ["keep originals", "compare final size and readability", "report measured bytes"]},
     {"request": "Make a logo and animated README brand banner", "owner": "logo-kit-svg", "must": ["do not create a competing brand workflow"]},
     {"request": "Verify this flowchart then hand it to an editorial infographic poster", "guide": "infographic-handoff", "must": ["editable Mermaid or SVG source", "static export", "evidence ledger", "do not call infographic back"]},
     {"request": "Animate this icon SVG like the levistack mug: float, steam dash, glint, with reduced motion", "guide": "css-svg-motion", "must": ["keyframes in defs style", "prefers-reduced-motion block", "static first frame", "role img and label", "no javascript required"]},
-    {"request": "Add a stepped spine animation to this workflow SVG for a logo banner", "guide": "css-svg-motion", "must": ["staggered animation-delay classes", "stroke-dashoffset or fill emphasis per step", "complete still without animation", "document class to step map"]}
+    {"request": "Add a stepped spine animation to this workflow SVG for a logo banner", "guide": "css-svg-motion", "must": ["staggered animation-delay classes", "stroke-dashoffset or fill emphasis per step", "complete still without animation", "document class to step map"]},
+    {"request": "Draw a sequence diagram from this Go handler and service code", "guide": "code-to-diagram", "must": ["cite file anchors", "evidence ledger", "no invented calls"]},
+    {"request": "Add figures to our RFC using the design doc skeleton", "guide": "design-doc-figures", "must": ["use templates", "separate ready-spec scope from figure files"]},
+    {"request": "Publish this architecture diagram to Confluence with attachments", "guide": "wiki-and-confluence", "must": ["PNG and SVG", "high-contrast or wiki theme when needed", "keep mmd source"]},
+    {"request": "Render this flowchart with harbor-slate for the dark README", "guide": "mermaid-presentation", "must": ["theme from catalog", "mermaid_render or themed mmd", "record theme id"]},
+    {"request": "Map our user journey to a figure before the infographic poster", "guide": "visual-type-atlas", "must": ["low density", "handoff to infographic when multi-panel"]},
+    {"request": "First branded HTML diagram in this repo with our color-kit tokens", "guide": "branded-figure-kit", "must": ["style gate question when defaults", "map roles from color-kit", "inline SVG"]}
   ]
 }

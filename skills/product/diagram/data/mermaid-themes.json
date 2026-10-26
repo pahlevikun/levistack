@@ -1,0 +1,1004 @@
+{
+  "version": 2,
+  "notes": "Levistack Mermaid presentation catalog for mmdc (theme base + themeVariables). Ids and hex are levistack-owned. Mood may overlap public editor palettes; we do not ship upstream theme packs or ids. Optional terminal_pairing names a beautiful-mermaid theme for terminal/SVG CLI only.",
+  "themes": [
+    {
+      "id": "inkwell",
+      "label": "Inkwell archive",
+      "mode": "light",
+      "high_contrast": false,
+      "themeVariables": {
+        "primaryColor": "#e8e4f4",
+        "primaryTextColor": "#17152e",
+        "primaryBorderColor": "#4a4f7a",
+        "lineColor": "#566782",
+        "secondaryColor": "#c6cddb",
+        "tertiaryColor": "#f3f1ec",
+        "background": "#ffffff",
+        "mainBkg": "#e8e4f4",
+        "textColor": "#17152e",
+        "fontSize": "15px"
+      },
+      "family": "editorial",
+      "terminal_pairing": "catppuccin-latte"
+    },
+    {
+      "id": "harbor-slate",
+      "label": "Harbor slate",
+      "mode": "dark",
+      "high_contrast": false,
+      "themeVariables": {
+        "primaryColor": "#3a3358",
+        "primaryTextColor": "#e8e4f4",
+        "primaryBorderColor": "#98a2b6",
+        "lineColor": "#6a6fa0",
+        "secondaryColor": "#4a4f7a",
+        "tertiaryColor": "#17152e",
+        "background": "#17152e",
+        "mainBkg": "#3a3358",
+        "textColor": "#e8e4f4"
+      },
+      "family": "dev-dark",
+      "terminal_pairing": "tokyo-night-storm"
+    },
+    {
+      "id": "paper-archive",
+      "label": "Paper archive",
+      "mode": "light",
+      "high_contrast": false,
+      "themeVariables": {
+        "primaryColor": "#f3f1ec",
+        "primaryTextColor": "#2d3142",
+        "primaryBorderColor": "#5e6275",
+        "lineColor": "#adb0bc",
+        "secondaryColor": "#e6e4de",
+        "tertiaryColor": "#ffffff",
+        "background": "#f3f1ec",
+        "mainBkg": "#ffffff",
+        "textColor": "#2d3142"
+      },
+      "family": "editorial",
+      "terminal_pairing": "solarized-light"
+    },
+    {
+      "id": "signal-amber",
+      "label": "Signal amber",
+      "mode": "light",
+      "high_contrast": false,
+      "themeVariables": {
+        "primaryColor": "#fff4e0",
+        "primaryTextColor": "#1d1410",
+        "primaryBorderColor": "#c99d48",
+        "lineColor": "#b2853a",
+        "secondaryColor": "#ffe8c2",
+        "tertiaryColor": "#ffffff",
+        "background": "#ffffff",
+        "mainBkg": "#fff4e0",
+        "textColor": "#1d1410",
+        "accentColor": "#c99d48"
+      },
+      "family": "editorial"
+    },
+    {
+      "id": "vault-indigo",
+      "label": "Vault indigo",
+      "mode": "dark",
+      "high_contrast": false,
+      "themeVariables": {
+        "primaryColor": "#4f5a8f",
+        "primaryTextColor": "#f3f1ec",
+        "primaryBorderColor": "#c6cddb",
+        "lineColor": "#98a2b6",
+        "secondaryColor": "#3a3358",
+        "tertiaryColor": "#17152e",
+        "background": "#12101f",
+        "mainBkg": "#4f5a8f",
+        "textColor": "#f3f1ec"
+      },
+      "family": "dev-dark",
+      "terminal_pairing": "dracula"
+    },
+    {
+      "id": "frost-line",
+      "label": "Frost line",
+      "mode": "light",
+      "high_contrast": false,
+      "themeVariables": {
+        "primaryColor": "#ecf5f8",
+        "primaryTextColor": "#1a2a33",
+        "primaryBorderColor": "#3c7f7c",
+        "lineColor": "#5a9e9a",
+        "secondaryColor": "#d8ecef",
+        "tertiaryColor": "#ffffff",
+        "background": "#ffffff",
+        "mainBkg": "#ecf5f8",
+        "textColor": "#1a2a33"
+      },
+      "family": "dev-light",
+      "terminal_pairing": "nord-light"
+    },
+    {
+      "id": "ember-proof",
+      "label": "Ember proof",
+      "mode": "light",
+      "high_contrast": false,
+      "themeVariables": {
+        "primaryColor": "#fde8e4",
+        "primaryTextColor": "#3a1210",
+        "primaryBorderColor": "#bf4520",
+        "lineColor": "#a33a16",
+        "secondaryColor": "#f5d0c8",
+        "tertiaryColor": "#ffffff",
+        "background": "#ffffff",
+        "mainBkg": "#fde8e4",
+        "textColor": "#3a1210"
+      },
+      "family": "editorial"
+    },
+    {
+      "id": "chartroom",
+      "label": "Chartroom",
+      "mode": "light",
+      "high_contrast": false,
+      "themeVariables": {
+        "primaryColor": "#e8edf8",
+        "primaryTextColor": "#1c2340",
+        "primaryBorderColor": "#66589a",
+        "lineColor": "#4a4f7a",
+        "secondaryColor": "#d2daf0",
+        "tertiaryColor": "#ffffff",
+        "background": "#fafbff",
+        "mainBkg": "#e8edf8",
+        "textColor": "#1c2340"
+      },
+      "family": "dev-light",
+      "terminal_pairing": "github-light"
+    },
+    {
+      "id": "night-shift",
+      "label": "Night shift",
+      "mode": "dark",
+      "high_contrast": false,
+      "themeVariables": {
+        "primaryColor": "#2a2838",
+        "primaryTextColor": "#e8e4f4",
+        "primaryBorderColor": "#c99d48",
+        "lineColor": "#98a2b6",
+        "secondaryColor": "#1d1b28",
+        "tertiaryColor": "#12101a",
+        "background": "#0e0d14",
+        "mainBkg": "#2a2838",
+        "textColor": "#e8e4f4"
+      },
+      "family": "dev-dark",
+      "terminal_pairing": "tokyo-night"
+    },
+    {
+      "id": "press-ready",
+      "label": "Press ready",
+      "mode": "light",
+      "high_contrast": false,
+      "themeVariables": {
+        "primaryColor": "#ffffff",
+        "primaryTextColor": "#000000",
+        "primaryBorderColor": "#000000",
+        "lineColor": "#333333",
+        "secondaryColor": "#f0f0f0",
+        "tertiaryColor": "#ffffff",
+        "background": "#ffffff",
+        "mainBkg": "#ffffff",
+        "textColor": "#000000"
+      },
+      "family": "access",
+      "terminal_pairing": "zinc-light"
+    },
+    {
+      "id": "copper-wire",
+      "label": "Copper wire",
+      "mode": "light",
+      "high_contrast": false,
+      "themeVariables": {
+        "primaryColor": "#f6ebe0",
+        "primaryTextColor": "#3d2817",
+        "primaryBorderColor": "#9a6b3c",
+        "lineColor": "#7a5530",
+        "secondaryColor": "#edd9c8",
+        "tertiaryColor": "#fffaf5",
+        "background": "#fffaf5",
+        "mainBkg": "#f6ebe0",
+        "textColor": "#3d2817"
+      },
+      "family": "editorial"
+    },
+    {
+      "id": "moss-index",
+      "label": "Moss index",
+      "mode": "light",
+      "high_contrast": false,
+      "themeVariables": {
+        "primaryColor": "#e6f0e8",
+        "primaryTextColor": "#1a3324",
+        "primaryBorderColor": "#3d7a55",
+        "lineColor": "#5c9a72",
+        "secondaryColor": "#d0e4d6",
+        "tertiaryColor": "#ffffff",
+        "background": "#ffffff",
+        "mainBkg": "#e6f0e8",
+        "textColor": "#1a3324"
+      },
+      "family": "editorial"
+    },
+    {
+      "id": "porcelain",
+      "label": "Porcelain",
+      "mode": "light",
+      "high_contrast": false,
+      "themeVariables": {
+        "primaryColor": "#f8f8fa",
+        "primaryTextColor": "#404050",
+        "primaryBorderColor": "#b8bcc8",
+        "lineColor": "#9aa0b0",
+        "secondaryColor": "#eceef2",
+        "tertiaryColor": "#ffffff",
+        "background": "#ffffff",
+        "mainBkg": "#f8f8fa",
+        "textColor": "#404050"
+      },
+      "family": "editorial",
+      "terminal_pairing": "zinc-light"
+    },
+    {
+      "id": "radar-grid",
+      "label": "Radar grid",
+      "mode": "dark",
+      "high_contrast": false,
+      "themeVariables": {
+        "primaryColor": "#1e2a38",
+        "primaryTextColor": "#b8e0ff",
+        "primaryBorderColor": "#3d8fcc",
+        "lineColor": "#5aa0d6",
+        "secondaryColor": "#152030",
+        "tertiaryColor": "#0c1218",
+        "background": "#0c1218",
+        "mainBkg": "#1e2a38",
+        "textColor": "#d8ecff"
+      },
+      "family": "dev-dark",
+      "terminal_pairing": "nord"
+    },
+    {
+      "id": "ledger-green",
+      "label": "Ledger green",
+      "mode": "light",
+      "high_contrast": false,
+      "themeVariables": {
+        "primaryColor": "#e8f4ec",
+        "primaryTextColor": "#0f2a1a",
+        "primaryBorderColor": "#2d6b4a",
+        "lineColor": "#3d8a62",
+        "secondaryColor": "#d0ead8",
+        "tertiaryColor": "#ffffff",
+        "background": "#ffffff",
+        "mainBkg": "#e8f4ec",
+        "textColor": "#0f2a1a"
+      },
+      "family": "editorial"
+    },
+    {
+      "id": "workshop-chalk",
+      "label": "Workshop chalk",
+      "mode": "light",
+      "high_contrast": false,
+      "themeVariables": {
+        "primaryColor": "#2b2b2b",
+        "primaryTextColor": "#f5f5f5",
+        "primaryBorderColor": "#e0e0e0",
+        "lineColor": "#cccccc",
+        "secondaryColor": "#3a3a3a",
+        "tertiaryColor": "#1a1a1a",
+        "background": "#1a1a1a",
+        "mainBkg": "#2b2b2b",
+        "textColor": "#f5f5f5"
+      },
+      "family": "retro",
+      "terminal_pairing": "one-dark"
+    },
+    {
+      "id": "sunset-minutes",
+      "label": "Sunset minutes",
+      "mode": "light",
+      "high_contrast": false,
+      "themeVariables": {
+        "primaryColor": "#ffe8d6",
+        "primaryTextColor": "#4a2018",
+        "primaryBorderColor": "#d45d3a",
+        "lineColor": "#b84a2e",
+        "secondaryColor": "#ffd0b8",
+        "tertiaryColor": "#fff8f2",
+        "background": "#fff8f2",
+        "mainBkg": "#ffe8d6",
+        "textColor": "#4a2018"
+      },
+      "family": "editorial"
+    },
+    {
+      "id": "deep-stack",
+      "label": "Deep stack",
+      "mode": "dark",
+      "high_contrast": false,
+      "themeVariables": {
+        "primaryColor": "#252038",
+        "primaryTextColor": "#e8e4f4",
+        "primaryBorderColor": "#66589a",
+        "lineColor": "#8a7ab8",
+        "secondaryColor": "#1a1528",
+        "tertiaryColor": "#100e18",
+        "background": "#100e18",
+        "mainBkg": "#252038",
+        "textColor": "#e8e4f4"
+      },
+      "family": "dev-dark",
+      "terminal_pairing": "catppuccin-mocha"
+    },
+    {
+      "id": "ribbon-coral",
+      "label": "Ribbon coral",
+      "mode": "light",
+      "high_contrast": false,
+      "themeVariables": {
+        "primaryColor": "#ffece8",
+        "primaryTextColor": "#401820",
+        "primaryBorderColor": "#e07088",
+        "lineColor": "#c85870",
+        "secondaryColor": "#ffd8d0",
+        "tertiaryColor": "#ffffff",
+        "background": "#ffffff",
+        "mainBkg": "#ffece8",
+        "textColor": "#401820"
+      },
+      "family": "editorial"
+    },
+    {
+      "id": "tidepool",
+      "label": "Tidepool",
+      "mode": "light",
+      "high_contrast": false,
+      "themeVariables": {
+        "primaryColor": "#dff0f2",
+        "primaryTextColor": "#12343a",
+        "primaryBorderColor": "#2a7a82",
+        "lineColor": "#3d9aa2",
+        "secondaryColor": "#c8e6ea",
+        "tertiaryColor": "#ffffff",
+        "background": "#f8fcfd",
+        "mainBkg": "#dff0f2",
+        "textColor": "#12343a"
+      },
+      "family": "editorial"
+    },
+    {
+      "id": "blueprint-draft",
+      "label": "Blueprint draft",
+      "mode": "dark",
+      "high_contrast": false,
+      "themeVariables": {
+        "primaryColor": "#1a3a5c",
+        "primaryTextColor": "#e8f4ff",
+        "primaryBorderColor": "#6eb5ff",
+        "lineColor": "#4a9ae6",
+        "secondaryColor": "#122a44",
+        "tertiaryColor": "#0a1828",
+        "background": "#0a1828",
+        "mainBkg": "#1a3a5c",
+        "textColor": "#e8f4ff"
+      },
+      "family": "dev-dark",
+      "terminal_pairing": "github-dark"
+    },
+    {
+      "id": "audit-highvis",
+      "label": "Audit highvis",
+      "mode": "light",
+      "high_contrast": true,
+      "themeVariables": {
+        "primaryColor": "#ffffff",
+        "primaryTextColor": "#000000",
+        "primaryBorderColor": "#000000",
+        "lineColor": "#000000",
+        "secondaryColor": "#ffff00",
+        "tertiaryColor": "#ffffff",
+        "background": "#ffffff",
+        "mainBkg": "#ffffff",
+        "textColor": "#000000",
+        "fontSize": "16px"
+      },
+      "family": "access"
+    },
+    {
+      "id": "print-room",
+      "label": "Print room",
+      "mode": "light",
+      "high_contrast": true,
+      "themeVariables": {
+        "primaryColor": "#f5f5f5",
+        "primaryTextColor": "#111111",
+        "primaryBorderColor": "#111111",
+        "lineColor": "#222222",
+        "secondaryColor": "#e0e0e0",
+        "tertiaryColor": "#ffffff",
+        "background": "#ffffff",
+        "mainBkg": "#f5f5f5",
+        "textColor": "#111111",
+        "fontSize": "16px"
+      },
+      "family": "access"
+    },
+    {
+      "id": "terminal-phosphor",
+      "label": "Terminal phosphor",
+      "mode": "dark",
+      "high_contrast": true,
+      "themeVariables": {
+        "primaryColor": "#0a0f0a",
+        "primaryTextColor": "#b8ffb8",
+        "primaryBorderColor": "#5cff5c",
+        "lineColor": "#3dcc3d",
+        "secondaryColor": "#142014",
+        "tertiaryColor": "#000000",
+        "background": "#000000",
+        "mainBkg": "#0a0f0a",
+        "textColor": "#b8ffb8",
+        "fontSize": "16px"
+      },
+      "family": "access",
+      "terminal_pairing": "zinc-dark"
+    },
+    {
+      "id": "wiki-contrast",
+      "label": "Wiki contrast",
+      "mode": "light",
+      "high_contrast": true,
+      "themeVariables": {
+        "primaryColor": "#ffffff",
+        "primaryTextColor": "#0d0d0d",
+        "primaryBorderColor": "#0d47a1",
+        "lineColor": "#1565c0",
+        "secondaryColor": "#e3f2fd",
+        "tertiaryColor": "#ffffff",
+        "background": "#ffffff",
+        "mainBkg": "#e3f2fd",
+        "textColor": "#0d0d0d",
+        "fontSize": "15px"
+      },
+      "family": "access"
+    },
+    {
+      "id": "afterhours-code",
+      "label": "Afterhours code",
+      "mode": "dark",
+      "high_contrast": false,
+      "family": "dev-dark",
+      "terminal_pairing": "tokyo-night",
+      "tags": [
+        "ide",
+        "cool"
+      ],
+      "themeVariables": {
+        "primaryColor": "#1f2335",
+        "primaryTextColor": "#c0caf5",
+        "primaryBorderColor": "#7aa2f7",
+        "lineColor": "#565f89",
+        "secondaryColor": "#16161e",
+        "tertiaryColor": "#0f0f14",
+        "background": "#0f0f14",
+        "mainBkg": "#1f2335",
+        "textColor": "#a9b1d6"
+      }
+    },
+    {
+      "id": "storm-dock",
+      "label": "Storm dock",
+      "mode": "dark",
+      "high_contrast": false,
+      "family": "dev-dark",
+      "terminal_pairing": "tokyo-night-storm",
+      "tags": [
+        "ide",
+        "muted"
+      ],
+      "themeVariables": {
+        "primaryColor": "#2a3047",
+        "primaryTextColor": "#d8dee9",
+        "primaryBorderColor": "#88c0d0",
+        "lineColor": "#4c566a",
+        "secondaryColor": "#24283b",
+        "tertiaryColor": "#1a1e2e",
+        "background": "#1a1e2e",
+        "mainBkg": "#2a3047",
+        "textColor": "#e5e9f0"
+      }
+    },
+    {
+      "id": "latte-counter",
+      "label": "Latte counter",
+      "mode": "light",
+      "high_contrast": false,
+      "family": "dev-light",
+      "terminal_pairing": "catppuccin-latte",
+      "tags": [
+        "soft",
+        "pastel"
+      ],
+      "themeVariables": {
+        "primaryColor": "#f4eff8",
+        "primaryTextColor": "#403258",
+        "primaryBorderColor": "#8b6fd4",
+        "lineColor": "#9a8fb8",
+        "secondaryColor": "#e8e0f2",
+        "tertiaryColor": "#ffffff",
+        "background": "#faf8fc",
+        "mainBkg": "#f4eff8",
+        "textColor": "#403258"
+      }
+    },
+    {
+      "id": "mocha-workbench",
+      "label": "Mocha workbench",
+      "mode": "dark",
+      "high_contrast": false,
+      "family": "dev-dark",
+      "terminal_pairing": "catppuccin-mocha",
+      "tags": [
+        "warm",
+        "ide"
+      ],
+      "themeVariables": {
+        "primaryColor": "#302838",
+        "primaryTextColor": "#f5e0dc",
+        "primaryBorderColor": "#c79bf0",
+        "lineColor": "#7f849c",
+        "secondaryColor": "#252230",
+        "tertiaryColor": "#18141c",
+        "background": "#18141c",
+        "mainBkg": "#302838",
+        "textColor": "#cdd6f4"
+      }
+    },
+    {
+      "id": "nordic-frost",
+      "label": "Nordic frost",
+      "mode": "light",
+      "high_contrast": false,
+      "family": "dev-light",
+      "terminal_pairing": "nord-light",
+      "tags": [
+        "ice",
+        "calm"
+      ],
+      "themeVariables": {
+        "primaryColor": "#e8eef5",
+        "primaryTextColor": "#2e3440",
+        "primaryBorderColor": "#5e81ac",
+        "lineColor": "#81a1c1",
+        "secondaryColor": "#d8e0ea",
+        "tertiaryColor": "#ffffff",
+        "background": "#ffffff",
+        "mainBkg": "#e8eef5",
+        "textColor": "#2e3440"
+      }
+    },
+    {
+      "id": "polar-night",
+      "label": "Polar night",
+      "mode": "dark",
+      "high_contrast": false,
+      "family": "dev-dark",
+      "terminal_pairing": "nord",
+      "tags": [
+        "ice",
+        "dark"
+      ],
+      "themeVariables": {
+        "primaryColor": "#3b4252",
+        "primaryTextColor": "#eceff4",
+        "primaryBorderColor": "#88c0d0",
+        "lineColor": "#616e88",
+        "secondaryColor": "#2e3440",
+        "tertiaryColor": "#242933",
+        "background": "#242933",
+        "mainBkg": "#3b4252",
+        "textColor": "#e5e9f0"
+      }
+    },
+    {
+      "id": "vault-dracula",
+      "label": "Vault dracula",
+      "mode": "dark",
+      "high_contrast": false,
+      "family": "dev-dark",
+      "terminal_pairing": "dracula",
+      "tags": [
+        "vivid",
+        "slides"
+      ],
+      "themeVariables": {
+        "primaryColor": "#3d3650",
+        "primaryTextColor": "#f8f8f2",
+        "primaryBorderColor": "#ff79c6",
+        "lineColor": "#6272a4",
+        "secondaryColor": "#2d2838",
+        "tertiaryColor": "#1e1a26",
+        "background": "#1e1a26",
+        "mainBkg": "#3d3650",
+        "textColor": "#f8f8f2"
+      }
+    },
+    {
+      "id": "patchwork-light",
+      "label": "Patchwork light",
+      "mode": "light",
+      "high_contrast": false,
+      "family": "dev-light",
+      "terminal_pairing": "github-light",
+      "tags": [
+        "product",
+        "link-blue"
+      ],
+      "themeVariables": {
+        "primaryColor": "#eef5ff",
+        "primaryTextColor": "#1f2328",
+        "primaryBorderColor": "#0969da",
+        "lineColor": "#656d76",
+        "secondaryColor": "#d8e6f8",
+        "tertiaryColor": "#ffffff",
+        "background": "#ffffff",
+        "mainBkg": "#eef5ff",
+        "textColor": "#1f2328"
+      }
+    },
+    {
+      "id": "patchwork-dark",
+      "label": "Patchwork dark",
+      "mode": "dark",
+      "high_contrast": false,
+      "family": "dev-dark",
+      "terminal_pairing": "github-dark",
+      "tags": [
+        "product",
+        "link-blue"
+      ],
+      "themeVariables": {
+        "primaryColor": "#21262d",
+        "primaryTextColor": "#e6edf3",
+        "primaryBorderColor": "#4493f8",
+        "lineColor": "#6e7681",
+        "secondaryColor": "#161b22",
+        "tertiaryColor": "#0d1117",
+        "background": "#0d1117",
+        "mainBkg": "#21262d",
+        "textColor": "#e6edf3"
+      }
+    },
+    {
+      "id": "desert-shelf",
+      "label": "Desert shelf",
+      "mode": "light",
+      "high_contrast": false,
+      "family": "editorial",
+      "terminal_pairing": "solarized-light",
+      "tags": [
+        "warm",
+        "paper"
+      ],
+      "themeVariables": {
+        "primaryColor": "#f5eed6",
+        "primaryTextColor": "#3d3020",
+        "primaryBorderColor": "#b58900",
+        "lineColor": "#93a1a1",
+        "secondaryColor": "#eee8d5",
+        "tertiaryColor": "#fdf6e3",
+        "background": "#fdf6e3",
+        "mainBkg": "#f5eed6",
+        "textColor": "#3d3020"
+      }
+    },
+    {
+      "id": "oasis-deep",
+      "label": "Oasis deep",
+      "mode": "dark",
+      "high_contrast": false,
+      "family": "dev-dark",
+      "terminal_pairing": "solarized-dark",
+      "tags": [
+        "warm",
+        "dark"
+      ],
+      "themeVariables": {
+        "primaryColor": "#073642",
+        "primaryTextColor": "#eee8d5",
+        "primaryBorderColor": "#2aa198",
+        "lineColor": "#586e75",
+        "secondaryColor": "#002b36",
+        "tertiaryColor": "#001f27",
+        "background": "#001f27",
+        "mainBkg": "#073642",
+        "textColor": "#fdf6e3"
+      }
+    },
+    {
+      "id": "atom-bench",
+      "label": "Atom bench",
+      "mode": "dark",
+      "high_contrast": false,
+      "family": "dev-dark",
+      "terminal_pairing": "one-dark",
+      "tags": [
+        "ide",
+        "neutral"
+      ],
+      "themeVariables": {
+        "primaryColor": "#2c313c",
+        "primaryTextColor": "#abb2bf",
+        "primaryBorderColor": "#61afef",
+        "lineColor": "#5c6370",
+        "secondaryColor": "#21252b",
+        "tertiaryColor": "#181a1f",
+        "background": "#181a1f",
+        "mainBkg": "#2c313c",
+        "textColor": "#c8ccd4"
+      }
+    },
+    {
+      "id": "canopy-trail",
+      "label": "Canopy trail",
+      "mode": "light",
+      "high_contrast": false,
+      "family": "accent-forward",
+      "tags": [
+        "nature",
+        "earth"
+      ],
+      "themeVariables": {
+        "primaryColor": "#e8ebe0",
+        "primaryTextColor": "#2a3324",
+        "primaryBorderColor": "#6b7c4a",
+        "lineColor": "#8a9580",
+        "secondaryColor": "#d5dcd0",
+        "tertiaryColor": "#f7f8f4",
+        "background": "#f7f8f4",
+        "mainBkg": "#e8ebe0",
+        "textColor": "#2a3324"
+      }
+    },
+    {
+      "id": "harbor-mist",
+      "label": "Harbor mist",
+      "mode": "light",
+      "high_contrast": false,
+      "family": "editorial",
+      "terminal_pairing": "tokyo-night-light",
+      "tags": [
+        "maritime",
+        "calm"
+      ],
+      "themeVariables": {
+        "primaryColor": "#e4e8f0",
+        "primaryTextColor": "#2a3548",
+        "primaryBorderColor": "#4a6fa5",
+        "lineColor": "#7a8aa8",
+        "secondaryColor": "#d0d8e8",
+        "tertiaryColor": "#f8fafc",
+        "background": "#f8fafc",
+        "mainBkg": "#e4e8f0",
+        "textColor": "#2a3548"
+      }
+    },
+    {
+      "id": "golden-platform",
+      "label": "Golden platform",
+      "mode": "light",
+      "high_contrast": false,
+      "family": "accent-forward",
+      "tags": [
+        "warm",
+        "sunset"
+      ],
+      "themeVariables": {
+        "primaryColor": "#fff0d8",
+        "primaryTextColor": "#4a2818",
+        "primaryBorderColor": "#d4782a",
+        "lineColor": "#c49a6c",
+        "secondaryColor": "#ffe4bc",
+        "tertiaryColor": "#fffaf0",
+        "background": "#fffaf0",
+        "mainBkg": "#fff0d8",
+        "textColor": "#4a2818"
+      }
+    },
+    {
+      "id": "arctic-sheet",
+      "label": "Arctic sheet",
+      "mode": "light",
+      "high_contrast": false,
+      "family": "dev-light",
+      "tags": [
+        "cool",
+        "crisp"
+      ],
+      "themeVariables": {
+        "primaryColor": "#eef6fa",
+        "primaryTextColor": "#1a3040",
+        "primaryBorderColor": "#3a8fb8",
+        "lineColor": "#7aa8c0",
+        "secondaryColor": "#dceaf2",
+        "tertiaryColor": "#ffffff",
+        "background": "#ffffff",
+        "mainBkg": "#eef6fa",
+        "textColor": "#1a3040"
+      }
+    },
+    {
+      "id": "dusty-rosebud",
+      "label": "Dusty rosebud",
+      "mode": "light",
+      "high_contrast": false,
+      "family": "accent-forward",
+      "tags": [
+        "soft",
+        "brand"
+      ],
+      "themeVariables": {
+        "primaryColor": "#f8ecee",
+        "primaryTextColor": "#4a3038",
+        "primaryBorderColor": "#b87a8a",
+        "lineColor": "#a89098",
+        "secondaryColor": "#eddce2",
+        "tertiaryColor": "#fffbfc",
+        "background": "#fffbfc",
+        "mainBkg": "#f8ecee",
+        "textColor": "#4a3038"
+      }
+    },
+    {
+      "id": "orbit-lab",
+      "label": "Orbit lab",
+      "mode": "dark",
+      "high_contrast": false,
+      "family": "accent-forward",
+      "tags": [
+        "tech",
+        "neon"
+      ],
+      "themeVariables": {
+        "primaryColor": "#1a2238",
+        "primaryTextColor": "#e8f0ff",
+        "primaryBorderColor": "#00d4aa",
+        "lineColor": "#4a6a9a",
+        "secondaryColor": "#121828",
+        "tertiaryColor": "#0a0e18",
+        "background": "#0a0e18",
+        "mainBkg": "#1a2238",
+        "textColor": "#d8e4ff"
+      }
+    },
+    {
+      "id": "conservatory",
+      "label": "Conservatory",
+      "mode": "light",
+      "high_contrast": false,
+      "family": "accent-forward",
+      "tags": [
+        "garden",
+        "fresh"
+      ],
+      "themeVariables": {
+        "primaryColor": "#e6f4ea",
+        "primaryTextColor": "#1a4030",
+        "primaryBorderColor": "#2d9a62",
+        "lineColor": "#6a9a7a",
+        "secondaryColor": "#d0ead8",
+        "tertiaryColor": "#f6fcf8",
+        "background": "#f6fcf8",
+        "mainBkg": "#e6f4ea",
+        "textColor": "#1a4030"
+      }
+    },
+    {
+      "id": "galaxy-well",
+      "label": "Galaxy well",
+      "mode": "dark",
+      "high_contrast": false,
+      "family": "dev-dark",
+      "tags": [
+        "cosmic",
+        "slides"
+      ],
+      "themeVariables": {
+        "primaryColor": "#2a1848",
+        "primaryTextColor": "#e8e0f8",
+        "primaryBorderColor": "#a78bfa",
+        "lineColor": "#6a5a8a",
+        "secondaryColor": "#1a1030",
+        "tertiaryColor": "#100820",
+        "background": "#100820",
+        "mainBkg": "#2a1848",
+        "textColor": "#e8e0f8"
+      }
+    },
+    {
+      "id": "tram-map",
+      "label": "Tram map",
+      "mode": "light",
+      "high_contrast": false,
+      "family": "editorial",
+      "tags": [
+        "transit",
+        "neutral"
+      ],
+      "themeVariables": {
+        "primaryColor": "#f0f0f2",
+        "primaryTextColor": "#282830",
+        "primaryBorderColor": "#e85d04",
+        "lineColor": "#888890",
+        "secondaryColor": "#e0e0e6",
+        "tertiaryColor": "#ffffff",
+        "background": "#ffffff",
+        "mainBkg": "#f0f0f2",
+        "textColor": "#282830"
+      }
+    },
+    {
+      "id": "ballot-ink",
+      "label": "Ballot ink",
+      "mode": "light",
+      "high_contrast": true,
+      "family": "access",
+      "tags": [
+        "civic",
+        "wiki"
+      ],
+      "themeVariables": {
+        "primaryColor": "#ffffff",
+        "primaryTextColor": "#000000",
+        "primaryBorderColor": "#1a237e",
+        "lineColor": "#000000",
+        "secondaryColor": "#e8eaf6",
+        "tertiaryColor": "#ffffff",
+        "background": "#ffffff",
+        "mainBkg": "#e8eaf6",
+        "textColor": "#000000",
+        "fontSize": "16px"
+      }
+    },
+    {
+      "id": "sepia-stack",
+      "label": "Sepia stack",
+      "mode": "light",
+      "high_contrast": false,
+      "family": "retro",
+      "tags": [
+        "archive",
+        "brown"
+      ],
+      "themeVariables": {
+        "primaryColor": "#ebe4d8",
+        "primaryTextColor": "#3a2e22",
+        "primaryBorderColor": "#8a6a48",
+        "lineColor": "#a89888",
+        "secondaryColor": "#ddd4c4",
+        "tertiaryColor": "#f8f4ec",
+        "background": "#f8f4ec",
+        "mainBkg": "#ebe4d8",
+        "textColor": "#3a2e22"
+      }
+    }
+  ],
+  "families": {
+    "editorial": "Paper, ink, and neutral docs",
+    "dev-dark": "Dark canvases for README and slides",
+    "dev-light": "Light canvases for README and docs",
+    "accent-forward": "Strong hue for emphasis slides",
+    "access": "High contrast for wiki, print, and audit",
+    "retro": "Chalk, phosphor, and archive tones"
+  }
+}
