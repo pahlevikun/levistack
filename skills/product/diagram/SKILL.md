@@ -1,6 +1,41 @@
 ---
 name: diagram
 description: "Build and fix technical diagrams with editable sources and checked exports. Use for architecture, APIs, schemas, code-to-diagram, design-doc figures, wiki or Confluence, themed or high-contrast Mermaid, terminal ASCII, branded HTML or SVG, and the visual type atlas (flow, sequence, journey, Wardley, Sankey, and more). Supports Mermaid, draw.io, Excalidraw, SVG motion, batch PNG, Playwright GIF, and compression. Hand posters to infographic. Use codebase-learner, ready-spec, create-documentation, or color-kit when that skill owns the work."
+metadata:
+  version: 1.0.0
+  author: levistack
+  license: MIT
+  group: product
+  category: technical-diagrams
+  department: product
+  related_skills:
+    - infographic
+    - color-kit
+    - codebase-learner
+    - create-documentation
+  invokes:
+    - skill: infographic
+      when: Editorial poster, carousel, or page layout that embeds a verified figure
+    - skill: color-kit
+      when: Mermaid theme or figure colors need measured contrast
+    - skill: codebase-learner
+      when: Code or module boundaries are unknown before diagramming
+    - skill: create-documentation
+      when: Figure ships inside full product documentation
+  tags:
+    - diagram
+    - mermaid
+    - architecture
+    - flowchart
+    - svg
+    - export
+  capabilities:
+    - technical_diagram_authoring
+    - mermaid_themes_and_export
+    - infographic_handoff
+  languages:
+    - en
+
 ---
 
 # Diagram

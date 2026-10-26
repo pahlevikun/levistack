@@ -1,6 +1,28 @@
 ---
 name: create-skill
 description: "Create, audit or improve agent skills (a folder with SKILL.md) for Claude Code, Cursor, Codex and the skills CLI. Use when asked to write or add a skill, fix a skill that never triggers, split an oversized SKILL.md, or review skill quality."
+metadata:
+  version: 1.0.0
+  author: levistack
+  license: MIT
+  group: agent-authoring
+  category: agent-authoring
+  department: agent-authoring
+  related_skills:
+    - find-skills
+    - convert-as-skill
+    - manage-stack
+  invokes:
+    - skill: find-skills
+      when: Check whether a skill already exists
+  tags:
+    - skill
+    - authoring
+  capabilities:
+    - skill_authoring
+  languages:
+    - en
+
 ---
 
 # Create a skill
@@ -54,6 +76,7 @@ This skill covers skills only. For subagents use `create-agent`; for rules, hook
 8. **Lint.** `node <create-agent>/scripts/lint.mjs <skill-dir>`, where `<create-agent>` is the sibling `create-agent` skill folder. If it is not installed, walk [audit.md](references/audit.md) by hand.
 9. **Test.** Run the real requests from step 1 plus one that should not trigger it. Fix by symptom and re-run. See [format.md](references/format.md#test-and-iterate).
 10. **Eval fixtures.** Add `evals/evals.json` with `skill_name`, at least two scenarios (happy path and boundary), and assertions. Visual skills may use `evals/cases.json` instead. Point to them from `SKILL.md` when you change behavior. `node scripts/bootstrap-skill-evals.mjs` seeds missing files.
+11. **Catalog metadata.** Add or update the skill entry in `skills/catalog-metadata.json` (`related_skills`, `invokes`, optional `tags` and `capabilities`). Run `npm run sync:skill-metadata` to merge the `metadata:` block into `SKILL.md` like `product/infographic`.
 
 ## Pointers and the two loads
 

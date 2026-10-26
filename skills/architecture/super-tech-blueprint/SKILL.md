@@ -3,7 +3,32 @@ name: super-tech-blueprint
 description: "Choose or generate a target technology stack: compare frameworks with TCO, security and ecosystem scoring, plan a migration, or write a blueprint for a new or next system. Use when comparing X vs Y, picking a framework, estimating migration cost, or producing a stack blueprint for greenfield or a target architecture. Not for documenting or diagnosing an existing codebase — use codebase-learner."
 when_to_use: "Use when the user asks to compare frameworks, pick a stack, estimate TCO or migration cost, assess ecosystem health or security of a candidate, or generate a technology blueprint for a new or next system."
 metadata:
-  version: "1.1.0"
+  version: 1.0.0
+  author: levistack
+  license: MIT
+  group: architecture
+  category: architecture
+  department: architecture
+  related_skills:
+    - codebase-learner
+    - challenge-me
+    - write-plan
+  invokes:
+    - skill: codebase-learner
+      when: Stack facts missing from the repo
+    - skill: challenge-me
+      when: Stack pick needs stress test
+    - skill: write-plan
+      when: Blueprint is chosen and needs a plan
+  tags:
+    - blueprint
+    - stack
+    - migration
+  capabilities:
+    - tech_blueprint
+  languages:
+    - en
+
 ---
 
 # Super Tech Blueprint

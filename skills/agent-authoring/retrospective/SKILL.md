@@ -1,6 +1,24 @@
 ---
 name: retrospective
 description: "Find repeated friction in a session, repository, ticket, initiative, or dev environment and propose a fix at the strongest useful level. Use when asked to run a retrospective, reflect on a coding session, retro an epic or sprint, reconstruct what happened on a ticket or PR, learn from machine or CI setup pain, learn from repeated corrections, or stop agents repeating a repo mistake. Returns ranked proposals and factual delivery records where requested, not applied edits. Not for resuming work (handoff), personal yesterday summaries (standup), or diagnosing a current failure (trace)."
+metadata:
+  version: 1.0.0
+  author: levistack
+  license: MIT
+  group: agent-authoring
+  category: agent-authoring
+  department: agent-authoring
+  related_skills:
+    - verify
+    - handoff
+  tags:
+    - retro
+    - learning
+  capabilities:
+    - retrospective
+  languages:
+    - en
+
 ---
 
 # Retrospective

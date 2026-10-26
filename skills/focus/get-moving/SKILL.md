@@ -1,6 +1,24 @@
 ---
 name: get-moving
 description: "Get moving when stuck, overwhelmed or avoiding a task: name what kind of stuck it is, shrink the goal to one physical next action, and run one 25-minute round with a finish line. Use when the user says they are stuck, overwhelmed, do not know where to start, have too much to do, keep putting something off, or asks 'what should I do next'. Not for picking a skill (use-levistack) or planning a whole project (write-plan)."
+metadata:
+  version: 1.0.0
+  author: levistack
+  license: MIT
+  group: focus
+  category: focus
+  department: focus
+  related_skills:
+    - later-list
+    - handoff
+  tags:
+    - focus
+    - stuck
+  capabilities:
+    - task_unblock
+  languages:
+    - en
+
 ---
 
 # Get moving

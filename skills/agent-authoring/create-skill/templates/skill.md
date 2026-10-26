@@ -1,6 +1,21 @@
 ---
 name: <skill-name>
 description: "<What it does>. Use when <the situations and the words a user would say>."
+metadata:
+  version: "1.0.0"
+  author: levistack
+  license: MIT
+  group: <group>
+  category: <group>
+  department: <group>
+  related_skills: []
+  tags:
+    - <skill-name>
+    - <group>
+  capabilities:
+    - <skill_name_snake>
+  languages:
+    - en
 ---
 
 # <Skill title>

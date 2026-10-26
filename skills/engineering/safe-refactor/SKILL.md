@@ -2,7 +2,28 @@
 name: safe-refactor
 description: "Behavior-preserving refactoring across languages and stacks: plan multi-file work, execute one safe boundary at a time, review-and-align to project standards, cut method complexity, apply smell/pattern catalogs, and run scoped tracks for Go, Elixir (via super-elixir), Terraform modules, React components, web UI, and mobile placeholders. Always pairs with output-savers for minimal diffs. Use when the user asks to refactor, clean up, extract, rename, reduce complexity, split a component, refactor a Terraform module, plan a safe refactor, or fix UI hierarchy — not for new features or repo rebuilds."
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
+  author: levistack
+  license: MIT
+  group: engineering
+  category: engineering
+  department: engineering
+  related_skills:
+    - tdd
+    - verify
+  invokes:
+    - skill: tdd
+      when: No safety net exists for the refactor
+    - skill: verify
+      when: Before claiming behavior unchanged
+  tags:
+    - refactor
+    - safety
+  capabilities:
+    - behavior_preserving_refactor
+  languages:
+    - en
+
 ---
 
 # Safe refactor

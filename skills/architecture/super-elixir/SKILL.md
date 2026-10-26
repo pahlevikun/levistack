@@ -3,7 +3,29 @@ name: super-elixir
 description: "Use for any Elixir work: .ex, .exs and .heex files, mix.exs, Phoenix, Ecto, OTP, GenServer, Supervisor, ExUnit and mix tasks. One skill with specialities: write idiomatic code, design OTP, Ecto and Phoenix apps, work test-first, write docs, and review code, security, performance and anti-patterns. It detects the job, loads only the guide it needs, and can run a full multi-pass review in one invocation."
 when_to_use: "Use proactively when the user asks to write, change, refactor, test, document or review Elixir; asks 'is this idiomatic', 'should this be a GenServer or a process', 'review this Elixir code', 'security review', 'why is this slow', 'add a changeset' or 'write a doctest'; pastes an Elixir stack trace or a failing mix test; or is working in a mix project."
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
+  author: levistack
+  license: MIT
+  group: architecture
+  category: architecture
+  department: architecture
+  related_skills:
+    - tdd
+    - verify
+  invokes:
+    - skill: tdd
+      when: Feature work should be test-first
+    - skill: verify
+      when: Before merge or handoff
+  tags:
+    - elixir
+    - phoenix
+    - ecto
+  capabilities:
+    - elixir_development
+  languages:
+    - en
+
 ---
 
 # Super Elixir

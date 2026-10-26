@@ -9,6 +9,27 @@ allowed-tools:
   - Edit
   - Task
   - AskUserQuestion
+metadata:
+  version: 1.0.0
+  author: levistack
+  license: MIT
+  group: focus
+  category: focus
+  department: focus
+  related_skills:
+    - polyglot-copywriter
+    - handoff
+  invokes:
+    - skill: polyglot-copywriter
+      when: Final standup prose polish
+  tags:
+    - standup
+    - update
+  capabilities:
+    - standup_update
+  languages:
+    - en
+
 ---
 
 # standup

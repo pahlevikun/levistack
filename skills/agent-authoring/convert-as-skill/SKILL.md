@@ -1,6 +1,30 @@
 ---
 name: convert-as-skill
 description: "Convert existing material into a skill, merge existing skills into one, or enhance one skill by learning from upstream skills, repos and pages. Use when asked to convert a rule, command or agent to a skill, save a conversation as a skill, turn a PDF or docs folder into a skill, merge two skills into one, or improve a skill from other sources (keep, replace and drop each method, rewrite in our own words, test it). Not for writing a skill from scratch (`create-skill`)."
+metadata:
+  version: 1.0.0
+  author: levistack
+  license: MIT
+  group: agent-authoring
+  category: agent-authoring
+  department: agent-authoring
+  related_skills:
+    - create-skill
+    - polyglot-copywriter
+  invokes:
+    - skill: create-skill
+      when: Polish or lint the converted skill
+    - skill: polyglot-copywriter
+      when: Rewriting harvested prose
+  tags:
+    - convert
+    - skill
+    - extract
+  capabilities:
+    - skill_conversion
+  languages:
+    - en
+
 ---
 
 # Convert as skill

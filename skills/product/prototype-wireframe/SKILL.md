@@ -1,6 +1,25 @@
 ---
 name: prototype-wireframe
 description: "Answer one design question with a throwaway prototype or a wireframe before real code. A logic question gets one HTML playground, a look question gets several structurally different variants of one screen behind a URL switch (in the real page when one exists), a shape question gets grayscale wireframes, and a flow question gets one navigation map. Can dress a variant in a given brand. Renders screens to PNG with headless Chrome, scores them with a short gate, and keeps a receipt. Use when the user says prototype this, try it, show me options, where is the wireframe, wire up every screen, or how should this behave. Not for polishing a shipped UI (product-polish-workflow) or tokens and component libraries (design-system-kit)."
+metadata:
+  version: 1.0.0
+  author: levistack
+  license: MIT
+  group: product
+  category: product-design
+  department: product
+  related_skills:
+    - ui-ux-kit
+    - design-system-kit
+  tags:
+    - prototype
+    - wireframe
+    - throwaway
+  capabilities:
+    - rapid_prototype
+  languages:
+    - en
+
 ---
 
 # Prototype and wireframe

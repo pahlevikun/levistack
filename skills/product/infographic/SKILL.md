@@ -2,7 +2,7 @@
 name: infographic
 description: "Create evidence-based infographics, visual explainers, research posters, charts, timelines and social carousels, including layouts that embed Mermaid, technical figures, and CSS-animated SVG (keyframes, stroke reveals, staggered steps, prefers-reduced-motion). Use when asked to communicate a sourced claim visually, compose a data story, annotate authentic evidence, critique an infographic or adapt it for web, print, slides or social. Bundled helpers cover PNG from SVG, optional themed Mermaid export, sequenced animated SVG, and raster prefs when API keys exist."
 metadata:
-  version: "1.2.0"
+  version: 1.3.0
   author: levistack
   license: MIT
   group: product
@@ -64,6 +64,7 @@ metadata:
     - publishing_gate_and_rights
   languages:
     - en
+
 ---
 
 # Infographic

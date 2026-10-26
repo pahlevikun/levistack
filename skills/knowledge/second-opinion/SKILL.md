@@ -1,6 +1,27 @@
 ---
 name: second-opinion
 description: "Adversarial read-only review of a diff, branch or named files that drives every open decision to a commitment. It restates the change and confirms it, then turns the brief, the reviewers' questions and every open finding into one decision tree and resolves it in dependency order: explore first, then exactly one question per node, each with a recommended answer. Independent reviewers on different models challenge the change through what-to-check lenses and a code-quality lens, and it buckets findings into Act on, Consider, Noted or Dismissed. Exits only when zero nodes are open, with a decision ledger, and offers CONTEXT.md terms and decision records. Quick triage first. Uses codebase-learner for context and why before removing a guard. Never applies fixes. Use for 'second opinion', 'interrogate', 'adversarial review', 'challenge this code', 'find blind spots', or 'what did I miss' before merge. Not for the routine MR review loop (glab-code-review) or a plan or doc (challenge-me)."
+metadata:
+  version: 1.0.0
+  author: levistack
+  license: MIT
+  group: knowledge
+  category: knowledge
+  department: knowledge
+  related_skills:
+    - verify
+    - glab-code-review
+  invokes:
+    - skill: verify
+      when: Each fix from review needs evidence
+  tags:
+    - review
+    - adversarial
+  capabilities:
+    - blind_spot_review
+  languages:
+    - en
+
 ---
 
 # Second opinion

@@ -1,6 +1,31 @@
 ---
 name: ui-ux-kit
 description: "Design and build one screen or one component with good UI, UX and motion: pick the posture, name the screen's one question, choose the navigation container, specify components with all their states, plan motion by how often it is seen, apply the UX rules, then verify on the real surface and write acceptance rows. Covers iOS, Android (Kotlin and Compose), React Native, Flutter, desktop, web (React, Next, Vue, Nuxt, Svelte, Tailwind), car displays (glance rules for driving) and TV (focus and distance). Use when asked to build, redesign or review a screen, a component, an interaction, a transition or a gesture. Not for palettes and modes (color-kit), the whole token file (design-system-kit), a journey tracker for a shipped product (product-polish-workflow) or a throwaway answer (prototype-wireframe)."
+metadata:
+  version: 1.0.0
+  author: levistack
+  license: MIT
+  group: product
+  category: product-design
+  department: product
+  related_skills:
+    - design-system-kit
+    - color-kit
+    - prototype-wireframe
+  invokes:
+    - skill: color-kit
+      when: Color roles or contrast on a screen
+  tags:
+    - ui
+    - ux
+    - components
+    - motion
+    - accessibility
+  capabilities:
+    - screen_and_component_design
+  languages:
+    - en
+
 ---
 
 # UI and UX kit

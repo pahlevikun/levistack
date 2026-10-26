@@ -1,6 +1,29 @@
 ---
 name: trace
 description: "Trace why, with evidence on every step. Two modes. Rationale: why code is shaped this way, what tradeoff or incident produced a guard, retry, flag or threshold, from git, PRs, tickets, docs, chat and monitoring. Root cause: Five Whys from a symptom (a bug, an incident, a flaky pipeline, a slow deploy) down to the systemic cause, with branches for split causes. Every link is cited and tiered (direct, supported, inferred, speculative), then double-checked: backward read, counterfactual, falsification, timeline, a competing chain, and the human-error rule. Proposes fixes for root causes, never applies them. Read-only. Use for 'why does X work this way', 'why did we pick Y', 'is this guard still needed', 'why did this happen', 'root cause', 'five whys', 'postmortem', or 'why does this keep failing'. Not for how code runs today (codebase-learner), or reproducing a live failure's mechanism (verify)."
+metadata:
+  version: 1.0.0
+  author: levistack
+  license: MIT
+  group: knowledge
+  category: knowledge
+  department: knowledge
+  related_skills:
+    - verify
+    - codebase-learner
+    - research
+  invokes:
+    - skill: verify
+      when: Live failure needs gating before deeper trace
+  tags:
+    - root-cause
+    - incident
+    - history
+  capabilities:
+    - root_cause_analysis
+  languages:
+    - en
+
 ---
 
 # Trace

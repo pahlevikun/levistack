@@ -2,6 +2,28 @@
 name: write-mr-description
 description: Open a draft Merge Request with a generated description, self-review it, or both. Scans commits on the current branch since divergence from the target. Use when the user says "write MR description", "open MR", "raise MR", "draft MR", "review my MR", "self-review", "MR template", "PR description", "summarize my branch", or "describe these commits". Works with GitLab (glab) and GitHub (gh). Works well with self-hosted GitLab repos, Jira tickets and conventional-commit prefixes.
 disable-model-invocation: true
+metadata:
+  version: 1.0.0
+  author: levistack
+  license: MIT
+  group: delivery
+  category: delivery
+  department: delivery
+  related_skills:
+    - atomic-semantic-commit
+    - glab-code-review
+    - polyglot-copywriter
+  invokes:
+    - skill: polyglot-copywriter
+      when: MR description prose needs polish
+  tags:
+    - merge-request
+    - pr-description
+  capabilities:
+    - mr_description
+  languages:
+    - en
+
 ---
 
 # Write MR Description

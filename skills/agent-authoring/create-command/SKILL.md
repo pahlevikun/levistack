@@ -1,6 +1,23 @@
 ---
 name: create-command
 description: "Create, audit or improve slash commands (commands/<name>.md, .claude/commands, .cursor/commands): saved prompts you run as /name, with arguments. Use when asked to add a slash command or custom command, pass arguments to one, make a repeatable prompt, or choose between a command and a skill."
+metadata:
+  version: 1.0.0
+  author: levistack
+  license: MIT
+  group: agent-authoring
+  category: agent-authoring
+  department: agent-authoring
+  related_skills:
+    - create-skill
+  tags:
+    - command
+    - slash
+  capabilities:
+    - command_authoring
+  languages:
+    - en
+
 ---
 
 # Create a slash command

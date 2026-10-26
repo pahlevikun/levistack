@@ -1,6 +1,26 @@
 ---
 name: use-levistack
 description: "Start here. The entry point that routes any prompt through levistack in seven fixed steps: route, prime, invoke, hunt, apply, prove, deliver. Picks the first skill (codebase-learner, trace, second-opinion, challenge-me, ready-spec, or a named one), hunts the catalog with find-skills when nothing obvious fits, runs the chain, proves every claim, and shapes the reply. Use when the user does not know which skill fits, says 'where do I start', 'help me with', 'what should I use', 'just handle it', gives a goal with no skill named, or types /use-levistack with a task. A named skill inside it runs as a one-shot."
+metadata:
+  version: 1.0.0
+  author: levistack
+  license: MIT
+  group: workflow
+  category: workflow
+  department: workflow
+  related_skills:
+    - find-skills
+  invokes:
+    - skill: find-skills
+      when: Pick or install a specific skill from the catalog
+  tags:
+    - levistack
+    - routing
+  capabilities:
+    - catalog_routing
+  languages:
+    - en
+
 ---
 
 # Use levistack

@@ -1,6 +1,24 @@
 ---
 name: create-agent
 description: "Create, audit or improve subagents (agents/*.md for Claude Code and Cursor). Use when asked to add or review a subagent, fix an agent description that never delegates, or choose its tools and model. Not for skills (use create-skill)."
+metadata:
+  version: 1.0.0
+  author: levistack
+  license: MIT
+  group: agent-authoring
+  category: agent-authoring
+  department: agent-authoring
+  related_skills:
+    - create-skill
+    - create-rule
+  tags:
+    - agent
+    - subagent
+  capabilities:
+    - agent_authoring
+  languages:
+    - en
+
 ---
 
 # Create subagents

@@ -2,7 +2,28 @@
 name: tdd
 description: "Language-agnostic test-driven development: plan public seams, write one failing test, watch it fail, implement the smallest pass, then refactor only while green, or audit an existing suite for weak tests. Vertical slices (one test then one implementation), not all tests then all code. Bug fixes prove the failure first; skip a forced test only when impractical and say why. Use when implementing a new feature, fixing a bug, refactoring with tests, red-green-refactor, test-first, ExUnit, mix test, Jest, Vitest, go test, pytest, React Testing Library, failing tests first, or continuing from a plan.md TDD handoff."
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
+  author: levistack
+  license: MIT
+  group: engineering
+  category: engineering
+  department: engineering
+  related_skills:
+    - verify
+    - safe-refactor
+    - super-elixir
+  invokes:
+    - skill: verify
+      when: Before claiming tests pass or work is done
+  tags:
+    - tdd
+    - tests
+    - red-green-refactor
+  capabilities:
+    - test_driven_development
+  languages:
+    - en
+
 ---
 
 # TDD

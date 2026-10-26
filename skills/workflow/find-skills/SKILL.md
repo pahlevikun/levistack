@@ -1,6 +1,28 @@
 ---
 name: find-skills
 description: "Find, pick or install skills: gather only the missing context, search the catalog, compose the shortest chain of skills (at most four) and run it, and go to skills.sh only when the catalog has no fit. Step 4 (hunt) of use-levistack. Use when the user asks to find, list, compare or install a skill, asks 'is there a skill for X', or when use-levistack has no clear first skill. Not the start point for a general task (use-levistack)."
+metadata:
+  version: 1.0.0
+  author: levistack
+  license: MIT
+  group: workflow
+  category: workflow
+  department: workflow
+  related_skills:
+    - use-levistack
+    - create-skill
+  invokes:
+    - skill: use-levistack
+      when: User needs full catalog routing
+  tags:
+    - catalog
+    - install
+    - discover
+  capabilities:
+    - skill_discovery
+  languages:
+    - en
+
 ---
 
 # Find skills, then run them

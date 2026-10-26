@@ -1,6 +1,28 @@
 ---
 name: ready-spec
 description: "Draft a repo-grounded, execution-ready spec for a backend or API change: frozen current contract, target modes, full lifecycle, error catalog, testable backward-compatibility guarantees, ordered tasks, test matrix, traceability and an independent adversarial review, a file map, per-task interfaces, blind spots and a hand-off choice, gated READY or BLOCKED. Use when the user asks for a detailed spec or design plan for an endpoint, event, consumer or contract change before an agent implements it. Not for a general step-by-step coding plan (write-plan) or grilling an idea (challenge-me)."
+metadata:
+  version: 1.0.0
+  author: levistack
+  license: MIT
+  group: knowledge
+  category: knowledge
+  department: knowledge
+  related_skills:
+    - write-plan
+    - codebase-learner
+  invokes:
+    - skill: codebase-learner
+      when: API or flow in the repo is unknown
+  tags:
+    - spec
+    - api
+    - backend
+  capabilities:
+    - implementation_spec
+  languages:
+    - en
+
 ---
 
 # Ready spec

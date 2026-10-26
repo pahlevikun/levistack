@@ -1,6 +1,23 @@
 ---
 name: handoff
 description: "Use to carry work across time, in four modes. Write: when ending, pausing or switching a session, write a dated handoff note (goals, context, state, checklist, decisions, resume steps) that a fresh session can act on with no chat history. Resume: read the latest note and verify it before continuing. Catch up: in a long chat or unattended run, say in plain words what changed since the user's last message and list every call waiting on them, each with a pick. Recall: when no note exists, rebuild recent working context from past sessions, git and the shared record. Not for a report of yesterday's work for other people (use standup)."
+metadata:
+  version: 1.0.0
+  author: levistack
+  license: MIT
+  group: workflow
+  category: workflow
+  department: workflow
+  related_skills:
+    - write-plan
+  tags:
+    - handoff
+    - session
+  capabilities:
+    - session_handoff
+  languages:
+    - en
+
 ---
 
 # Handoff
