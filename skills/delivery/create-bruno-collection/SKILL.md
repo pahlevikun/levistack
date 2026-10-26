@@ -9,6 +9,28 @@ description: >-
   collections, .bru files, gRPC/GraphQL/WebSocket examples, API environments,
   auth flow in Bruno, or runnable documented API examples for a service.
 disable-model-invocation: true
+metadata:
+  version: 1.0.0
+  author: levistack
+  license: MIT
+  group: delivery
+  category: delivery
+  department: delivery
+  related_skills:
+    - verify
+    - ready-spec
+  invokes:
+    - skill: verify
+      when: Collection should be run to prove requests
+  tags:
+    - bruno
+    - api
+    - collection
+  capabilities:
+    - bruno_collection
+  languages:
+    - en
+
 ---
 
 # Create Bruno collection

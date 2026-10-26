@@ -1,6 +1,23 @@
 ---
 name: create-rule
 description: "Create, audit or tighten persistent rules for coding agents: .claude/rules/*.md, .cursor/rules/*.mdc, a catalog rules/ tree, CLAUDE.md or AGENTS.md. Use when asked to add a rule or coding standard, scope a rule to file globs or paths, fix a rule the agent ignores, or decide whether something is a rule, a skill or a hook."
+metadata:
+  version: 1.0.0
+  author: levistack
+  license: MIT
+  group: agent-authoring
+  category: agent-authoring
+  department: agent-authoring
+  related_skills:
+    - create-skill
+  tags:
+    - rule
+    - cursor
+  capabilities:
+    - rule_authoring
+  languages:
+    - en
+
 ---
 
 # Create a rule

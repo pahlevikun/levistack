@@ -25,7 +25,7 @@ Author and verify Mermaid in this skill. Render to SVG before any infographic la
 3. Or build a **finite semantic highlight** plan from evidence and export with `export_svg.py animate` or `gif` when installed.
 4. State which pattern was used. Highlights are rectangular focus steps; CSS motion is authored classes and keyframes, not timeline capture from a browser.
 
-`infographic` owns page composition, copy, citations and multi-format crops. It may embed your exports without re-deriving topology.
+`infographic` owns page composition, copy, citations and multi-format crops. It may embed your exports without re-deriving topology. For poster-sized PNG or another levistack theme on the same `.mmd`, it can call `export_figure.py` in its skill (sibling to this one) without a second topology pass.
 
 ## Stay in diagram
 

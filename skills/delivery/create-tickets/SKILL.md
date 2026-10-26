@@ -1,6 +1,30 @@
 ---
 name: create-tickets
 description: "Break a plan into thin end-to-end tickets that name what blocks them, quiz the user on the breakdown, then draft or create Jira stories and tasks with a lean Context/Goal/DoD template and plain-language prose via polyglot-copywriter. Use when breaking work into tickets, writing story text, pasting ticket markdown, or creating issues under an epic (markdown only, acli, or Atlassian MCP)."
+metadata:
+  version: 1.0.0
+  author: levistack
+  license: MIT
+  group: delivery
+  category: delivery
+  department: delivery
+  related_skills:
+    - write-plan
+    - challenge-me
+  invokes:
+    - skill: write-plan
+      when: Work is not broken down yet
+    - skill: challenge-me
+      when: Ticket scope is ambiguous
+  tags:
+    - jira
+    - tickets
+    - tasks
+  capabilities:
+    - ticket_authoring
+  languages:
+    - en
+
 ---
 
 # Create tickets

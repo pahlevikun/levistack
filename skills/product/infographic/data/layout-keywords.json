@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "notes": "Keyword hints for layout-mood-catalog. Match case-insensitive substrings in user text.",
+  "entries": [
+    {
+      "keywords": ["timeline", "history", "chronology", "milestones"],
+      "layout": "lane-timeline",
+      "moods": ["paper-sketch", "watercolor-story"],
+      "aspect": "landscape-wide"
+    },
+    {
+      "keywords": ["vs", "versus", "before after", "compare two", "pros cons"],
+      "layout": "split-binary",
+      "moods": ["flat-brand", "editorial-clean"],
+      "aspect": "landscape-wide"
+    },
+    {
+      "keywords": ["funnel", "conversion", "pipeline stages"],
+      "layout": "funnel-path",
+      "moods": ["flat-brand"],
+      "aspect": "portrait-tall"
+    },
+    {
+      "keywords": ["dashboard", "kpi", "metrics panel"],
+      "layout": "metric-panel",
+      "moods": ["flat-brand", "schematic-blue"],
+      "aspect": "landscape-wide"
+    },
+    {
+      "keywords": ["venn", "overlap", "intersection"],
+      "layout": "overlap-sets",
+      "moods": ["editorial-clean", "paper-sketch"],
+      "aspect": "square"
+    },
+    {
+      "keywords": ["cycle", "loop", "recurring"],
+      "layout": "cycle-ring",
+      "moods": ["paper-sketch"],
+      "aspect": "square"
+    },
+    {
+      "keywords": ["dense", "high density", "cheat sheet", "product map"],
+      "layout": "module-dense",
+      "moods": ["editorial-clean", "vintage-print"],
+      "aspect": "portrait-tall"
+    },
+    {
+      "keywords": ["infographic", "overview", "bento"],
+      "layout": "tile-board",
+      "moods": ["editorial-clean"],
+      "aspect": "landscape-wide",
+      "prompt_notes": "Keep background simple. Favor icons and short labels over long paragraphs on art."
+    },
+    {
+      "keywords": ["technical", "blueprint", "schematic", "engineering"],
+      "layout": "cutaway",
+      "moods": ["schematic-blue"],
+      "aspect": "landscape-wide"
+    },
+    {
+      "keywords": ["journey", "roadmap", "wayfinding"],
+      "layout": "road-milestones",
+      "moods": ["watercolor-story", "paper-sketch"],
+      "aspect": "landscape-wide"
+    }
+  ]
+}

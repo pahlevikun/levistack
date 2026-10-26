@@ -3,7 +3,33 @@ name: glab-code-review
 description: "Use when reviewing your local git diff before opening a PR, requesting a git-range code review before merge, receiving and acting on review feedback with verify-first discipline, or reviewing a GitLab merge request via glab with draft inline notes. Not for an adversarial two-reviewer verdict (second-opinion)."
 context: fork
 metadata:
-  version: "4.1.0"
+  version: 1.0.0
+  author: levistack
+  license: MIT
+  group: delivery
+  category: delivery
+  department: delivery
+  related_skills:
+    - noslop
+    - polyglot-copywriter
+    - verify
+    - write-mr-description
+  invokes:
+    - skill: noslop
+      when: Comment bodies need slop pass on code surfaces
+    - skill: polyglot-copywriter
+      when: Review comment prose needs polish
+    - skill: verify
+      when: Acting on each review comment
+  tags:
+    - gitlab
+    - code-review
+    - mr
+  capabilities:
+    - merge_request_review
+  languages:
+    - en
+
 ---
 
 # glab-code-review

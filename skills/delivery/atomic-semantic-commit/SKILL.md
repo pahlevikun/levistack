@@ -1,9 +1,30 @@
 ---
 name: atomic-semantic-commit
 description: "Split a messy working tree into small commits, one purpose and one context per commit, with descriptive semantic commit messages (feat, fix, docs, style, refactor, test, chore) written in Simplified Technical English. A subject says what changed for the reader and a body says why, so a message is never just "add" plus a name. Use when the user asks to commit, split commits, organize changes, clean up history or write a commit message, or when unrelated changes are staged together. Commits only when asked."
-metadata:
-  version: "2.1.0"
 allowed-tools: Bash(git:*) Bash(node:*)
+metadata:
+  version: 1.0.0
+  author: levistack
+  license: MIT
+  group: delivery
+  category: delivery
+  department: delivery
+  related_skills:
+    - write-mr-description
+    - glab-code-review
+    - polyglot-copywriter
+  invokes:
+    - skill: polyglot-copywriter
+      when: Commit message prose needs polish
+  tags:
+    - git
+    - commit
+    - conventional-commits
+  capabilities:
+    - atomic_commits
+  languages:
+    - en
+
 ---
 
 # Atomic commits

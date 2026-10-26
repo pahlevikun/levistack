@@ -3,7 +3,28 @@ name: super-nodejs
 description: "Use for any Node.js backend work: package.json, Express, Fastify, middleware, REST or GraphQL APIs, authentication, database integration, error handling, async patterns, Node security and testing. One skill with two specialities: decide (framework, runtime, architecture, anti-patterns) and build (production-ready service patterns with worked examples). It detects the job and loads only the guide it needs."
 when_to_use: "Use proactively when the user asks to build, structure, review or harden a Node.js server or API; asks 'Express or Fastify', 'how should I structure this service', 'where does auth go', 'how do I handle errors or async here'; or is working in a Node project with a server entry point."
 metadata:
-  version: "1.0.0"
+  version: 1.0.0
+  author: levistack
+  license: MIT
+  group: architecture
+  category: architecture
+  department: architecture
+  related_skills:
+    - super-architecture
+    - tdd
+    - verify
+  invokes:
+    - skill: verify
+      when: Before claiming service work is done
+  tags:
+    - nodejs
+    - api
+    - service
+  capabilities:
+    - nodejs_service
+  languages:
+    - en
+
 ---
 
 # Super Node.js

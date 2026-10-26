@@ -1,6 +1,36 @@
 ---
 name: product-polish-workflow
 description: "Use when an existing product needs a code or design audit, user-journey QA, UI/UX polish, branding work or a detailed next-feature plan. It keeps scope, evidence, code ownership, the journey tracker and verification, and calls color-kit for palettes and modes, ui-ux-kit for screens, components and motion, design-system-kit for the token system and prototype-wireframe for throwaway answers. Not for building a new palette, a new design system or a single new screen from scratch."
+metadata:
+  version: 1.0.0
+  author: levistack
+  license: MIT
+  group: product
+  category: product-design
+  department: product
+  related_skills:
+    - verify
+    - color-kit
+    - ui-ux-kit
+    - design-system-kit
+  invokes:
+    - skill: verify
+      when: Claims about shipped quality need evidence
+    - skill: color-kit
+      when: Brand or contrast audit on colors
+    - skill: ui-ux-kit
+      when: Interaction or motion audit
+    - skill: design-system-kit
+      when: System-level critique
+  tags:
+    - audit
+    - polish
+    - product
+  capabilities:
+    - shipped_product_audit
+  languages:
+    - en
+
 ---
 
 # Product polish workflow

@@ -1,6 +1,23 @@
 ---
 name: later-list
 description: "Put a tangent on the later list (one line in LATER.md) and go back to the current task, then sort the list at a natural break (do now, schedule, drop). Applies to the user's ideas and to side issues the agent finds while working, such as an unrelated bug, refactor or doc gap. Use when the user says 'park this', 'note that for later', 'side quest', 'remind me', or when a new idea or unrelated fix shows up mid-task. Not for blockers of the current task (handle those now)."
+metadata:
+  version: 1.0.0
+  author: levistack
+  license: MIT
+  group: focus
+  category: focus
+  department: focus
+  related_skills:
+    - handoff
+  tags:
+    - parking-lot
+    - tangent
+  capabilities:
+    - defer_tangent
+  languages:
+    - en
+
 ---
 
 # Later list

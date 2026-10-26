@@ -8,6 +8,25 @@ paths:
   - "**/buf.gen.yaml"
   - "**/buf.gen.*.yaml"
   - "**/buf.lock"
+metadata:
+  version: 1.0.0
+  author: levistack
+  license: MIT
+  group: architecture
+  category: architecture
+  department: architecture
+  related_skills:
+    - ready-spec
+    - verify
+  tags:
+    - protobuf
+    - grpc
+    - buf
+  capabilities:
+    - protobuf_schema
+  languages:
+    - en
+
 ---
 
 # Super protobuf

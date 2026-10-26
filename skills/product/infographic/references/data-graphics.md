@@ -21,7 +21,7 @@ State units, population, denominator and period near the graphic. Directly label
 - Preserve uncertainty intervals and sample sizes where available. Never invent them.
 - Recompute totals and percentage changes. Check filtering, ranking, ties and rounding.
 - Explain indexes and normalized values. A chart of relative signal cannot silently become a chart of absolute prevalence.
-- Use hue for category, ordered lightness for magnitude and a meaningful midpoint for divergence. `color-kit` owns measured palette decisions. Keep direct labels or patterns as another cue.
+- Use hue for category, ordered lightness for magnitude and a meaningful midpoint for divergence. Use measured palette decisions from project tokens. Keep direct labels or patterns as another cue.
 
 ## Narrow runnable example
 
@@ -49,4 +49,4 @@ python3 <infographic-skill>/scripts/render_bars.py chart.json chart.svg
 
 The helper is a starting point for one chart family. Numeric labels are limited to six characters so they fit without silently rounding values. Convert to explicit display units or use a custom layout when values need more room. It cannot verify that a supplied citation is true or that categories are comparable. Inspect the source before running it. Use a custom chart or the project's plotting library for signed values, time series, uncertainty, maps and interactive analysis.
 
-Render and inspect the SVG at its expected display size. The diagram skill can rasterize it locally. The existence of a valid file is not proof that the figure communicates the right claim.
+Render and inspect the SVG at its expected display size. Local raster tools can export PNG when installed. The existence of a valid file is not proof that the figure communicates the right claim.

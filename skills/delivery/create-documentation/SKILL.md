@@ -1,6 +1,29 @@
 ---
 name: create-documentation
 description: "Write docs readers can use, or find which docs a code change made wrong. Researches the code first, then writes one kind of page at a time (tutorial, how-to, reference, explanation), runs every example, and checks claims against the code. Also writes API references from an OpenAPI spec and code comments (doc comments with a one-line summary and runnable examples). Use when asked to document a feature, module, project or API, write a README or guide, add doc comments, or check whether docs are still right after a diff. Not for a repo map (codebase-learner), an MR description (write-mr-description) or prose polish (polyglot-copywriter)."
+metadata:
+  version: 1.0.0
+  author: levistack
+  license: MIT
+  group: delivery
+  category: delivery
+  department: delivery
+  related_skills:
+    - diagram
+    - codebase-learner
+  invokes:
+    - skill: diagram
+      when: Docs need technical figures
+    - skill: codebase-learner
+      when: Module map is unknown
+  tags:
+    - documentation
+    - docs
+  capabilities:
+    - feature_documentation
+  languages:
+    - en
+
 ---
 
 # Create documentation

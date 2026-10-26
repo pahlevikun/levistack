@@ -2,7 +2,23 @@
 name: output-savers
 description: "Engineering principles plus plain STE writing in one skill. Writes the smallest working change (YAGNI, minimal scope, DRY, SOLID, noslop backend filter), reviews for over-engineering, and audits repos for bloat. Replies, commit messages, review comments, and memory files use short Simplified Technical English (pilot and astronaut styles). Detects the job and picks the mode. Use for be brief, save tokens, yagni, minimal scope, is this over-engineered, commit message, review this diff, compress CLAUDE.md, shrink context. Not for prose written for human readers."
 metadata:
-  version: "3.0.0"
+  version: 1.0.0
+  author: levistack
+  license: MIT
+  group: engineering
+  category: engineering
+  department: engineering
+  related_skills:
+    - polyglot-copywriter
+  tags:
+    - concise
+    - principles
+    - tokens
+  capabilities:
+    - concise_output
+  languages:
+    - en
+
 ---
 
 # Output savers

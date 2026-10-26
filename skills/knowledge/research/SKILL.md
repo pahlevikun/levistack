@@ -1,6 +1,25 @@
 ---
 name: research
 description: "Close an external or repo-recorded knowledge gap with primary-source findings or a questionnaire for one person. Use when asked to research a topic, search the web or official docs, gather API facts from documentation, use read-only git history for when something shipped or what a changelog says, write a cited research note, or prepare questions for someone who holds a needed answer. Not for how this repo runs today (codebase-learner), why code changed or failed (trace), or choosing a technology stack (super-tech-blueprint)."
+metadata:
+  version: 1.0.0
+  author: levistack
+  license: MIT
+  group: knowledge
+  category: knowledge
+  department: knowledge
+  related_skills:
+    - challenge-me
+    - write-plan
+  tags:
+    - research
+    - sources
+    - web
+  capabilities:
+    - primary_source_research
+  languages:
+    - en
+
 ---
 
 # Research

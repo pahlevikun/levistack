@@ -3,7 +3,33 @@ name: design-system-kit
 description: "Build a design system step by step, then critique with it. Discover what exists (code, a live website, Stitch, screenshots), set the direction from a wide reference library, assemble tokens for type, space, shape, elevation and platform sizes, write DESIGN.md, critique the real screens against the new system, record component specs, set up the library and governance, validate and hand off. It calls color-kit for every color decision and ui-ux-kit for components, motion and UX. Fits mobile, desktop, web, TV and car. Use when the user wants a design system, token file, DESIGN.md or governance, to extract a site's design, or brand slides. Not for choosing a palette (color-kit), building one screen (ui-ux-kit) or brand identity."
 when_to_use: "Use when the user asks for a design system, a token file or DESIGN.md, to audit or govern a component library, to extract the design of a website, to review a UI against a system, or to make slides that follow a brand. Also use it when the user mentions Stitch, CSS variables, spacing or type scales. For only a palette or dark mode, use color-kit. For one screen or component, use ui-ux-kit."
 metadata:
-  version: "3.0.0"
+  version: 3.0.0
+  author: levistack
+  license: MIT
+  group: product
+  category: product-design
+  department: product
+  related_skills:
+    - color-kit
+    - ui-ux-kit
+    - prototype-wireframe
+  invokes:
+    - skill: color-kit
+      when: Any color, mode, or contrast decision
+    - skill: ui-ux-kit
+      when: Components, motion, or platform UX decisions
+  tags:
+    - design-system
+    - tokens
+    - DESIGN.md
+    - governance
+  capabilities:
+    - design_system_pipeline
+    - token_assembly
+    - critique_against_system
+  languages:
+    - en
+
 ---
 
 # Design system kit

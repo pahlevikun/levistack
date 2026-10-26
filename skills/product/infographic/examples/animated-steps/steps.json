@@ -1,0 +1,33 @@
+{
+  "title": "Evidence lane (fictional demo)",
+  "source": "Fictional demo for animated-svg skill eval. Not factual.",
+  "synthetic": true,
+  "width": 1200,
+  "height": 675,
+  "duration_seconds": 8,
+  "hold_seconds": 2.5,
+  "theme": {
+    "background": "#17152e",
+    "ink": "#e8e4f4",
+    "muted": "#98a2b6",
+    "accent": "#c99d48",
+    "line": "#3a3358"
+  },
+  "steps": [
+    {
+      "glyph": "A",
+      "value_display": "48",
+      "label": "Records ingested"
+    },
+    {
+      "glyph": "B",
+      "value_display": "12",
+      "label": "Claims verified"
+    },
+    {
+      "glyph": "C",
+      "value_display": "3",
+      "label": "Open gaps flagged"
+    }
+  ]
+}

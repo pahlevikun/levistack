@@ -1,0 +1,17 @@
+# Portable agent interface metadata for hosts that read skill-local manifests.
+# Cursor and Claude Code: load skills/product/infographic/SKILL.md (name: infographic).
+interface:
+  display_name: "Infographic editorial"
+  short_description: "Evidence-led posters, carousels, and data stories with optional technical embeds"
+  default_prompt: >-
+    Load the levistack infographic skill. Check metadata invokes: call diagram for
+    technical figures, color-kit for palette proof, polyglot-copywriter for copy polish
+    when needed. Build an evidence-led poster or carousel with visual brief, layout,
+    optional design spec, then SVG or HTML and local PNG when tools exist. Run
+    publishing-gate if copy schedules with the image.
+  related_skills:
+    - diagram
+    - color-kit
+    - design-system-kit
+    - polyglot-copywriter
+    - logo-kit-svg

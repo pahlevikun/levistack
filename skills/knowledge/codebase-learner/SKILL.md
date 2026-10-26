@@ -1,6 +1,26 @@
 ---
 name: codebase-learner
 description: "Learn how a codebase works today, read-only: explain one flow or subsystem ('how does X work', walkthroughs, 'where should this live', 'which package owns this'), onboard onto a repo, deep-read it, write ARCHITECTURE.md of what exists, diagnose layering and architecture smells, extract conventions into rules, or plan site IA of the product as built. Splits a wide question into parallel explorer subagents, then one explainer writes a senior-engineer mental model. Use when onboarding, priming context, mapping modules and data flow, or before changing unfamiliar code. Not for why code is shaped this way (trace), reviewing a diff (second-opinion), or choosing a target stack, TCO, greenfield design or a migration blueprint (super-tech-blueprint)."
+metadata:
+  version: 1.0.0
+  author: levistack
+  license: MIT
+  group: knowledge
+  category: knowledge
+  department: knowledge
+  related_skills:
+    - trace
+    - research
+    - create-agents-md
+  tags:
+    - onboarding
+    - architecture
+    - map
+  capabilities:
+    - codebase_explanation
+  languages:
+    - en
+
 ---
 
 # Codebase learner

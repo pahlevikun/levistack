@@ -2,7 +2,24 @@
 name: noslop
 description: "Domain router for the no-slop filter on backend handlers, APIs, frontend UI, database access, infra/config, tests, and code comments. Stops tutorial layering, generic errors, OpenAPI filler, a11y/perf theater, N+1 queries, and AI comment noise. Pairs with glab-code-review (noslop dimension) and polyglot-copywriter for review/MR prose. Use when generating or auditing code that must fit this repo—not a paste. Subskill noslop-code is comments-only. Default mode: during; after mode for audits."
 metadata:
-  version: "2.0.0"
+  version: 1.0.0
+  author: levistack
+  license: MIT
+  group: engineering
+  category: engineering
+  department: engineering
+  related_skills:
+    - polyglot-copywriter
+    - glab-code-review
+  tags:
+    - code-quality
+    - comments
+    - slop
+  capabilities:
+    - slop_filter
+  languages:
+    - en
+
 ---
 
 # Noslop

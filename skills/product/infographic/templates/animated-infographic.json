@@ -1,0 +1,33 @@
+{
+  "title": "How the pipeline works",
+  "source": "Internal runbook v3, section 2 (example)",
+  "synthetic": true,
+  "width": 1200,
+  "height": 675,
+  "duration_seconds": 8,
+  "hold_seconds": 2.5,
+  "theme": {
+    "background": "#0f1419",
+    "ink": "#f4f7fb",
+    "muted": "#9aa4b2",
+    "accent": "#5b8def",
+    "line": "#3a4250"
+  },
+  "steps": [
+    {
+      "glyph": "1",
+      "value_display": "3k+",
+      "label": "Sources scanned"
+    },
+    {
+      "glyph": "2",
+      "value_display": "92%",
+      "label": "Auto-matched"
+    },
+    {
+      "glyph": "3",
+      "value_display": "1,287",
+      "label": "Reports shipped"
+    }
+  ]
+}

@@ -1,6 +1,25 @@
 ---
 name: super-caching
 description: "Super caching: domain router for web (browser, CDN, service worker, HTTP Cache-Control, BFF/API route cache), mobile (on-device, offline, image cache, NSURLSession/OkHttp guidance), server (in-process L1, Redis/Memcached, cache-aside and invalidation), edge/CDN, DB buffer-pool pointers, and optional LLM prompt cache. Covers LRU/LFU/W-TinyLFU, TTL, stampede and hot-key mitigation. Use when choosing or fixing caching in web apps, mobile clients, APIs, distributed cache layers, or CDN headers — not for ORM query-plan cache, pure-function memoization, or CPU cache tuning."
+metadata:
+  version: 1.0.0
+  author: levistack
+  license: MIT
+  group: architecture
+  category: architecture
+  department: architecture
+  related_skills:
+    - super-nodejs
+    - super-architecture
+  tags:
+    - caching
+    - cdn
+    - redis
+  capabilities:
+    - caching_design
+  languages:
+    - en
+
 ---
 
 # Super caching

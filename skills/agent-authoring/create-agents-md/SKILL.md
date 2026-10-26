@@ -1,6 +1,26 @@
 ---
 name: create-agents-md
 description: "Create, audit or refresh AGENTS.md files: the repo root, nested package files, and the user-level global file, for Claude Code, Cursor and Codex. Use when asked to write, improve, split, shrink or migrate AGENTS.md or CLAUDE.md."
+metadata:
+  version: 1.0.0
+  author: levistack
+  license: MIT
+  group: agent-authoring
+  category: agent-authoring
+  department: agent-authoring
+  related_skills:
+    - codebase-learner
+  invokes:
+    - skill: codebase-learner
+      when: Repository layout is unknown
+  tags:
+    - AGENTS.md
+    - CLAUDE.md
+  capabilities:
+    - agents_md_authoring
+  languages:
+    - en
+
 ---
 
 # Create AGENTS.md

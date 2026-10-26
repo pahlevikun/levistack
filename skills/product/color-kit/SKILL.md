@@ -1,6 +1,32 @@
 ---
 name: color-kit
 description: "Pick and prove the colors of a product. Choose a color strategy (feeling, harmony, contrast, dose), mix or anchor a palette, build OKLCH ramps and semantic roles, compose light, dark, high contrast, car night and TV modes, tune the result live with knobs, prove every text and control pair with measured contrast, build chart scales, audit the colors that already exist, and bind the theme to a stack (CSS and Tailwind, SwiftUI, Jetpack Compose, Flutter, React Native, Vue). Use when the user asks for a palette, brand colors, a theme, dark mode, color tokens, a contrast fix or a color audit. Not for buttons, layout or motion (ui-ux-kit), the full token file and DESIGN.md (design-system-kit), or logo art."
+metadata:
+  version: 1.0.0
+  author: levistack
+  license: MIT
+  group: product
+  category: product-design
+  department: product
+  related_skills:
+    - design-system-kit
+    - ui-ux-kit
+    - infographic
+    - diagram
+  tags:
+    - color
+    - palette
+    - theme
+    - contrast
+    - tokens
+    - dark-mode
+  capabilities:
+    - palette_strategy
+    - contrast_proof
+    - stack_binding
+  languages:
+    - en
+
 ---
 
 # Color kit

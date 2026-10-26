@@ -1,6 +1,23 @@
 ---
 name: create-hook
 description: "Create, wire up and test agent hooks: Claude Code settings.json or plugin hooks, Cursor hooks.json, or a shared hooks/ tree. Use when asked to run something automatically on an agent event, block or rewrite a tool call, format after edits, inject session context, or debug a hook that never fires."
+metadata:
+  version: 1.0.0
+  author: levistack
+  license: MIT
+  group: agent-authoring
+  category: agent-authoring
+  department: agent-authoring
+  related_skills:
+    - create-skill
+  tags:
+    - hook
+    - automation
+  capabilities:
+    - hook_authoring
+  languages:
+    - en
+
 ---
 
 # Create a hook

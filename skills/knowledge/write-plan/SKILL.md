@@ -1,6 +1,30 @@
 ---
 name: write-plan
 description: "Write a bite-sized implementation plan (files, tasks, tests, commits) for a multi-step change that an engineer or agent with no context can follow. Use when you have a spec or requirements for a multi-step task, before touching code. Not for a backend or API contract spec with lifecycle and error catalog (ready-spec)."
+metadata:
+  version: 1.0.0
+  author: levistack
+  license: MIT
+  group: knowledge
+  category: knowledge
+  department: knowledge
+  related_skills:
+    - challenge-me
+    - create-tickets
+    - ready-spec
+  invokes:
+    - skill: challenge-me
+      when: Spec or scope is still soft
+    - skill: create-tickets
+      when: Plan is ready to become tickets
+  tags:
+    - plan
+    - slicing
+  capabilities:
+    - multi_step_planning
+  languages:
+    - en
+
 ---
 
 # Write a plan
