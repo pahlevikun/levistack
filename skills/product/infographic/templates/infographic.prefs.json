@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "preferred_raster_backend": "auto",
+  "quick_mode": false,
+  "skip_confirm": false,
+  "default_aspect": "landscape-wide",
+  "default_layout": "tile-board",
+  "default_mood": "editorial-clean",
+  "default_language": "en",
+  "generation_batch_size": 4,
+  "openrouter_model": "google/gemini-2.5-flash-image-preview",
+  "openai_model": "gpt-image-1",
+  "style_prefix": "Editorial infographic draft. Clear hierarchy. No invented statistics in the art."
+}
