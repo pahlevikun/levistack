@@ -5,9 +5,9 @@ metadata:
   version: 1.0.0
   author: levistack
   license: MIT
-  group: knowledge
-  category: knowledge
-  department: knowledge
+  group: delivery
+  category: delivery
+  department: delivery
   related_skills:
     - challenge-me
     - create-tickets
