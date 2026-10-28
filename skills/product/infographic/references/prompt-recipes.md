@@ -94,13 +94,14 @@ Recompose carousel frames for X width. Draft alt text and thread copy.
 Run publishing-gate on the scheduler payload. Do not post without my OK.
 ```
 
-## Sequenced animated SVG
+## Sequenced animated SVG (no video)
 
 ```text
-Load the infographic skill. Follow animated-svg-sequenced.
+Load the infographic skill. Follow animated-svg-sequenced and sequenced-infographic-choreography.
 Fill templates/animated-infographic.json with exact value_display strings from the ledger.
-Run build_animated_svg.py. Deliver SVG plus optional PNG hold via png_from_svg.py.
-No MP4 unless the user asks for a separate video pipeline.
+Optional insight line and timing overrides for stagger and hold.
+Run build_animated_svg.py. Deliver SVG only. Optional static hold via reduced-motion preview.
+Do not encode MP4 or Remotion in this skill path.
 ```
 
 ## Declarative DSL export

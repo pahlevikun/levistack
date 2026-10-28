@@ -17,7 +17,7 @@
   },
   "skills": {
     "infographic": {
-      "version": "1.3.0",
+      "version": "1.4.0",
       "category": "editorial-visualization",
       "related_skills": ["diagram", "color-kit", "design-system-kit", "polyglot-copywriter", "logo-kit-svg"],
       "invokes": [

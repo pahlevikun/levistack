@@ -1,8 +1,8 @@
 ---
 name: infographic
-description: "Create evidence-based infographics, visual explainers, research posters, charts, timelines and social carousels, including layouts that embed Mermaid, technical figures, and CSS-animated SVG (keyframes, stroke reveals, staggered steps, prefers-reduced-motion). Use when asked to communicate a sourced claim visually, compose a data story, annotate authentic evidence, critique an infographic or adapt it for web, print, slides or social. Bundled helpers cover PNG from SVG, optional themed Mermaid export, sequenced animated SVG, and raster prefs when API keys exist."
+description: "Create evidence-based infographics, visual explainers, research posters, charts, timelines and social carousels, including layouts that embed Mermaid, technical figures, and CSS-animated SVG sequenced infographics (icon pop, staggered stats, draw-on connectors, tabular-nums, prefers-reduced-motion). Use when asked to make an animated infographic, sequenced reveal, stagger icons and stats, communicate a sourced claim visually, compose a data story, annotate authentic evidence, critique an infographic or adapt it for web, print, slides or social. Deliver motion as SVG only, not video or MP4. Bundled helpers cover PNG from SVG, optional themed Mermaid export, build_animated_svg.py, and raster prefs when API keys exist."
 metadata:
-  version: 1.3.0
+  version: 1.4.0
   author: levistack
   license: MIT
   group: product
@@ -99,7 +99,7 @@ Use synthetic values only for a requested mockup, visibly labeled in the asset. 
 | Social post, thread, or article package | [Social X surfaces](references/social-x-surfaces.md) |
 | Article or deck cover hero | [Cover hero surfaces](references/cover-hero-surfaces.md) |
 | Optional declarative infographic DSL | [Declarative infographic syntax](references/declarative-infographic-syntax.md) |
-| Sequenced animated SVG (no video encode) | [Animated SVG sequenced](references/animated-svg-sequenced.md) |
+| Sequenced animated SVG (no video encode) | [Animated SVG sequenced](references/animated-svg-sequenced.md), [Choreography](references/sequenced-infographic-choreography.md) |
 | Layout type pick and wireframe planning | [Layout types](references/layout-types.md), [Design spec workflow](references/design-spec-workflow.md) |
 | Comparison, evidence lanes, network, map, timeline or batch layout | [Composition](references/composition.md) |
 | Mermaid, flow, architecture or schema figure inside the layout | [Technical figures](references/technical-figures.md), [Technical figure package](references/technical-figure-package.md) |
@@ -128,7 +128,7 @@ Recompose each requested aspect ratio instead of stretching it. Keep caveats and
 
 Run the review against the actual source and delivered file. First repair claims, calculations and inaccessible essential information. Then refine the layout. Inspect at the expected feed width, presentation distance or physical print size. For web, check narrow layouts, zoom and keyboard/touch access to interactive detail. Use measured contrast evidence before claiming a contrast pass. Supply labels or patterns alongside hue and an accessible description or data table.
 
-For motion, keep every claim and caveat available in a complete still. Declare step order and timing, avoid rapid flashes, and inspect the encoded first/final frames and meaningful steps. Test reduced motion in SVG/HTML and provide controls for long or interactive playback. Pair GIF with a still. Motion cannot be the only way to read a fact.
+For motion, keep every claim and caveat available in a complete still. Follow [sequenced infographic choreography](references/sequenced-infographic-choreography.md) for tier order, pacing, and final hold. Declare step order and timing, avoid rapid flashes, and inspect the encoded first/final frames and meaningful steps. Test reduced motion in SVG/HTML and provide controls for long or interactive playback. Pair animated SVG with a still. Motion cannot be the only way to read a fact. Do not ship MP4 or GIF as the primary deliverable from this skill.
 
 Inspect the exact exports: SVG structure and live text, PNG dimensions and background, PDF page size and fonts, or the actual native source in its editor where relevant. A parser pass cannot prove visual quality or editor behavior. After repairs, regenerate and inspect the affected file. For compression, preserve originals and compare bytes and readability.
 
@@ -140,7 +140,7 @@ Deliver editable source, data and generator where used, requested exports, acces
 - `scripts/png_from_svg.py INPUT.svg OUTPUT.png --width 1200` rasterizes a layout or bar SVG with local `rsvg-convert`.
 - `scripts/export_figure.py png|png-strict|mermaid-theme|mermaid-svg|themes` delegates themed Mermaid and strict static SVG checks to optional export scripts when `LEVISTACK_DIAGRAM_SCRIPTS` or the default sibling path is set. `scripts/sibling_diagram.py` resolves that path.
 - `scripts/image_generate.py` loads `infographic.prefs.json` / `infographic.extend.md`, lists raster backends, resolves `preferred_raster_backend`, and calls image APIs when keys are set. Use `agent-native` when the host should call its own image tool. See [raster Python](references/raster-python.md).
-- `scripts/build_animated_svg.py INPUT.json OUTPUT.svg` writes a self-contained sequenced infographic with CSS keyframes and `prefers-reduced-motion`. See [animated SVG sequenced](references/animated-svg-sequenced.md).
+- `scripts/build_animated_svg.py INPUT.json OUTPUT.svg` writes a self-contained sequenced infographic with CSS keyframes and `prefers-reduced-motion`. See [animated SVG sequenced](references/animated-svg-sequenced.md) and [UPSTREAM.md](UPSTREAM.md).
 - `evals/sample-bars.json` is visibly synthetic sample data. `evals/cases.json` covers research, archival, timeline, chart, screenshot, carousel and critique requests, plus boundary cases.
 - `examples/cfo-capacity/brief.md` is a fictional worked campaign brief (convergence layout, optional technical figure).
 - `references/prompt-recipes.md` lists starter prompts. `agents/openai.yaml` and `agents/README.md` package the default prompt for agent hosts.
