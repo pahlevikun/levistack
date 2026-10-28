@@ -1,0 +1,45 @@
+meta {
+  name: create-label-empty
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{baseUrl}}/v1/archive-jobs
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+headers {
+  Accept: application/json
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "source": {
+      "collection": "demo-records"
+    },
+    "label": ""
+  }
+}
+
+tests {
+  test("Declared HTTP status", function () { expect(res.status).to.equal(202); });
+}
+
+docs {
+  An empty label is retained as an empty string, unlike omission or null.
+
+  Evidence: normative synthetic contract demo-1. This request and its assertions have not been run.
+  The example.test host is illustrative. Replace it only with an authorized test service. No login or refresh endpoint is defined.
+
+  Declared response: HTTP 202 Accepted.
+  Caller action: Read the returned ID and preserve the distinct empty-label meaning.
+
+  Success body follows Job or the list envelope in the normative contract. All Job fields remain present. Label presence and nullability differ between request and response.
+}

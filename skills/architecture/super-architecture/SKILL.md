@@ -1,9 +1,9 @@
 ---
 name: super-architecture
-description: "Detect, choose, build, evaluate, migrate and document software architecture. Use to name the architecture of an existing codebase, pick one for a new system, scaffold or write code in a given style (layered, onion, hexagonal or ports and adapters, clean, COLA, vertical slice, CQRS, event sourcing, event-driven, client-server, domain-driven, functional core, microkernel, microservices, modular monolith, pipeline, serverless, service-based, space-based), check dependency direction and layer violations, plan a strangler-fig migration, or write an ADR or C4 docs. One skill with granular job, style and stack guides; it loads only what the task needs."
-when_to_use: "Use when the user asks 'what architecture is this', 'which architecture should we use', 'where does this code belong', 'structure this service', 'is the domain leaking into the framework', 'should we use CQRS or microservices', 'modular monolith or services', 'functional core', 'serverless vs always-on', 'refactor toward hexagonal', 'write an ADR' or 'draw the C4 diagram'; or when scaffolding a new service or feature that needs a structure."
+description: "Detect, choose, build, evaluate, migrate and document software architecture. Use to name the architecture of an existing codebase, pick one for a new system, scaffold or write code in a given style (layered, onion, hexagonal or ports and adapters, clean, COLA, vertical slice, CQRS, event sourcing, event-driven, client-server, domain-driven, functional core, microkernel, microservices, modular monolith, pipeline, serverless, service-based, space-based), check dependency direction and layer violations, plan a strangler-fig migration, or write C4 docs and architecture blueprints. For a standalone ADR use write-adr. One skill with granular job, style and stack guides; it loads only what the task needs."
+when_to_use: "Use when the user asks 'what architecture is this', 'which architecture should we use', 'where does this code belong', 'structure this service', 'is the domain leaking into the framework', 'should we use CQRS or microservices', 'modular monolith or services', 'functional core', 'serverless vs always-on', 'refactor toward hexagonal' or 'draw the C4 diagram'; or when scaffolding a new service or feature that needs a structure. Use write-adr for a standalone decision record."
 metadata:
-  version: 1.0.0
+  version: 1.1.0
   author: levistack
   license: MIT
   group: architecture
@@ -12,6 +12,10 @@ metadata:
   related_skills:
     - super-tech-blueprint
     - codebase-learner
+    - write-adr
+  invokes:
+    - skill: write-adr
+      when: An architecture choice needs a requested or repository-required decision record
   tags:
     - architecture
     - scaffold
@@ -52,7 +56,10 @@ Do this first and do not announce it.
 | Create a service, feature or scaffold in a style | build | [jobs/build.md](jobs/build.md) |
 | Assess health, maturity or debt of an existing design | evaluate | [jobs/evaluate.md](jobs/evaluate.md) |
 | Move from one structure to another, or strangle a legacy one | migrate | [jobs/migrate.md](jobs/migrate.md) |
-| Write ADRs, C4 diagrams or an architecture blueprint | document | [jobs/document.md](jobs/document.md) |
+| Write C4 diagrams or an architecture blueprint | document | [jobs/document.md](jobs/document.md) |
+
+For a standalone ADR request, use `write-adr`. When an architecture selection also needs a decision record, pass the chosen option and evidence to `write-adr`.
+When `write-adr` invoked this skill for an unresolved choice, return the recommendation and evidence to it; do not call it again from this pass.
 
 Common chains: **greenfield** is select, build, document. **Legacy** is detect, evaluate, migrate, then verify. **Review** is detect, then evaluate with a short report.
 
@@ -123,7 +130,7 @@ Load the matching file when a job needs more than the summary here.
 6. **One aggregate per transaction.** Inside an aggregate, consistency is immediate. Between aggregates, use IDs and events.
 7. **Abstract only where it pays.** A port needs volatility, a test seam or a team boundary. Share code only after two real consumers prove identical meaning.
 8. **Make claims checkable.** Back structure with scan output, architecture tests and diagrams derived from the code, each with file paths.
-9. **Record the decision with its trade-off,** using [templates/adr.md](templates/adr.md).
+9. **Record the decision with its trade-off** through `write-adr` when requested or required by repository convention.
 10. **Verify before claiming.** Use the `verify` gate: run the scan and tests, read the output, then say what holds.
 
 ## Output by job

@@ -25,6 +25,29 @@ class BuildAnimatedSvgTests(unittest.TestCase):
         self.assertIsNotNone(style)
         self.assertIn("prefers-reduced-motion", style.text or "")
 
+    def test_build_has_tabular_nums(self):
+        data = {
+            "title": "Test",
+            "source": "unit test",
+            "synthetic": True,
+            "steps": [{"glyph": "1", "value_display": "9", "label": "Nine"}],
+        }
+        tree = build(data)
+        style = tree.find(".//{http://www.w3.org/2000/svg}style")
+        self.assertIn("tabular-nums", style.text or "")
+
+    def test_build_metadata_duration(self):
+        data = {
+            "title": "Test",
+            "source": "unit test",
+            "synthetic": True,
+            "steps": [{"glyph": "1", "value_display": "9", "label": "Nine"}],
+        }
+        tree = build(data)
+        meta = tree.find(".//{http://www.w3.org/2000/svg}metadata")
+        self.assertIsNotNone(meta)
+        self.assertIn("svg-only", meta.text or "")
+
     def test_write_refuses_overwrite(self):
         data = {
             "title": "Test",

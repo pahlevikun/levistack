@@ -1,3 +1,3 @@
 ---
-description: "Shipping work: atomic commits, code review (local diff, request, receive, GitLab glab drafts), merge request descriptions, documentation (pages, API references, doc comments, docs checks after a change), tickets (sliced into end-to-end pieces with blockers) and API collections."
+description: "Shipping work: atomic commits, code review, merge request descriptions, implementation specs and plans, technical documentation (pages, Bruno-first API handovers with full responses and states, processes, contracts, doc comments and freshness checks), combined ADR and design-doc authoring, dedicated runbook, postmortem and changelog skills, tickets and API collections."
 ---

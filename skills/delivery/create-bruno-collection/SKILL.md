@@ -8,9 +8,8 @@ description: >-
   Scans routes, OpenAPI, GraphQL schema, or proto. Use when asked for Bruno
   collections, .bru files, gRPC/GraphQL/WebSocket examples, API environments,
   auth flow in Bruno, or runnable documented API examples for a service.
-disable-model-invocation: true
 metadata:
-  version: 1.0.0
+  version: 1.2.0
   author: levistack
   license: MIT
   group: delivery
@@ -19,15 +18,19 @@ metadata:
   related_skills:
     - verify
     - ready-spec
+    - create-documentation
   invokes:
     - skill: verify
       when: Collection should be run to prove requests
+    - skill: create-documentation
+      when: A shareable client API document is requested alongside the runnable collection
   tags:
     - bruno
     - api
     - collection
   capabilities:
     - bruno_collection
+    - handover_prerequisite_cases
   languages:
     - en
 
@@ -49,7 +52,7 @@ Shared references: [collection-layout.md](references/collection-layout.md), [env
 | WebSocket APIs | `ws` | [protocols/websocket.md](references/protocols/websocket.md) |
 | SOAP or WSDL | `http` + XML | [protocols/soap-and-sse.md](references/protocols/soap-and-sse.md) |
 
-Mixed services: one collection, shared `environments/`, HTTP `auth/login` when tokens are JWT, then protocol-specific folders (see [collection-layout.md](references/collection-layout.md)). Index: [protocols/README.md](references/protocols/README.md).
+Mixed services: one collection, shared `environments/`, and protocol-specific folders. Add an auth bootstrap only when the service exposes a real acquisition operation. A JWT format does not imply a login endpoint. See [collection-layout.md](references/collection-layout.md). Index: [protocols/README.md](references/protocols/README.md).
 
 ## Prerequisites
 
@@ -62,22 +65,27 @@ Mixed services: one collection, shared `environments/`, HTTP `auth/login` when t
 ## Workflow
 
 1. **Discover** — list operations per protocol (paths, RPCs, queries/mutations, WS actions). Note auth scheme and error shapes.
-2. **Scaffold** — `bruno.json`, `environments/`, protocol folders, one `.bru` per operation. [collection-layout.md](references/collection-layout.md).
+   When called as a handover prerequisite, inspect the available code, tests, Swagger/OpenAPI, and other definitions needed to create requests. Inventory supported success and error branches, conditional payloads, business states, and transition prerequisites. Keep one operation identity with multiple meaningful scenario cases. Never invent a parameter or endpoint to force a state.
+2. **Scaffold** — `bruno.json`, `environments/`, protocol folders, a primary `.bru` plus named supported scenario cases per operation. [collection-layout.md](references/collection-layout.md).
 3. **Environments** — `baseUrl`, `graphqlUrl`, `grpcHost`, `wsUrl`, credentials, empty token slots, `vars:secret`. [environments-and-auth.md](references/environments-and-auth.md).
-4. **Auth chain** — HTTP login or token request in `auth/` (`seq` 1); `script:post-response` with `bru.setEnvVar`; downstream requests use `{{accessToken}}` (HTTP bearer, GraphQL, gRPC metadata, WS headers). [environments-and-auth.md](references/environments-and-auth.md), [scripts-and-env-by-protocol.md](references/scripts-and-env-by-protocol.md).
+4. **Auth** — follow the actual acquisition contract. If a login or token endpoint exists, put it in `auth/` with an early sequence and capture its real token field using `bru.setEnvVar`. For externally supplied credentials, keep a secret placeholder and provisioning instructions; create no login or refresh route. Downstream requests use the supported header, metadata, or auth block. [environments-and-auth.md](references/environments-and-auth.md), [scripts-and-env-by-protocol.md](references/scripts-and-env-by-protocol.md).
 5. **Implement requests** — follow the protocol reference for `meta.type`, body blocks, and streaming rules.
 6. **Document each request** — `docs { }` with success and errors (HTTP status, GraphQL `errors`, gRPC status codes). [request-documentation.md](references/request-documentation.md).
+   For handover evidence, include complete error examples with status, relevant headers, and actual-shaped bodies, plus trigger, prerequisites, and caller action. Capture known state variants and distinguish constructed fixtures from observed responses. Missing fixtures and unrun cases are different gaps.
 7. **Keep in sync** — API changes update the matching `.bru` in the same commit.
+8. **Client handover when requested** — use `create-documentation` in **handover** mode for an HTTP API packet, or **contract** mode for GraphQL, gRPC, WebSocket, and other message contracts. Supply the operation inventory, authoritative contract, `.bru` cases, sanitized examples, and verification gaps. Use protocol-specific operation identifiers and status meanings. Apply the handover export checks when a PDF, HTML or DOCX is requested. The document supplements the runnable collection.
+   If `create-documentation` called this skill to create or complete its prerequisite collection, return the collection and scenario inventory to that caller. Do not launch a second handover. A request for a handover includes this collection prerequisite unless the user explicitly forbids collection edits.
 
 ## Output checklist
 
 - [ ] `bruno.json` with collection name and `type: collection`
 - [ ] Environment file(s) with URLs/hosts and auth-related vars for each protocol in use
-- [ ] `auth/` login or token request with post-response `bru.setEnvVar` when JWT or API keys are chained
+- [ ] Real auth acquisition and chaining when supported, or secret placeholders and provisioning instructions for externally supplied credentials
 - [ ] Each protocol: correct `meta.type` and driver block (`get`/`post`, `grpc`, `ws`, `body:graphql`)
 - [ ] gRPC: proto path or collection proto settings documented for operators
 - [ ] Every non-trivial request has a `docs` block (success + errors)
 - [ ] No real secrets, production hostnames, or employer-only URLs in committed files
+- [ ] When a client handover was requested, `create-documentation` received the contract and case inventory, and the shareable artifact was checked
 
 ## Bruno version caveats
 
@@ -95,4 +103,7 @@ Bruno desktop feature parity, cloud sync, and generating a collection from live 
 - `super-nodejs`: the routes come from a Node service.
 - `super-protobuf`: the surface is gRPC or Connect described by .proto files.
 - `verify`: run the collection and show the result as proof.
+- `create-documentation`: turn verified contract and collection evidence into client documentation when requested.
 - `write-mr-description`: attach the collection to an MR.
+
+Behavior scenarios are in [evals/evals.json](evals/evals.json).

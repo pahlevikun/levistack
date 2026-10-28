@@ -11,7 +11,7 @@ Use this after a diff, a branch or a release: "are the docs still right?"
    - **Correct:** documented and still true.
    - **Stale:** documented, but the change made it wrong. Give file and line.
    - **Missing:** new, and nobody documented it.
-5. **Report the map.** Offer to fix it. Edit only after a yes.
+5. **Report the map.** For a review-only request, stop at findings. If the user already asked for fixes, apply them within that scope without requesting approval again.
 6. Fix with the **write**, **api** or **comments** job, one kind per page.
 
 ## Report shape

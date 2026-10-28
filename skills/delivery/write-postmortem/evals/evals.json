@@ -1,0 +1,84 @@
+{
+  "skill_name": "write-postmortem",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Draft a postmortem for this stabilized incident. Impact began 09:02 UTC, alert fired 09:07, mitigation started 09:14, and service recovered 09:20. Logs support connection-pool exhaustion but do not establish the trigger. An operator remembers a deploy around 09:00 without a deployment record. Platform team owns the follow-up; no tracker issue or deadline exists.",
+      "expected_output": "Uses write-postmortem to separate observed timeline from hypothesis and recollection, and records accountable follow-up without invented tracking.",
+      "assertions": [
+        "Distinguishes 18 minutes of impact from 13 minutes after detection",
+        "Labels the unverified deploy recollection and unknown trigger",
+        "Avoids blame and a fabricated single root cause",
+        "Gives the action an owner and acceptance outcome with tracking and date pending",
+        "Does not file external issues without authorization"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "The outage is still active. Draft our final postmortem now. We have an alert at 14:00 UTC and a possible failed rollout recalled by one person. Impact start and recovery time are unknown. We have no primary deployment record and no confirmed cause.",
+      "expected_output": "Keeps a timestamped working incident record, prioritizes the active response, and refuses to imply a finalized postmortem or resolved cause.",
+      "assertions": [
+        "Marks the incident active and the record provisional",
+        "Leaves impact start, recovery, duration, and cause unknown",
+        "Labels the rollout recollection as unverified rather than causal evidence",
+        "Does not declare final severity or completed remediation without evidence",
+        "Does not perform production response actions without authorization"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Write an operator runbook for restoring a stalled worker, including exact commands, expected observations, rollback limits, and escalation. This is a procedure request, not a report of an incident.",
+      "expected_output": "Routes the operational procedure to write-runbook without inventing incident history.",
+      "assertions": [
+        "Recognizes the runbook boundary",
+        "Does not manufacture a postmortem timeline or impact",
+        "Does not treat documentation authorization as permission to operate production"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Write a full postmortem from these fictional supplied incident records, using the default report format. On 2026-10-20 UTC, export workers became zero at 13:00 after a configuration deployment; the supplied validator test accepts zero while exports remain enabled. First customer impact was 13:00, the backlog alert detected it at 13:05, capacity restoration began at 13:08, and normal export completion was confirmed at 13:12. The incident queue report counts 48 distinct delayed export jobs; data loss and security impact were not checked. Restoring one worker recovered throughput. Platform proposes an enabled-service capacity check; owner, dates and tracking are not assigned. No review meeting or external communication record is supplied. No real repository or live records are available to inspect.",
+      "expected_output": "Creates a complete supplied-fact draft using the full report template, with separate incident/report/action states, explicit evidence limits, correct intervals, response review and proposed corrective work.",
+      "assertions": [
+        "Includes metadata, summary, impact, evidence-linked timeline, failure explanation, contributing conditions, what went well and could improve, actions, lessons, related incidents, prevention, supporting material and unknowns",
+        "Separates recovered incident state from draft report and proposed unassigned action",
+        "Calculates 12 minutes of impact, five minutes to detection and seven minutes from detection to recovery",
+        "Labels 48 delayed jobs as a supplied distinct-job count and does not claim no data loss or no security impact",
+        "Connects zero enabled worker capacity to failure without blaming the deployer",
+        "Provides acceptance and effectiveness checks without inventing owner, date, tracker, completed meeting or sent communication",
+        "Makes no firsthand repository or live-record verification claim"
+      ],
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "Revise a recovered outage postmortem. A metrics record supports a saturated connection proxy; the initial diagnosis says the database failed, but database health stayed normal. Rollback restored the old version at 10:20 UTC yet users still failed until stale connections were cleared at 10:32. An earlier related incident had a ticket marked closed for proxy alerting, but no metric or test proves the alert worked. Owners want the report accepted now; remediation dates remain undecided. Do not operate systems, create tickets or notify anyone.",
+      "expected_output": "Reconciles conflicting causal evidence, distinguishes code rollback from real recovery, and assesses prior action effectiveness without forcing report acceptance to mean all remediation completed.",
+      "assertions": [
+        "Records the database diagnosis as disputed rather than inheriting it as fact",
+        "Treats onset, detection and recovery as separate causal questions where evidence supports them",
+        "Names the twelve-minute interval between rollback and recovery without calling rollback a complete fix",
+        "Checks the prior alerting action by completion and effectiveness, not only issue status",
+        "Keeps undecided dates pending and distinguishes report review, incident recovery and action completion",
+        "Does not perform operational or external actions"
+      ],
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "Write a near-miss postmortem. A staging replay found an export bug before production promotion. No production request was affected. Engineers believe a canary would have detected it, but no canary test or production dataset was supplied. Two competing explanations remain, and the source logs lack an exact onset time. The organization has not assigned severity. Use a concise report with all applicable sections; do not force a meeting or five why answers.",
+      "expected_output": "Documents a near miss with bounded actual impact, labeled hypothetical exposure, competing hypotheses and unknown timings rather than invented incident completion.",
+      "assertions": [
+        "Separates zero established production impact from hypothetical production consequences",
+        "Marks onset, durations and severity unknown where not established",
+        "Keeps the canary counterfactual unverified and preserves competing explanations",
+        "Does not force one root cause, exactly five causal questions or a review meeting",
+        "Retains useful response and prevention lessons with explicit evidence limits"
+      ],
+      "files": []
+    }
+  ]
+}

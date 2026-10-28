@@ -15,4 +15,4 @@ HTTP/gRPC routes, request validation, response envelopes, status codes, OpenAPI,
 
 ## MR review signals
 
-Generic errors, missing envelope, fake success, template OpenAPI — [review-dimensions.md](../../../../delivery/glab-code-review/references/review-dimensions.md) §8.
+Generic errors, missing envelope, fake success, template OpenAPI — [review-dimensions.md](../../../../delivery/code-review/references/review-dimensions.md) §8.

@@ -1,3 +1,3 @@
 ---
-description: "How to work with this stack: the use-levistack entry point and router, finding and installing skills, and handing a session off to the next one."
+description: "How to work with this stack: route tasks, frame and judge work through evidence, coordinate parallel agents, find skills, and hand a session to the next one."
 ---

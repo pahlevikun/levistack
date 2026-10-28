@@ -1,0 +1,49 @@
+meta {
+  name: read-no-scope
+  type: http
+  seq: 11
+}
+
+get {
+  url: {{baseUrl}}/v1/archive-jobs/{{jobId}}
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{writeOnlyToken}}
+}
+
+headers {
+  Accept: application/json
+}
+
+tests {
+  test("Declared HTTP status", function () { expect(res.status).to.equal(403); });
+  test("Declared application code", function () { expect(res.body.error.code).to.equal("SCOPE_REQUIRED"); });
+}
+
+docs {
+  Supply a valid archives:write-only token lacking archives:read. No such token is supplied in this fixture.
+
+  Evidence: normative synthetic contract demo-1. This request and its assertions have not been run.
+  The example.test host is illustrative. Replace it only with an authorized test service. No login or refresh endpoint is defined.
+
+  Declared response: HTTP 403 Forbidden.
+  Caller action: Ask the integration contact for archives:read.
+
+  Complete illustrative response. Message text is not a stable identifier.
+  ```http
+  HTTP/1.1 403 Forbidden
+  Content-Type: application/json
+  X-Request-ID: req_demo_error
+
+  {
+    "error": {
+      "code": "SCOPE_REQUIRED",
+      "message": "The required scope is missing."
+    },
+    "request_id": "req_demo_error"
+  }
+  ```
+}

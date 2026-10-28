@@ -1,11 +1,20 @@
 {
   "title": "How the pipeline works",
+  "insight": "One scan path from source to shipped report",
   "source": "Internal runbook v3, section 2 (example)",
   "synthetic": true,
   "width": 1200,
   "height": 675,
   "duration_seconds": 8,
   "hold_seconds": 2.5,
+  "timing": {
+    "title_hold_seconds": 1.0,
+    "step_stride_seconds": 1.55,
+    "icon_lead_seconds": 0,
+    "value_lead_seconds": 0.22,
+    "label_lead_seconds": 0.45,
+    "connector_lead_seconds": 0.85
+  },
   "theme": {
     "background": "#0f1419",
     "ink": "#f4f7fb",

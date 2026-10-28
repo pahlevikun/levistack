@@ -1,0 +1,59 @@
+meta {
+  name: create-invalid
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/v1/archive-jobs
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+headers {
+  Accept: application/json
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "source": {
+      "collection": ""
+    },
+    "label": null
+  }
+}
+
+tests {
+  test("Declared HTTP status", function () { expect(res.status).to.equal(400); });
+  test("Declared application code", function () { expect(res.body.error.code).to.equal("INVALID_INPUT"); });
+}
+
+docs {
+  The required source.collection is empty; its minimum length is one.
+
+  Evidence: normative synthetic contract demo-1. This request and its assertions have not been run.
+  The example.test host is illustrative. Replace it only with an authorized test service. No login or refresh endpoint is defined.
+
+  Declared response: HTTP 400 Bad Request.
+  Caller action: Correct source.collection before retrying.
+
+  Complete illustrative response. Message text is not a stable identifier.
+  ```http
+  HTTP/1.1 400 Bad Request
+  Content-Type: application/json
+  X-Request-ID: req_demo_error
+
+  {
+    "error": {
+      "code": "INVALID_INPUT",
+      "message": "The input is invalid."
+    },
+    "request_id": "req_demo_error"
+  }
+  ```
+}

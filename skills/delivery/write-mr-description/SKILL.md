@@ -11,7 +11,7 @@ metadata:
   department: delivery
   related_skills:
     - atomic-semantic-commit
-    - glab-code-review
+    - code-review
     - polyglot-copywriter
   invokes:
     - skill: polyglot-copywriter
@@ -28,7 +28,7 @@ metadata:
 
 # Write MR Description
 
-Peer skills: `polyglot-copywriter` (STE simple vocabulary), [`noslop`](../../engineering/noslop/SKILL.md) (slop-free description), [`glab-code-review`](../glab-code-review/SKILL.md) (GitLab draft review after open).
+Peer skills: `polyglot-copywriter` (STE simple vocabulary), [`noslop`](../../engineering/noslop/SKILL.md) (slop-free description), [`code-review`](../code-review/SKILL.md) (GitLab draft review after open).
 
 References: [references/prose-and-visuals.md](references/prose-and-visuals.md), [TEMPLATE.md](TEMPLATE.md), [EXAMPLES.md](EXAMPLES.md), [samples/description-with-diagram.md](samples/description-with-diagram.md).
 
@@ -184,7 +184,7 @@ Print the MR/PR URL. If the user chose **B + C**, proceed to Route C.
 
 ## Route C — Self-review
 
-Can run standalone (on an already-open MR) or after Route B. For GitLab **draft inline review** with suggestions, prefer loading [`glab-code-review`](../glab-code-review/SKILL.md) instead of only this checklist.
+Can run standalone (on an already-open MR) or after Route B. For GitLab **draft inline review** with suggestions, prefer loading [`code-review`](../code-review/SKILL.md) instead of only this checklist.
 
 ### C.1 Get the diff
 
@@ -283,7 +283,7 @@ If yes: `git push`
 ## Related skills
 
 - `atomic-semantic-commit`: the branch has mixed changes, split commits first.
-- `glab-code-review`: self-review the diff before you open the MR.
+- `code-review`: self-review the diff before you open the MR.
 - `verify`: prove the test plan before you write it down.
 - `create-tickets`: the MR needs a linked ticket.
 - `polyglot-copywriter`: polish the final wording.

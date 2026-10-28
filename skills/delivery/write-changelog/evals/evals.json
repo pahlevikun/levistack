@@ -1,0 +1,118 @@
+{
+  "skill_name": "write-changelog",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Update CHANGELOG.md from v2.3.0 to v2.4.0. Release date is confirmed as 2026-10-01. Changes rename --output to --out with a compatibility alias, fix empty CSV imports returning success, and deprecate XML export with no removal date set. The release is tagged; no production deployment record exists. Preserve older entries.",
+      "expected_output": "Uses write-changelog and local categories to describe consumer effects and migration, distinguishing release evidence from deployment.",
+      "assertions": [
+        "Explains flag rename and compatibility alias",
+        "Names the empty-import failure condition rather than internal edits",
+        "Does not invent XML removal date or deployment",
+        "Preserves older release entries",
+        "Uses confirmed version and date"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Prepare release notes from the branch diff. Two merged changes fix expired-session handling and add a beta export flag. There is no release tag or confirmed date, and the current changelog includes older accepted releases. Do not publish anything. A private security ticket explains the session fix.",
+      "expected_output": "Creates an unreleased draft from evidence, explains user-visible changes, preserves history, and avoids disclosing the private security record.",
+      "assertions": [
+        "Records the actual diff or range and marks release boundaries unresolved",
+        "Labels the notes unreleased without inventing a version date or deployment",
+        "Describes the expired-session failure and beta flag from evidence",
+        "Preserves old entries and keeps private ticket details out of client notes",
+        "Does not publish a release or send announcements"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Write a merge request description for this open branch with a problem statement, resulting behavior, and validation. It has not been released. Do not update CHANGELOG.md.",
+      "expected_output": "Routes the review briefing to write-mr-description and leaves release records unchanged.",
+      "assertions": [
+        "Recognizes the merge-request description boundary",
+        "Does not create or edit a changelog entry",
+        "Does not imply the branch is released or deployed"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Write the simplest useful changelog for the explicit local Git range release-base..release-target. Inspect commits first. A feature spans three commits with follow-up fixes; another plain non-conventional commit changes a public flag. The working tree also contains an unrelated uncommitted feature. Keep the notes short and do not release anything.",
+      "expected_output": "Validates and inspects the explicit Git range, reads full messages and relevant diffs, then writes one concise entry covering the net consumer-visible effects only.",
+      "assertions": [
+        "Reads Git commits and relevant diffs before composing prose",
+        "Groups the three related commits into one outcome without losing the public flag change",
+        "Does not exclude a meaningful plain commit for lacking a conventional prefix",
+        "Leaves unrelated working-tree changes outside the committed release range",
+        "Uses short concrete bullets and omits empty sections",
+        "Does not tag, bump versions, publish or open a PR"
+      ],
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "Update the existing Unreleased section from a confirmed Git range. A beta search feature is added and fully reverted before release; CSV export and two follow-up corrections remain; an umbrella merge repeats the same export work. An older accepted release entry must remain byte-for-byte intact. Repeating this task should not duplicate the heading or bullets.",
+      "expected_output": "Checks final diffs, omits the unshipped reverted search change, summarizes export once, and updates the existing target section without duplicating it or altering earlier accepted history.",
+      "assertions": [
+        "Checks the revert against the net target diff instead of mapping every revert to Removed",
+        "Omits the fully reverted never-released feature",
+        "Coalesces export follow-ups and umbrella duplication into one supported outcome",
+        "Preserves the earlier accepted entry unchanged",
+        "Updates the intended existing section without duplicate heading or bullets on a repeated run"
+      ],
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "Prepare simple package release notes. The selected target is on a maintenance branch, but the globally newest tag belongs to another package and a different release lane. A shared dependency change affects this package even though its commit scope is different. Local history is shallow and the previous release ref is unavailable.",
+      "expected_output": "Uses the actual package/release lane, inspects relevant shared dependencies, and reports incomplete history rather than silently choosing another package tag or claiming a complete inventory.",
+      "assertions": [
+        "Does not choose the globally newest unrelated tag as the release base",
+        "Uses paths and dependency effects as well as message scopes",
+        "States the missing ref and shallow-history coverage limit",
+        "Does not substitute all history or invent a release date",
+        "Returns only a clearly limited draft if sufficient supplied evidence exists"
+      ],
+      "files": []
+    },
+    {
+      "id": 7,
+      "prompt": "Suggest a semantic version change while writing a short changelog. The commit says fix(api), but its full body states BREAKING CHANGE and the schema diff makes a previously optional request field required. The project uses SemVer after 1.0. Do not modify manifests or tags.",
+      "expected_output": "Reads the full commit and schema evidence, identifies the incompatible public contract, includes client migration guidance, and gives only an evidence-based version recommendation.",
+      "assertions": [
+        "Does not assume fix means a patch release",
+        "Uses the breaking footer and actual schema compatibility change",
+        "Includes the required client migration action in concise wording",
+        "Makes a recommendation without changing manifest versions, tags, CI or publication state"
+      ],
+      "files": []
+    },
+    {
+      "id": 8,
+      "prompt": "Draft brief release notes from these supplied facts only: a CSV export bug no longer drops the last row, and the settings page adds keyboard navigation. No Git repository, previous changelog, release tag, version or date is available. Do not claim you inspected code or history.",
+      "expected_output": "Creates a short supplied-fact draft labeled Unreleased or with unresolved release identity, and reports that Git inspection and completeness cannot be established.",
+      "assertions": [
+        "Does not fabricate Git commands having run or first-hand diff evidence",
+        "Keeps version, date and deployment unsupported",
+        "Writes only the two supplied consumer-visible effects",
+        "Labels the draft and missing source limits",
+        "Does not create a changelog history or release metadata from guesses"
+      ],
+      "files": []
+    },
+    {
+      "id": 9,
+      "prompt": "Inspect a confirmed Git range and summarize changes for users. The only net changes are test rearrangement, a formatter update and an internal helper rename. None changes behavior, compatibility, privacy, security or operator requirements. Do not pad the result.",
+      "expected_output": "Reports no consumer-visible changelog entries after source inspection rather than manufacturing improvements or a version bump.",
+      "assertions": [
+        "Inspects the range and confirms the changes are internal-only",
+        "Does not publish vague performance or reliability claims",
+        "Does not add empty categories, padded bullets or a version bump"
+      ],
+      "files": []
+    }
+  ]
+}

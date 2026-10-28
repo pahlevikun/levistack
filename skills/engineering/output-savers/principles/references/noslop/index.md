@@ -30,11 +30,11 @@ Every layer, type, and error shape must pass the purpose test (R-31). Details: [
 1. **DURING** — apply [mandatory-rules.md](mandatory-rules.md) while coding; finish with [delivery-gate.md](delivery-gate.md).
 2. **AFTER** — audit using [templates/audit-after-mode.md](templates/audit-after-mode.md).
 
-## When invoked by glab-code-review
+## When invoked by code-review
 
 - **Scope:** MR review comment bodies and user-facing API/error copy in the diff — not executable code inside suggestion fences.
 - **Mode:** **after** — audit draft comment text before posting GitLab draft notes.
-- Pair with **polyglot-copywriter** (`glab-code-review` use case).
+- Pair with **polyglot-copywriter** (`code-review` use case).
 
 ## Old skill name
 

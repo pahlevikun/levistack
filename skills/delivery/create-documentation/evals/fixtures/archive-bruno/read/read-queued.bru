@@ -1,0 +1,36 @@
+meta {
+  name: read-queued
+  type: http
+  seq: 12
+}
+
+get {
+  url: {{baseUrl}}/v1/archive-jobs/{{jobId}}
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+headers {
+  Accept: application/json
+}
+
+tests {
+  test("Declared HTTP status", function () { expect(res.status).to.equal(200); });
+  test("Prepared fixture state", function () { expect(res.body.status).to.equal("QUEUED"); });
+}
+
+docs {
+  Set jobId to a known QUEUED job in an externally prepared dataset. No state-changing request is defined here.
+
+  Evidence: normative synthetic contract demo-1. This request and its assertions have not been run.
+  The example.test host is illustrative. Replace it only with an authorized test service. No login or refresh endpoint is defined.
+
+  Declared response: HTTP 200 OK.
+  Caller action: Read the same operation to observe progress. No polling interval is specified.
+
+  Success body follows Job or the list envelope in the normative contract. All Job fields remain present. Label presence and nullability differ between request and response.
+}

@@ -15,13 +15,13 @@ Write down an architecture so the next person can use it: decisions, diagrams an
 
 1. **Ground every claim in the code or a decision.** Name the file or the ADR. A diagram that no file supports is fiction.
 2. **Detect before you describe.** Run `jobs/detect.md` first; document the actual structure, noting where it deviates from the intended one.
-3. **Every architecture decision gets an ADR.** No decision yet means no ADR; make the decision first (`jobs/select.md`).
+3. **Record consequential decisions when requested or required by the repository.** If no decision exists yet, use `jobs/select.md` before drafting a record.
 4. **One diagram, one question.** Label every arrow with what flows and which way.
 5. **For stack facts** (frameworks, versions, licenses) use the `super-tech-blueprint` skill; this guide covers structure and decisions.
 
 ## Records (ADR)
 
-Use `templates/adr.md`: title, status, context, decision, alternatives, consequences, and what would trigger a revisit. Statuses: proposed, accepted, superseded (link the replacement), deprecated. Never edit an accepted ADR's decision; supersede it. Keep a central index (number, title, status, date) so decisions are easy to find.
+Use `write-adr` for a standalone record and for status or supersession changes. Give it the selected architecture, evidence, and local conventions. Keep the architecture blueprint linked to the governing record; do not infer acceptance from the blueprint alone.
 
 ## C4 diagrams
 

@@ -1,44 +1,27 @@
 # Animated SVG (sequenced infographic)
 
-Build a **static** infographic layout first, then choreograph reveals in a single self-contained SVG file. This path is for editorial sequences (icons, key numbers, short labels, connectors). Heavy chart races belong in dedicated chart tooling, not here.
+Build a **static** infographic layout first, then choreograph reveals in a single self-contained SVG file. Editorial sequences: icons, key numbers, short labels, connectors. Heavy chart races belong in dedicated chart tooling, not here.
 
-Levistack ships **CSS keyframes inside SVG** only. No video encode in this skill.
+Levistack ships **CSS keyframes inside SVG** only. No video encode, no Remotion, no MP4 in this skill. Choreography craft: [sequenced infographic choreography](sequenced-infographic-choreography.md). Upstream lineage: [UPSTREAM.md](../UPSTREAM.md).
 
 ## When to use
 
-- "Animate this infographic", "sequenced reveal", "stagger icons and stats".
+- "Animate this infographic", "animated infographic", "sequenced reveal", "stagger icons and stats".
+- User asks for infographic **animation** but the deliverable must stay **SVG**.
 - Landing embed, docs hero, or carousel panel that must stay vector.
 - You already have sourced numbers in the evidence ledger.
 
 Stay on the **evidence track**: final values appear in the SVG text from the start. Motion controls opacity, scale, and connector draw only. Do not count up through wrong intermediate statistics.
 
-For labeled synthetic mocks only, you may hand-author a count-up in CSS. Prefer `build_animated_svg.py`, which does not interpolate numbers.
+For labeled synthetic mocks only (`synthetic: true`), you may hand-author a count-up in a separate prototype. Default builder does not interpolate numbers.
 
 ## Design order
 
 1. Balance the full frame as if it were a poster ([layout mood catalog](layout-mood-catalog.md) or [composition](composition.md)).
-2. Map reveal **tier** (importance), not layout scan order.
-
-| Tier | Element | Motion |
-|---|---|---|
-| 1 | Title / central insight | fade and slight rise |
-| 2 | Icon or pictogram | scale pop with overshoot |
-| 3 | Key number | fade in at final string (no odometer unless synthetic) |
-| 4 | Caption | fade under the number |
-| 5 | Connector | stroke draw into the next item |
+2. Map reveal **tier** (importance), not layout scan order. See the tier table in [sequenced infographic choreography](sequenced-infographic-choreography.md).
+3. Cap at five steps. One central insight plus supporting stats.
 
 One loud motion at a time. Do not animate two headline numbers together.
-
-## Timing (30 fps mental model)
-
-| Beat | Seconds |
-|---|---|
-| Title hold | 0.8–1.2 |
-| Per item (icon → number → label) | 1.2–2.0 |
-| Connector draw | 0.4–0.6, overlaps next item |
-| Final hold (all visible, no motion) | 2–3 |
-
-Stagger siblings by about **0.25–0.35 s** (roughly 8–10 frames at 30 fps). Keep one enter curve across the set.
 
 ## Accessibility
 
@@ -57,10 +40,10 @@ Input schema: [../templates/animated-infographic.json](../templates/animated-inf
 
 ## Verify
 
-1. Open the SVG in a browser. Scrub feels like a clear cascade, not a flash.
+1. Open the SVG in a browser. Scrub feels like a clear cascade, not a flash. Check title-only, mid-cascade, and final hold seconds from [sequenced infographic choreography](sequenced-infographic-choreography.md).
 2. Toggle reduced motion: every label and number is visible.
 3. Compare text to the evidence ledger (exact strings).
-4. Rasterize a hold frame with `png_from_svg.py` for social if needed.
+4. For a social still, use reduced-motion preview or a static duplicate. `png_from_svg.py` alone is not an end-of-timeline capture.
 
 ## Technical figure embeds
 

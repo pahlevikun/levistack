@@ -8,7 +8,7 @@
 
 ## The four kinds
 
-Every page is exactly one kind. Readers arrive with different needs.
+Give each page or clearly bounded section one kind. Readers arrive with different needs. A handover packet can bind several kinds under separate headings.
 
 | Kind | The reader wants | Shape |
 |---|---|---|
@@ -20,12 +20,12 @@ Every page is exactly one kind. Readers arrive with different needs.
 ## Steps
 
 1. **Scope it.** Feature, module or whole project? Who is the reader? Read the docs that exist, and do not repeat them.
-2. **Study the whole thing before page one.** Entry points, types, tests, config. Run it.
+2. **Study the whole thing before page one.** Read entry points, types, tests, and config. Use safe local checks or existing evidence. Do not contact production or perform destructive actions to verify prose.
 3. **Plan the pages.** List what readers need, and give each need one kind. Show the list and mark the gaps.
-4. **Draft one page at a time.** One kind per page. Copy-paste commands. Real output. Link across kinds: a tutorial links to the reference, a how-to links to the explanation.
+4. **Draft one page or section at a time.** Use copyable commands and evidence-backed output. Label illustrative or unrun examples. Link across kinds: a tutorial links to the reference, a how-to links to the explanation.
 5. **Clean the wording** with `polyglot-copywriter`.
-6. **Verify.** Run every command. Open every link. Check every claim against the code.
-7. **Show the file list,** then write.
+6. **Verify.** Check commands safely at the available level and label those not run. Open links and check claims against their sources. Distinguish syntax, fixture, schema, and live checks.
+7. **Report the file list and checks.** Write within the user's authorized scope. If the request is review-only, report the plan without editing.
 
 ## Shapes
 
@@ -68,7 +68,8 @@ The problem. The choice made. What it costs. What was rejected and why.
 
 ## Do not
 
-- Paste an example you did not run.
-- Put a tutorial, a reference and an explanation on one page.
+- Present an unrun example as observed output.
+- Mix teaching, lookup, and rationale inside one undifferentiated section.
 - Document private internals as if they were public.
 - Invent a folder layout when the repo already has one.
+- Treat a multi-section handover packet as one undifferentiated page. Give each section one purpose and preserve navigation in the export.

@@ -3,22 +3,258 @@
   "evals": [
     {
       "id": 1,
-      "prompt": "Use the create-documentation skill for a typical request that matches: asked to document a feature, module, project or API, write a README or guide, add doc comments, or check whether docs are still right after a diff. Not for a repo map (codebase-learner), an MR description (write-mr-descr. Follow SKILL.md and return the skill's normal deliverable shape.",
-      "expected_output": "Uses create-documentation per SKILL.md modes and boundaries. Delivers the documented output without skipping verification steps the skill requires.",
+      "prompt": "Document the CSV import feature in our existing docs/ folder. The CLI has import --dry-run, validates headers before writing, and returns exit 2 on invalid columns according to tests/import.test.ts. Write a getting-started tutorial and a separate command reference. You may edit those docs. Local CLI tests run but the service is unavailable.",
+      "expected_output": "Uses write mode, researches implementation and tests, and creates distinct tutorial and reference material in the authorized folder.",
       "assertions": [
-        "Uses create-documentation workflow",
-        "Honors read-only or approval rules from the skill",
-        "Names checks run or gaps when a gate could not run"
+        "Keeps tutorial steps separate from lookup reference",
+        "Checks examples with available tooling and labels unrun service examples",
+        "Does not invent accepted columns or live verification",
+        "Proceeds within authorized docs scope without another approval pause"
       ],
       "files": []
     },
     {
       "id": 2,
-      "prompt": "Handle a request that clearly belongs to a repo map (codebase-learner), an MR description (write-mr-description) or prose polish (polyglot-copywriter), not create-documentation. The user did not ask for create-documentation.",
-      "expected_output": "Does not run create-documentation as the primary workflow. Routes to the neighbor named in Not for or asks one clarifying question.",
+      "prompt": "Write the API reference for GET /v1/jobs/{job_id} from openapi.yaml and handler tests. The spec declares OpenAPI 3.1, job_id is a required UUID path value, and finished_at is required but accepts a timestamp or null. Tests show 200, 401 and 404. The handler returns 403, absent from the spec. Document the mismatch. No live service is available.",
+      "expected_output": "Uses api mode, preserves parameter and nullable-field semantics, and reports contract-versus-implementation mismatch.",
       "assertions": [
-        "Recognizes the Not for boundary",
-        "Does not apply create-documentation procedures to the wrong job"
+        "Distinguishes required presence from accepting null",
+        "Uses OpenAPI 3.1 schema rules rather than nullable: true",
+        "Includes only evidenced response statuses and flags the missing 403 definition",
+        "Does not claim to have sent a live request"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Create a PDF API handover from OpenAPI and Bruno. Bruno contains three success/error cases for POST /v1/jobs and two for GET /v1/jobs/{job_id}. The spec also includes GET /health. Explain endpoints, headers, query and path params, request body, response fields, server status codes, and lifecycle states to a client unfamiliar with APIs. Code defines QUEUED, RUNNING, DONE and FAILED, but no transition evidence or token-expiry policy was supplied. Use synthetic examples and keep internal source paths private.",
+      "expected_output": "Uses handover mode and template, reconciles operations with cases, explains API vocabulary, and produces a client artifact with explicit gaps.",
+      "assertions": [
+        "Inspects the existing Bruno collection before drafting and completes supported missing cases via create-bruno-collection",
+        "Counts distinct method/path operations separately from Bruno cases",
+        "Finds GET /health as a coverage gap instead of dropping it",
+        "Explains headers, path and query parameters, bodies, response fields, and HTTP statuses",
+        "Distinguishes HTTP success from business-state completion",
+        "Documents enums without inventing transitions or token expiry",
+        "Checks PDF layout and copied commands if export is possible, otherwise reports export pending",
+        "Keeps secrets and private source references out of the client artifact",
+        "Includes complete per-endpoint error responses with status line, relevant headers and full body, not only codes"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Write a recovery runbook for a stalled local queue using scripts/queue-status and scripts/queue-restart. Restart discards unacknowledged in-memory work, and rollback cannot restore it. Tests exercise a healthy restart but not a failed restart. Do not contact production. Include escalation when recovery fails.",
+      "expected_output": "Routes runbook authoring directly to the standalone write-runbook skill instead of using a create-documentation mode.",
+      "assertions": [
+        "Invokes write-runbook as the domain owner",
+        "Does not load a removed domain reference or recreate a bundled mode",
+        "Preserves the request scope and supplied evidence when handing off"
+      ],
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "Draft a postmortem for this stabilized incident. Impact began 09:02 UTC, alert fired 09:07, mitigation started 09:14, and service recovered 09:20. Logs support connection-pool exhaustion but do not establish the trigger. An operator remembers a deploy around 09:00 without a deployment record. Platform team owns the follow-up; no tracker issue or deadline exists.",
+      "expected_output": "Routes postmortem authoring directly to the standalone write-postmortem skill instead of using a create-documentation mode.",
+      "assertions": [
+        "Invokes write-postmortem as the domain owner",
+        "Does not load a removed domain reference or recreate a bundled mode",
+        "Preserves the request scope and supplied evidence when handing off"
+      ],
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "Write an RFC proposing asynchronous report generation. Code currently handles reports synchronously. The proposal returns a job identifier and polling URL, targeting request acceptance within one second. Compare continued synchronous processing. Retention duration is unresolved and belongs to the data owner. Write the design document only, not code or tickets.",
+      "expected_output": "Routes design document authoring to the Proposal job in write-adr instead of using a create-documentation mode.",
+      "assertions": [
+        "Invokes write-adr Proposal as the domain owner",
+        "Does not load a removed domain reference or recreate a bundled mode",
+        "Preserves the request scope and supplied evidence when handing off"
+      ],
+      "files": []
+    },
+    {
+      "id": 7,
+      "prompt": "Update CHANGELOG.md from v2.3.0 to v2.4.0. Release date is confirmed as 2026-10-01. Changes rename --output to --out with a compatibility alias, fix empty CSV imports returning success, and deprecate XML export with no removal date set. The release is tagged; no production deployment record exists. Preserve older entries.",
+      "expected_output": "Routes changelog authoring directly to the standalone write-changelog skill instead of using a create-documentation mode.",
+      "assertions": [
+        "Invokes write-changelog as the domain owner",
+        "Does not load a removed domain reference or recreate a bundled mode",
+        "Preserves the request scope and supplied evidence when handing off"
+      ],
+      "files": []
+    },
+    {
+      "id": 8,
+      "prompt": "Document the approval process and state diagram. Tests show SUBMITTED can become APPROVED or REJECTED; both outcomes are terminal. Samples also contain CANCELLED, but no code or agreed procedure establishes how cancellation occurs. Approval and notification run in separate services. Explain handoffs without drawing every internal call.",
+      "expected_output": "Uses process mode, records verified transitions, explains actors and exceptions, and treats the missing cancellation path as a gap.",
+      "assertions": [
+        "Explains entry conditions, actors, terminal states, and handoffs",
+        "Draws only evidenced transitions and labels cancellation unknown",
+        "Does not derive transitions from enum membership alone",
+        "Uses diagram skill for rendering and retains editable source",
+        "Reports render or source verification limits honestly"
+      ],
+      "files": []
+    },
+    {
+      "id": 9,
+      "prompt": "Document an order.updated webhook contract. JSON Schema requires order_id and amount; the schema types amount as a number, but serializer and tests output a decimal string with two fractional digits. note is optional and may be null. Tests show duplicate delivery and no ordering guarantee. Undefined fields are omitted. We need payload meanings and consumer guidance, not an endpoint catalog.",
+      "expected_output": "Uses contract mode, explains wire and delivery semantics, and reports the schema mismatch with evidence.",
+      "assertions": [
+        "Distinguishes omitted note from null and empty string",
+        "Documents decimal-string serialization and precision",
+        "States duplicates and lack of ordering without inventing retry intervals",
+        "Flags schema versus serializer disagreement",
+        "Does not create a competing hand-maintained schema"
+      ],
+      "files": []
+    },
+    {
+      "id": 10,
+      "prompt": "Add a doc comment to parseAmount using local style. It accepts decimal strings, returns integer minor units, and throws InvalidAmount for more than two fractional digits. Tests show parseAmount('12.30') returns 1230. Keep implementation and signature unchanged.",
+      "expected_output": "Uses comments mode with standalone summary, units, failure behavior, and a verified example in local style.",
+      "assertions": [
+        "Explains minor units and InvalidAmount behavior",
+        "Uses tested example and repository comment style",
+        "Does not merely repeat the signature",
+        "Changes documentation only"
+      ],
+      "files": []
+    },
+    {
+      "id": 11,
+      "prompt": "Check docs after this diff, but do not edit. --out defaults to ./build instead of ./dist, --dry-run is new, and --verbose is unchanged. docs/cli.md still says ./dist and omits --dry-run. Report stale, missing, and correct coverage with source locations.",
+      "expected_output": "Uses check mode and returns an evidence-based coverage map in read-only scope.",
+      "assertions": [
+        "Reports default stale and --dry-run missing",
+        "Reports --verbose correct only after checking",
+        "Includes document and implementation locations when available",
+        "Does not edit"
+      ],
+      "files": []
+    },
+    {
+      "id": 12,
+      "prompt": "Polish this paragraph for simpler wording only. Do not research code or create documents: 'In order to initiate the import operation, utilize the command shown below.'",
+      "expected_output": "Routes prose-only work to polyglot-copywriter instead of starting documentation research.",
+      "assertions": [
+        "Recognizes the prose-polish boundary",
+        "Does not research the repository or create an unrelated document"
+      ],
+      "files": []
+    },
+    {
+      "id": 13,
+      "prompt": "Create a Bruno collection for REST, GraphQL and gRPC operations with login chaining and error cases. No client document is requested.",
+      "expected_output": "Routes collection creation to create-bruno-collection without an unsolicited handover.",
+      "assertions": [
+        "Recognizes runnable-collection ownership",
+        "Does not replace the collection with documentation",
+        "Does not generate a PDF or assume HTTP statuses describe every protocol"
+      ],
+      "files": []
+    },
+    {
+      "id": 14,
+      "prompt": "Use the supplied synthetic archive API contract and its archive-bruno collection to create a complete client handover as self-contained HTML and PDF. Inspect Bruno first, then reconcile all available codebase, Git history, plan, docs and Swagger/OpenAPI evidence; explicitly record sources absent from this fictional fixture. Explain API terms, all fields and lifecycle states. For every supported error under each endpoint include the complete HTTP status line, response headers, full JSON body, trigger and recovery. Reconcile collection scenarios to operations, exclude internal routes, and label unrun examples honestly. Do not execute requests.",
+      "expected_output": "Uses handover mode, its glossary and template, to create a complete offline client reference from the supplied normative fixture, with real export checks or an explicit pending-export limitation.",
+      "assertions": [
+        "Reads the actual archive-bruno collection before drafting and documents exactly three public operations, excluding GET /internal/metrics",
+        "Records the normative fixture and actual Bruno artifacts as available while codebase, Git history, plans and machine-readable spec remain unavailable",
+        "Reconciles success, error, label presence, pagination and all four business state scenarios without inflating the operation count",
+        "Shows full status, Content-Type, X-Request-ID and complete JSON error body for all nine supported endpoint/error pairs, with trigger and recovery",
+        "Distinguishes collection cases present but unrun from unsupported or missing cases",
+        "Includes complete nested request, Job, list, and shared error schemas with wire types and constraints",
+        "Explains endpoint, method, header, path parameter, query parameter, request body, response, and status code",
+        "Distinguishes HTTP 202 acceptance from the READY terminal business state",
+        "Distinguishes optional nullable request label from always-present nullable response fields",
+        "Documents QUEUED to RUNNING and RUNNING to READY or FAILED with the worker as actor",
+        "Does not invent idempotency support, token refresh or expiry, 429 responses, polling intervals, or download expiry",
+        "Labels samples and commands not run and preserves timeout resubmission guidance",
+        "Checks requested offline HTML and PDF artifacts, links, layout, and copied commands when export succeeds; reports unavailable export honestly"
+      ],
+      "files": [
+        "evals/fixtures/archive-jobs.md",
+        "evals/fixtures/archive-bruno/bruno.json"
+      ]
+    },
+    {
+      "id": 15,
+      "prompt": "Create a client API handover. No Bruno collection exists. The repository has routes, validators, serializer tests and OpenAPI with supported success and error branches. Collection creation is allowed; no service is running. Git history, a design plan, and existing docs are available.",
+      "expected_output": "Invokes create-bruno-collection in a prerequisite collection-only phase, reads the resulting collection, then reconciles all available sources and builds documented scenario/state coverage before export.",
+      "assertions": [
+        "Inspects for Bruno first and creates the missing collection before drafting the handover",
+        "Uses only supported sources to build success, error, payload and state cases",
+        "Reads resulting .bru files plus codebase, relevant Git history, plan, docs and OpenAPI",
+        "Does not recursively launch a second handover from the collection prerequisite",
+        "Labels requests unrun and does not mutate application code"
+      ],
+      "files": []
+    },
+    {
+      "id": 16,
+      "prompt": "Create a client API handover from an existing success-only Bruno collection. Code and tests support QUEUED, RUNNING, READY, FAILED plus 400, 401, 403 and 404 error bodies. Local Git history removed EXPIRED; an unimplemented plan proposes CANCELLED; old docs still list EXPIRED; Swagger omits FAILED. Do not run the service.",
+      "expected_output": "Reads Bruno first and reconciles a release-bound source ledger and scenario matrix; updates supported missing collection cases through create-bruno-collection and reports source disagreements without claiming proposed or historical states are current.",
+      "assertions": [
+        "Inspects the collection before drafting and identifies its missing cases",
+        "Uses relevant Git history and plan/docs evidence with current code and tests",
+        "Keeps EXPIRED historical and CANCELLED proposed instead of claiming current support",
+        "Flags missing FAILED in Swagger and records all four evidenced current states",
+        "Documents full supported error responses and state prerequisites",
+        "Separates present unrun cases, missing cases and unresolved source conflicts"
+      ],
+      "files": []
+    },
+    {
+      "id": 17,
+      "prompt": "Revise a client handover whose endpoints only list 400 VALIDATION_ERROR and 401 UNAUTHENTICATED. Existing Bruno and handler tests show application/json, X-Request-ID, and body {\"error\":{\"code\":\"VALIDATION_ERROR\",\"message\":\"Invalid quantity\",\"details\":[{\"field\":\"items[0].quantity\",\"message\":\"Must be positive\"}]},\"request_id\":\"req_example\"}. The 401 has its own error body with no details. Preserve the actual schemas and explain recovery.",
+      "expected_output": "Adds complete error response examples under each affected operation rather than a code-only table or generic shared reference.",
+      "assertions": [
+        "Reads Bruno before updating and checks actual handler/test contracts",
+        "Includes full HTTP status line, relevant response headers and complete JSON body per scenario",
+        "Preserves nested validation details and request_id without inventing fields for the 401 body",
+        "States invalid input or missing-token trigger and concrete caller action",
+        "Labels constructed examples and verification level honestly"
+      ],
+      "files": []
+    },
+    {
+      "id": 18,
+      "prompt": "Create an API handover from a stale Bruno collection and the current OpenAPI spec, but do not edit or create any .bru files. A new supported error and a new business state have no collection cases.",
+      "expected_output": "Inspects the collection and reconciles the sources within read-only collection scope, reports the unmet collection prerequisite, and returns a limited draft instead of silently editing Bruno or claiming complete coverage.",
+      "assertions": [
+        "Honors the explicit prohibition on collection edits",
+        "Names missing error and state cases as prerequisite gaps",
+        "May draft source-backed responses but marks coverage incomplete",
+        "Does not invent execution evidence or automatically override the scope"
+      ],
+      "files": []
+    },
+    {
+      "id": 19,
+      "prompt": "Document the supplied approval process and include an infographic comparing the normal and exception paths for client readers. An existing Mermaid diagram is verified against tests. Preserve uncertainty on a proposed cancellation path and keep the document as the deliverable.",
+      "expected_output": "Uses infographic for the requested explanatory composition, reuses the verified technical diagram as needed, and keeps document ownership, evidence and proposed-path labels intact.",
+      "assertions": [
+        "Selects infographic for the requested visual comparison rather than forcing only a bare diagram",
+        "Passes source evidence, existing technical source and uncertainty to the visual owner",
+        "Avoids diagram/infographic callback loops and duplicate unsolicited assets",
+        "Preserves proposed versus verified paths in the visual and document"
+      ],
+      "files": []
+    },
+    {
+      "id": 20,
+      "prompt": "Prepare a client handover for POST /v1/widgets and GET /v1/widgets/{widget_id}. Bruno, tests, and OpenAPI agree that POST accepts JSON and returns 201 JSON or 400 JSON; GET has no request body and returns 200 JSON or 404 JSON. The service is unavailable. Provide commands and examples clients can copy without showing live credentials.",
+      "expected_output": "Each operation has a copyable cURL command, complete request JSON when applicable, and full matching JSON responses with HTTP status and relevant headers, all labeled as unrun contract examples.",
+      "assertions": [
+        "Reads the Bruno collection first and reconciles the two operations with code and OpenAPI",
+        "Shows a cURL command for both operations with only supported method, URL, headers, query, and body parts",
+        "Shows the complete POST request JSON separately and states that GET has no request body",
+        "Shows complete 201, 400, 200, and 404 response JSON with matching HTTP status and relevant headers under their operations",
+        "Uses placeholders for credentials, consistent synthetic identifiers, and an unrun evidence label"
       ],
       "files": []
     }

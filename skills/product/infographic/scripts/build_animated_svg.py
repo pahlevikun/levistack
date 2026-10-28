@@ -13,12 +13,12 @@ import sys
 NS = "http://www.w3.org/2000/svg"
 ET.register_namespace("", NS)
 
-TITLE_HOLD = 1.0
-STEP_STRIDE = 1.55
-ICON_LEAD = 0.0
-VALUE_LEAD = 0.22
-LABEL_LEAD = 0.45
-CONNECTOR_LEAD = 0.85
+DEFAULT_TITLE_HOLD = 1.0
+DEFAULT_STEP_STRIDE = 1.55
+DEFAULT_ICON_LEAD = 0.0
+DEFAULT_VALUE_LEAD = 0.22
+DEFAULT_LABEL_LEAD = 0.45
+DEFAULT_CONNECTOR_LEAD = 0.85
 
 
 def _esc(text: str) -> str:
@@ -50,6 +50,12 @@ def validate(data: dict) -> None:
             raise ValueError(f"step {index} value_display too long (16 max)")
     if "synthetic" in data and not isinstance(data["synthetic"], bool):
         raise ValueError("synthetic must be a boolean when present")
+    insight = data.get("insight")
+    if insight is not None and (not isinstance(insight, str) or not insight.strip()):
+        raise ValueError("insight must be a nonempty string when present")
+    timing = data.get("timing")
+    if timing is not None and not isinstance(timing, dict):
+        raise ValueError("timing must be an object when present")
 
 
 def theme_defaults(data: dict) -> dict[str, str]:
@@ -63,12 +69,25 @@ def theme_defaults(data: dict) -> dict[str, str]:
     }
 
 
+def timing_values(data: dict) -> dict[str, float]:
+    raw = data.get("timing") if isinstance(data.get("timing"), dict) else {}
+    return {
+        "title_hold": float(raw.get("title_hold_seconds", DEFAULT_TITLE_HOLD)),
+        "step_stride": float(raw.get("step_stride_seconds", DEFAULT_STEP_STRIDE)),
+        "icon_lead": float(raw.get("icon_lead_seconds", DEFAULT_ICON_LEAD)),
+        "value_lead": float(raw.get("value_lead_seconds", DEFAULT_VALUE_LEAD)),
+        "label_lead": float(raw.get("label_lead_seconds", DEFAULT_LABEL_LEAD)),
+        "connector_lead": float(raw.get("connector_lead_seconds", DEFAULT_CONNECTOR_LEAD)),
+    }
+
+
 def total_duration(data: dict, n: int) -> float:
     hold = float(data.get("hold_seconds", 2.5))
     custom = data.get("duration_seconds")
     if custom is not None:
         return float(custom)
-    return TITLE_HOLD + n * STEP_STRIDE + hold
+    t = timing_values(data)
+    return t["title_hold"] + n * t["step_stride"] + hold
 
 
 def build(data: dict) -> ET.ElementTree:
@@ -79,6 +98,7 @@ def build(data: dict) -> ET.ElementTree:
         raise ValueError("width and height out of supported range")
     steps = data["steps"]
     theme = theme_defaults(data)
+    timing = timing_values(data)
     duration = total_duration(data, len(steps))
     title_lines = textwrap.wrap(data["title"], 42)
     if len(title_lines) > 2:
@@ -96,7 +116,13 @@ def build(data: dict) -> ET.ElementTree:
     )
     defs = ET.SubElement(root, f"{{{NS}}}defs")
     style = ET.SubElement(defs, f"{{{NS}}}style")
-    style.text = _css(duration, len(steps))
+    style.text = _css(duration, len(steps), timing["title_hold"])
+
+    meta = ET.SubElement(root, f"{{{NS}}}metadata")
+    meta.text = (
+        f"levistack-sequenced-infographic duration={duration:.2f}s steps={len(steps)} "
+        "output=svg-only"
+    )
 
     ET.SubElement(root, f"{{{NS}}}title", {"id": "seq-title"}).text = data["title"]
     desc = ET.SubElement(root, f"{{{NS}}}desc", {"id": "seq-desc"})
@@ -108,8 +134,24 @@ def build(data: dict) -> ET.ElementTree:
         {"width": str(width), "height": str(height), "fill": theme["background"]},
     )
 
-    title_y = 72 + (len(title_lines) - 1) * 8
+    title_y = 56 + (len(title_lines) - 1) * 8
+    if data.get("insight"):
+        title_y += 28
     title_g = ET.SubElement(root, f"{{{NS}}}g", {"class": "seq-title"})
+    if data.get("insight"):
+        ET.SubElement(
+            title_g,
+            f"{{{NS}}}text",
+            {
+                "x": str(width // 2),
+                "y": str(title_y - 36),
+                "text-anchor": "middle",
+                "fill": theme["accent"],
+                "font-size": "22",
+                "font-weight": "600",
+                "font-family": "system-ui, sans-serif",
+            },
+        ).text = textwrap.shorten(data["insight"].strip(), width=72, placeholder="…")
     for i, line in enumerate(title_lines):
         ET.SubElement(
             title_g,
@@ -134,7 +176,7 @@ def build(data: dict) -> ET.ElementTree:
 
     for i, step in enumerate(steps):
         cx = margin + col_w * (i + 0.5)
-        base = TITLE_HOLD + i * STEP_STRIDE
+        base = timing["title_hold"] + i * timing["step_stride"]
         group = ET.SubElement(root, f"{{{NS}}}g", {"class": f"seq-step seq-step-{i + 1}"})
 
         icon = ET.SubElement(
@@ -142,7 +184,7 @@ def build(data: dict) -> ET.ElementTree:
             f"{{{NS}}}g",
             {
                 "class": "seq-icon",
-                "style": f"animation-delay:{base + ICON_LEAD:.3f}s",
+                "style": f"animation-delay:{base + timing['icon_lead']:.3f}s",
             },
         )
         ET.SubElement(
@@ -179,7 +221,7 @@ def build(data: dict) -> ET.ElementTree:
             f"{{{NS}}}text",
             {
                 "class": "seq-value",
-                "style": f"animation-delay:{base + VALUE_LEAD:.3f}s",
+                "style": f"animation-delay:{base + timing['value_lead']:.3f}s",
                 "x": str(cx),
                 "y": str(row_top + 88),
                 "text-anchor": "middle",
@@ -196,7 +238,7 @@ def build(data: dict) -> ET.ElementTree:
             f"{{{NS}}}text",
             {
                 "class": "seq-label",
-                "style": f"animation-delay:{base + LABEL_LEAD:.3f}s",
+                "style": f"animation-delay:{base + timing['label_lead']:.3f}s",
                 "x": str(cx),
                 "y": str(row_top + 132),
                 "text-anchor": "middle",
@@ -216,7 +258,7 @@ def build(data: dict) -> ET.ElementTree:
                 f"{{{NS}}}g",
                 {
                     "class": "seq-connector",
-                    "style": f"animation-delay:{base + CONNECTOR_LEAD:.3f}s",
+                    "style": f"animation-delay:{base + timing['connector_lead']:.3f}s",
                 },
             )
             ET.SubElement(
@@ -242,7 +284,7 @@ def build(data: dict) -> ET.ElementTree:
                     "stroke-linecap": "round",
                     "stroke-linejoin": "round",
                     "class": "seq-arrow",
-                    "style": f"animation-delay:{base + CONNECTOR_LEAD + 0.18:.3f}s",
+                    "style": f"animation-delay:{base + timing['connector_lead'] + 0.18:.3f}s",
                 },
             )
 
@@ -264,15 +306,17 @@ def build(data: dict) -> ET.ElementTree:
     return ET.ElementTree(root)
 
 
-def _css(duration: float, step_count: int) -> str:
+def _css(duration: float, step_count: int, title_hold: float = DEFAULT_TITLE_HOLD) -> str:
     pop = 0.55
     fade = 0.4
     draw = 0.45
     d = max(duration, 3.0)
+    title_delay = title_hold * 0.2
     return f"""
-.seq-title {{ opacity: 0; transform: translateY(14px); animation: seq-fade-rise {fade:.2f}s ease-out {TITLE_HOLD * 0.2:.2f}s forwards; }}
+.seq-title {{ opacity: 0; transform: translateY(14px); animation: seq-fade-rise {fade:.2f}s ease-out {title_delay:.2f}s forwards; }}
 .seq-icon {{ opacity: 0; transform: scale(0.6); transform-box: fill-box; transform-origin: center; animation: seq-pop {pop:.2f}s cubic-bezier(0.34, 1.4, 0.64, 1) forwards; }}
-.seq-value, .seq-label {{ opacity: 0; transform: translateY(10px); animation: seq-fade-rise {fade:.2f}s ease-out forwards; }}
+.seq-value {{ opacity: 0; transform: translateY(10px); animation: seq-fade-rise {fade:.2f}s ease-out forwards; font-variant-numeric: tabular-nums; }}
+.seq-label {{ opacity: 0; transform: translateY(10px); animation: seq-fade-rise {fade:.2f}s ease-out forwards; }}
 .seq-connector path:first-child {{
   stroke-dasharray: 100; stroke-dashoffset: 100;
   animation: seq-draw {draw:.2f}s ease-out forwards;

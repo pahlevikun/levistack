@@ -108,7 +108,7 @@ A clean result is a valid result. Do not invent findings to look thorough, and d
 - `trace`: the immediate cause is proven, and the user wants the root cause behind it.
 - `second-opinion`: a wide change needs reviewers on different models. `prove-safe` supplies the proof, and `second-opinion` supplies the review.
 - `tdd`: the fix needs a failing test first.
-- `glab-code-review`: verify a review comment before you act on it.
+- `code-review`: verify a review comment before you act on it.
 - `atomic-semantic-commit`: the work is proven and ready to commit.
 - `write-mr-description`: the work is proven and ready for an MR.
 - `handoff`: say what was and was not verified when you stop.

@@ -1,0 +1,68 @@
+{
+  "skill_name": "evidence",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Use evidence to fix a failing parser test. The README says invalid dates exit 2; a test expects exit 2, but the implementation exits 0. Make the smallest fix and verify it.",
+      "expected_output": "Runs the evidence task, checks the README and real implementation, fixes the mismatch, and reports observed targeted and surrounding checks.",
+      "assertions": ["Selects Run mode", "Reads stated contract before changing behavior", "Runs a check on the finished artifact", "Does not claim broader verification than performed"],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Use evidence Plan mode for a docs migration. Show the recommended sequence and checks, but change nothing yet.",
+      "expected_output": "Produces a source-backed plan and stops before edits.",
+      "assertions": ["Selects Plan mode", "Names an observable check for each consequential step", "Does not edit files"],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Use evidence Judge mode on this agent's report: it says all tests pass, but the only recorded command was a linter. Review the current diff and give a verdict without fixing anything.",
+      "expected_output": "Treats the test claim as unsupported, inspects the diff, reruns available checks, and returns an evidence table and verdict without editing.",
+      "assertions": ["Selects Judge mode", "Distinguishes lint from tests", "Keeps the review read-only", "Reports exactly what was or was not rerun"],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Use evidence Domain mode to make a workflow for invoice reconciliation from these existing local skills. Include a common case and an error-prone case in evals.",
+      "expected_output": "Routes to Domain mode, classifies the existing skills for conversion, checks catalog overlap, and creates an original domain workflow with smoke evidence.",
+      "assertions": ["Selects Domain mode", "Uses convert-as-skill for existing material", "Checks for an existing catalog owner", "Does not claim smoke testing proves financial expertise"],
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "Use evidence Report mode to rewrite my report about a handover PDF. The PDF export was not run and no one inspected pages, although the draft says the PDF is ready.",
+      "expected_output": "Returns a short report that says the PDF remains unverified instead of repeating the completion claim.",
+      "assertions": ["Selects Report mode", "Removes the unsupported ready claim", "Does not claim PDF inspection or export"],
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "Which skill should I use for an ordinary code review? I did not request evidence judgment.",
+      "expected_output": "Uses the catalog router and code-review skill instead of evidence.",
+      "assertions": ["Does not invoke evidence", "Routes to the ordinary review owner"],
+      "files": []
+    },
+    {
+      "id": 7,
+      "prompt": "Turn my rough idea for a command-line CSV cleaner into a reusable goal prompt for a fresh session. It should save the tool under tools/csv-cleaner, run on a representative file and a malformed file, and never publish anything.",
+      "expected_output": "Produces a concise reusable prompt with a concrete artifact, verified destination and medium-specific checks, while preserving the no-publish boundary; does not build the tool.",
+      "assertions": ["Selects Goal mode", "Does not build the tool", "Checks named resources before depending on them", "Defines observable completion", "Preserves publication boundary"],
+      "files": []
+    },
+    {
+      "id": 8,
+      "prompt": "Rumbling's three agents have finished. Two say candidate A is safest, but neither ran its migration test. Candidate B has a passing migration test and a smaller rollback. Judge their reports and artifacts against correctness, rollout and reversibility. Do not edit either candidate.",
+      "expected_output": "Waits for complete results, checks the actual candidates and test evidence, weighs the criteria rather than votes, and gives a read-only comparative verdict with limits.",
+      "assertions": ["Selects Judge mode", "Evaluates evidence rather than vote count", "Inspects candidate artifacts", "Keeps judgment read-only", "States missing checks"],
+      "files": []
+    },
+    {
+      "id": 9,
+      "prompt": "I need an adversarial review of this code diff with a decision ledger and one question at a time before merge.",
+      "expected_output": "Routes to second-opinion, which owns adversarial code-change review and the decision ledger.",
+      "assertions": ["Routes to second-opinion", "Does not substitute evidence Judge for the specialized ledger"],
+      "files": []
+    }
+  ]
+}
