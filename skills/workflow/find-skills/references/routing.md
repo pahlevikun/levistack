@@ -11,16 +11,17 @@ Group → plugin: `levistack-<group>`. Group `upstream` means the skill ships as
 | Not sure where to start, or want the full route | `use-levistack` | workflow |
 | How one flow or module works, where a change should live | `codebase-learner` (explain mode) | knowledge |
 | Why code is shaped this way, what tradeoff or incident caused it | `trace` | knowledge |
-| Root cause of a bug, an incident, a flaky or slow pipeline; postmortem; five whys | `verify` (if the failure is live and unexplained), `trace` (root-cause mode) | knowledge |
+| Investigate the root cause of a bug, incident, flaky or slow pipeline; five whys | `verify` (if the failure is live and unexplained), `trace` (root-cause mode) | knowledge |
 | Onboard, map a codebase, find architecture smells | `codebase-learner` | knowledge |
 | Write docs for a feature, module or API, or check which docs a change made stale | `create-documentation` | delivery |
 | Pick a framework, compare X vs Y, cost a migration, plan a greenfield stack | `codebase-learner` (only if facts are missing), `super-tech-blueprint` | architecture |
 | Name or choose an architecture style, scaffold in one | `super-architecture` | architecture |
 | Grill a plan, stress-test an idea, brainstorm a design | `challenge-me` | knowledge |
+| Give agents independent tasks, compare implementations, or convene a model-diverse council | `rumbling` (Split, Contest, or Council), then `evidence` (Judge) | workflow |
 | Answer a question from primary sources, the web, or read-only git history on docs and releases, or prepare questions for one person | `research` (sources or people mode) | knowledge |
 | Explain a system, schema, API or process with Mermaid, SVG, draw.io or Excalidraw, or export a diagram to an image or animation | `diagram` | product |
 | Make a task prompt deeper before running it | `challenge-me` (sharpen mode) | knowledge |
-| Plan work too big for one session as a map of decisions | `challenge-me` (decision-map, huge work), then `write-plan` | knowledge |
+| Plan work too big for one session as a map of decisions | `challenge-me` (decision-map, huge work), then `write-plan` | delivery |
 | Cache design, invalidation, CDN, Redis, offline | `super-caching` | architecture |
 | Node.js service, API, middleware, auth | `super-nodejs` | architecture |
 | `.proto`, buf, gRPC or Connect, schema breaks | `super-protobuf` | architecture |
@@ -35,9 +36,9 @@ Group → plugin: `levistack-<group>`. Group `upstream` means the skill ships as
 
 | The user wants to… | Chain | Group |
 |---|---|---|
-| Plan a multi-step change before code | `challenge-me` (if the spec is soft), `write-plan` | knowledge |
-| Slice a big plan into end-to-end pieces with blockers | `write-plan` (slicing), `create-tickets` for tickets | knowledge |
-| Spec a backend or API change (lifecycle, errors, compatibility) | `codebase-learner` (if the flow is unknown), `ready-spec`, `write-plan` | knowledge |
+| Plan a multi-step change before code | `challenge-me` (if the spec is soft), `write-plan` | delivery |
+| Slice a big plan into end-to-end pieces with blockers | `write-plan` (slicing), `create-tickets` for tickets | delivery |
+| Spec a backend or API change (lifecycle, errors, compatibility) | `codebase-learner` (if the flow is unknown), `ready-spec`, `write-plan` | delivery |
 | Build a feature or fix a bug test-first | `tdd`, `verify` | engineering |
 | Elixir, Phoenix, Ecto, OTP work | `super-elixir` (its tdd speciality for test-first), `verify` | engineering |
 | Refactor without changing behavior | `tdd` (if no safety net), `safe-refactor`, `verify` | engineering |
@@ -53,9 +54,9 @@ Group → plugin: `levistack-<group>`. Group `upstream` means the skill ships as
 | Check a performance number before you report it | `verify` (vet a number) | engineering |
 | Prune weak or duplicate tests in an existing suite | `tdd` (audit mode) | engineering |
 | Adversarial review, blind spots before merge | `second-opinion`, `verify` for each Act on fix | knowledge |
-| Review a local diff or a merge request, act on review comments | `glab-code-review` (`noslop` dimension), `verify` for each comment | delivery |
+| Review a local diff or a merge request, act on review comments | `code-review` (`noslop` dimension), `verify` for each comment | delivery |
 | Split a messy tree into commits | `atomic-semantic-commit` | delivery |
-| Open or describe an MR or PR | `atomic-semantic-commit` (if mixed), `glab-code-review` (self-review), `write-mr-description` | delivery |
+| Open or describe an MR or PR | `atomic-semantic-commit` (if mixed), `code-review` (self-review), `write-mr-description` | delivery |
 | Write Jira stories or tasks | `challenge-me` or `write-plan` (if not broken down), `create-tickets` | delivery |
 | Build a Bruno API collection | `create-bruno-collection`, then `verify` to run it | delivery |
 
@@ -63,6 +64,13 @@ Group → plugin: `levistack-<group>`. Group `upstream` means the skill ships as
 
 | The user wants to… | Chain | Group |
 |---|---|---|
+| Write a design document or RFC that separates current behavior from a proposal | `write-adr` (Proposal job) | delivery |
+| Write, review, consult, or supersede an architecture decision record | `write-adr` | delivery |
+| Write a changelog or release notes with verified release scope and migration actions | `write-changelog` | delivery |
+| Write a stabilized incident postmortem or near-miss report from evidence | `write-postmortem` | delivery |
+| Write an operational recovery, deployment or migration runbook | `write-runbook` | delivery |
+| Frame a reusable goal prompt, run an evidence workflow, judge completed work or parallel agent results, rewrite a report, or build a domain workflow | `evidence` (requested mode) | workflow |
+| Create a client API handover with full responses and supported state variants | `create-documentation` (handover; reads Bruno first, invokes `create-bruno-collection` if absent or incomplete) | delivery |
 | Write or rewrite prose for people: email, chat, docs, comments, incident update | `polyglot-copywriter` | upstream |
 | Turn evidence into an editorial infographic, comparison, timeline or visual explanation, including Mermaid or animated figures | `infographic`, with `diagram` for technical source and exports | product |
 | Short replies, save tokens, plain technical style for agents | `output-savers` (`concise`; `concise-light` or `concise-heavy` for a level) | engineering |
@@ -100,7 +108,7 @@ Group → plugin: `levistack-<group>`. Group `upstream` means the skill ships as
 | User says | Chain |
 |---|---|
 | "Modify the polyglot-copywriter skill" | It is an upstream skill: edit it in `pahlevikun/polyglot-copywriter`, not here. For a catalog skill in this repo: `manage-stack` (write surface and checks), `create-skill` (authoring rules and lint), edit, lint, `npm run check`. Elsewhere: `create-skill`, edit, lint. |
-| "Write an MR for this branch" | `atomic-semantic-commit` if the diff is mixed, `glab-code-review` self-review, `write-mr-description`. |
+| "Write an MR for this branch" | `atomic-semantic-commit` if the diff is mixed, `code-review` self-review, `write-mr-description`. |
 | "Add an Elixir feature with tests" | `write-plan` if large, `tdd` (Elixir track), `super-elixir` code-review, `verify`. |
 | "Which stack should we move to?" | `codebase-learner`, `super-tech-blueprint`, `challenge-me` on the pick, `write-plan`. |
 | "Turn this plan into tickets" | `write-plan` if the plan is missing, `create-tickets`. |

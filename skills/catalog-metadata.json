@@ -108,7 +108,7 @@
     },
     "noslop": {
       "version": "1.0.0",
-      "related_skills": ["polyglot-copywriter", "glab-code-review"],
+      "related_skills": ["polyglot-copywriter", "code-review"],
       "invokes": [],
       "tags": ["code-quality", "comments", "slop"],
       "capabilities": ["slop_filter"]
@@ -127,22 +127,8 @@
       "tags": ["challenge", "stress-test", "brainstorm"],
       "capabilities": ["adversarial_planning"]
     },
-    "write-plan": {
-      "related_skills": ["challenge-me", "create-tickets", "ready-spec"],
-      "invokes": [
-        {"skill": "challenge-me", "when": "Spec or scope is still soft"},
-        {"skill": "create-tickets", "when": "Plan is ready to become tickets"}
-      ],
-      "tags": ["plan", "slicing"],
-      "capabilities": ["multi_step_planning"]
-    },
-    "ready-spec": {
-      "related_skills": ["write-plan", "codebase-learner"],
-      "invokes": [{"skill": "codebase-learner", "when": "API or flow in the repo is unknown"}],
-      "tags": ["spec", "api", "backend"],
-      "capabilities": ["implementation_spec"]
-    },
     "codebase-learner": {
+      "version": "1.0.0",
       "related_skills": ["trace", "research", "create-agents-md"],
       "invokes": [],
       "tags": ["onboarding", "architecture", "map"],
@@ -161,31 +147,48 @@
       "capabilities": ["primary_source_research"]
     },
     "second-opinion": {
-      "related_skills": ["verify", "glab-code-review"],
+      "related_skills": ["verify", "code-review", "evidence", "rumbling"],
       "invokes": [{"skill": "verify", "when": "Each fix from review needs evidence"}],
       "tags": ["review", "adversarial"],
       "capabilities": ["blind_spot_review"]
     },
     "atomic-semantic-commit": {
       "version": "1.0.0",
-      "related_skills": ["write-mr-description", "glab-code-review", "polyglot-copywriter"],
+      "related_skills": ["write-mr-description", "code-review", "polyglot-copywriter"],
       "invokes": [{"skill": "polyglot-copywriter", "when": "Commit message prose needs polish"}],
       "tags": ["git", "commit", "conventional-commits"],
       "capabilities": ["atomic_commits"]
     },
-    "glab-code-review": {
-      "version": "1.0.0",
+    "code-review": {
+      "version": "1.1.1",
       "related_skills": ["noslop", "polyglot-copywriter", "verify", "write-mr-description"],
       "invokes": [
         {"skill": "noslop", "when": "Comment bodies need slop pass on code surfaces"},
         {"skill": "polyglot-copywriter", "when": "Review comment prose needs polish"},
         {"skill": "verify", "when": "Acting on each review comment"}
       ],
-      "tags": ["gitlab", "code-review", "mr"],
-      "capabilities": ["merge_request_review"]
+      "tags": ["code-review", "gitlab", "mr", "local-diff", "review-feedback"],
+      "capabilities": ["local_diff_review", "merge_request_review", "review_feedback", "draft_inline_comments"]
+    },
+    "write-plan": {
+      "version": "1.0.0",
+      "related_skills": ["challenge-me", "create-tickets", "ready-spec"],
+      "invokes": [
+        {"skill": "challenge-me", "when": "Spec or scope is still soft"},
+        {"skill": "create-tickets", "when": "Plan is ready to become tickets"}
+      ],
+      "tags": ["plan", "slicing"],
+      "capabilities": ["multi_step_planning"]
+    },
+    "ready-spec": {
+      "version": "1.0.0",
+      "related_skills": ["write-plan", "codebase-learner"],
+      "invokes": [{"skill": "codebase-learner", "when": "API or flow in the repo is unknown"}],
+      "tags": ["spec", "api", "backend"],
+      "capabilities": ["implementation_spec"]
     },
     "write-mr-description": {
-      "related_skills": ["atomic-semantic-commit", "glab-code-review", "polyglot-copywriter"],
+      "related_skills": ["atomic-semantic-commit", "code-review", "polyglot-copywriter"],
       "invokes": [{"skill": "polyglot-copywriter", "when": "MR description prose needs polish"}],
       "tags": ["merge-request", "pr-description"],
       "capabilities": ["mr_description"]
@@ -200,24 +203,71 @@
       "capabilities": ["ticket_authoring"]
     },
     "create-documentation": {
-      "related_skills": ["diagram", "codebase-learner"],
+      "version": "1.4.0",
+      "related_skills": ["diagram", "infographic", "codebase-learner", "create-bruno-collection", "write-adr", "write-changelog", "write-postmortem", "write-runbook", "polyglot-copywriter"],
       "invokes": [
         {"skill": "diagram", "when": "Docs need technical figures"},
-        {"skill": "codebase-learner", "when": "Module map is unknown"}
+        {"skill": "infographic", "when": "Documentation needs an evidence-based visual explainer, comparison, or timeline, optionally embedding a verified technical figure"},
+        {"skill": "codebase-learner", "when": "Module map is unknown"},
+        {"skill": "create-bruno-collection", "when": "API handover requires a missing collection or missing supported variant cases before drafting or final delivery"},
+        {"skill": "polyglot-copywriter", "when": "Documentation prose needs plain-language revision while preserving technical meaning"}
       ],
-      "tags": ["documentation", "docs"],
-      "capabilities": ["feature_documentation"]
+      "tags": ["documentation", "technical-writing", "api", "handover", "bruno-first", "response-variants", "process", "contract"],
+      "capabilities": ["feature_documentation", "api_reference", "client_api_handover", "bruno_prerequisite", "api_variant_and_state_coverage", "complete_error_responses", "process_documentation", "contract_documentation", "documentation_freshness"]
     },
     "create-bruno-collection": {
-      "related_skills": ["verify", "ready-spec"],
-      "invokes": [{"skill": "verify", "when": "Collection should be run to prove requests"}],
+      "version": "1.2.0",
+      "related_skills": ["verify", "ready-spec", "create-documentation"],
+      "invokes": [
+        {"skill": "verify", "when": "Collection should be run to prove requests"},
+        {"skill": "create-documentation", "when": "A shareable client API document is requested alongside the runnable collection"}
+      ],
       "tags": ["bruno", "api", "collection"],
-      "capabilities": ["bruno_collection"]
+      "capabilities": ["bruno_collection", "handover_prerequisite_cases"]
+    },
+    "write-adr": {
+      "version": "1.1.0",
+      "related_skills": ["super-architecture", "write-plan", "create-documentation", "diagram", "infographic", "polyglot-copywriter"],
+      "invokes": [
+        {"skill": "super-architecture", "when": "The architecture choice still needs evaluation"},
+        {"skill": "write-plan", "when": "An accepted decision or design needs implementation steps"},
+        {"skill": "diagram", "when": "A technical relationship or flow needs a verified figure"},
+        {"skill": "infographic", "when": "A proposal needs an audience-facing visual comparison or explainer with current and proposed evidence kept distinct"}
+      ],
+      "tags": ["adr", "architecture-decision-record", "decision-history", "design-doc", "rfc", "proposal"],
+      "capabilities": ["adr_authoring", "adr_review", "decision_lifecycle", "design_documentation", "proposal_evidence_and_acceptance"]
+    },
+    "write-changelog": {
+      "version": "1.1.0",
+      "related_skills": ["create-documentation", "write-mr-description", "polyglot-copywriter"],
+      "invokes": [],
+      "tags": ["changelog", "release-notes", "git-first", "concise", "migration", "release"],
+      "capabilities": ["release_notes", "release_evidence_and_migration", "git_commit_and_net_diff_review", "concise_audience_specific_entries"]
+    },
+    "write-postmortem": {
+      "version": "1.1.0",
+      "related_skills": ["trace", "write-runbook", "create-tickets", "diagram", "infographic", "polyglot-copywriter"],
+      "invokes": [
+        {"skill": "trace", "when": "Incident mechanisms need an evidence-backed causal investigation"},
+        {"skill": "diagram", "when": "The incident report needs an evidence-backed technical causal or response-flow figure"},
+        {"skill": "infographic", "when": "The incident report needs an audience-facing impact or timeline visual with evidence and uncertainty preserved"}
+      ],
+      "tags": ["postmortem", "incident-report", "near-miss", "timeline", "impact", "follow-up"],
+      "capabilities": ["incident_postmortem", "timeline_evidence_and_followups", "structured_incident_report", "causal_and_action_effectiveness_review"]
+    },
+    "write-runbook": {
+      "version": "1.1.0",
+      "related_skills": ["create-documentation", "write-postmortem", "write-plan", "verify", "polyglot-copywriter"],
+      "invokes": [
+        {"skill": "verify", "when": "Runbook commands or recovery branches need safe local verification"}
+      ],
+      "tags": ["runbook", "recovery", "migration", "operations", "deployment", "phase-gates", "resume"],
+      "capabilities": ["runbook_authoring", "recovery_and_branch_verification", "deployment_phase_and_rollback_gates", "resumption_and_redacted_run_evidence"]
     },
     "super-architecture": {
-      "version": "1.0.0",
-      "related_skills": ["super-tech-blueprint", "codebase-learner"],
-      "invokes": [],
+      "version": "1.1.0",
+      "related_skills": ["super-tech-blueprint", "codebase-learner", "write-adr"],
+      "invokes": [{"skill": "write-adr", "when": "An architecture choice needs a requested or repository-required decision record"}],
       "tags": ["architecture", "scaffold"],
       "capabilities": ["architecture_scaffold"]
     },
@@ -322,6 +372,31 @@
       "invokes": [{"skill": "find-skills", "when": "Pick or install a specific skill from the catalog"}],
       "tags": ["levistack", "routing"],
       "capabilities": ["catalog_routing"]
+    },
+    "evidence": {
+      "version": "1.1.0",
+      "related_skills": ["use-levistack", "verify", "second-opinion", "rumbling", "create-skill", "convert-as-skill", "diagram", "infographic"],
+      "invokes": [
+        {"skill": "verify", "when": "Run mode needs fresh claim-matched checks or Report mode has a checkable claim"},
+        {"skill": "second-opinion", "when": "A consequential code change needs an adversarial decision review"},
+        {"skill": "create-skill", "when": "Domain mode creates a new skill without existing source material"},
+        {"skill": "convert-as-skill", "when": "Domain mode adapts or merges existing skill material"},
+        {"skill": "diagram", "when": "Domain mode needs a technical flowchart that text cannot show clearly"},
+        {"skill": "infographic", "when": "Domain mode needs an evidence-based audience-facing visual workflow"}
+      ],
+      "tags": ["evidence", "goal", "plan", "judge", "audit", "domain-skill"],
+      "capabilities": ["observable_goal_framing", "explicit_evidence_workflow", "read_only_claim_judge", "parallel_result_judgment", "domain_skill_routing"]
+    },
+    "rumbling": {
+      "version": "1.0.0",
+      "related_skills": ["evidence", "second-opinion", "verify", "use-levistack"],
+      "invokes": [
+        {"skill": "evidence", "when": "All parallel workers have finished; Judge mode weighs reports against the actual artifacts and decision criteria"},
+        {"skill": "verify", "when": "The coordinator has integrated accepted work and must check the finished result"},
+        {"skill": "second-opinion", "when": "A consequential code change also needs an adversarial decision ledger before acceptance"}
+      ],
+      "tags": ["parallel-agents", "contest", "council", "judge"],
+      "capabilities": ["independent_task_fanout", "parallel_candidate_contest", "model_diverse_council", "evidence_judged_synthesis"]
     },
     "handoff": {
       "related_skills": ["write-plan"],

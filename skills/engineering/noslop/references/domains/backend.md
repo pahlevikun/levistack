@@ -15,4 +15,4 @@ Handlers, application services, repositories, outbound clients, background worke
 
 ## MR review signals
 
-Tutorial layering, god service, utils dump, dead registered handlers, silent stubs — see [glab-code-review §8](../../../../delivery/glab-code-review/references/review-dimensions.md).
+Tutorial layering, god service, utils dump, dead registered handlers, silent stubs — see [code-review §8](../../../../delivery/code-review/references/review-dimensions.md).

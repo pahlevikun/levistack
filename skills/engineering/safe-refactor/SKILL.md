@@ -108,7 +108,7 @@ Retained content from `refactor` (examples and checklists):
 - `output-savers`: keep the diff minimal.
 - `codebase-learner`: map the smells before you plan.
 - `super-architecture`: name the target style.
-- `glab-code-review`: review the refactor diff.
+- `code-review`: review the refactor diff.
 - `atomic-semantic-commit`: commit each safe step on its own.
 
 ## Done when

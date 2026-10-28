@@ -37,4 +37,4 @@ flowchart LR
 
 ## Deep review
 
-For GitLab review after the MR is open, use [`glab-code-review`](../../glab-code-review/SKILL.md) instead of Route C boilerplate when the user wants draft inline feedback.
+For GitLab review after the MR is open, use [`code-review`](../../code-review/SKILL.md) instead of Route C boilerplate when the user wants draft inline feedback.

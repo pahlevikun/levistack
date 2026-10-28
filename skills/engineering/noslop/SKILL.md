@@ -1,6 +1,6 @@
 ---
 name: noslop
-description: "Domain router for the no-slop filter on backend handlers, APIs, frontend UI, database access, infra/config, tests, and code comments. Stops tutorial layering, generic errors, OpenAPI filler, a11y/perf theater, N+1 queries, and AI comment noise. Pairs with glab-code-review (noslop dimension) and polyglot-copywriter for review/MR prose. Use when generating or auditing code that must fit this repo—not a paste. Subskill noslop-code is comments-only. Default mode: during; after mode for audits."
+description: "Domain router for the no-slop filter on backend handlers, APIs, frontend UI, database access, infra/config, tests, and code comments. Stops tutorial layering, generic errors, OpenAPI filler, a11y/perf theater, N+1 queries, and AI comment noise. Pairs with code-review (noslop dimension) and polyglot-copywriter for review/MR prose. Use when generating or auditing code that must fit this repo—not a paste. Subskill noslop-code is comments-only. Default mode: during; after mode for audits."
 metadata:
   version: 1.0.0
   author: levistack
@@ -10,7 +10,7 @@ metadata:
   department: engineering
   related_skills:
     - polyglot-copywriter
-    - glab-code-review
+    - code-review
   tags:
     - code-quality
     - comments
@@ -114,13 +114,13 @@ Fill [templates/architecture-read.md](templates/architecture-read.md) — requir
 
 Run [delivery-gate.md](references/core/delivery-gate.md) every pass on executable surfaces. **Comments only:** delivery gate + `noslop-code` checklist.
 
-## When invoked by glab-code-review
+## When invoked by code-review
 
 - **Scope:** MR review comment bodies and user-facing API/error copy flagged in the diff — not executable code inside suggestion fences.
 - **Mode:** **after** — audit draft comment text before posting GitLab draft notes.
-- **Inline vs summary:** reject generic rollup blocks; each finding stays on its inline draft. See [`glab-code-review`](../../delivery/glab-code-review/SKILL.md).
-- **Dimensions:** cite rule IDs (R-XX) in findings; Dim column stays `noslop`. Full MR signals: [review-dimensions.md](../../delivery/glab-code-review/references/review-dimensions.md) §8.
-- Pair with **polyglot-copywriter** (`glab-code-review` use case) for STE-simple phrasing after slop removal.
+- **Inline vs summary:** reject generic rollup blocks; each finding stays on its inline draft. See [`code-review`](../../delivery/code-review/SKILL.md).
+- **Dimensions:** cite rule IDs (R-XX) in findings; Dim column stays `noslop`. Full MR signals: [review-dimensions.md](../../delivery/code-review/references/review-dimensions.md) §8.
+- Pair with **polyglot-copywriter** (`code-review` use case) for STE-simple phrasing after slop removal.
 
 ## When invoked by write-mr-description
 
@@ -137,7 +137,7 @@ Run [delivery-gate.md](references/core/delivery-gate.md) every pass on executabl
 ## Related skills
 
 - `noslop-code`: the task edits comments only.
-- `glab-code-review`: review a diff with the noslop dimension.
+- `code-review`: review a diff with the noslop dimension.
 - `write-mr-description`: the filtered change is ready for an MR.
 - `safe-refactor`: the slop needs a structural fix, not a delete.
 - `polyglot-copywriter`: rewrite prose in comments or docs.

@@ -11,7 +11,7 @@ metadata:
   department: delivery
   related_skills:
     - write-mr-description
-    - glab-code-review
+    - code-review
     - polyglot-copywriter
   invokes:
     - skill: polyglot-copywriter
@@ -139,7 +139,7 @@ Write in English by default. If the repository history is in another language, w
 
 - `verify`: prove the gates pass before you commit.
 - `write-mr-description`: the commits are ready and you need the MR.
-- `glab-code-review`: review the diff before you open the MR.
+- `code-review`: review the diff before you open the MR.
 - `polyglot-copywriter`: polish commit wording for people.
 
 ## Done when

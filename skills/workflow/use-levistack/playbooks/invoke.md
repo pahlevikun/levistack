@@ -8,7 +8,7 @@
 |---|---|
 | Know how X works, walk through a flow, find where something lives or should live | `codebase-learner` (explain mode) |
 | Know why X is this way, the tradeoff, the history, whether a guard is still needed | `trace` (rationale mode) |
-| Find the root cause of a bug, an incident, a flaky test or a slow pipeline; a postmortem; five whys | `trace` (root-cause mode). If the failure is live and its mechanism unknown, `verify` (investigate first) runs inside it |
+| Find the root cause of a bug, an incident, a flaky test or a slow pipeline; five whys | `trace` (root-cause mode). If the failure is live and its mechanism unknown, `verify` (investigate first) runs inside it |
 | Understand a whole repo, onboard, write ARCHITECTURE.md or CLAUDE.md of what exists | `codebase-learner` (onboard or summarize mode) |
 | Grill a plan, doc, idea or design; poke holes; brainstorm before code | `challenge-me` |
 | Get a detailed spec for a backend or API change before an agent builds it | `ready-spec` |
@@ -16,7 +16,8 @@
 | Build a feature or fix a bug | `tdd` |
 | Refactor without changing behavior | `safe-refactor` |
 | Tear apart a diff or branch, find blind spots before merge | `second-opinion` |
-| Review an MR, or act on review comments | `glab-code-review` |
+| Give independent agents different tasks, competing solutions, or one question to investigate in parallel | `rumbling` (Split, Contest, or Council) |
+| Review an MR, or act on review comments | `code-review` |
 | Commit, split commits, open or describe an MR or PR | `atomic-semantic-commit`, then `write-mr-description` |
 | Prove something is done, run the gates, find why it fails | `verify` |
 | Audit or polish a shipped product's code, UI, journeys or branding. It calls the three skills below when it reaches colors, screens or the system | `product-polish-workflow` |
@@ -38,6 +39,13 @@
 | A whole design system, token file, DESIGN.md or governance, or extract a site's design. It calls `color-kit` and `ui-ux-kit` | `design-system-kit` |
 | Audit the existing tests for weak or duplicate ones | `tdd` (audit mode) |
 | Write docs for a feature, or check docs after a change | `create-documentation` |
+| Write a design doc or RFC | `write-adr` (Proposal job) |
+| Write, review, or supersede an ADR | `write-adr` |
+| Write a changelog or release notes | `write-changelog` |
+| Write a postmortem or near-miss report after stabilization | `write-postmortem` |
+| Write a recovery, deployment or migration runbook | `write-runbook` |
+| Frame a reusable goal prompt, run an evidence workflow, judge completed work, rewrite a report, or build a domain workflow | `evidence` (requested mode) |
+| Build a client API handover with complete responses and state coverage | `create-documentation` (handover; Bruno first, `create-bruno-collection` if missing or incomplete) |
 | Stop or resume a session; write a standup | `handoff`; `standup` |
 | A domain is named: architecture, caching, Node, protobuf, Elixir, slop, stack choice | that `super-*` domain router |
 | Anything else, or two rows fit equally | step 4: [find-skills](../../find-skills/SKILL.md) |

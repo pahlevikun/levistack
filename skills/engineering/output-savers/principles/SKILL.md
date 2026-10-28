@@ -27,4 +27,4 @@ Use the [style card](../concise/SKILL.md) when the problem is long replies and n
 - `output-savers`: the parent skill; use it to apply these rules to a job.
 - `noslop`: filter generated code for slop.
 - `safe-refactor`: apply the rules as a behavior-preserving refactor.
-- `glab-code-review`: review a diff for over-engineering.
+- `code-review`: review a diff for over-engineering.

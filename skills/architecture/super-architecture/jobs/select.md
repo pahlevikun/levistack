@@ -26,7 +26,7 @@ Choose an architecture for a new system or a new module, with one recommendation
 6. **Walk the decision tree** and check team size and the scenario router.
 7. **Classify subdomains** and give each the lightest style that fits.
 8. **Choose a CQRS level** and service boundaries if relevant.
-9. **Recommend one option,** with reasons, costs, what would change the answer, and write an ADR (`templates/selection-record.md`, then `templates/adr.md`).
+9. **Recommend one option,** with reasons, costs, and what would change the answer. Use [the selection record](../templates/selection-record.md) when the comparison needs a written working artifact; fill its ADR field only when one exists. When a decision record is requested or required by repository convention, pass the choice and evidence to `write-adr`.
 
 Domain-driven design answers "what do we call things." It **composes** with a structural style. Selecting it does not deselect hexagonal, layered or a modular monolith. Skip it when the domain is CRUD over a form.
 

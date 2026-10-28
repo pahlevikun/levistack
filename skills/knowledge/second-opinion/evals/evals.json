@@ -14,7 +14,7 @@
     },
     {
       "id": 2,
-      "prompt": "Handle a request that clearly belongs to the routine MR review loop (glab-code-review) or a plan or doc (challenge-me), not second-opinion. The user did not ask for second-opinion.",
+      "prompt": "Handle a request that clearly belongs to the routine MR review loop (code-review) or a plan or doc (challenge-me), not second-opinion. The user did not ask for second-opinion.",
       "expected_output": "Does not run second-opinion as the primary workflow. Routes to the neighbor named in Not for or asks one clarifying question.",
       "assertions": [
         "Recognizes the Not for boundary",
