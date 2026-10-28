@@ -1,0 +1,61 @@
+{
+  "skill_name": "write-adr",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Draft an ADR for choosing an asynchronous report queue. The repository stores ADRs under docs/decisions with numbered Markdown files and an index. The current report handler is synchronous, and the agreed proposal accepts jobs then polls for completion. Retention is undecided. Do not implement anything.",
+      "expected_output": "Creates one proposed record in the existing convention with current facts, choice, trade-offs, and an explicit retention gap.",
+      "assertions": ["Finds local ADR numbering and index before writing", "Distinguishes current synchronous code from proposed queue behavior", "Keeps retention unresolved", "Does not implement the queue or mark the ADR accepted"],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Supersede accepted ADR-004 with a new decision. The approval record confirms ADR-009 is accepted. Keep ADR-004's decision text, update the index, and link both records.",
+      "expected_output": "Preserves historical decision text and records a traceable, bidirectional supersession with consistent index status.",
+      "assertions": ["Reads the approval evidence and current statuses", "Does not rewrite ADR-004's accepted decision", "Links ADR-004 and ADR-009 both ways", "Checks the index and links after editing"],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Review this proposed ADR. It says a cache is already deployed, but the code only has a proposal branch. It marks itself accepted with no approval record. Do not edit the file.",
+      "expected_output": "Reports the unsupported deployed and accepted claims in a read-only review.",
+      "assertions": ["Keeps Review read-only", "Checks implementation versus proposal evidence", "Names the missing acceptance evidence", "Gives concrete corrections"],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Write a broad RFC comparing three storage services, rollout plans, and acceptance criteria. We have not chosen an architecture yet.",
+      "expected_output": "Uses the Proposal job in write-adr and asks super-architecture for a recommendation only when needed; it does not fabricate an accepted ADR.",
+      "assertions": ["Selects the Proposal job", "Keeps the architecture choice open", "Does not fabricate an accepted decision"],
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "Write an RFC proposing asynchronous report generation. Code currently handles reports synchronously. The proposal returns a job identifier and polling URL, targeting request acceptance within one second. Compare continued synchronous processing. Retention duration is unresolved and belongs to the data owner. Write the design document only, not code or tickets.",
+      "expected_output": "Uses the Proposal job to separate current facts from proposed behavior, compare a realistic alternative, and make acceptance reviewable.",
+      "assertions": ["Labels job and polling behavior proposed", "Records measurable acceptance without claiming it passed", "Explains the choice, alternative, trade-offs, and rollout", "Keeps retention as an open decision", "Does not implement code or create tickets"],
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "Revise an accepted cache ADR with a new proposal. The implementation caches per tenant, but a stale plan describes one global cache. Git history explains that tenant isolation followed a previous incident. We have no performance measurements for the proposed eviction policy. Preserve the old decision record and make the new choice reviewable.",
+      "expected_output": "Uses the ADR job, preserves the accepted record, reconciles current code and history against the stale plan, and labels the eviction policy as proposed.",
+      "assertions": ["Reports the plan versus implementation disagreement", "Uses relevant Git history without reviving the stale plan", "Preserves accepted history with a new or superseding proposal", "Does not invent measured performance or acceptance"],
+      "files": []
+    },
+    {
+      "id": 7,
+      "prompt": "The report-generation RFC is accepted. Produce implementation tickets and ordered coding tasks with acceptance tests. Do not rewrite the design document.",
+      "expected_output": "Routes execution planning to write-plan and ticket work to create-tickets rather than authoring another proposal.",
+      "assertions": ["Routes implementation planning to its owner", "Does not create another RFC or change the accepted decision", "Does not implement code while producing the plan"],
+      "files": []
+    },
+    {
+      "id": 8,
+      "prompt": "Write an RFC with an infographic comparing the current synchronous report flow with a proposed queued design. A current-flow diagram is already verified. Proposed latency improvement is unmeasured. Use a visual comparison rather than implementing the proposal.",
+      "expected_output": "Uses infographic for the requested comparison, reuses the verified diagram as needed, and preserves the current/proposed distinction.",
+      "assertions": ["Selects infographic as the visual owner", "Keeps current behavior, proposed architecture, and unmeasured performance distinct", "Avoids a diagram/infographic callback loop", "Produces no unrequested code or duplicate asset"],
+      "files": []
+    }
+  ]
+}
