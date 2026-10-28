@@ -17,7 +17,7 @@ BASE_SHA=$(git rev-parse HEAD~1)  # or origin/main
 HEAD_SHA=$(git rev-parse HEAD)
 ```
 
-2. **Dispatch** using [code-reviewer.md](code-reviewer.md) with `{DESCRIPTION}`, `{PLAN_OR_REQUIREMENTS}`, `{BASE_SHA}`, `{HEAD_SHA}`.
+2. **Dispatch** using the `code-reviewer.md` template with `{DESCRIPTION}`, `{PLAN_OR_REQUIREMENTS}`, `{BASE_SHA}`, `{HEAD_SHA}`.
 
 3. **Act on feedback:** Critical → fix now; Important → before proceeding; Minor → backlog; push back with reasoning when the reviewer is wrong.
 

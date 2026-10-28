@@ -10,7 +10,7 @@ Delegate heavy passes to subagents when available; the calling agent still owns 
 | Tests and coverage gaps | `agents/tdd-runner.md`, project TDD rules | `tdd-runner` |
 | Silent failures, wiring, principles | `rules/core/engineering-principles.md`, `agents/reviewer.md` | `reviewer` |
 | Backend/API slop | `rules/core/noslop.md`, `skills/engineering/noslop/SKILL.md` (+ `noslop-code` for comments) | noslop audit (after mode) |
-| Review comment prose | `polyglot-copywriter` (upstream) use case `glab-code-review`, its `references/simple-prose.md` | STE-simple inline text |
+| Review comment prose | `polyglot-copywriter` (upstream) use case `code-review`, its `references/simple-prose.md` | STE-simple inline text |
 
 ## 1. Knowledge and context
 
@@ -54,6 +54,7 @@ This pass is mandatory. The MR must fit the repo as it exists today.
 - New branches, error paths, and edge cases have table-driven or focused tests — not only happy path.
 - No weakened assertions, added skips, or fixture changes to make broken code pass.
 - Run scoped tests when the branch is available; report command + exit status.
+- Map each changed branch to the test example and observable assertion that would fail if the branch broke. Mark absent and stub-only assertions as gaps rather than calling them coverage.
 - Flag missing tests for: new public API, status/error code changes, concurrency, registration wiring.
 
 ## 6. Performance and operations
@@ -131,6 +132,6 @@ End preview with:
 - Verdict if submitted now: **approve** / **request changes** / **comment only**
 - Draft-ready count: how many findings map to **inline** draft comments (with suggestions when possible)
 
-Do **not** plan a long summary note for GitLab — carry detail in per-line drafts ([comment-body-format.md](comment-body-format.md)).
+Do **not** plan a long summary note for GitLab. Keep detail in per-line drafts, as `comment-body-format.md` specifies.
 
 Then **stop and wait** for user selection.

@@ -1,0 +1,86 @@
+{
+  "skill_name": "code-review",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Review my uncommitted changes before I open a PR. The repository has staged and unstaged edits. Do not contact a forge or edit code.",
+      "expected_output": "Uses local diff mode and returns grounded findings without forge writes or local edits.",
+      "assertions": [
+        "Reviews staged and unstaged changes plus relevant surrounding source",
+        "Names actual tests run and gaps instead of claiming an unobserved pass",
+        "Does not enter GitLab posting mechanics or change files"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Review GitLab MR !42 in the current project. The MR has an open discussion about authorization and a failing test job. Preview findings only.",
+      "expected_output": "Reads the MR, current discussions, target-head source, pipeline and failing trace, then reports a read-only preview.",
+      "assertions": [
+        "Checks current discussion state and avoids duplicating the open authorization thread",
+        "Checks the pipeline job and trace before attributing the failure to the MR",
+        "Verifies file and line anchors against the MR head SHA",
+        "Posts no draft or public note and gives no approval"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Give a deep review of a GitLab MR that changes authentication and a public API contract. The branch has unrelated untracked files, and local tests cannot run. Preview only.",
+      "expected_output": "Uses optional risk-specific review lenses and source at the MR head without switching over unrelated files, with an honest test gap.",
+      "assertions": [
+        "Reads the complete diff, contracts, open threads, CI result and relevant head-SHA source",
+        "Checks authorization and contract risks with distinct lenses rather than generic duplicate reviewers",
+        "Maps changed branches to observable assertions or records gaps",
+        "Does not claim local tests ran or post feedback"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "I reviewed the preview for MR !42. Draft findings 1 and 3 as unpublished inline notes. Finding 2 is outside the diff and should remain local.",
+      "expected_output": "Creates only selected GitLab draft notes after refreshing diff references, then verifies they remain unpublished.",
+      "assertions": [
+        "Refreshes the MR head and checks selected line anchors before drafting",
+        "Drafts only findings 1 and 3 with exact suggestions only when applicable",
+        "Does not publish, approve, or post finding 2",
+        "Reads back pending drafts and reports their status"
+      ],
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "The preview of MR !42 found no issues. Looks good, ok.",
+      "expected_output": "Treats this as a clean read-only review result, not permission to approve or publish.",
+      "assertions": [
+        "Does not infer forge approval from a generic acknowledgement",
+        "Does not create notes or publish drafts",
+        "States the reviewed revision and evidence limits"
+      ],
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "Fix all open review threads on GitLab MR !42 in my local working tree only. One thread requests a code fix and another asks for a product decision. Do not commit or push.",
+      "expected_output": "Inspects every open thread, fixes only the supported code issue, verifies it locally, and leaves the product decision open without remote writes.",
+      "assertions": [
+        "Reads current thread bodies and code before editing",
+        "Applies a minimal fix for the supported issue and runs matching checks",
+        "Leaves the product decision unresolved",
+        "Does not commit, push, reply, or resolve threads"
+      ],
+      "files": []
+    },
+    {
+      "id": 7,
+      "prompt": "Review this GitHub PR URL and publish your comments using the code-review skill's GitLab script.",
+      "expected_output": "Does not pass a GitHub PR through the GitLab adapter and does not fabricate remote GitHub posting support.",
+      "assertions": [
+        "Recognizes the GitHub URL as outside GitLab-specific mechanics",
+        "Can perform a read-only review through appropriate available tools if authorized",
+        "Does not invoke GitLab draft or publish scripts against GitHub"
+      ],
+      "files": []
+    }
+  ]
+}

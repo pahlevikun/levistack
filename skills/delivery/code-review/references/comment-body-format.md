@@ -29,7 +29,7 @@ Rules:
 
 ## Prose
 
-- Run comment text through **polyglot-copywriter** (`glab-code-review` use case, STE/simple — its `references/simple-prose.md`).
+- Run comment text through **polyglot-copywriter** (`code-review` use case, STE/simple — its `references/simple-prose.md`).
 - Run **noslop** on filler phrases (`I'd suggest considering`, `It might be worth`, generic LGTM blocks).
 
 ## Severity (inline, optional)
