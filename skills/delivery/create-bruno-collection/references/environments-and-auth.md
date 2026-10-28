@@ -21,18 +21,20 @@ vars:secret [
 ```
 
 - **`baseUrl`** — no trailing slash unless the API requires it; all request URLs use `{{baseUrl}}/path`.
-- **Empty token slot** — declare `accessToken:` with no value; the login script fills it at runtime.
+- **Empty token slot** — declare `accessToken:` with no value. The operator supplies an external credential locally, or a supported acquisition request fills it at runtime.
 - **`vars:secret`** — marks vars Bruno treats as secrets (redacted in UI). Never commit real tokens or production passwords; use placeholders and local overrides.
 
 Add **Local**, **Staging**, etc. when operators need different `baseUrl` values. Keep variable **names** identical across env files so requests do not branch on environment name.
 
 ## Auth folder and sequence
 
-Put login, OAuth token exchange, or API-key bootstrap under `auth/` with low `seq` (e.g. login = 1). Document in the login request docs: "Run this first" or "Required before protected endpoints."
+Read the service's actual authentication contract first. Only when login, OAuth token exchange, or API-key bootstrap is supported, put that real operation under `auth/` with a low `seq`. Document its prerequisites and sequence. Never infer an acquisition or refresh endpoint from a bearer or JWT token format.
+
+If credentials come from an integration contact, portal, or another external mechanism, keep empty secret environment variables and document that established provisioning process. Omit `auth/` and capture scripts when there is no acquisition endpoint. Do not invent token expiry or refresh behavior.
 
 ## Capture token from login (canonical pattern)
 
-Login with no auth; on success, persist token to the environment:
+This illustrative pattern applies only if the actual service has this login path, unauthenticated acquisition, and response shape. Adapt it to the verified contract. Otherwise use its documented mechanism or an externally supplied token.
 
 ```bru
 meta {
@@ -112,7 +114,7 @@ script:post-response {
 script:pre-request {
   const token = bru.getEnvVar("accessToken");
   if (!token) {
-    console.warn("accessToken is empty — run auth/login first");
+    console.warn("accessToken is empty; obtain it through the documented credential process");
   }
 }
 ```
@@ -129,4 +131,4 @@ Script differences per type: load `references/scripts-and-env-by-protocol.md` fr
 ## Operator notes
 
 - Select the correct environment in Bruno before running the collection.
-- Re-run login when tokens expire; document TTL or refresh in the login request `docs` block if the API supports refresh tokens (optional second request with its own post-response script).
+- Follow the documented process to renew credentials. Include login, TTL, and refresh instructions only when supported and known. For externally supplied tokens, name the established provisioning contact or channel.

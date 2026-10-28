@@ -8,7 +8,7 @@ docs/api/bruno/<service>/
 ├── environments/
 │   ├── Local.bru
 │   └── Staging.bru
-├── auth/                       # usually HTTP login; seq 1
+├── auth/                       # optional; only a real acquisition operation
 │   ├── folder.bru
 │   └── login.bru
 ├── proto/                      # optional; gRPC (collection-level imports)

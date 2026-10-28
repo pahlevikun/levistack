@@ -19,6 +19,14 @@ Non-trivial endpoints (creates, updates, searches, admin) also need:
 
 Skip duplicating full OpenAPI in every file; repeat only what differs per endpoint.
 
+## Handover scenario coverage
+
+When the collection is a prerequisite for client documentation, inventory all evidenced success, error, conditional payload, business-state, and transition scenarios. Add meaningful cases and prerequisite instructions before returning to the handover caller. A case may be present and unrun; that is different from missing coverage.
+
+For every supported HTTP error variant, include a complete example response with the HTTP status line, relevant headers, and full body, together with the triggering input or state and caller action. Preserve the actual envelope, nested validation details, and bodyless behavior. A code-only list or success-only example is insufficient. Use the protocol-specific representation for non-HTTP errors.
+
+Examples may be constructed from verified contracts or fixtures but must say so. Do not label them observed without a run. Explain how to obtain a resource in each business state rather than inventing query parameters to force a response. Repeated requests with different prerequisite states are separate scenarios under one operation.
+
 ## Protocol-specific error documentation
 
 | Protocol | Document in `docs` |

@@ -3,22 +3,61 @@
   "evals": [
     {
       "id": 1,
-      "prompt": "Use the create-bruno-collection skill for a typical request that matches: asked for Bruno collections, .bru files, gRPC/GraphQL/WebSocket examples, API environments, auth flow in Bruno, or runnable documented API examples for a service. Follow SKILL.md and return the skill's normal deliverable shape.",
-      "expected_output": "Uses create-bruno-collection per SKILL.md modes and boundaries. Delivers the documented output without skipping verification steps the skill requires.",
+      "prompt": "Create a Bruno collection from REST routes, a GraphQL schema, and unary gRPC proto. HTTP login returns a JWT used by all three protocols. Include success and evidenced error cases for each operation. No client PDF or handover is requested.",
+      "expected_output": "Creates a runnable documented collection using correct protocol blocks, shared environment, token chaining, and protocol-specific error meanings.",
       "assertions": [
-        "Uses create-bruno-collection workflow",
-        "Honors read-only or approval rules from the skill",
-        "Names checks run or gaps when a gate could not run"
+        "Uses HTTP, GraphQL and gRPC references instead of treating every operation as REST",
+        "Provides environment and auth chain without real secrets",
+        "Documents GraphQL errors and gRPC statuses alongside transport behavior",
+        "Reports requests that could not be run",
+        "Does not generate an unsolicited handover"
       ],
       "files": []
     },
     {
       "id": 2,
-      "prompt": "Say hello and ask what I should work on next. Do not invent a create-bruno-collection task.",
-      "expected_output": "Does not force create-bruno-collection without a matching user request.",
+      "prompt": "Extend our Bruno collection with REST error cases and create a PDF handover for the client. OpenAPI defines four operations; Bruno has six cases across three operations. Explain headers, params, bodies, responses and lifecycle states. Use sanitized examples and identify untested cases.",
+      "expected_output": "Completes collection work and invokes create-documentation handover mode with contract, operation inventory, cases, sanitized examples, and verification limits.",
       "assertions": [
-        "Does not invoke skill workflow without a trigger",
-        "Stays conversational or asks what is needed"
+        "Keeps runnable Bruno cases as a deliverable",
+        "Passes authoritative contract and case inventory to create-documentation",
+        "Distinguishes operations from test cases",
+        "Identifies the operation missing from Bruno coverage",
+        "Does not claim PDF export or live testing without checking those artifacts"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "We already have Bruno. Write a client API reference document from the verified OpenAPI spec; do not change .bru files.",
+      "expected_output": "Routes document-only work to create-documentation and leaves the collection unchanged.",
+      "assertions": [
+        "Recognizes documentation-only ownership",
+        "Does not rewrite the collection",
+        "Uses cases as evidence rather than the complete contract"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Say hello and ask what I should work on next. Do not invent an API collection task.",
+      "expected_output": "Does not force create-bruno-collection without a matching request.",
+      "assertions": [
+        "Does not invoke workflow without a trigger",
+        "Stays conversational"
+      ],
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "create-documentation calls this skill because a requested API handover has no Bruno collection. The caller needs supported success and error branches, conditional payloads and lifecycle state cases from the supplied code and OpenAPI, without running a live service. Return the prerequisite collection and coverage to the caller.",
+      "expected_output": "Creates the collection and supported scenario cases with complete declared response docs, then returns to the existing handover caller without a recursive documentation invocation.",
+      "assertions": [
+        "Creates .bru files before the handover draft",
+        "Provides complete supported error bodies and relevant headers with triggers and recovery",
+        "Records lifecycle-state fixture prerequisites without inventing force-state parameters",
+        "Returns collection and scenario inventory to the caller and does not invoke another handover",
+        "Marks unrun cases and source gaps honestly"
       ],
       "files": []
     }
