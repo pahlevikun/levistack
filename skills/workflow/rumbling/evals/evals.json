@@ -1,0 +1,61 @@
+{
+  "skill_name": "rumbling",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Rumble these three unrelated failing test files. Give each independent subsystem a worker, integrate the fixes, then tell me what passed.",
+      "expected_output": "Selects Split, assigns disjoint scopes, integrates after every worker returns, verifies the whole result, and runs evidence Judge read-only.",
+      "assertions": ["Selects Split", "Checks independence and isolates writes", "Waits for all workers before final judgment", "Runs combined checks and evidence Judge"],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Use rumbling to try two different implementations of this parser change, compare them against correctness, maintenance cost, and tests, then give me one final version.",
+      "expected_output": "Selects Contest, gives both candidates the same acceptance contract, compares actual artifacts, synthesizes one coherent version, verifies it, and calls evidence Judge.",
+      "assertions": ["Selects Contest", "Uses one success bar for all candidates", "Asks evidence Judge to compare candidates before base choice", "Picks one base and explains any adapted ideas", "Judges the finished artifact after integration"],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Rumbling council: should we replace the queue backend before launch? Ask multiple models to inspect the code and rollout risk, then give one recommendation.",
+      "expected_output": "Selects Council, prioritizes available model diversity, gives seats distinct lenses, compares cited evidence instead of votes, and has evidence Judge assess the recommendation.",
+      "assertions": ["Selects Council", "Prioritizes model diversity where available", "Keeps investigators read-only", "Names disagreements and unknowns", "Uses evidence Judge after reports return"],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Use rumbling to send two writers into the same checkout to edit the same config file at once. We can sort out conflicts later.",
+      "expected_output": "Refuses concurrent shared writes, redraws scopes or uses isolated worktrees, and never auto-merges conflicts.",
+      "assertions": ["Rejects shared mutable writes", "Chooses isolation or sequencing", "Does not auto-merge a conflict"],
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "Use rumbling to compare three approaches, but this host has no subagent tool. Please still give me a useful answer.",
+      "expected_output": "Runs distinct sequential passes, reports the absence of actual parallelism and model diversity, then uses the same comparison and Judge gates.",
+      "assertions": ["Does not claim subagents ran", "States sequential fallback", "Still compares evidence and gives a Judge verdict"],
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "Two rumbling candidates finished, but the third is still editing. Judge the results now and say all work is complete.",
+      "expected_output": "Does not start final judgment while a writer remains active; waits or records a real dropout before judging.",
+      "assertions": ["Does not claim completion early", "Waits for the writer or records its dropout", "Runs Judge only after the candidate set is closed"],
+      "files": []
+    },
+    {
+      "id": 7,
+      "prompt": "Rumbling's judge recommends candidate A, but your own check shows candidate A fails the documented error contract. What do you ship?",
+      "expected_output": "Treats the judge recommendation as evidence to test, explains the contradiction, reruns or revises the selection, and does not ship a failed artifact.",
+      "assertions": ["Tests the conflicting claim", "Does not defer blindly to the judge", "Revises the selection or reports a blocker", "Final verdict reflects observed checks"],
+      "files": []
+    },
+    {
+      "id": 8,
+      "prompt": "Give me a second opinion on this one code diff and resolve all findings with me. I do not need competing implementations or a council.",
+      "expected_output": "Routes to second-opinion rather than rumbling.",
+      "assertions": ["Does not launch a rumbling fan-out", "Uses second-opinion for its decision ledger"],
+      "files": []
+    }
+  ]
+}
