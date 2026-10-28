@@ -1,0 +1,35 @@
+meta {
+  name: list-next-page
+  type: http
+  seq: 19
+}
+
+get {
+  url: {{baseUrl}}/v1/archive-jobs?limit=1&cursor={{nextCursor}}
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+headers {
+  Accept: application/json
+}
+
+tests {
+  test("Declared HTTP status", function () { expect(res.status).to.equal(200); });
+}
+
+docs {
+  Populate nextCursor with the prior response token, URL-encoded as required for the target value. The supplied fixture has no observed cursor.
+
+  Evidence: normative synthetic contract demo-1. This request and its assertions have not been run.
+  The example.test host is illustrative. Replace it only with an authorized test service. No login or refresh endpoint is defined.
+
+  Declared response: HTTP 200 OK.
+  Caller action: Stop when next_cursor is null. Do not interpret cursor contents.
+
+  Success body follows Job or the list envelope in the normative contract. All Job fields remain present. Label presence and nullability differ between request and response.
+}

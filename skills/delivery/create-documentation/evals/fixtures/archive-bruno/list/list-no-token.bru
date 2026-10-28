@@ -1,0 +1,45 @@
+meta {
+  name: list-no-token
+  type: http
+  seq: 17
+}
+
+get {
+  url: {{baseUrl}}/v1/archive-jobs?limit=1
+  body: none
+  auth: none
+}
+
+headers {
+  Accept: application/json
+}
+
+tests {
+  test("Declared HTTP status", function () { expect(res.status).to.equal(401); });
+  test("Declared application code", function () { expect(res.body.error.code).to.equal("UNAUTHENTICATED"); });
+}
+
+docs {
+  No Authorization header is sent.
+
+  Evidence: normative synthetic contract demo-1. This request and its assertions have not been run.
+  The example.test host is illustrative. Replace it only with an authorized test service. No login or refresh endpoint is defined.
+
+  Declared response: HTTP 401 Unauthorized.
+  Caller action: Obtain a valid token from the integration contact.
+
+  Complete illustrative response. Message text is not a stable identifier.
+  ```http
+  HTTP/1.1 401 Unauthorized
+  Content-Type: application/json
+  X-Request-ID: req_demo_error
+
+  {
+    "error": {
+      "code": "UNAUTHENTICATED",
+      "message": "A valid token is required."
+    },
+    "request_id": "req_demo_error"
+  }
+  ```
+}

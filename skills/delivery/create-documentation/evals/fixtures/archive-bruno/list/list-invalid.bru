@@ -1,0 +1,49 @@
+meta {
+  name: list-invalid
+  type: http
+  seq: 16
+}
+
+get {
+  url: {{baseUrl}}/v1/archive-jobs?limit=0
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+headers {
+  Accept: application/json
+}
+
+tests {
+  test("Declared HTTP status", function () { expect(res.status).to.equal(400); });
+  test("Declared application code", function () { expect(res.body.error.code).to.equal("INVALID_INPUT"); });
+}
+
+docs {
+  limit=0 violates the minimum page size of one.
+
+  Evidence: normative synthetic contract demo-1. This request and its assertions have not been run.
+  The example.test host is illustrative. Replace it only with an authorized test service. No login or refresh endpoint is defined.
+
+  Declared response: HTTP 400 Bad Request.
+  Caller action: Correct the query before retrying.
+
+  Complete illustrative response. Message text is not a stable identifier.
+  ```http
+  HTTP/1.1 400 Bad Request
+  Content-Type: application/json
+  X-Request-ID: req_demo_error
+
+  {
+    "error": {
+      "code": "INVALID_INPUT",
+      "message": "The input is invalid."
+    },
+    "request_id": "req_demo_error"
+  }
+  ```
+}
