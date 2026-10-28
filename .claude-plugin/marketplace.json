@@ -25,7 +25,7 @@
     {
       "name": "levistack-delivery",
       "source": "./skills/delivery",
-      "description": "Shipping work: atomic commits, code review (local diff, request, receive, GitLab glab drafts), merge request descriptions, documentation (pages, API references, doc comments, docs checks after a change), tickets (sliced into end-to-end pieces with blockers) and API collections."
+      "description": "Shipping work: atomic commits, code review, merge request descriptions, implementation specs and plans, technical documentation (pages, Bruno-first API handovers with full responses and states, processes, contracts, doc comments and freshness checks), combined ADR and design-doc authoring, dedicated runbook, postmortem and changelog skills, tickets and API collections."
     },
     {
       "name": "levistack-engineering",
@@ -40,7 +40,7 @@
     {
       "name": "levistack-knowledge",
       "source": "./skills/knowledge",
-      "description": "Understand code, trace causes, challenge plans, research primary sources or interview questions, review changes, write specs and plans."
+      "description": "Understand code, trace causes, challenge plans, research primary sources or interview questions, and review changes."
     },
     {
       "name": "levistack-product",
@@ -50,7 +50,7 @@
     {
       "name": "levistack-workflow",
       "source": "./skills/workflow",
-      "description": "How to work with this stack: the use-levistack entry point and router, finding and installing skills, and handing a session off to the next one."
+      "description": "How to work with this stack: route tasks, frame and judge work through evidence, coordinate parallel agents, find skills, and hand a session to the next one."
     },
     {
       "name": "polyglot-copywriter",

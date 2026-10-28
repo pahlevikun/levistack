@@ -6,7 +6,7 @@
 
 <p align="left"><em>Meet Murk, the mug. Overskilled, underslept, and one cron job away from a nap.</em></p>
 
-The agent skills I use every day, in one repo. 41 skills (plus 2 [upstream](#upstream-skills)), 11 subagents, 42 rules and 5 hooks for Claude Code, Codex, Cursor, Antigravity, Trae and the skills CLI.
+The agent skills I use every day, in one repo. 51 skills (plus 2 [upstream](#upstream-skills)), 11 subagents, 42 rules, 15 commands and 5 hooks for Claude Code, Codex, Cursor, Antigravity, Trae and the skills CLI.
 
 **Not sure which skill fits?** Start with `/use-levistack <what you want>`. It picks the skill, runs it, proves the result and shapes the reply.
 
@@ -99,7 +99,7 @@ Every task that goes through [`use-levistack`](skills/workflow/use-levistack/SKI
 |---|---|---|
 | 1. Route | `use-levistack` takes your task. If you name a skill, it runs as a one-shot. | [`use-levistack`](skills/workflow/use-levistack/SKILL.md) |
 | 2. Prime | `output-savers` reads your prompt to pick the job, the safety needs and the reply length. It never rewrites your words. | [`prime.md`](skills/workflow/use-levistack/playbooks/prime.md) |
-| 3. Invoke | Pick the first skill from what you want: `codebase-learner`, `trace`, `challenge-me`, `ready-spec`, `tdd`, `second-opinion` and more. No clear fit goes to step 4. | [`invoke.md`](skills/workflow/use-levistack/playbooks/invoke.md) |
+| 3. Invoke | Pick the first skill from what you want: `codebase-learner`, `trace`, `challenge-me`, `ready-spec`, `tdd`, `second-opinion`, `evidence`, `rumbling` and more. No clear fit goes to step 4. | [`invoke.md`](skills/workflow/use-levistack/playbooks/invoke.md) |
 | 4. Hunt | `find-skills` asks at most three questions, searches the catalog and builds a chain of up to four skills. It goes to skills.sh only when nothing here fits. | [`find-skills`](skills/workflow/find-skills/SKILL.md) |
 | 5. Apply | The chain runs one skill at a time. Each result goes to the next skill. | the [groups](#groups) |
 | 6. Prove | `verify` checks every claim with fresh proof. A push, MR, posted comment, install or publish waits for your yes. After it runs, the agent checks the result. | [`prove.md`](skills/workflow/use-levistack/playbooks/prove.md) |
@@ -108,7 +108,7 @@ Every task that goes through [`use-levistack`](skills/workflow/use-levistack/SKI
 Some things sit outside the numbered steps:
 
 - **One-shots.** Name a skill inside `/use-levistack` (for example `/use-levistack second-opinion on my branch`). The router primes, runs that skill, proves and delivers. It skips the step 4 hunt. A bare `/skill` call without the router runs that skill alone.
-- **Agents.** In steps 3 to 6 the session can spawn one of the [subagents](docs/agents/README.md) for one bounded job, such as an `explorer` for `codebase-learner` or two reviewers for `second-opinion`. The agent reports back, and the session keeps the steps.
+- **Agents.** In steps 3 to 6 the session can spawn one of the [subagents](docs/agents/README.md) for one bounded job. `rumbling` coordinates independent tasks, competing solutions, or a judgment council; `evidence` judges the completed batch. The session keeps the seven steps.
 - **Rules and hooks.** The [rules](#rules) apply to the whole session. The [hooks](#hooks) run on tool calls, so they still work when the agent forgets a rule.
 - **Focus.** `get-moving` and `later-list` work at any step, when you are stuck or a tangent shows up.
 - **Upstream plugins.** `polyglot-copywriter` and `logo-kit-svg` live in their own repos. The `levistack` plugin installs them as [dependencies](#upstream-skills).
@@ -126,11 +126,13 @@ You do not need all of them. These are the ones I would try first.
 | [`codebase-learner`](skills/knowledge/codebase-learner/SKILL.md) | Reads a repo and writes down what it actually does today |
 | [`atomic-semantic-commit`](skills/delivery/atomic-semantic-commit/SKILL.md) | Splits a messy working tree into small commits with clean messages |
 | [`write-mr-description`](skills/delivery/write-mr-description/SKILL.md) | Drafts the MR or PR description from your commits, then reviews it |
-| [`glab-code-review`](skills/delivery/glab-code-review/SKILL.md) | Reviews your diff before you open the PR, or reviews a GitLab MR with draft inline notes |
+| [`code-review`](skills/delivery/code-review/SKILL.md) | Reviews local changes or a GitLab MR, with draft inline notes when requested |
 | [`standup`](skills/focus/standup/SKILL.md) | Builds today's standup from what you really did yesterday |
 | [`polyglot-copywriter`](https://github.com/pahlevikun/polyglot-copywriter) (upstream) | Plain, human prose in 97 languages, from emails to incident updates |
 | [`trace`](skills/knowledge/trace/SKILL.md) | Why the code is built that way, or why something broke: a Five Whys chain with evidence on every link, checked before it reaches you |
 | [`second-opinion`](skills/knowledge/second-opinion/SKILL.md) | Asks what it needs, has two reviewers on different models tear your branch apart, then walks each finding with you |
+| [`evidence`](skills/workflow/evidence/SKILL.md) | Frames a goal or checks completed work against the actual artifact and proof |
+| [`rumbling`](skills/workflow/rumbling/SKILL.md) | Coordinates parallel agents, integrates one result, then calls `evidence` to judge it |
 
 Want to build your own? The `agent-authoring` group has a skill for each piece: skills, subagents, rules, hooks, commands and `AGENTS.md`.
 
@@ -141,12 +143,12 @@ Want to build your own? The `agent-authoring` group has a skill for each piece: 
 |---|---|---|
 | `agent-authoring` | Create agents, skills, rules, hooks, commands and AGENTS.md files for coding assistants, and improve them from what went wrong. | `convert-as-skill`, `create-agent`, `create-agents-md`, `create-command`, `create-hook`, `create-rule`, `create-skill`, `retrospective` |
 | `architecture` | System design and stack choices: super-architecture (detect, select, build, evaluate, migrate and document architecture), super-caching, Node backends, super-protobuf, target-stack evaluation and blueprints. | `super-architecture`, `super-caching`, `super-elixir`, `super-nodejs`, `super-protobuf`, `super-tech-blueprint` |
-| `delivery` | Shipping work: atomic commits, code review (local diff, request, receive, GitLab glab drafts), merge request descriptions, documentation (pages, API references, doc comments, docs checks after a change), tickets (sliced into end-to-end pieces with blockers) and API collections. | `atomic-semantic-commit`, `create-bruno-collection`, `create-documentation`, `create-tickets`, `glab-code-review`, `write-mr-description` |
+| `delivery` | Shipping work: atomic commits, code review, merge request descriptions, implementation specs and plans, technical documentation (pages, Bruno-first API handovers with full responses and states, processes, contracts, doc comments and freshness checks), combined ADR and design-doc authoring, dedicated runbook, postmortem and changelog skills, tickets and API collections. | `atomic-semantic-commit`, `code-review`, `create-bruno-collection`, `create-documentation`, `create-tickets`, `ready-spec`, `write-adr`, `write-changelog`, `write-mr-description`, `write-plan`, `write-postmortem`, `write-runbook` |
 | `engineering` | Engineering habits: tdd (test-first red-green-refactor across stacks), safe-refactor (behavior-preserving refactors), verify (evidence before claims), noslop (no-slop filter for backend, API, frontend, database, config and comments) and output-savers (YAGNI, DRY, SOLID and plain STE replies). | `noslop`, `output-savers`, `safe-refactor`, `tdd`, `verify` |
 | `focus` | ADHD-friendly daily tools: shrink a task to one next action, list tangents for later, and write today's standup from what you really did. | `get-moving`, `later-list`, `standup` |
-| `knowledge` | Understand code, trace causes, challenge plans, research primary sources or interview questions, review changes, write specs and plans. | `challenge-me`, `codebase-learner`, `ready-spec`, `research`, `second-opinion`, `trace`, `write-plan` |
+| `knowledge` | Understand code, trace causes, challenge plans, research primary sources or interview questions, and review changes. | `challenge-me`, `codebase-learner`, `research`, `second-opinion`, `trace` |
 | `product` | Design systems, colors and themes, screens and interactions, technical diagrams and Mermaid, editorial infographics and motion exports, product polish, throwaway prototypes. Covers mobile, desktop, web, TV and car. | `color-kit`, `design-system-kit`, `diagram`, `infographic`, `product-polish-workflow`, `prototype-wireframe`, `ui-ux-kit` |
-| `workflow` | How to work with this stack: the use-levistack entry point and router, finding and installing skills, and handing a session off to the next one. | `find-skills`, `handoff`, `use-levistack` |
+| `workflow` | How to work with this stack: route tasks, frame and judge work through evidence, coordinate parallel agents, find skills, and hand a session to the next one. | `evidence`, `find-skills`, `handoff`, `rumbling`, `use-levistack` |
 <!-- groups:end -->
 
 ## Upstream skills
@@ -168,11 +170,11 @@ The usual flow: `context-harvester` first, then `planner`, `coordinator`, `explo
 
 ## Rules
 
-41 rules in `rules/`, by topic: `core`, `architecture`, `elixir`, `go`, `python` and `design`. The core ones cover things like commit messages, comments, testing, failure visibility and PII in logs. Cursor `.mdc` copies are generated into `generated/cursor/rules/`.
+42 rules in `rules/`, by topic: `core`, `architecture`, `elixir`, `go`, `python` and `design`. The core ones cover things like commit messages, comments, testing, failure visibility and PII in logs. Cursor `.mdc` copies are generated into `generated/cursor/rules/`.
 
 ## Also in the box
 
-- `commands/`: 13 slash commands. `/handoff` is the one I use most. `/start` routes any task. `/commit` and `/ship` finish work. `/palette`, `/screen`, `/design-system`, `/prototype` and `/polish` run the product skills. `/review-diff`, `/tickets`, `/docs` and `/enhance-skill` cover review, tickets, docs and skill upgrades.
+- `commands/`: 15 slash commands. `/start` routes any task. `/evidence` frames or judges work, and `/rumbling` coordinates parallel agents. `/commit` and `/ship` finish work. `/palette`, `/screen`, `/design-system`, `/prototype` and `/polish` run the product skills. `/review-diff`, `/tickets`, `/docs`, `/enhance-skill` and `/handoff` cover their named jobs.
 - `statusline/`: a one-line status for Claude Code, Cursor CLI and Codex. It shows the branch, model, your 5-hour and weekly limits, and context use. `node scripts/install-statusline.mjs --dry-run` first. See [`statusline/README.md`](statusline/README.md).
 - Import provenance lives next to vendored code (for example `skills/agent-authoring/convert-as-skill/scripts/extractor/UPSTREAM.md` and `LICENSE.md`), not in a repo-root file.
 
