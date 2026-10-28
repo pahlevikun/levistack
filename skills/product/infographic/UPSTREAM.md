@@ -1,6 +1,9 @@
-# Upstream: sequenced infographic choreography
+---
+MIT License
 
-Adapted ideas from [iart-ai/data-animation-skills](https://github.com/iart-ai/data-animation-skills) skill `animated-infographic` (MIT-style open reference; verify license in that repo before redistributing derived code).
+Copyright © 2023‑2024 Levlevi. All rights reserved.
+---
+
 
 | Upstream | Levistack |
 |---|---|
