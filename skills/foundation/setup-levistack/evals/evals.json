@@ -1,0 +1,37 @@
+{
+  "skill_name": "setup-levistack",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "/setup-levistack",
+      "expected_output": "Runs scripts/check.mjs, writes ~/.levistack/setup.md, and reports the status line with any named gaps.",
+      "assertions": [
+        "Runs the check script before claiming any tool state",
+        "Writes the note to ~/.levistack/setup.md",
+        "Reports ready, ready with named gaps, or blocked"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "/setup-levistack. My diagram export failed with 'missing rsvg-convert'.",
+      "expected_output": "Shows rsvg-convert as a named gap, names the diagram and infographic steps it stops, gives the install line, and asks before installing.",
+      "assertions": [
+        "Names rsvg-convert as a gap with the steps it stops",
+        "Gives the platform install line",
+        "Does not install without a yes"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "/setup-levistack and pick the cheapest model for each subagent role.",
+      "expected_output": "Runs the tool check and says this catalog does not set models or reasoning budgets.",
+      "assertions": [
+        "Runs the tool check",
+        "Does not write a model or budget rule"
+      ],
+      "files": []
+    }
+  ]
+}
