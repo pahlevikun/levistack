@@ -8,4 +8,6 @@ Use Split when tasks are separable by file, subsystem, question, or output artif
 4. After all seats return, read their changes and reports. Check each claimed fix, overlapping edits, and any cross-task behavior. Integrate only non-conflicting changes into one final artifact. On conflict or moved base, stop automatic integration and resolve the cause deliberately.
 5. Run checks that cover the combined result, then hand it to the shared `evidence` Judge gate in [SKILL.md](../SKILL.md).
 
+**Race.** When one task has a pass-or-fail check and any passing answer is enough, give each seat a different approach to the same task. The first seat whose result passes a fresh check run by the coordinator wins. Stop the other seats, record them as stopped, and send only the winner to Judge. Use Contest instead when the best answer matters more than the first.
+
 Example: three unrelated test failures in separate subsystems can get three focused workers. Three failures caused by one changed API contract belong to one investigation first.

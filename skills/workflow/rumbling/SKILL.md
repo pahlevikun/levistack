@@ -1,8 +1,8 @@
 ---
 name: rumbling
-description: "Coordinate parallel agents on independent tasks, competing solutions, or one judgment question, then judge their combined result against evidence. Use when the user asks to rumble, dispatch multiple agents, compare parallel approaches, or convene a model-diverse council. Not for a single routine task or a read-only second opinion on one code change."
+description: "Coordinate parallel agents on independent tasks, competing solutions, or one judgment question, then judge their combined result against evidence. Use when the user asks to rumble, dispatch multiple agents, run an arena of attempts at one brief (Contest), swarm slices or race workers (Split), compare parallel approaches, or convene a model-diverse council. Not for a single routine task or a read-only second opinion on one code change."
 metadata:
-  version: 1.0.0
+  version: 1.1.0
   author: levistack
   license: MIT
   group: workflow
@@ -25,8 +25,11 @@ metadata:
     - contest
     - council
     - judge
+    - arena
+    - swarm
   capabilities:
     - independent_task_fanout
+    - worker_race
     - parallel_candidate_contest
     - model_diverse_council
     - evidence_judged_synthesis
@@ -43,8 +46,8 @@ Run bounded agents in parallel, bring their work together, and make one evidence
 
 | The user needs | Mode | Read |
 |---|---|---|
-| Different independent tasks finished together | **Split** | [split.md](references/split.md) |
-| Several candidate solutions to the same task | **Contest** | [contest.md](references/contest.md) |
+| Different independent tasks finished together, slices of one sweep, or a race where the first passing worker wins ("swarm") | **Split** | [split.md](references/split.md) |
+| Several candidate solutions to the same brief, best parts merged ("arena") | **Contest** | [contest.md](references/contest.md) |
 | Independent judgments about one decision or risk | **Council** | [council.md](references/council.md) |
 
 If tasks depend on each other's output, sequence them instead of starting them together. If the user wants adversarial review and a decision ledger for one existing code change, use `second-opinion`. `rumbling` is the owner when the requested result is parallel work and one synthesized outcome.
