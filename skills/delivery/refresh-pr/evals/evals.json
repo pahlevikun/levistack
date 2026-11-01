@@ -1,0 +1,38 @@
+{
+  "skill_name": "refresh-pr",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "This merge request has been open for six weeks and is 40 commits behind main. The feature is still wanted. Refresh it.",
+      "expected_output": "Classifies the request as refresh, shows a before/after comparison, and waits for a yes before rebasing or pushing. After a yes, hands the loop to code-review watch.",
+      "assertions": [
+        "Classifies the request as refresh",
+        "Shows a before/after comparison",
+        "Does not rebase or push before a yes",
+        "Hands the accepted refresh to code-review watch"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Pull request 88 adds a flag we removed last month. Tell me if it should still exist.",
+      "expected_output": "Classifies the request as close because the change is obsolete, cites the removal, and does not close it before a yes.",
+      "assertions": [
+        "Classifies the request as close",
+        "Cites the evidence that the change is obsolete",
+        "Does not close the request before a yes"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Review the current branch. It is up to date with main. Do not rebase anything.",
+      "expected_output": "Routes to code-review and does not rebase or rewrite history.",
+      "assertions": [
+        "Selects code-review",
+        "Does not rebase or rewrite history"
+      ],
+      "files": []
+    }
+  ]
+}
