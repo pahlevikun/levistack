@@ -1,6 +1,6 @@
 ---
 name: verify
-description: "Evidence before claims and before fixes. Use before saying work is done, fixed, passing or ready (tests pass, build succeeds, bug fixed, ready to merge, handing off, before a commit, push or PR), when asked only to verify or run the gates, or when a failure has an unknown cause and must be diagnosed before editing, when someone claims a change is safe or asks what it could break, or before you report a measured performance number or run a benchmark checklist. Requires a fresh, claim-matched proof, honest reporting of what was and was not checked, and stopping once the proof is complete."
+description: "Evidence before claims and before fixes. Use before saying work is done, fixed, passing or ready (tests pass, build succeeds, bug fixed, ready to merge, handing off, before a commit, push or PR), when asked only to verify or run the gates, or when a failure has an unknown cause and must be diagnosed before editing, when someone claims a change is safe or asks what it could break, before you report a measured performance number or run a benchmark checklist, or when a CI check failed and you need that log turned into a fix plan. Requires a fresh, claim-matched proof, honest reporting of what was and was not checked, and stopping once the proof is complete."
 when_to_use: "Use proactively when about to write 'done', 'fixed', 'all tests pass' or 'ready to merge'; when the user says 'verify', 'validate', 'run the gates', 'prove it', 'is it really fixed' or 'why does this fail'; when a subagent reports success; when a request has an ambiguous scope before editing; or when the user asks 'is this safe', 'what could this break', 'blast radius', 'is this speedup real' or 'benchmark this'."
 metadata:
   version: 1.2.0
@@ -106,6 +106,7 @@ For controlled dependency integration tests, use [observable mocks](references/o
 | Empty results, wrapper scripts, wrong binary, totals that add up | [trustworthy-output.md](references/trustworthy-output.md) |
 | "Every file", repo-wide rename, audit all, ledgers | [sweeps.md](references/sweeps.md) |
 | A check failed, delegated work, deliverables, staleness, the final report | [failures-and-handoff.md](references/failures-and-handoff.md) |
+| One CI check failed | Pull that log. Write a fix plan: the failing command, the first error, and the smallest change that would make it pass. Do not edit until they ask. |
 
 ## Related skills
 
