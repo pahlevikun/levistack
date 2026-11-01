@@ -257,6 +257,27 @@
         "Uses placeholders for credentials, consistent synthetic identifiers, and an unrun evidence label"
       ],
       "files": []
+    },
+    {
+      "id": 21,
+      "prompt": "Cold-test this onboarding document for readers who cannot see our conversation.",
+      "expected_output": "Defines reader tasks and separates comprehension from source verification.",
+      "assertions": [
+        "Withholds conversation and expected answers from an authorized independent reader",
+        "Reports manual/sequential review honestly when no independent context exists",
+        "Fixes material gaps and reruns only the affected questions"
+      ],
+      "files": []
+    },
+    {
+      "id": 22,
+      "prompt": "Export this verified reference to editable Word and PDF files using existing helpers.",
+      "expected_output": "Uses file-toolkit capabilities and reusable creation/conversion commands.",
+      "assertions": [
+        "Preserves authored content and reports layout/fidelity limits",
+        "Does not write a new conversion pipeline or silently substitute an unavailable format"
+      ],
+      "files": []
     }
   ]
 }

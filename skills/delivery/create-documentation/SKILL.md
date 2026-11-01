@@ -2,7 +2,7 @@
 name: create-documentation
 description: "Write source-checked technical documentation and client API handovers. For handovers, reads Bruno first, creates a missing collection, then reconciles code, Git history, plans, existing docs, and available Swagger/OpenAPI for supported response variants and states. Use when asked for technical writing, a README, API reference, PDF/HTML/DOCX API handover, endpoint and field explanations, full error responses, lifecycle states, process or payload documentation, doc comments, or a docs check after a diff. Not for an ADR, design doc, or RFC (write-adr), runbook (write-runbook), postmortem (write-postmortem), changelog or release notes (write-changelog), repo map (codebase-learner), implementation plan (write-plan), MR description (write-mr-description), or prose polish alone (polyglot-copywriter)."
 metadata:
-  version: 1.4.0
+  version: 1.5.0
   author: levistack
   license: MIT
   group: delivery
@@ -18,6 +18,7 @@ metadata:
     - write-postmortem
     - write-runbook
     - polyglot-copywriter
+    - file-toolkit
   invokes:
     - skill: diagram
       when: Docs need technical figures
@@ -29,6 +30,8 @@ metadata:
       when: API handover requires a missing collection or missing supported variant cases before drafting or final delivery
     - skill: polyglot-copywriter
       when: Documentation prose needs plain-language revision while preserving technical meaning
+    - skill: file-toolkit
+      when: Parse, reconstruct or export supported document files with existing helpers
   tags:
     - documentation
     - technical-writing
@@ -48,6 +51,8 @@ metadata:
     - process_documentation
     - contract_documentation
     - documentation_freshness
+    - cold_reader_document_check
+    - reusable_file_export
   languages:
     - en
 
@@ -78,6 +83,8 @@ ADRs, design documents, RFCs, runbooks, postmortems, and changelogs have indepen
 If the request mixes jobs, check existing documentation first and write only the gaps. A handover package may contain a quick start, an explanation, and reference sections. Keep those sections distinct so a reader can find each kind of information.
 
 When a visual helps, use `diagram` for technical relationships or `infographic` for an evidence-based visual explainer, comparison, or timeline. An infographic can embed a verified technical figure. Pass the sources, uncertainty, requested formats, and any completed technical pass. Allow at most one handoff between the visual skills for an artifact; the receiving owner finishes without calling back. Keep figures within the requested document scope.
+
+For important documents, use the optional [cold-reader check](references/reader-test.md). File parsing, reconstruction and export belong to file-toolkit.
 
 ## Rules for every job
 
