@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>ai.ia-mcp.web</string>
+	<key>WorkingDirectory</key>
+	<string>$HOME/.agents/ia-mcp</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>$HOME/.local/bin/uv</string>
+		<string>run</string>
+		<string>--project</string>
+		<string>$HOME/.agents/ia-mcp</string>
+		<string>python</string>
+		<string>-m</string>
+		<string>src.cli</string>
+		<string>web</string>
+		<string>--host</string>
+		<string>127.0.0.1</string>
+		<string>--port</string>
+		<string>37778</string>
+	</array>
+	<key>EnvironmentVariables</key>
+	<dict>
+		<key>HOME</key>
+		<string>$HOME</string>
+		<key>PATH</key>
+		<string>$HOME/.local/bin:/opt/homebrew/bin:/usr/bin:/bin</string>
+	</dict>
+	<key>RunAtLoad</key>
+	<true/>
+	<key>KeepAlive</key>
+	<true/>
+	<key>StandardOutPath</key>
+	<string>$HOME/.ia-mcp/logs/web.out.log</string>
+	<key>StandardErrorPath</key>
+	<string>$HOME/.ia-mcp/logs/web.err.log</string>
+</dict>
+</plist>

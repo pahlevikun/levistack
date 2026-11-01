@@ -1,0 +1,2 @@
+# Example only. Record the binary path here. Do not record cluster names, project ids, or private keys.
+path: /usr/local/bin/example-cli

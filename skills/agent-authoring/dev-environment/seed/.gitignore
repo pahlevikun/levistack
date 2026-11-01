@@ -1,0 +1,14 @@
+.DS_Store
+*.log
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+id_ed25519
+id_rsa
+id_rsa_*
+!*.pub
+*.p12
+cookies.txt
+private/

@@ -1,0 +1,3 @@
+skills: $HOME/.agents/skills
+editor plugins: $HOME/.cursor/plugins/local
+example project: $HOME/Documents/example-project

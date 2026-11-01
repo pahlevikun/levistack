@@ -1,0 +1,10 @@
+.agents
+.agents/mcp
+.agents/skills
+.cursor/plugins/local
+.local/bin
+.oh-my-zsh/custom/plugins
+.ssh
+Documents
+Documents/example-project
+Library/LaunchAgents

@@ -1,0 +1,54 @@
+{
+  "skill_name": "dev-environment",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Move my dev environment out. Export the agent setup in ./agent-config and back up this Mac. The MCP file contains an API token.",
+      "expected_output": "Runs both jobs. Writes a pack with PACK.md and redacts the token. Backs up the workstation snapshot and does not push.",
+      "assertions": [
+        "Scope is both because the user did not limit the request",
+        "Exports the agent setup and writes PACK.md",
+        "Redacts the token value and keeps the variable name",
+        "Backs up the workstation snapshot",
+        "Does not push or create a remote"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Restore my dev environment. Import https://example.com/setup-pack.git and apply the Mac snapshot.",
+      "expected_output": "Runs both jobs. Lists agent files that would be written and copies nothing until the user says yes. The Mac apply keeps existing files and adds only what is missing.",
+      "assertions": [
+        "Scope is both",
+        "Clones the git URL only to read",
+        "Shows agent files that would be created or overwritten",
+        "Does not copy agent files before a yes",
+        "Applies the workstation as an upsert and does not replace existing files"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Only export my agent setup from ./agent-config to ./my-pack. Do not touch the workstation.",
+      "expected_output": "Exports the agent pack and skips the Mac backup.",
+      "assertions": [
+        "Scope is the agent setup only",
+        "Writes PACK.md and the selected files",
+        "Does not back up or apply the workstation"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Only back up my Mac. Do not export the agent setup.",
+      "expected_output": "Backs up the workstation snapshot, redacts secrets, and skips the agent pack.",
+      "assertions": [
+        "Scope is the workstation only",
+        "Backs up the snapshot and shows the diff",
+        "Does not write an agent pack",
+        "Does not commit unless the user asked"
+      ],
+      "files": []
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -euo pipefail
+SKILL_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+DEST="$("$SKILL_ROOT/scripts/init-repo.sh")"
+exec "$DEST/scripts/snapshot.sh" "$@"

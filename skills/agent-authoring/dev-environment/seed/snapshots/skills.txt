@@ -1,0 +1,1 @@
+example-skill -> $HOME/.agents/skills/example-skill

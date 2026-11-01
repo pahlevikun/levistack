@@ -1,0 +1,1 @@
+example-agent.md -> $HOME/.agents/agents/example-agent.md

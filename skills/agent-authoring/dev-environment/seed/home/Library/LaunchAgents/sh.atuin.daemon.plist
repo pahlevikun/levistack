@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>sh.atuin.daemon</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>$HOME/.atuin/bin/atuin</string>
+		<string>daemon</string>
+		<string>start</string>
+	</array>
+	<key>EnvironmentVariables</key>
+	<dict>
+		<key>TMPDIR</key>
+		<string>$HOME/.atuin</string>
+		<key>PATH</key>
+		<string>$HOME/.atuin/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin</string>
+		<key>ATUIN_DAEMON__SOCKET_PATH</key>
+		<string>$HOME/.atuin/atuin.sock</string>
+	</dict>
+	<key>WorkingDirectory</key>
+	<string>$HOME/.atuin</string>
+	<key>StandardErrorPath</key>
+	<string>$HOME/.atuin/logs/daemon.stderr.log</string>
+	<key>Umask</key>
+	<integer>63</integer>
+	<key>Sockets</key>
+	<dict>
+		<key>atuin</key>
+		<dict>
+			<key>SockPathName</key>
+			<string>$HOME/.atuin/atuin.sock</string>
+			<key>SockPathMode</key>
+			<integer>384</integer>
+		</dict>
+	</dict>
+	<key>RunAtLoad</key>
+	<true/>
+	<key>KeepAlive</key>
+	<dict>
+		<key>Crashed</key>
+		<true/>
+	</dict>
+	<key>ProcessType</key>
+	<string>Interactive</string>
+	<key>ExitTimeOut</key>
+	<integer>10</integer>
+</dict>
+</plist>

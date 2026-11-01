@@ -1,0 +1,14 @@
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+.env
+.env.*
+!.env.example
+node_modules/
+.rbenv-vars
+.ruby-gemset
+coverage/
+.direnv/
+.codegraph/

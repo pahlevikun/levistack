@@ -1,0 +1,26 @@
+[user]
+	name = Example User
+	email = user@example.com
+[init]
+	defaultBranch = main
+	templateDir = ~/.git-templates
+[pull]
+	rebase = false
+[core]
+	editor = nvim
+	excludesfile = ~/.gitignore_global
+	pager = delta
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+	side-by-side = false
+[merge]
+	conflictstyle = zdiff3
+[diff]
+	colorMoved = default
+[alias]
+	st = status
+	co = checkout
+	br = branch
+	ci = commit

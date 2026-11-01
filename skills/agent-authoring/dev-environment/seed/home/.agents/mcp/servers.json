@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "example": {
+      "command": "$HOME/.local/bin/example-mcp",
+      "args": ["--config", "$HOME/.agents/mcp/example.json"]
+    }
+  }
+}
