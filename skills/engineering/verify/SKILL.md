@@ -1,9 +1,9 @@
 ---
 name: verify
-description: "Evidence before claims and before fixes. Use before saying work is done, fixed, passing or ready (tests pass, build succeeds, bug fixed, ready to merge, handing off, before a commit, push or PR), when asked only to verify or run the gates, or when a failure has an unknown cause and must be diagnosed before editing, when someone claims a change is safe or asks what it could break, or before you report a measured performance number. Requires a fresh, claim-matched proof, honest reporting of what was and was not checked, and stopping once the proof is complete."
+description: "Evidence before claims and before fixes. Use before saying work is done, fixed, passing or ready (tests pass, build succeeds, bug fixed, ready to merge, handing off, before a commit, push or PR), when asked only to verify or run the gates, or when a failure has an unknown cause and must be diagnosed before editing, when someone claims a change is safe or asks what it could break, or before you report a measured performance number or run a benchmark checklist. Requires a fresh, claim-matched proof, honest reporting of what was and was not checked, and stopping once the proof is complete."
 when_to_use: "Use proactively when about to write 'done', 'fixed', 'all tests pass' or 'ready to merge'; when the user says 'verify', 'validate', 'run the gates', 'prove it', 'is it really fixed' or 'why does this fail'; when a subagent reports success; when a request has an ambiguous scope before editing; or when the user asks 'is this safe', 'what could this break', 'blast radius', 'is this speedup real' or 'benchmark this'."
 metadata:
-  version: 1.0.0
+  version: 1.2.0
   author: levistack
   license: MIT
   group: engineering
@@ -26,6 +26,7 @@ metadata:
     - investigate_first
     - prove_safe
     - vet_a_number
+    - observable_mock_rule_verification
   languages:
     - en
 
@@ -76,6 +77,7 @@ Run this before any claim, a commit, a push, a PR, or moving to the next task.
 | Feature complete | Each acceptance criterion checked | Tests passing |
 | No regressions | The full suite, same command set as before | Only the new tests |
 | Subagent finished | The diff shows the change and you ran the check | The agent's summary |
+| A performance number | Baseline and change on the same machine and inputs, repeated runs with the spread, and the mechanism that explains the gap ([vet-a-number.md](references/vet-a-number.md)) | One run, a different machine, a number with no cause |
 
 Proof by kind of change (frontend, endpoint, queue, CLI, migration, infra, package, docs) is in [proof-by-change.md](references/proof-by-change.md).
 
@@ -88,6 +90,8 @@ Never weaken a test, assertion, validator or acceptance criterion to get green. 
 Report the failure with its output. Do not rerun unchanged hoping it passes, and do not claim success. Fix the cause and restart the gate. Calling a failure pre-existing, environmental or flaky needs evidence: reproduce it on the base revision, or name the independent cause. Details and handoff rules: [failures-and-handoff.md](references/failures-and-handoff.md).
 
 A clean result is a valid result. Do not invent findings to look thorough, and do not keep adding checks, polish or unrelated tests after the stated criteria are met. Stop when the proof is complete.
+
+For controlled dependency integration tests, use [observable mocks](references/observable-mocks.md) to prove the intended rule fired and the application path stayed real.
 
 ## Which reference
 

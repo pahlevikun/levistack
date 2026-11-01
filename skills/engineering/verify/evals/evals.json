@@ -21,6 +21,17 @@
         "Stays conversational or asks what is needed"
       ],
       "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Our integration test returned 200, but it might have hit the default mock rule instead of the configured match.",
+      "expected_output": "Checks observable mock-rule identity and actual application effects.",
+      "assertions": [
+        "Asserts the intended rule fired and exercises an unmatched request",
+        "Keeps production debug surfaces absent",
+        "Does not treat a permissive default response as matcher proof"
+      ],
+      "files": []
     }
   ]
 }
