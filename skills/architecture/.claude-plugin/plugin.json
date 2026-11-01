@@ -7,6 +7,7 @@
   },
   "license": "MIT",
   "skills": [
+    "./shape-and-build",
     "./super-architecture",
     "./super-caching",
     "./super-elixir",

@@ -6,6 +6,7 @@
     "languages": ["en"]
   },
   "groupCategory": {
+    "foundation": "foundation",
     "product": "product-design",
     "engineering": "engineering",
     "knowledge": "knowledge",
@@ -17,31 +18,119 @@
   },
   "skills": {
     "infographic": {
-      "version": "1.4.0",
+      "version": "1.5.0",
       "category": "editorial-visualization",
-      "related_skills": ["diagram", "color-kit", "design-system-kit", "polyglot-copywriter", "logo-kit-svg"],
-      "invokes": [
-        {"skill": "diagram", "when": "Mermaid, architecture, schema, or motion on a technical figure; one technical pass per artifact"},
-        {"skill": "color-kit", "when": "Palette roles, token mapping, or contrast proof on the composed poster or carousel"},
-        {"skill": "design-system-kit", "when": "Layout must match a shipped design system file in the repo"},
-        {"skill": "polyglot-copywriter", "when": "Headlines, captions, or social copy need plain-language polish without changing numbers or citations"},
-        {"skill": "logo-kit-svg", "when": "Logo mark in the layout needs SVG authoring or repair"}
+      "related_skills": [
+        "diagram",
+        "color-kit",
+        "design-system-kit",
+        "polyglot-copywriter",
+        "logo-kit-svg",
+        "visual-art",
+        "file-toolkit"
       ],
-      "tags": ["infographic", "evidence-led", "editorial", "data-storytelling", "poster", "carousel", "slide-deck", "social-x", "cover-hero", "timeline", "chart", "technical-figure-embed", "declarative-syntax", "animated-svg", "svg-export", "accessibility"],
-      "capabilities": ["evidence_ledger_and_claim_bounds", "surface_router_poster_deck_cover_social", "layout_mood_catalog_and_keyword_hints", "structured_content_artifact", "layout_planning_and_wireframes", "design_specifications", "composition_and_grid", "data_graphics", "technical_figure_package", "figure_export_png_and_themed_mermaid", "visual_theming", "optional_declarative_infographic_syntax", "build_animated_svg_script", "research_quality_review_bars", "raster_confirmation_gates", "python_prefs_and_image_generate_cli", "formats_print_web_social_motion", "critique_and_review", "publishing_gate_and_rights"]
+      "invokes": [
+        {
+          "skill": "diagram",
+          "when": "Mermaid, architecture, schema, or motion on a technical figure; one technical pass per artifact"
+        },
+        {
+          "skill": "color-kit",
+          "when": "Palette roles, token mapping, or contrast proof on the composed poster or carousel"
+        },
+        {
+          "skill": "design-system-kit",
+          "when": "Layout must match a shipped design system file in the repo"
+        },
+        {
+          "skill": "polyglot-copywriter",
+          "when": "Headlines, captions, or social copy need plain-language polish without changing numbers or citations"
+        },
+        {
+          "skill": "logo-kit-svg",
+          "when": "Logo mark in the layout needs SVG authoring or repair"
+        }
+      ],
+      "tags": [
+        "infographic",
+        "evidence-led",
+        "editorial",
+        "data-storytelling",
+        "poster",
+        "carousel",
+        "slide-deck",
+        "social-x",
+        "cover-hero",
+        "timeline",
+        "chart",
+        "technical-figure-embed",
+        "declarative-syntax",
+        "animated-svg",
+        "svg-export",
+        "accessibility"
+      ],
+      "capabilities": [
+        "evidence_ledger_and_claim_bounds",
+        "surface_router_poster_deck_cover_social",
+        "layout_mood_catalog_and_keyword_hints",
+        "structured_content_artifact",
+        "layout_planning_and_wireframes",
+        "design_specifications",
+        "composition_and_grid",
+        "data_graphics",
+        "technical_figure_package",
+        "figure_export_png_and_themed_mermaid",
+        "visual_theming",
+        "optional_declarative_infographic_syntax",
+        "build_animated_svg_script",
+        "research_quality_review_bars",
+        "raster_confirmation_gates",
+        "python_prefs_and_image_generate_cli",
+        "formats_print_web_social_motion",
+        "critique_and_review",
+        "publishing_gate_and_rights"
+      ]
     },
     "diagram": {
-      "version": "1.0.0",
+      "version": "1.0.1",
       "category": "technical-diagrams",
-      "related_skills": ["infographic", "color-kit", "codebase-learner", "create-documentation"],
-      "invokes": [
-        {"skill": "infographic", "when": "Editorial poster, carousel, or page layout that embeds a verified figure"},
-        {"skill": "color-kit", "when": "Mermaid theme or figure colors need measured contrast"},
-        {"skill": "codebase-learner", "when": "Code or module boundaries are unknown before diagramming"},
-        {"skill": "create-documentation", "when": "Figure ships inside full product documentation"}
+      "related_skills": [
+        "infographic",
+        "color-kit",
+        "codebase-learner",
+        "create-documentation"
       ],
-      "tags": ["diagram", "mermaid", "architecture", "flowchart", "svg", "export"],
-      "capabilities": ["technical_diagram_authoring", "mermaid_themes_and_export", "infographic_handoff"]
+      "invokes": [
+        {
+          "skill": "infographic",
+          "when": "Editorial poster, carousel, or page layout that embeds a verified figure"
+        },
+        {
+          "skill": "color-kit",
+          "when": "Mermaid theme or figure colors need measured contrast"
+        },
+        {
+          "skill": "codebase-learner",
+          "when": "Code or module boundaries are unknown before diagramming"
+        },
+        {
+          "skill": "create-documentation",
+          "when": "Figure ships inside full product documentation"
+        }
+      ],
+      "tags": [
+        "diagram",
+        "mermaid",
+        "architecture",
+        "flowchart",
+        "svg",
+        "export"
+      ],
+      "capabilities": [
+        "technical_diagram_authoring",
+        "mermaid_themes_and_export",
+        "infographic_handoff"
+      ]
     },
     "color-kit": {
       "version": "1.0.0",
@@ -51,14 +140,34 @@
       "capabilities": ["palette_strategy", "contrast_proof", "stack_binding"]
     },
     "design-system-kit": {
-      "version": "3.0.0",
-      "related_skills": ["color-kit", "ui-ux-kit", "prototype-wireframe"],
-      "invokes": [
-        {"skill": "color-kit", "when": "Any color, mode, or contrast decision"},
-        {"skill": "ui-ux-kit", "when": "Components, motion, or platform UX decisions"}
+      "version": "3.1.0",
+      "related_skills": [
+        "color-kit",
+        "ui-ux-kit",
+        "prototype-wireframe"
       ],
-      "tags": ["design-system", "tokens", "DESIGN.md", "governance"],
-      "capabilities": ["design_system_pipeline", "token_assembly", "critique_against_system"]
+      "invokes": [
+        {
+          "skill": "color-kit",
+          "when": "Any color, mode, or contrast decision"
+        },
+        {
+          "skill": "ui-ux-kit",
+          "when": "Components, motion, or platform UX decisions"
+        }
+      ],
+      "tags": [
+        "design-system",
+        "tokens",
+        "DESIGN.md",
+        "governance"
+      ],
+      "capabilities": [
+        "design_system_pipeline",
+        "token_assembly",
+        "critique_against_system",
+        "source_bound_brand_adapters"
+      ]
     },
     "ui-ux-kit": {
       "related_skills": ["design-system-kit", "color-kit", "prototype-wireframe"],
@@ -84,11 +193,31 @@
       "capabilities": ["shipped_product_audit"]
     },
     "verify": {
-      "version": "1.0.0",
-      "related_skills": ["tdd", "second-opinion", "trace"],
-      "invokes": [{"skill": "trace", "when": "Failure cause is unknown and needs root-cause mode"}],
-      "tags": ["verify", "evidence", "gates", "diagnosis"],
-      "capabilities": ["claim_gating", "investigate_first", "prove_safe", "vet_a_number"]
+      "version": "1.2.0",
+      "related_skills": [
+        "tdd",
+        "second-opinion",
+        "trace"
+      ],
+      "invokes": [
+        {
+          "skill": "trace",
+          "when": "Failure cause is unknown and needs root-cause mode"
+        }
+      ],
+      "tags": [
+        "verify",
+        "evidence",
+        "gates",
+        "diagnosis"
+      ],
+      "capabilities": [
+        "claim_gating",
+        "investigate_first",
+        "prove_safe",
+        "vet_a_number",
+        "observable_mock_rule_verification"
+      ]
     },
     "tdd": {
       "version": "1.0.0",
@@ -121,18 +250,33 @@
       "capabilities": ["concise_output"]
     },
     "challenge-me": {
-      "version": "1.0.0",
+      "version": "1.1.0",
       "related_skills": ["write-plan", "ready-spec", "second-opinion"],
       "invokes": [{"skill": "write-plan", "when": "Decision map is done and work needs a written plan"}],
       "tags": ["challenge", "stress-test", "brainstorm"],
       "capabilities": ["adversarial_planning"]
     },
     "codebase-learner": {
-      "version": "1.0.0",
-      "related_skills": ["trace", "research", "create-agents-md"],
+      "version": "1.1.0",
+      "related_skills": [
+        "trace",
+        "research",
+        "create-agents-md",
+        "diagram",
+        "super-architecture",
+        "safe-refactor",
+        "write-plan"
+      ],
       "invokes": [],
-      "tags": ["onboarding", "architecture", "map"],
-      "capabilities": ["codebase_explanation"]
+      "tags": [
+        "onboarding",
+        "architecture",
+        "map"
+      ],
+      "capabilities": [
+        "codebase_explanation",
+        "feature_flow_and_duplication_mapping"
+      ]
     },
     "trace": {
       "related_skills": ["verify", "codebase-learner", "research"],
@@ -147,28 +291,29 @@
       "capabilities": ["primary_source_research"]
     },
     "second-opinion": {
+      "version": "1.1.0",
       "related_skills": ["verify", "code-review", "evidence", "rumbling"],
       "invokes": [{"skill": "verify", "when": "Each fix from review needs evidence"}],
-      "tags": ["review", "adversarial"],
-      "capabilities": ["blind_spot_review"]
+      "tags": ["review", "adversarial", "interrogate"],
+      "capabilities": ["blind_spot_review", "run_proven_findings"]
     },
     "atomic-semantic-commit": {
-      "version": "1.0.0",
+      "version": "1.1.0",
       "related_skills": ["write-mr-description", "code-review", "polyglot-copywriter"],
       "invokes": [{"skill": "polyglot-copywriter", "when": "Commit message prose needs polish"}],
       "tags": ["git", "commit", "conventional-commits"],
       "capabilities": ["atomic_commits"]
     },
     "code-review": {
-      "version": "1.1.1",
-      "related_skills": ["noslop", "polyglot-copywriter", "verify", "write-mr-description"],
+      "version": "1.2.0",
+      "related_skills": ["noslop", "polyglot-copywriter", "verify", "write-mr-description", "refresh-pr"],
       "invokes": [
         {"skill": "noslop", "when": "Comment bodies need slop pass on code surfaces"},
         {"skill": "polyglot-copywriter", "when": "Review comment prose needs polish"},
         {"skill": "verify", "when": "Acting on each review comment"}
       ],
-      "tags": ["code-review", "gitlab", "mr", "local-diff", "review-feedback"],
-      "capabilities": ["local_diff_review", "merge_request_review", "review_feedback", "draft_inline_comments"]
+      "tags": ["code-review", "gitlab", "mr", "local-diff", "review-feedback", "watch", "prep"],
+      "capabilities": ["local_diff_review", "merge_request_review", "review_feedback", "draft_inline_comments", "watch_until_clean", "prep_until_merge_ready"]
     },
     "write-plan": {
       "version": "1.0.0",
@@ -203,17 +348,68 @@
       "capabilities": ["ticket_authoring"]
     },
     "create-documentation": {
-      "version": "1.4.0",
-      "related_skills": ["diagram", "infographic", "codebase-learner", "create-bruno-collection", "write-adr", "write-changelog", "write-postmortem", "write-runbook", "polyglot-copywriter"],
-      "invokes": [
-        {"skill": "diagram", "when": "Docs need technical figures"},
-        {"skill": "infographic", "when": "Documentation needs an evidence-based visual explainer, comparison, or timeline, optionally embedding a verified technical figure"},
-        {"skill": "codebase-learner", "when": "Module map is unknown"},
-        {"skill": "create-bruno-collection", "when": "API handover requires a missing collection or missing supported variant cases before drafting or final delivery"},
-        {"skill": "polyglot-copywriter", "when": "Documentation prose needs plain-language revision while preserving technical meaning"}
+      "version": "1.5.0",
+      "related_skills": [
+        "diagram",
+        "infographic",
+        "codebase-learner",
+        "create-bruno-collection",
+        "write-adr",
+        "write-changelog",
+        "write-postmortem",
+        "write-runbook",
+        "polyglot-copywriter",
+        "file-toolkit"
       ],
-      "tags": ["documentation", "technical-writing", "api", "handover", "bruno-first", "response-variants", "process", "contract"],
-      "capabilities": ["feature_documentation", "api_reference", "client_api_handover", "bruno_prerequisite", "api_variant_and_state_coverage", "complete_error_responses", "process_documentation", "contract_documentation", "documentation_freshness"]
+      "invokes": [
+        {
+          "skill": "diagram",
+          "when": "Docs need technical figures"
+        },
+        {
+          "skill": "infographic",
+          "when": "Documentation needs an evidence-based visual explainer, comparison, or timeline, optionally embedding a verified technical figure"
+        },
+        {
+          "skill": "codebase-learner",
+          "when": "Module map is unknown"
+        },
+        {
+          "skill": "create-bruno-collection",
+          "when": "API handover requires a missing collection or missing supported variant cases before drafting or final delivery"
+        },
+        {
+          "skill": "polyglot-copywriter",
+          "when": "Documentation prose needs plain-language revision while preserving technical meaning"
+        },
+        {
+          "skill": "file-toolkit",
+          "when": "Parse, reconstruct or export supported document files with existing helpers"
+        }
+      ],
+      "tags": [
+        "documentation",
+        "technical-writing",
+        "api",
+        "handover",
+        "bruno-first",
+        "response-variants",
+        "process",
+        "contract"
+      ],
+      "capabilities": [
+        "feature_documentation",
+        "api_reference",
+        "client_api_handover",
+        "bruno_prerequisite",
+        "api_variant_and_state_coverage",
+        "complete_error_responses",
+        "process_documentation",
+        "contract_documentation",
+        "documentation_freshness",
+        "cold_reader_document_check",
+        "reusable_file_export"
+      ]
     },
     "create-bruno-collection": {
       "version": "1.2.0",
@@ -226,16 +422,50 @@
       "capabilities": ["bruno_collection", "handover_prerequisite_cases"]
     },
     "write-adr": {
-      "version": "1.1.0",
-      "related_skills": ["super-architecture", "write-plan", "create-documentation", "diagram", "infographic", "polyglot-copywriter"],
-      "invokes": [
-        {"skill": "super-architecture", "when": "The architecture choice still needs evaluation"},
-        {"skill": "write-plan", "when": "An accepted decision or design needs implementation steps"},
-        {"skill": "diagram", "when": "A technical relationship or flow needs a verified figure"},
-        {"skill": "infographic", "when": "A proposal needs an audience-facing visual comparison or explainer with current and proposed evidence kept distinct"}
+      "version": "1.2.1",
+      "related_skills": [
+        "super-architecture",
+        "write-plan",
+        "create-documentation",
+        "diagram",
+        "infographic",
+        "polyglot-copywriter",
+        "file-toolkit"
       ],
-      "tags": ["adr", "architecture-decision-record", "decision-history", "design-doc", "rfc", "proposal"],
-      "capabilities": ["adr_authoring", "adr_review", "decision_lifecycle", "design_documentation", "proposal_evidence_and_acceptance"]
+      "invokes": [
+        {
+          "skill": "super-architecture",
+          "when": "The architecture choice still needs evaluation"
+        },
+        {
+          "skill": "write-plan",
+          "when": "An accepted decision or design needs implementation steps"
+        },
+        {
+          "skill": "diagram",
+          "when": "A technical relationship or flow needs a verified figure"
+        },
+        {
+          "skill": "infographic",
+          "when": "A proposal needs an audience-facing visual comparison or explainer with current and proposed evidence kept distinct"
+        }
+      ],
+      "tags": [
+        "adr",
+        "architecture-decision-record",
+        "decision-history",
+        "design-doc",
+        "rfc",
+        "proposal"
+      ],
+      "capabilities": [
+        "adr_authoring",
+        "adr_review",
+        "decision_lifecycle",
+        "design_documentation",
+        "proposal_evidence_and_acceptance",
+        "offline_section_feedback"
+      ]
     },
     "write-changelog": {
       "version": "1.1.0",
@@ -265,8 +495,8 @@
       "capabilities": ["runbook_authoring", "recovery_and_branch_verification", "deployment_phase_and_rollback_gates", "resumption_and_redacted_run_evidence"]
     },
     "super-architecture": {
-      "version": "1.1.0",
-      "related_skills": ["super-tech-blueprint", "codebase-learner", "write-adr"],
+      "version": "1.1.1",
+      "related_skills": ["super-tech-blueprint", "codebase-learner", "write-adr", "shape-and-build"],
       "invokes": [{"skill": "write-adr", "when": "An architecture choice needs a requested or repository-required decision record"}],
       "tags": ["architecture", "scaffold"],
       "capabilities": ["architecture_scaffold"]
@@ -320,10 +550,26 @@
       "capabilities": ["skill_conversion"]
     },
     "create-skill": {
-      "related_skills": ["find-skills", "convert-as-skill", "manage-stack"],
-      "invokes": [{"skill": "find-skills", "when": "Check whether a skill already exists"}],
-      "tags": ["skill", "authoring"],
-      "capabilities": ["skill_authoring"]
+      "related_skills": [
+        "find-skills",
+        "convert-as-skill",
+        "manage-stack"
+      ],
+      "invokes": [
+        {
+          "skill": "find-skills",
+          "when": "Check whether a skill already exists"
+        }
+      ],
+      "tags": [
+        "skill",
+        "authoring"
+      ],
+      "capabilities": [
+        "skill_authoring",
+        "matched_baseline_skill_evaluations"
+      ],
+      "version": "1.1.0"
     },
     "create-agent": {
       "related_skills": ["create-skill", "create-rule"],
@@ -356,26 +602,122 @@
       "capabilities": ["agents_md_authoring"]
     },
     "retrospective": {
+      "version": "1.1.0",
       "related_skills": ["verify", "handoff"],
       "invokes": [],
-      "tags": ["retro", "learning"],
-      "capabilities": ["retrospective"]
+      "tags": ["retro", "learning", "reflect", "correct"],
+      "capabilities": ["retrospective", "skill_edit_proposals", "repo_mistake_to_rule_or_test"]
     },
     "find-skills": {
-      "related_skills": ["use-levistack", "create-skill"],
+      "version": "1.2.0",
+      "related_skills": ["use-levistack", "create-skill", "help-levistack"],
       "invokes": [{"skill": "use-levistack", "when": "User needs full catalog routing"}],
       "tags": ["catalog", "install", "discover"],
-      "capabilities": ["skill_discovery"]
+      "capabilities": ["skill_discovery", "playbook_chain_confirmation"]
     },
     "use-levistack": {
-      "related_skills": ["find-skills"],
-      "invokes": [{"skill": "find-skills", "when": "Pick or install a specific skill from the catalog"}],
-      "tags": ["levistack", "routing"],
-      "capabilities": ["catalog_routing"]
+      "version": "1.3.0",
+      "related_skills": ["setup-levistack", "find-skills", "handoff", "rumbling", "loopy", "evidence", "help-levistack", "shape-and-build", "blast-radius", "figure-it-out"],
+      "invokes": [
+        {"skill": "setup-levistack", "when": "Before step 1, when the machine check is blocked or node cannot run the check"},
+        {"skill": "find-skills", "when": "Every use-levistack run, after the first skill is picked, to confirm the chain"},
+        {"skill": "handoff", "when": "Resume at the start, or Write before deliver when the task is unfinished or the session is ending"},
+        {"skill": "rumbling", "when": "Independent parallel tasks, competing solutions, or a council on one question"},
+        {"skill": "loopy", "when": "Named checks must be repeated until they pass"},
+        {"skill": "evidence", "when": "One evidence-led pass, a plan, a read-only judge, a report rewrite, a domain workflow, or the judge after rumbling"},
+        {"skill": "shape-and-build", "when": "The design-shape, feature, or bug-fix playbook needs types and signatures settled before code"},
+        {"skill": "blast-radius", "when": "The prove-outside-diff, bug-fix, or refactor playbook needs what a change breaks outside its diff"},
+        {"skill": "figure-it-out", "when": "The open-ended playbook matched a large run no narrower playbook fits"}
+      ],
+      "tags": ["levistack", "routing", "playbooks", "handoff", "rumbling", "loopy", "evidence"],
+      "capabilities": ["catalog_routing", "situational_playbooks", "workflow_combinations", "machine_check_before_route"]
+    },
+    "help-levistack": {
+      "version": "1.1.0",
+      "related_skills": ["use-levistack", "find-skills", "setup-levistack"],
+      "invokes": [],
+      "tags": ["levistack", "help", "routing", "glossary"],
+      "capabilities": ["catalog_help_without_execution", "stack_glossary"]
+    },
+    "setup-levistack": {
+      "version": "1.0.0",
+      "related_skills": ["help-levistack", "use-levistack", "find-skills"],
+      "invokes": [],
+      "tags": ["levistack", "setup", "tools", "doctor"],
+      "capabilities": ["tool_availability_check", "local_setup_note"]
+    },
+    "shape-and-build": {
+      "version": "1.0.0",
+      "related_skills": ["codebase-learner", "trace", "super-architecture", "rumbling", "tdd", "write-adr", "prototype-wireframe"],
+      "invokes": [
+        {"skill": "codebase-learner", "when": "Ground the systems the new code touches before sketching"},
+        {"skill": "rumbling", "when": "A wide or contested design needs candidates run as a Contest"},
+        {"skill": "tdd", "when": "Implement each stub test-first when a cheap test exists"}
+      ],
+      "tags": ["design", "types", "signatures", "module-shape"],
+      "capabilities": ["caller_first_type_sketch", "candidate_shape_comparison", "implement_against_sketch"]
+    },
+    "blast-radius": {
+      "version": "1.0.0",
+      "related_skills": ["verify", "second-opinion", "trace", "rumbling", "tdd"],
+      "invokes": [
+        {"skill": "trace", "when": "The intent behind the change is unclear and needs the PR and commit history"},
+        {"skill": "rumbling", "when": "A wide change needs a Council of reviewers looking for outside-the-diff breakage"}
+      ],
+      "tags": ["blast-radius", "risk", "safety", "impact"],
+      "capabilities": ["outside_diff_risk_analysis", "safety_fact_proof"]
+    },
+    "figure-it-out": {
+      "version": "1.1.0",
+      "related_skills": ["write-plan", "shape-and-build", "rumbling", "evidence", "handoff", "verify", "use-levistack", "lane-lead", "compare-models"],
+      "invokes": [
+        {"skill": "shape-and-build", "when": "A one-way-door design decision inside the run"},
+        {"skill": "rumbling", "when": "Work fans out across real seams"},
+        {"skill": "lane-lead", "when": "The run needs a controller and lanes that report done and do not merge"},
+        {"skill": "compare-models", "when": "A step is a question of which model to use"},
+        {"skill": "evidence", "when": "Delegated work needs a Judge"},
+        {"skill": "handoff", "when": "Keep the decision log, or pause the run"},
+        {"skill": "verify", "when": "Check the whole against done on the real product"}
+      ],
+      "tags": ["open-ended", "migration", "audit-trail", "decision-log"],
+      "capabilities": ["auditable_run_design", "hypothesis_loop", "decision_log"]
+    },
+    "refresh-pr": {
+      "version": "1.0.0",
+      "related_skills": ["code-review", "verify", "use-levistack", "write-mr-description"],
+      "invokes": [
+        {"skill": "code-review", "when": "A refresh the user accepted needs watch or prep"}
+      ],
+      "tags": ["pull-request", "merge-request", "stale", "rebase"],
+      "capabilities": ["stale_request_decision", "refresh_then_review"]
+    },
+    "lane-lead": {
+      "version": "1.0.0",
+      "related_skills": ["rumbling", "figure-it-out", "verify", "handoff", "code-review"],
+      "invokes": [
+        {"skill": "rumbling", "when": "The lanes can run together"},
+        {"skill": "verify", "when": "The combined tree needs a check"}
+      ],
+      "tags": ["lanes", "controller", "digest"],
+      "capabilities": ["lane_coordination", "done_block", "local_integration"]
+    },
+    "compare-models": {
+      "version": "1.0.0",
+      "related_skills": ["verify", "rumbling", "figure-it-out"],
+      "invokes": [],
+      "tags": ["models", "comparison"],
+      "capabilities": ["same_prompt_model_comparison"]
+    },
+    "dev-environment": {
+      "version": "1.0.0",
+      "related_skills": ["setup-levistack", "create-skill", "find-skills"],
+      "invokes": [],
+      "tags": ["environment", "export", "import", "backup", "workstation"],
+      "capabilities": ["environment_export", "environment_import", "workstation_backup", "workstation_apply", "secret_redaction"]
     },
     "evidence": {
       "version": "1.1.0",
-      "related_skills": ["use-levistack", "verify", "second-opinion", "rumbling", "create-skill", "convert-as-skill", "diagram", "infographic"],
+      "related_skills": ["use-levistack", "verify", "second-opinion", "rumbling", "loopy", "create-skill", "convert-as-skill", "diagram", "infographic"],
       "invokes": [
         {"skill": "verify", "when": "Run mode needs fresh claim-matched checks or Report mode has a checkable claim"},
         {"skill": "second-opinion", "when": "A consequential code change needs an adversarial decision review"},
@@ -387,28 +729,54 @@
       "tags": ["evidence", "goal", "plan", "judge", "audit", "domain-skill"],
       "capabilities": ["observable_goal_framing", "explicit_evidence_workflow", "read_only_claim_judge", "parallel_result_judgment", "domain_skill_routing"]
     },
-    "rumbling": {
+    "loopy": {
       "version": "1.0.0",
+      "related_skills": ["evidence", "verify", "tdd", "second-opinion"],
+      "invokes": [
+        {"skill": "verify", "when": "A round needs a fresh check of the named pass conditions"},
+        {"skill": "second-opinion", "when": "The same actor should not both create and approve a consequential code change"}
+      ],
+      "tags": ["loopy", "loop", "iterate", "stop-state", "pass-condition"],
+      "capabilities": ["bounded_improvement_loop", "stop_state_receipt"]
+    },
+    "rumbling": {
+      "version": "1.1.0",
       "related_skills": ["evidence", "second-opinion", "verify", "use-levistack"],
       "invokes": [
         {"skill": "evidence", "when": "All parallel workers have finished; Judge mode weighs reports against the actual artifacts and decision criteria"},
         {"skill": "verify", "when": "The coordinator has integrated accepted work and must check the finished result"},
         {"skill": "second-opinion", "when": "A consequential code change also needs an adversarial decision ledger before acceptance"}
       ],
-      "tags": ["parallel-agents", "contest", "council", "judge"],
-      "capabilities": ["independent_task_fanout", "parallel_candidate_contest", "model_diverse_council", "evidence_judged_synthesis"]
+      "tags": ["parallel-agents", "contest", "council", "judge", "arena", "swarm"],
+      "capabilities": ["independent_task_fanout", "worker_race", "parallel_candidate_contest", "model_diverse_council", "evidence_judged_synthesis"]
     },
     "handoff": {
+      "version": "1.1.0",
       "related_skills": ["write-plan"],
       "invokes": [],
-      "tags": ["handoff", "session"],
-      "capabilities": ["session_handoff"]
+      "tags": ["handoff", "session", "recall", "decision-log"],
+      "capabilities": ["session_handoff", "decision_log"]
     },
     "standup": {
-      "related_skills": ["polyglot-copywriter", "handoff"],
-      "invokes": [{"skill": "polyglot-copywriter", "when": "Final standup prose polish"}],
-      "tags": ["standup", "update"],
-      "capabilities": ["standup_update"]
+      "related_skills": [
+        "polyglot-copywriter",
+        "handoff"
+      ],
+      "invokes": [
+        {
+          "skill": "polyglot-copywriter",
+          "when": "Final standup prose polish"
+        }
+      ],
+      "tags": [
+        "standup",
+        "update"
+      ],
+      "capabilities": [
+        "standup_update",
+        "bounded_period_activity_reports"
+      ],
+      "version": "1.1.0"
     },
     "get-moving": {
       "related_skills": ["later-list", "handoff"],
@@ -421,6 +789,115 @@
       "invokes": [],
       "tags": ["parking-lot", "tangent"],
       "capabilities": ["defer_tangent"]
+    },
+    "dev-cache-cleanup": {
+      "version": "1.1.0",
+      "related_skills": [
+        "verify",
+        "handoff",
+        "mcp-management"
+      ],
+      "tags": [
+        "cleanup",
+        "disk-usage",
+        "cache",
+        "audit",
+        "dry-run",
+        "nodejs",
+        "mobile",
+        "backend"
+      ],
+      "capabilities": [
+        "artifact_inventory",
+        "exact_cleanup_plans",
+        "metadata_revalidation",
+        "guarded_cache_removal",
+        "ecosystem_cache_catalog"
+      ]
+    },
+    "mcp-management": {
+      "version": "1.0.0",
+      "related_skills": [
+        "create-skill",
+        "create-hook",
+        "verify",
+        "create-documentation",
+        "file-toolkit"
+      ],
+      "tags": [
+        "mcp",
+        "tool-server",
+        "stdio",
+        "configuration",
+        "diagnostics"
+      ],
+      "capabilities": [
+        "mcp_configuration_plans",
+        "mcp_stdio_protocol_probe",
+        "mcp_server_scaffolding",
+        "mcp_task_evaluation"
+      ]
+    },
+    "file-toolkit": {
+      "version": "1.0.0",
+      "related_skills": [
+        "create-documentation",
+        "visual-art",
+        "verify",
+        "mcp-management"
+      ],
+      "tags": [
+        "files",
+        "document",
+        "image",
+        "audio",
+        "parse",
+        "create",
+        "convert"
+      ],
+      "capabilities": [
+        "format_capability_discovery",
+        "structured_file_extraction",
+        "document_creation",
+        "image_conversion",
+        "audio_conversion",
+        "frame_animation"
+      ]
+    },
+    "visual-art": {
+      "version": "1.0.0",
+      "related_skills": [
+        "file-toolkit",
+        "color-kit",
+        "design-system-kit",
+        "infographic",
+        "diagram",
+        "logo-kit-svg"
+      ],
+      "invokes": [
+        {
+          "skill": "file-toolkit",
+          "when": "Render scene sources, convert image formats or encode GIF frames"
+        },
+        {
+          "skill": "design-system-kit",
+          "when": "Artwork must bind supplied brand assets and tokens"
+        }
+      ],
+      "tags": [
+        "canvas",
+        "art",
+        "generative",
+        "seeded",
+        "gif",
+        "animation"
+      ],
+      "capabilities": [
+        "static_canvas_composition",
+        "seeded_art_sources",
+        "interactive_canvas_exploration",
+        "frame_animation_composition"
+      ]
     }
   }
 }

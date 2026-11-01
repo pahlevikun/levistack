@@ -1,0 +1,14 @@
+{
+  "name": "levistack-foundation",
+  "version": "1.1.0",
+  "description": "Where to start with levistack: use-levistack routes a task through a situational playbook and seven steps, setup-levistack checks the tools scripts need, and help-levistack answers how to use the catalog without starting work.",
+  "author": {
+    "name": "Farhan Yuda Pahlevi"
+  },
+  "license": "MIT",
+  "skills": [
+    "./help-levistack",
+    "./setup-levistack",
+    "./use-levistack"
+  ]
+}

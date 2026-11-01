@@ -15,7 +15,7 @@
     {
       "name": "levistack-agent-authoring",
       "source": "./skills/agent-authoring",
-      "description": "Create agents, skills, rules, hooks, commands and AGENTS.md files for coding assistants, and improve them from what went wrong."
+      "description": "Create agents, skills, rules, hooks, commands and AGENTS.md files for coding assistants. Includes MCP connection configuration, protocol diagnosis, server scaffolding and evaluation, exporting or importing an agent setup from a directory or git, and backing up or restoring a Mac developer workstation."
     },
     {
       "name": "levistack-architecture",
@@ -25,12 +25,12 @@
     {
       "name": "levistack-delivery",
       "source": "./skills/delivery",
-      "description": "Shipping work: atomic commits, code review, merge request descriptions, implementation specs and plans, technical documentation (pages, Bruno-first API handovers with full responses and states, processes, contracts, doc comments and freshness checks), combined ADR and design-doc authoring, dedicated runbook, postmortem and changelog skills, tickets and API collections."
+      "description": "Shipping work: atomic commits, code review, merge request descriptions, implementation specs and plans, technical documentation (pages, Bruno-first API handovers with full responses and states, processes, contracts, doc comments and freshness checks), combined ADR and design-doc authoring, dedicated runbook, postmortem and changelog skills, tickets and API collections. Includes a reusable document, image and audio file toolkit for parsing, creation and conversion."
     },
     {
       "name": "levistack-engineering",
       "source": "./skills/engineering",
-      "description": "Engineering habits: tdd (test-first red-green-refactor across stacks), safe-refactor (behavior-preserving refactors), verify (evidence before claims), noslop (no-slop filter for backend, API, frontend, database, config and comments) and output-savers (YAGNI, DRY, SOLID and plain STE replies)."
+      "description": "Engineering habits: tdd (test-first red-green-refactor across stacks), safe-refactor (behavior-preserving refactors), verify (evidence before claims), noslop (no-slop filter for backend, API, frontend, database, config and comments) and output-savers (YAGNI, DRY, SOLID and plain STE replies). Includes scoped disk-usage audits and exact-plan cleanup of eligible development caches across Node.js, web, mobile, and backend projects."
     },
     {
       "name": "levistack-focus",
@@ -38,19 +38,24 @@
       "description": "ADHD-friendly daily tools: shrink a task to one next action, list tangents for later, and write today's standup from what you really did."
     },
     {
+      "name": "levistack-foundation",
+      "source": "./skills/foundation",
+      "description": "Where to start with levistack: use-levistack routes a task through a situational playbook and seven steps, setup-levistack checks the tools scripts need, and help-levistack answers how to use the catalog without starting work."
+    },
+    {
       "name": "levistack-knowledge",
       "source": "./skills/knowledge",
-      "description": "Understand code, trace causes, challenge plans, research primary sources or interview questions, and review changes."
+      "description": "Understand code, trace causes, challenge plans, research primary sources or interview questions, and review a diff for blind spots."
     },
     {
       "name": "levistack-product",
       "source": "./skills/product",
-      "description": "Design systems, colors and themes, screens and interactions, technical diagrams and Mermaid, editorial infographics and motion exports, product polish, throwaway prototypes. Covers mobile, desktop, web, TV and car."
+      "description": "Design systems, colors and themes, screens and interactions, technical diagrams and Mermaid, editorial infographics and motion exports, product polish, throwaway prototypes. Covers mobile, desktop, web, TV and car. Includes static canvas art, seeded generative art and frame-based GIF composition."
     },
     {
       "name": "levistack-workflow",
       "source": "./skills/workflow",
-      "description": "How to work with this stack: route tasks, frame and judge work through evidence, coordinate parallel agents, find skills, and hand a session to the next one."
+      "description": "How to work with this stack: frame and judge work through evidence, repeat a bounded improvement loop until the conditions pass, coordinate parallel agents, find skills, hand a session to the next one, design an auditable run when no narrower route fits, lead lanes that do not merge, compare models on one prompt, and run a retrospective on repeated friction."
     },
     {
       "name": "polyglot-copywriter",

@@ -1,3 +1,3 @@
 ---
-description: "Understand code, trace causes, challenge plans, research primary sources or interview questions, and review changes."
+description: "Understand code, trace causes, challenge plans, research primary sources or interview questions, and review a diff for blind spots."
 ---
