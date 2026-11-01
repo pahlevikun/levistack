@@ -1,6 +1,6 @@
 ---
 name: codebase-learner
-description: "Learn how a codebase works today, read-only: explain one flow or subsystem ('how does X work', walkthroughs, 'where should this live', 'which package owns this'), onboard onto a repo, deep-read it, write ARCHITECTURE.md of what exists, diagnose layering and architecture smells, extract conventions into rules, or plan site IA of the product as built. Splits a wide question into parallel explorer subagents, then one explainer writes a senior-engineer mental model. Use when onboarding, priming context, mapping modules and data flow, or before changing unfamiliar code. Not for why code is shaped this way (trace), reviewing a diff (second-opinion), or choosing a target stack, TCO, greenfield design or a migration blueprint (super-tech-blueprint)."
+description: "Learn how a codebase works today, read-only: explain one flow or subsystem ('how does X work', walkthroughs, 'where should this live', 'which package owns this'), onboard onto a repo, deep-read it, write ARCHITECTURE.md of what exists, diagnose layering and architecture smells, extract conventions into rules, or plan site IA of the product as built. Splits a wide question into parallel explorer subagents, then one explainer writes a senior-engineer mental model. Use when onboarding, priming context, mapping modules and data flow, before changing unfamiliar code, or to draft what undocumented code does and hand that draft to ready-spec. Not for why code is shaped this way (trace), reviewing a diff (second-opinion), or choosing a target stack, TCO, greenfield design or a migration blueprint (super-tech-blueprint)."
 metadata:
   version: 1.1.0
   author: levistack
@@ -56,6 +56,7 @@ Pick a mode from the user's words, and load only that reference. Combine modes o
 | Learn from the project, extract rules, discover conventions | **extract-rules** | [extract-project-rules](references/extract-project-rules.md) |
 | Sitemap, site structure, page hierarchy, IA, nav design, URL plan of a marketing site | **site-ia** | [site-information-architecture](references/site-information-architecture.md) |
 | Compare frameworks, pick a stack, TCO, greenfield blueprint, migrate *to* X | **not this skill** | `super-tech-blueprint` |
+| A tree with no docs, draft what the code does so a spec can start | **mine** | **explain**, then hand the draft to `ready-spec`. Do not write the spec here. |
 
 **Precedence:** explicit user wording beats defaults. If unclear, prefer **explain** for a question about one area, **onboard** for a new repo, **summarize** when they ask for a durable doc, **diagnose** when they ask what is wrong with the architecture *as it is*.
 
