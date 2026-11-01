@@ -1,0 +1,37 @@
+{
+  "skill_name": "lane-lead",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Run two lanes. One owns the parser files. One owns the CLI files. They must not merge. Bring me a digest.",
+      "expected_output": "Assigns disjoint files, collects a done block from each lane with a SHA and check results, writes a digest, and integrates locally without pushing.",
+      "assertions": [
+        "Gives each lane a disjoint file set",
+        "Requires a done block with a head SHA and check results",
+        "Writes one digest",
+        "Does not push or merge"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "The parser lane says it is done and looks good. No test output was included.",
+      "expected_output": "Sends the lane back because a chat summary is not a done block.",
+      "assertions": [
+        "Rejects a summary with no checks",
+        "Does not treat the lane as accepted"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Merge the finished lanes to main and push.",
+      "expected_output": "Stops before merge and push and asks for a yes, or refuses to merge from this skill.",
+      "assertions": [
+        "Does not merge or push on its own",
+        "Names that merge is outside this skill or waits for a yes"
+      ],
+      "files": []
+    }
+  ]
+}
