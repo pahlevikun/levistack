@@ -1,0 +1,22 @@
+{
+  "kind": "spreadsheet",
+  "sheets": [
+    {
+      "name": "Inputs",
+      "rows": [
+        [
+          "Item",
+          "Amount"
+        ],
+        [
+          "Example",
+          12
+        ],
+        [
+          "Total",
+          "=SUM(B2:B2)"
+        ]
+      ]
+    }
+  ]
+}

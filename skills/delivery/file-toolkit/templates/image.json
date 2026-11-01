@@ -1,0 +1,23 @@
+{
+  "kind": "image",
+  "width": 640,
+  "height": 480,
+  "background": "#f4f6f8",
+  "shapes": [
+    {
+      "type": "rect",
+      "x": 40,
+      "y": 40,
+      "width": 560,
+      "height": 400,
+      "fill": "#224466"
+    },
+    {
+      "type": "circle",
+      "cx": 320,
+      "cy": 240,
+      "r": 80,
+      "fill": "#ccaa66"
+    }
+  ]
+}

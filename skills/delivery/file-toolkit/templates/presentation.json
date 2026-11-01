@@ -1,0 +1,12 @@
+{
+  "kind": "presentation",
+  "slides": [
+    {
+      "title": "Example",
+      "paragraphs": [
+        "One point",
+        "A second point"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "kind": "audio",
+  "duration_seconds": 0.25,
+  "sample_rate": 16000,
+  "frequency_hz": 440,
+  "amplitude": 0.2
+}

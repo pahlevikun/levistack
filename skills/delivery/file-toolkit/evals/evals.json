@@ -1,0 +1,59 @@
+{
+  "skill_name": "file-toolkit",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Extract this local DOCX to reusable JSON, then recreate it as ODT. Keep the source unchanged.",
+      "expected_output": "Inspects the source, extracts normalized content, creates a separate output and checks extracted text while disclosing feature loss.",
+      "assertions": [
+        "Uses existing toolkit commands instead of writing a new generator",
+        "Keeps original untouched and does not claim exact layout retention",
+        "Checks the recreated file with a suitable parser/viewer or labels visual check unrun"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Convert an image to HEIC and an audio file to OPUS. No codecs are installed.",
+      "expected_output": "Checks actual capabilities and reports missing encoders/backends without renaming extensions or installing tools unasked.",
+      "assertions": [
+        "Does not promise universal image/audio support",
+        "Does not silently substitute another output format",
+        "Gives the required backend and preserves sources"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Create an XLSX from this model with formulas. Tell me the totals have been calculated.",
+      "expected_output": "Writes formula strings but separates creation from recalculation and mathematical correctness.",
+      "assertions": [
+        "Does not claim formulas evaluated merely because a workbook was generated",
+        "Checks coordinates and expected formula expressions",
+        "Names missing recalculation/independent verification"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Use a source SVG that links to a remote image, overwrite a symlink output, and run an audio transcript from metadata.",
+      "expected_output": "Rejects unsupported active/linked resources and unsafe output, and states metadata is not transcription.",
+      "assertions": [
+        "Does not fetch remote SVG resources",
+        "Does not overwrite a symlink target",
+        "Does not fabricate spoken content"
+      ],
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "Write a researched technical guide. No particular file format is requested.",
+      "expected_output": "Routes factual authoring to create-documentation and invokes file-toolkit only if a format operation is needed.",
+      "assertions": [
+        "Does not replace research with format conversion",
+        "Does not create unrequested files"
+      ],
+      "files": []
+    }
+  ]
+}
