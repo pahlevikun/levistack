@@ -1,6 +1,6 @@
 ---
 name: blast-radius
-description: "Find what a change could break outside its own diff before it ships, and prove the one fact it is safe because of by running real code. Looks where grep stops: library source at the pinned version, timing and teardown, wire formats, DB columns, feature flags, other languages reading the same bytes, code several hops away. Use for 'blast radius of X', 'what could this break', 'is this small diff safe', or a change you do not trust yet. Not for running the ordinary gates (verify), an adversarial review of the diff itself (second-opinion), or fixing what it finds (tdd)."
+description: "Find what a change could break outside its own diff before it ships, and prove the one fact it is safe because of by running real code. Looks where grep stops: library source at the pinned version, timing and teardown, wire formats, DB columns, feature flags, other languages reading the same bytes, code several hops away. Use for 'blast radius of X', 'what could this break', 'is this small diff safe', 'is this pull request unsafe to merge', or a change you do not trust yet. Not for running the ordinary gates (verify), an adversarial review of the diff itself (second-opinion), or fixing what it finds (tdd)."
 metadata:
   version: 1.0.0
   author: levistack
@@ -60,6 +60,7 @@ Level 4 is usually one small script that imports the library the app ships and c
 4. **Weigh each risk honestly.** A real chance and a real cost. Keep the confirmed ones. List the checked-and-cleared ones apart. Cite a real `file:line`. A search that finds nothing is an answer; say what was searched. Never invent a caller or an API.
 5. **Prove the one fact.** Write the script or test, run it, and paste the output. Keep it out of the reviewed files unless the user asks to add it.
 6. **Wide change.** When the change spans many modules, run the question as `rumbling` Council so different reviewers can catch different breakage, then judge the merged list.
+7. **Merge.** Say whether this pull request is unsafe to merge. Unsafe means a confirmed risk whose safety fact is unproven. A cleared risk is not a merge block.
 
 ## Output
 
