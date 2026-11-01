@@ -2,7 +2,7 @@
 name: create-skill
 description: "Create, audit or improve agent skills (a folder with SKILL.md) for Claude Code, Cursor, Codex and the skills CLI. Use when asked to write or add a skill, fix a skill that never triggers, split an oversized SKILL.md, or review skill quality."
 metadata:
-  version: 1.0.0
+  version: 1.1.0
   author: levistack
   license: MIT
   group: agent-authoring
@@ -20,6 +20,7 @@ metadata:
     - authoring
   capabilities:
     - skill_authoring
+    - matched_baseline_skill_evaluations
   languages:
     - en
 
@@ -109,6 +110,8 @@ Material behind a pointer costs only the pointer's line until it is needed. Mate
 | A skill catalog like this one | `skills/<group>/<name>/SKILL.md`, plus the group's `DESCRIPTION.md` |
 
 Never write into a tool's built-in folder (for example Cursor's `skills-cursor`). Check which of the paths above the current project already uses and follow it. In a catalog repo, follow that repo's maintenance instructions (`CLAUDE.md` or `AGENTS.md`) for sync and validation.
+
+Use [matched evaluation runs](references/evaluation-workflow.md) for baseline comparisons, trigger tests and artifact-level scoring; distinguish smoke checks from measured gains.
 
 ## Audit
 

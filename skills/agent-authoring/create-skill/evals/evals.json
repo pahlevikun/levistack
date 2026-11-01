@@ -21,6 +21,17 @@
         "Stays conversational or asks what is needed"
       ],
       "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Improve this skill, then compare it against the original on real prompts and near misses.",
+      "expected_output": "Freezes matched cases and separates trigger precision from artifact quality.",
+      "assertions": [
+        "Uses actual authorized fresh runs or labels a manual walkthrough",
+        "Retains baseline results and checks artifacts, not only summaries",
+        "Calls single runs smoke evidence and does not manufacture measured gains"
+      ],
+      "files": []
     }
   ]
 }
