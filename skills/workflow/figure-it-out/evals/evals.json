@@ -1,0 +1,37 @@
+{
+  "skill_name": "figure-it-out",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Figure out how to move every service off the legacy config loader onto the new one. I'll review it tonight.",
+      "expected_output": "Frames done as a check that can fail, sizes the scope, sets the rigor, writes the phase list before code, runs each unit with a verdict, and keeps a decision log through handoff.",
+      "assertions": [
+        "Writes done as a falsifiable check before code",
+        "Shows the phase list before running it",
+        "Gives each unit a verified, not verified, or inconclusive verdict",
+        "Keeps a decision log row per decision"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Write an implementation plan for the accepted ADR so the team can build it next sprint. Do not build anything.",
+      "expected_output": "Routes to write-plan because the deliverable is an accepted spec for others to build.",
+      "assertions": [
+        "Selects write-plan",
+        "Does not design and run an execution"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Fix the null pointer in the invoice export.",
+      "expected_output": "Routes to the use-levistack bug-fix playbook instead of designing an open-ended run.",
+      "assertions": [
+        "Recognizes a single bug",
+        "Does not write a phase list for it"
+      ],
+      "files": []
+    }
+  ]
+}
