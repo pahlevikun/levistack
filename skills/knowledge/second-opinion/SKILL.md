@@ -1,6 +1,6 @@
 ---
 name: second-opinion
-description: "Adversarial read-only review of a diff, branch or named files that drives every open decision to a commitment. It restates the change and confirms it, then turns the brief, the reviewers' questions and every open finding into one decision tree and resolves it in dependency order: explore first, then exactly one question per node, each with a recommended answer. Independent reviewers on different models challenge the change through what-to-check lenses and a code-quality lens, and it buckets findings into Act on, Consider, Noted or Dismissed. Exits only when zero nodes are open, with a decision ledger, and offers CONTEXT.md terms and decision records. Quick triage first. Uses codebase-learner for context and why before removing a guard. Never applies fixes. Use for 'second opinion', 'interrogate', 'adversarial review', 'challenge this code', 'find blind spots', or 'what did I miss' before merge. Not for the routine MR review loop (code-review) or a plan or doc (challenge-me)."
+description: "Adversarial read-only review of a diff, branch or named files that drives every open decision to a commitment. It restates the change and confirms it, then turns the brief, the reviewers' questions and every open finding into one decision tree and resolves it in dependency order: explore first, then exactly one question per node, each with a recommended answer. Independent reviewers on different models challenge the change through what-to-check lenses and a code-quality lens, and it buckets findings into Act on, Consider, Noted or Dismissed. Exits only when zero nodes are open, with a decision ledger, and offers CONTEXT.md terms and decision records. Quick triage first. Uses codebase-learner for context and why before removing a guard. Never applies fixes. Use for 'second opinion', 'interrogate', 'adversarial review', 'challenge this code', 'find blind spots', or 'what did I miss' before merge. Rate each finding by severity. Not for the routine MR review loop (code-review) or a plan or doc (challenge-me)."
 metadata:
   version: 1.1.0
   author: levistack
@@ -111,7 +111,7 @@ You are the lead reviewer, a pragmatic senior engineer, not a neutral aggregator
 
 **History check with `trace`.** Before you put a finding in Act on when it says to delete or loosen defensive code (a guard, retry, timeout, rate limit, feature flag, fallback), run the `trace` skill on that code. If the history shows the defense answers a real incident or constraint, the finding moves to Consider or Dismissed, with the citation. If nothing is found, say so and keep the finding where the evidence puts it.
 
-Put every finding in one of four buckets, with the reviewer(s) that raised it and a one-line rationale:
+Rate each finding Critical, High, Medium, or Low. Then put it in one of four buckets, with the reviewer(s) that raised it and a one-line rationale:
 
 - **Act on.** Real issues affecting correctness, security or maintainability given the actual goals. They would block a real PR.
 - **Consider.** Legitimate, but you are not sure they outweigh the cost of fixing them now. Worth the user's attention.
