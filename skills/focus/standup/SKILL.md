@@ -10,7 +10,7 @@ allowed-tools:
   - Task
   - AskUserQuestion
 metadata:
-  version: 1.0.0
+  version: 1.1.0
   author: levistack
   license: MIT
   group: focus
@@ -27,6 +27,7 @@ metadata:
     - update
   capabilities:
     - standup_update
+    - bounded_period_activity_reports
   languages:
     - en
 
@@ -36,6 +37,7 @@ metadata:
 
 Two jobs share this name. Pick by what the user asked:
 
+- **Period report**: explicit sprint/month/date-window activity reports use [period reports](references/period-report.md), reusing the source collectors.
 - **Daily summary** (default): "standup", "what did I do yesterday". Collect evidence, write the update. Everything below.
 - **Branch room**: "reconcile these worktrees / branches / PRs into one". Read [references/branch-room.md](references/branch-room.md) and follow it instead.
 

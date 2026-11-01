@@ -21,6 +21,27 @@
         "Does not apply standup procedures to the wrong job"
       ],
       "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Create an attributable month-long activity report for this contributor from the supplied selected-source records.",
+      "expected_output": "Uses explicit dates, timezone and actor filtering through the period-report helper.",
+      "assertions": [
+        "Deduplicates evidence and preserves recorded status",
+        "Does not claim attendance or open requests prove shipped impact",
+        "Keeps private adapters and raw histories out of shared skill files"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Only summarize yesterday, using the normal standup sources.",
+      "expected_output": "Preserves the existing daily workflow.",
+      "assertions": [
+        "Does not turn a daily request into a month-long collection",
+        "Does not broaden private source access"
+      ],
+      "files": []
     }
   ]
 }
