@@ -221,7 +221,7 @@
     },
     "tdd": {
       "version": "1.0.0",
-      "related_skills": ["verify", "safe-refactor", "super-elixir"],
+      "related_skills": ["verify", "safe-refactor", "super-elixir", "qa"],
       "invokes": [{"skill": "verify", "when": "Before claiming tests pass or work is done"}],
       "tags": ["tdd", "tests", "red-green-refactor"],
       "capabilities": ["test_driven_development"]
@@ -904,6 +904,12 @@
       "invokes": [{"skill": "blast-radius", "when": "A gap can break behavior outside the diff"}],
       "tags": ["gap", "spec", "debug"],
       "capabilities": ["spec_gap_list", "failure_isolation"]
+    },
+    "qa": {
+      "related_skills": ["tdd", "verify", "ready-spec", "gap-analysis"],
+      "invokes": [{"skill": "tdd", "when": "A case should become a code test, or a defect should be fixed"}],
+      "tags": ["qa", "test-plan", "defect"],
+      "capabilities": ["test_plan", "defect_note"]
     }
   }
 }

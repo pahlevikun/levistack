@@ -53,6 +53,7 @@ Group → plugin: `levistack-<group>`. Group `upstream` means the skill ships as
 | Slice a big plan into end-to-end pieces with blockers | `write-plan` (slicing), `create-tickets` for tickets | delivery |
 | Spec a backend or API change (lifecycle, errors, compatibility) | `codebase-learner` (if the flow is unknown), `ready-spec`, `write-plan` | delivery |
 | Build a feature or fix a bug test-first | `tdd`, `verify` | engineering |
+| Write a test plan, test cases, or a defect note | `qa`, then `tdd` for the code tests | engineering |
 | Elixir, Phoenix, Ecto, OTP work | `super-elixir` (its tdd speciality for test-first), `verify` | engineering |
 | Refactor without changing behavior | `tdd` (if no safety net), `safe-refactor`, `verify` | engineering |
 | Write the smallest change, cut over-engineering | `output-savers` (`principles`) | engineering |

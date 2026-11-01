@@ -12,6 +12,7 @@ metadata:
     - verify
     - safe-refactor
     - super-elixir
+    - qa
   invokes:
     - skill: verify
       when: Before claiming tests pass or work is done
@@ -102,6 +103,7 @@ Retained from `test-driven-development`:
 
 ## Related skills
 
+- `qa`: the test plan and the defect note. This skill still writes the code tests.
 - `verify`: prove the suite passes before you claim done.
 - `safe-refactor`: the refactor step grows past a small tidy.
 - `super-elixir`: the code is Elixir (use its tdd speciality).

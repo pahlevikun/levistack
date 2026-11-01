@@ -48,6 +48,7 @@
     "./skills/engineering/dev-cache-cleanup",
     "./skills/engineering/noslop",
     "./skills/engineering/output-savers",
+    "./skills/engineering/qa",
     "./skills/engineering/safe-refactor",
     "./skills/engineering/tdd",
     "./skills/engineering/verify",

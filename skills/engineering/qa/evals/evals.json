@@ -1,0 +1,34 @@
+{
+  "skill_name": "qa",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a test plan and cases for the checkout flow.",
+      "expected_output": "Writes scope, cases with expected results, and marks which cases tdd should implement. Does not write the code tests.",
+      "assertions": [
+        "Reads the spec or says the plan is based on the code",
+        "Each case has an action and an expected result",
+        "Does not write the code tests"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "This case failed. Write a defect note.",
+      "expected_output": "Records what was done, what was seen, what was expected, and the smallest input.",
+      "assertions": [
+        "Includes actual and expected results",
+        "Names the smallest input",
+        "Hands the fix to tdd only when asked"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Add a failing test for the empty cart, then make it pass.",
+      "expected_output": "Routes to tdd and does not write a test plan instead.",
+      "assertions": [
+        "Selects tdd",
+        "Does not replace the test with a plan"
+      ]
+    }
+  ]
+}
