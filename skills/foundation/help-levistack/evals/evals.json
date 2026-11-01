@@ -1,0 +1,50 @@
+{
+  "skill_name": "help-levistack",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "/help-levistack which skill do I use to find out what my small cache change could break somewhere else?",
+      "expected_output": "Answers blast-radius, gives one example prompt, links the public copy of its SKILL.md, and does not start the analysis.",
+      "assertions": [
+        "Names blast-radius",
+        "Gives at most one example prompt",
+        "Links the file the answer came from",
+        "Does not read the diff or run any check"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "/help-levistack use levistack to fix the failing login test.",
+      "expected_output": "Treats the message as a work request, reads use-levistack, and runs it instead of answering a help question.",
+      "assertions": [
+        "Recognizes a work request",
+        "Hands the task to use-levistack"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "/help-levistack what is the levistack version of arena and interrogate?",
+      "expected_output": "Maps arena to rumbling Contest then evidence Judge and interrogate to second-opinion, without creating or naming a new skill.",
+      "assertions": [
+        "Maps arena to rumbling Contest",
+        "Maps interrogate to second-opinion",
+        "Does not invent a skill named arena or interrogate"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "/help-levistack what is a group, how do I start, and what does write-adr do? Do not start the work.",
+      "expected_output": "Answers those glossary entries only: a group is a folder of skills that also ships as a plugin, starting is /use-levistack or /start (or a one-shot, or a bare skill), and write-adr writes an ADR, design doc, or RFC. Gives at most one prompt and the link to write-adr. Does not start use-levistack.",
+      "assertions": [
+        "Defines group",
+        "Names the three ways to start",
+        "Says what write-adr does",
+        "Does not start the task"
+      ],
+      "files": []
+    }
+  ]
+}
