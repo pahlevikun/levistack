@@ -1,0 +1,49 @@
+{
+  "skill_name": "loopy",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Loop until the parser test passes. Invalid dates must exit 2. The test fails because the implementation exits 0. Keep going until that check is green.",
+      "expected_output": "Names the exit-code condition, makes one fix per round, reruns the parser test, and stops at Passed only after a fresh green check.",
+      "assertions": [
+        "Writes the pass condition before editing",
+        "Invokes the task skill for the change and verify for the check",
+        "Stops at Passed only with a fresh matching check",
+        "Does not invent a numeric quality score"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Keep looping until this feels solid. I have not said what done means.",
+      "expected_output": "Asks for an observable pass condition and does not start a scored improvement loop.",
+      "assertions": [
+        "Asks for the missing pass condition",
+        "Does not invent a score or a round cap",
+        "Does not edit while the condition is unknown"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Use test-driven development to add a new export endpoint. Write the failing test first.",
+      "expected_output": "Routes the request to tdd instead of running this improvement loop.",
+      "assertions": [
+        "Selects tdd",
+        "Does not replace red-green-refactor with loop rounds"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Run the quality gates and give me a pass or fail report. Do not keep editing.",
+      "expected_output": "Routes the request to verify and returns a report without another improvement round.",
+      "assertions": [
+        "Selects verify",
+        "Stays read-only after the checks",
+        "Does not treat a failed gate as a cue to loop"
+      ],
+      "files": []
+    }
+  ]
+}
