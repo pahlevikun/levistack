@@ -1,9 +1,9 @@
 ---
 name: code-review
-description: "Review local diffs, committed ranges, and GitLab merge requests; verify feedback before applying fixes and prepare inline comments for explicit publication. Use when asked to review code, review an MR, check a branch before merge, address review threads, or draft review feedback. Not for an adversarial two-reviewer verdict (second-opinion) or remote GitHub PR posting."
+description: "Review local diffs, committed ranges, and GitLab merge requests; verify feedback before applying fixes and prepare inline comments for explicit publication. Watch stays with a request until checks and threads are clean. Prep clears conflicts, threads, and checks and stops before merge. Use when asked to review code, review an MR, check a branch before merge, address review threads, draft review feedback, watch this MR, stay with this PR, get it merge-ready, or prep this PR. Not for an adversarial two-reviewer verdict (second-opinion). GitHub review posting stays off unless watch or prep was asked, and even then a publish waits for a yes."
 context: fork
 metadata:
-  version: 1.1.1
+  version: 1.2.0
   author: levistack
   license: MIT
   group: delivery
@@ -14,6 +14,7 @@ metadata:
     - polyglot-copywriter
     - verify
     - write-mr-description
+    - refresh-pr
   invokes:
     - skill: noslop
       when: Comment bodies need slop pass on code surfaces
@@ -27,11 +28,15 @@ metadata:
     - mr
     - local-diff
     - review-feedback
+    - watch
+    - prep
   capabilities:
     - local_diff_review
     - merge_request_review
     - review_feedback
     - draft_inline_comments
+    - watch_until_clean
+    - prep_until_merge_ready
   languages:
     - en
 
@@ -47,6 +52,8 @@ Pick the mode from the user's goal. A review request starts read-only. Local fix
 | Review **your** commits before merge / next task | **Request** | [references/requesting-review.md](references/requesting-review.md), template [references/code-reviewer.md](references/code-reviewer.md) |
 | **Implement** feedback from a human or external reviewer | **Receive** | [references/receiving-review.md](references/receiving-review.md) |
 | Review a GitLab MR or its open threads | **GitLab MR** | Below + [references/draft-review-flow.md](references/draft-review-flow.md) |
+| Stay until checks and threads are clean | **Watch** | [references/watch.md](references/watch.md) |
+| Clear conflicts, threads, and checks, then stop | **Prep** | [references/prep.md](references/prep.md) |
 
 For comment text, use [`noslop`](../../engineering/noslop/SKILL.md) and `polyglot-copywriter` while preserving code and exact line anchors.
 
@@ -139,4 +146,5 @@ For "fix all open threads", inspect each thread and current code, then apply onl
 - `verify`: check a review comment before you act on it.
 - `safe-refactor`: apply a requested change without changing behavior.
 - `write-mr-description`: the diff is clean and you need the MR text.
+- `refresh-pr`: the request is stale and needs a refresh, rework, or close decision before this review loop.
 - `polyglot-copywriter`: polish review comments.
