@@ -2,7 +2,7 @@
 name: infographic
 description: "Create evidence-based infographics, visual explainers, research posters, charts, timelines and social carousels, including layouts that embed Mermaid, technical figures, and CSS-animated SVG sequenced infographics (icon pop, staggered stats, draw-on connectors, tabular-nums, prefers-reduced-motion). Use when asked to make an animated infographic, sequenced reveal, stagger icons and stats, communicate a sourced claim visually, compose a data story, annotate authentic evidence, critique an infographic or adapt it for web, print, slides or social. Deliver motion as SVG only, not video or MP4. Bundled helpers cover PNG from SVG, optional themed Mermaid export, build_animated_svg.py, and raster prefs when API keys exist."
 metadata:
-  version: 1.4.0
+  version: 1.5.0
   author: levistack
   license: MIT
   group: product
@@ -14,6 +14,8 @@ metadata:
     - design-system-kit
     - polyglot-copywriter
     - logo-kit-svg
+    - visual-art
+    - file-toolkit
   invokes:
     - skill: diagram
       when: Mermaid, architecture, schema, or motion on a technical figure; one technical pass per artifact
@@ -146,3 +148,13 @@ Deliver editable source, data and generator where used, requested exports, acces
 - `references/prompt-recipes.md` lists starter prompts. `agents/openai.yaml` and `agents/README.md` package the default prompt for agent hosts.
 
 Run `python3 -m unittest discover -s <infographic-skill>/scripts -p 'test_*.py'` for checks in `scripts/test_render_bars.py`, `scripts/test_export_figure.py`, `scripts/test_image_generate.py`, and `scripts/test_build_animated_svg.py`. Exercise the request cases against the selected workflow and record observed checks separately from pending tool checks.
+
+## Related skills
+
+- `diagram`: technical figures and relationship correctness.
+- `color-kit`: palette roles, contrast and chart scales.
+- `design-system-kit`: supplied design/brand tokens.
+- `polyglot-copywriter`: headlines and captions without changing claims.
+- `logo-kit-svg`: identity assets through the existing upstream owner.
+- `visual-art`: decorative canvas, generative art and GIF work outside factual visualization.
+- `file-toolkit`: format inspection, asset conversion and animation encoding.
