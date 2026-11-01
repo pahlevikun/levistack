@@ -1,9 +1,9 @@
 ---
 name: super-architecture
-description: "Detect, choose, build, evaluate, migrate and document software architecture. Use to name the architecture of an existing codebase, pick one for a new system, scaffold or write code in a given style (layered, onion, hexagonal or ports and adapters, clean, COLA, vertical slice, CQRS, event sourcing, event-driven, client-server, domain-driven, functional core, microkernel, microservices, modular monolith, pipeline, serverless, service-based, space-based), check dependency direction and layer violations, plan a strangler-fig migration, or write C4 docs and architecture blueprints. For a standalone ADR use write-adr. One skill with granular job, style and stack guides; it loads only what the task needs."
+description: "Detect, choose, build, evaluate, migrate and document software architecture. Use to name the architecture of an existing codebase, pick one for a new system, scaffold or write code in a given style (layered, onion, hexagonal or ports and adapters, clean, COLA, vertical slice, CQRS, event sourcing, event-driven, client-server, domain-driven, functional core, microkernel, microservices, modular monolith, pipeline, serverless, service-based, space-based), check dependency direction and layer violations, plan a strangler-fig migration, or write C4 docs and architecture blueprints. For a standalone ADR use write-adr. For the types, signatures, and module boundaries of one change, use shape-and-build. One skill with granular job, style and stack guides; it loads only what the task needs."
 when_to_use: "Use when the user asks 'what architecture is this', 'which architecture should we use', 'where does this code belong', 'structure this service', 'is the domain leaking into the framework', 'should we use CQRS or microservices', 'modular monolith or services', 'functional core', 'serverless vs always-on', 'refactor toward hexagonal' or 'draw the C4 diagram'; or when scaffolding a new service or feature that needs a structure. Use write-adr for a standalone decision record."
 metadata:
-  version: 1.1.0
+  version: 1.1.1
   author: levistack
   license: MIT
   group: architecture
@@ -13,6 +13,7 @@ metadata:
     - super-tech-blueprint
     - codebase-learner
     - write-adr
+    - shape-and-build
   invokes:
     - skill: write-adr
       when: An architecture choice needs a requested or repository-required decision record
@@ -141,6 +142,8 @@ Detect returns a style, a confidence, evidence with paths, deviations and violat
 
 - `codebase-learner`: you need facts about the current system first.
 - `super-tech-blueprint`: the style is chosen and the stack is not.
+- `shape-and-build`: the style is set and one change needs its types, signatures, and module shape before code.
+- `write-adr`: the choice needs a decision record.
 - `challenge-me`: stress-test the choice before you commit to it.
 - `safe-refactor`: move an existing codebase toward the chosen style, one safe step at a time.
 - `super-nodejs`: build the chosen style in a Node service.

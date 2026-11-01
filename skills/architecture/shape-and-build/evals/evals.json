@@ -1,0 +1,37 @@
+{
+  "skill_name": "shape-and-build",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Add rate limiting to the public API. Shape it first: I want the types and signatures settled before you write the logic.",
+      "expected_output": "Grounds in the current request pipeline, writes a caller sketch, compares at least two whole-shape candidates against the red flags, picks one with a reason, then implements against the stubs.",
+      "assertions": [
+        "Writes the caller sketch before the types",
+        "Compares at least two whole-shape candidates",
+        "Screens candidates against the red flags",
+        "Implements against the picked sketch and names any deviation"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Design the new notification module with checkpoint. Show me before you build anything.",
+      "expected_output": "Produces the candidates, the pick, and the rationale, then stops and waits without writing implementation code.",
+      "assertions": [
+        "Stops after the pick and rationale",
+        "Writes no implementation code before the user agrees"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Should this system move from a layered monolith to hexagonal architecture?",
+      "expected_output": "Routes to super-architecture for the style choice instead of sketching types for one change.",
+      "assertions": [
+        "Selects super-architecture",
+        "Does not start a type sketch for a style question"
+      ],
+      "files": []
+    }
+  ]
+}
