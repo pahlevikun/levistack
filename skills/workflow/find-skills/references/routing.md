@@ -8,7 +8,10 @@ Group → plugin: `levistack-<group>`. Group `upstream` means the skill ships as
 
 | The user wants to… | Chain | Group |
 |---|---|---|
-| Not sure where to start, or want the full route | `use-levistack` | workflow |
+| Not sure where to start, or want the full route | `use-levistack` | foundation |
+| Ask how to use levistack, what a word, group, or skill means, or which skill or playbook fits, without starting the work | `help-levistack` | foundation |
+| Check which tools levistack scripts can use on this machine | `setup-levistack` | foundation |
+| Understand a change or subsystem, explained plainly | `use-levistack` (investigate playbook: `codebase-learner`, then `trace`) | foundation |
 | How one flow or module works, where a change should live | `codebase-learner` (explain mode) | knowledge |
 | Why code is shaped this way, what tradeoff or incident caused it | `trace` | knowledge |
 | Investigate the root cause of a bug, incident, flaky or slow pipeline; five whys | `verify` (if the failure is live and unexplained), `trace` (root-cause mode) | knowledge |
@@ -16,12 +19,20 @@ Group → plugin: `levistack-<group>`. Group `upstream` means the skill ships as
 | Write docs for a feature, module or API, or check which docs a change made stale | `create-documentation` | delivery |
 | Pick a framework, compare X vs Y, cost a migration, plan a greenfield stack | `codebase-learner` (only if facts are missing), `super-tech-blueprint` | architecture |
 | Name or choose an architecture style, scaffold in one | `super-architecture` | architecture |
+| Settle types, signatures and module shape before code, then build against it | `shape-and-build` | architecture |
 | Grill a plan, stress-test an idea, brainstorm a design | `challenge-me` | knowledge |
-| Give agents independent tasks, compare implementations, or convene a model-diverse council | `rumbling` (Split, Contest, or Council), then `evidence` (Judge) | workflow |
+| Give agents independent tasks or a race (swarm), compare attempts at one brief (arena), or convene a model-diverse council | `rumbling` (Split, Contest, or Council), then `evidence` (Judge) | workflow |
+| Keep improving until the named checks pass | `loopy` | workflow |
+| Run several lanes under one controller that do not merge | `lane-lead` | workflow |
+| Compare one prompt on two or three models | `compare-models` | workflow |
 | Answer a question from primary sources, the web, or read-only git history on docs and releases, or prepare questions for one person | `research` (sources or people mode) | knowledge |
 | Explain a system, schema, API or process with Mermaid, SVG, draw.io or Excalidraw, or export a diagram to an image or animation | `diagram` | product |
 | Make a task prompt deeper before running it | `challenge-me` (sharpen mode) | knowledge |
 | Plan work too big for one session as a map of decisions | `challenge-me` (decision-map, huge work), then `write-plan` | delivery |
+| Find Node.js, web, mobile, or backend dev caches or large files, review disk usage, remove exact approved generated paths | `dev-cache-cleanup` | engineering |
+| Connect, diagnose, verify or build an MCP tool server | `mcp-management` | agent-authoring |
+| Parse, create, reconstruct or convert documents, images or audio | `file-toolkit` | delivery |
+| Static canvas art, seeded generative work, interactive art or short GIF | `visual-art`, `file-toolkit` for encoding | product |
 | Cache design, invalidation, CDN, Redis, offline | `super-caching` | architecture |
 | Node.js service, API, middleware, auth | `super-nodejs` | architecture |
 | `.proto`, buf, gRPC or Connect, schema breaks | `super-protobuf` | architecture |
@@ -37,6 +48,7 @@ Group → plugin: `levistack-<group>`. Group `upstream` means the skill ships as
 | The user wants to… | Chain | Group |
 |---|---|---|
 | Plan a multi-step change before code | `challenge-me` (if the spec is soft), `write-plan` | delivery |
+| Run a large migration or ambitious change a person reviews after stepping away | `figure-it-out` | workflow |
 | Slice a big plan into end-to-end pieces with blockers | `write-plan` (slicing), `create-tickets` for tickets | delivery |
 | Spec a backend or API change (lifecycle, errors, compatibility) | `codebase-learner` (if the flow is unknown), `ready-spec`, `write-plan` | delivery |
 | Build a feature or fix a bug test-first | `tdd`, `verify` | engineering |
@@ -51,10 +63,12 @@ Group → plugin: `levistack-<group>`. Group `upstream` means the skill ships as
 |---|---|---|
 | Prove work is done, run the gates, find a failure's cause | `verify` | engineering |
 | Prove a change is safe, or find what it could break | `verify` (prove it is safe), `second-opinion` for a wide change | engineering |
+| Find what a small diff breaks outside itself, and prove the one fact it is safe because of | `blast-radius`, `verify` for the gates | engineering |
 | Check a performance number before you report it | `verify` (vet a number) | engineering |
 | Prune weak or duplicate tests in an existing suite | `tdd` (audit mode) | engineering |
 | Adversarial review, blind spots before merge | `second-opinion`, `verify` for each Act on fix | knowledge |
-| Review a local diff or a merge request, act on review comments | `code-review` (`noslop` dimension), `verify` for each comment | delivery |
+| Review a local diff or a merge request, act on review comments, stay until it is clean, or get it merge-ready and stop | `code-review` (watch or prep), `verify` for each comment | delivery |
+| Decide whether a stale pull request or merge request should be refreshed, reworked, or closed | `refresh-pr`, then `code-review` | delivery |
 | Split a messy tree into commits | `atomic-semantic-commit` | delivery |
 | Open or describe an MR or PR | `atomic-semantic-commit` (if mixed), `code-review` (self-review), `write-mr-description` | delivery |
 | Write Jira stories or tasks | `challenge-me` or `write-plan` (if not broken down), `create-tickets` | delivery |
@@ -80,9 +94,7 @@ Group → plugin: `levistack-<group>`. Group `upstream` means the skill ships as
 | The user wants to… | Chain | Group |
 |---|---|---|
 | Write or fix a skill | `find-skills` (does one exist?), `create-skill` | agent-authoring |
-| Learn from a session or repeated mistakes across commits and reviews | `retrospective` (session or repo mode) | agent-authoring |
-| Retro an epic, initiative, or sprint; reconstruct what happened on a ticket or PR | `retrospective` (initiative or artifact mode) | agent-authoring |
-| Dev machine, container, or CI setup keeps failing the same way | `retrospective` (environment mode) | agent-authoring |
+| Export or import an agent setup, or back up or restore a Mac workstation | `dev-environment` | agent-authoring |
 | Turn a rule, command, agent, doc, PDF or chat into a skill; merge skills | `convert-as-skill`, then `create-skill` to polish | agent-authoring |
 | Write a subagent | `create-agent` | agent-authoring |
 | Write a slash command | `create-command` | agent-authoring |
@@ -95,13 +107,17 @@ Group → plugin: `levistack-<group>`. Group `upstream` means the skill ships as
 
 | The user wants to… | Chain | Group |
 |---|---|---|
+| Learn from a session or repeated mistakes across commits and reviews | `retrospective` (session or repo mode) | workflow |
+| Retro an epic, initiative, or sprint; reconstruct what happened on a ticket or PR | `retrospective` (initiative or artifact mode) | workflow |
+| Dev machine, container, or CI setup keeps failing the same way | `retrospective` (environment mode) | workflow |
 | Stop or resume a session | `handoff` | workflow |
 | Catch up on a long chat, or rebuild context when there is no note | `handoff` (catch up or recall mode) | workflow |
+| Report a sprint, month or explicit activity period from attributable evidence | `standup` (period report) | focus |
 | Write today's standup | `standup`, `polyglot-copywriter` for the final polish | focus |
 | Overwhelmed, stuck or avoiding a task | `get-moving` | focus |
 | A tangent appeared mid-task | `later-list`, then back to the task | focus |
-| Do not know which skill to use | `use-levistack` (it calls `find-skills` to hunt) | workflow |
-| Find, compare or install a skill | `find-skills` | workflow |
+| Do not know which skill to use | `use-levistack` (it calls `find-skills` to hunt) | foundation |
+| Find, compare or install a skill (catalog first, skills.sh only outside it, install on this machine, then run it) | `find-skills` | workflow |
 
 ## Worked chains
 

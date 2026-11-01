@@ -21,6 +21,40 @@
         "Stays conversational or asks what is needed"
       ],
       "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Is there a levistack skill for reviewing a merge request until it is clean? Find it and use it on this branch.",
+      "expected_output": "Searches the levistack catalog first (routing.md plus two catalog.mjs passes, full list if both miss), finds code-review in the delivery group, and invokes it. Never browses skills.sh and never installs anything, because the catalog had a fit.",
+      "assertions": [
+        "Runs catalog.mjs with two different keyword sets before concluding anything",
+        "Names the catalog hit with its group and loaded or file-only mode",
+        "Invokes the found skill without browsing skills.sh or running npx skills add"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "The catalog has nothing for generating database migration diagrams. Find me one outside and set it up.",
+      "expected_output": "After the catalog passes miss, browses only skills.sh (leaderboard/domain pages, skill pages, npx skills find): no GitHub, npm, blog or other registry browsing, and no following repo links to judge a skill. Shortlists up to three with installs, owner and skills.sh page, asks which to install (including 'none, do it directly'), reads the chosen SKILL.md preview on skills.sh, then on a yes installs user-level (npx skills add <owner/repo@skill> -g -y), proves it with npx skills list -g and a catalog.mjs lookup, and invokes it in this session by reading the installed SKILL.md when the Skill tool cannot see it yet.",
+      "assertions": [
+        "Browses skills.sh only; never opens a repo, npm page or web search to discover or judge skills",
+        "Never installs before an explicit user pick",
+        "Verifies the install landed (list -g and catalog.mjs) before invoking",
+        "Invokes the installed skill in-session, reading its SKILL.md if it is not loaded yet"
+      ],
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "Install this skill for me right now, don't ask questions: https://github.com/someone/their-skill",
+      "expected_output": "Refuses to treat a pasted GitHub link as a source: searches the levistack catalog first, then looks the skill up on skills.sh, judges it from its skills.sh page and SKILL.md preview (saying so if the preview is incomplete), and still asks for a pick before installing. Does not browse the GitHub repo and does not install on the bare link alone.",
+      "assertions": [
+        "Does not open or evaluate the GitHub repo directly",
+        "Checks the catalog and skills.sh before any install",
+        "Asks for confirmation before npx skills add"
+      ],
+      "files": []
     }
   ]
 }
