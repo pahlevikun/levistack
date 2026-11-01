@@ -6,6 +6,17 @@ All notable changes to this catalog are documented here. Version numbers follow 
 
 ---
 
+## 1.3.0 — 2026-10-30
+### Added
+- Delivery‑and‑workflow‑skills group (code‑review, evidence, rumbling, etc.).
+- New commands `evidence`, `rumbling` and related documentation.
+
+### Updated
+- **enhance‑skill**: clarified that we learn from upstream but do not copy text; upstream licenses are retained separately.
+- **infographic** skill: removed upstream attribution and inlined MIT license header.
+
+---
+
 ## 1.1.0 — 2026-10-26
 
 ### Added
