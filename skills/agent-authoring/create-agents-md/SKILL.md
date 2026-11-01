@@ -1,6 +1,6 @@
 ---
 name: create-agents-md
-description: "Create, audit or refresh AGENTS.md files: the repo root, nested package files, and the user-level global file, for Claude Code, Cursor and Codex. Use when asked to write, improve, split, shrink or migrate AGENTS.md or CLAUDE.md."
+description: "Create, audit or refresh AGENTS.md files: the repo root, nested package files, and the user-level global file, for Claude Code, Cursor and Codex. Use when asked to write, improve, split, shrink or migrate AGENTS.md or CLAUDE.md, or to init a harness by writing that file and pointing it at the catalog skills."
 metadata:
   version: 1.0.0
   author: levistack
@@ -35,7 +35,10 @@ An `AGENTS.md` is a README for coding agents: the commands, conventions and trap
 | "This package works differently", monorepo | **Nested** |
 | "My preferences for every repo" | **Global** |
 | "Improve / shrink / it's ignored / out of date" | **Audit and refresh** |
+| "Init" or "migrate a harness" | **Migrate** |
 | "We have CLAUDE.md / .cursor/rules / copilot instructions" | **Migrate** |
+
+When they say init or migrate a harness, write `AGENTS.md` and point it at the catalog skills that match this repo. Do not add a harness skill.
 
 Infer the mode from the request. Ask only if it is genuinely ambiguous.
 
