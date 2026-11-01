@@ -1,0 +1,36 @@
+{
+  "skill_name": "visual-art",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Create a reproducible abstract canvas poster and an interactive page for trying different seeds.",
+      "expected_output": "Creates editable seeded source and self-contained parameter exploration, then renders through the shared file toolkit.",
+      "assertions": [
+        "Records dimensions, palette, seed and rebuild command",
+        "Checks exported artifacts at the target size and labels unperformed visual inspection",
+        "Does not present decorative marks as a factual chart"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Turn these ordered frames into a short GIF for chat, retaining a static alternative.",
+      "expected_output": "Uses visual composition guidance and delegates actual encoding to file-toolkit.",
+      "assertions": [
+        "Checks frame order, dimensions, duration and available encoder",
+        "Keeps source frames and avoids rapid flashing",
+        "Does not install codecs or claim success from an extension change"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Draw an architecture diagram of our data pipeline with source citations.",
+      "expected_output": "Routes technical figure work to diagram.",
+      "assertions": [
+        "Does not force decorative generative artwork onto a factual technical diagram"
+      ],
+      "files": []
+    }
+  ]
+}

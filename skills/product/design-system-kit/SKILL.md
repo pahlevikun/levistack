@@ -3,7 +3,7 @@ name: design-system-kit
 description: "Build a design system step by step, then critique with it. Discover what exists (code, a live website, Stitch, screenshots), set the direction from a wide reference library, assemble tokens for type, space, shape, elevation and platform sizes, write DESIGN.md, critique the real screens against the new system, record component specs, set up the library and governance, validate and hand off. It calls color-kit for every color decision and ui-ux-kit for components, motion and UX. Fits mobile, desktop, web, TV and car. Use when the user wants a design system, token file, DESIGN.md or governance, to extract a site's design, or brand slides. Not for choosing a palette (color-kit), building one screen (ui-ux-kit) or brand identity."
 when_to_use: "Use when the user asks for a design system, a token file or DESIGN.md, to audit or govern a component library, to extract the design of a website, to review a UI against a system, or to make slides that follow a brand. Also use it when the user mentions Stitch, CSS variables, spacing or type scales. For only a palette or dark mode, use color-kit. For one screen or component, use ui-ux-kit."
 metadata:
-  version: 3.0.0
+  version: 3.1.0
   author: levistack
   license: MIT
   group: product
@@ -27,6 +27,7 @@ metadata:
     - design_system_pipeline
     - token_assembly
     - critique_against_system
+    - source_bound_brand_adapters
   languages:
     - en
 
@@ -104,6 +105,8 @@ Run every check from [validate and handoff](references/validate-and-handoff.md) 
 ### Step 7: Hand off
 
 List the files, how to load them, the first three adoption tasks, the governance note, the assumptions and the rebuild command with the seed. Do not commit.
+
+For existing identity requirements, use [brand binding](references/brand-binding.md) to map supplied brand assets and tokens without imposing vendor defaults.
 
 ## Rules that hold in every step
 

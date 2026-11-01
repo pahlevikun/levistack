@@ -21,6 +21,17 @@
         "Does not apply design-system-kit procedures to the wrong job"
       ],
       "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Apply our supplied brand typography and colors to this document and illustration.",
+      "expected_output": "Binds sourced brand values to semantic roles and verifies the actual exports.",
+      "assertions": [
+        "Does not substitute another company palette or invent official requirements",
+        "Checks font availability, fallback effects and output-size legibility",
+        "Uses the established color and component owners"
+      ],
+      "files": []
     }
   ]
 }
