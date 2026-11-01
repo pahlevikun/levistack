@@ -1,6 +1,6 @@
 ---
 name: code-review
-description: "Review local diffs, committed ranges, and GitLab merge requests; verify feedback before applying fixes and prepare inline comments for explicit publication. Watch stays with a request until checks and threads are clean. Prep clears conflicts, threads, and checks and stops before merge. Use when asked to review code, review an MR, check a branch before merge, address review threads, draft review feedback, watch this MR, stay with this PR, get it merge-ready, or prep this PR. Not for an adversarial two-reviewer verdict (second-opinion). GitHub review posting stays off unless watch or prep was asked, and even then a publish waits for a yes."
+description: "Review local diffs, committed ranges, and GitLab merge requests; verify feedback before applying fixes and prepare inline comments for explicit publication. Watch stays with a request until checks and threads are clean. Prep clears conflicts, threads, and checks and stops before merge. Use when asked to review code, review an MR, check a branch before merge, address review threads, draft review feedback, watch this MR, stay with this PR, get it merge-ready, prep this PR, or resolve merge conflicts. When a merge stops on conflicts, read only the conflict hunks and a short diff. Do not load the whole file. Not for an adversarial two-reviewer verdict (second-opinion). GitHub review posting stays off unless watch or prep was asked, and even then a publish waits for a yes."
 context: fork
 metadata:
   version: 1.2.0
