@@ -1,6 +1,6 @@
 ---
 name: evidence
-description: "Frame a concrete goal, run an evidence-led task, or judge completed work against claims and checks. Use when asked for an evidence workflow, a reusable goal prompt, a read-only judge of one artifact or parallel agent results, an evidence-based report rewrite, or a domain workflow. Not for routine test execution (verify) or an adversarial code-change decision ledger (second-opinion)."
+description: "Frame a concrete goal, run an evidence-led task, or judge completed work against claims and checks. Use when asked for an evidence workflow, a reusable goal prompt, a read-only judge of one artifact or parallel agent results, an evidence-based report rewrite, or a domain workflow. Not for routine test execution (verify), a bounded improvement loop until every condition passes (loopy), or an adversarial code-change decision ledger (second-opinion)."
 metadata:
   version: 1.1.0
   author: levistack
@@ -13,6 +13,7 @@ metadata:
     - verify
     - second-opinion
     - rumbling
+    - loopy
     - create-skill
     - convert-as-skill
     - diagram
@@ -73,6 +74,7 @@ Use the project's instructions and the matching task-specific skill inside Run. 
 - `verify`: run fresh, claim-matched checks and report limits.
 - `second-opinion`: challenge a code change with independent reviewers and resolve its decision ledger. Judge checks claims and artifacts; it does not replace that review.
 - `rumbling`: coordinate parallel agents on independent tasks, competing solutions, or one judgment question, then hand their completed results to Judge.
+- `loopy`: repeat one bounded improvement until the named conditions pass. Run stays a single evidence-led pass.
 - `create-skill`: author a new domain skill with evals and catalog metadata.
 - `convert-as-skill`: adapt or merge existing domain material rather than inventing a new skill.
 - `diagram`: draw a technical flowchart when branching needs a figure.
