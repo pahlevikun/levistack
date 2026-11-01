@@ -1,6 +1,6 @@
 ---
 name: super-tech-blueprint
-description: "Choose or generate a target technology stack: compare frameworks with TCO, security and ecosystem scoring, plan a migration, or write a blueprint for a new or next system. Use when comparing X vs Y, picking a framework, estimating migration cost, or producing a stack blueprint for greenfield or a target architecture. Not for documenting or diagnosing an existing codebase — use codebase-learner."
+description: "Choose or generate a target technology stack: compare frameworks with TCO, security and ecosystem scoring, plan a migration, or write a blueprint for a new or next system. Use when comparing X vs Y, picking a framework, estimating migration cost, producing a stack blueprint for greenfield or a target architecture, or writing a migration plan split by domain. Not for documenting or diagnosing an existing codebase — use codebase-learner."
 when_to_use: "Use when the user asks to compare frameworks, pick a stack, estimate TCO or migration cost, assess ecosystem health or security of a candidate, or generate a technology blueprint for a new or next system."
 metadata:
   version: 1.0.0
@@ -49,6 +49,7 @@ Do this first and do not announce it.
 | Comparing technologies, scoring ecosystem health, assessing security posture, estimating TCO | evaluate | [stack-evaluator](specialities/stack-evaluator/GUIDE.md) |
 | Greenfield or *next* system: stack blueprint, templates, target diagrams | blueprint | [blueprint-generator](specialities/blueprint-generator/GUIDE.md) |
 | "Should we move off our current stack" / migrate | learner first (current), then evaluate, then blueprint (target) | sibling, then both, in order |
+| A migration split by domain | blueprint | one domain per slice, below |
 | Target architecture from a current-state diagnosis | blueprint, using the diagnosis as constraints | [target-from-current](references/target-from-current.md), then blueprint |
 
 The evaluator ships Python scripts and sample inputs. Run them from `specialities/stack-evaluator/`, for example `python scripts/stack_comparator.py --help`. If Python is unavailable, follow the guide's workflows by hand and say so.
@@ -59,6 +60,7 @@ The evaluator ships Python scripts and sample inputs. Run them from `specialitie
 2. **Evaluate.** [stack-evaluator](specialities/stack-evaluator/GUIDE.md) with current-state as the baseline plus the user's constraints (team skills, budget, compliance, time).
 3. **Blueprint the target.** [blueprint-generator](specialities/blueprint-generator/GUIDE.md) for the *next* stack: versions to adopt, patterns to require, templates for new code. How to consume a diagnosis: [target-from-current](references/target-from-current.md).
 4. **Report.** One recommendation with the evidence behind it, the confidence level, and what would change the answer.
+5. **Split a migration by domain.** One slice is one domain the current system can ship without the rest. Do not plan every domain in one step. `figure-it-out` still logs a large run.
 
 ## Rules that hold across both guides
 
