@@ -2,20 +2,24 @@
 name: retrospective
 description: "Find repeated friction in a session, repository, ticket, initiative, or dev environment and propose a fix at the strongest useful level. Use when asked to run a retrospective, reflect on a coding session, retro an epic or sprint, reconstruct what happened on a ticket or PR, learn from machine or CI setup pain, learn from repeated corrections, or stop agents repeating a repo mistake. Returns ranked proposals and factual delivery records where requested, not applied edits. Not for resuming work (handoff), personal yesterday summaries (standup), or diagnosing a current failure (trace)."
 metadata:
-  version: 1.0.0
+  version: 1.1.0
   author: levistack
   license: MIT
-  group: agent-authoring
-  category: agent-authoring
-  department: agent-authoring
+  group: workflow
+  category: workflow
+  department: workflow
   related_skills:
     - verify
     - handoff
   tags:
     - retro
     - learning
+    - reflect
+    - correct
   capabilities:
     - retrospective
+    - skill_edit_proposals
+    - repo_mistake_to_rule_or_test
   languages:
     - en
 
@@ -64,7 +68,7 @@ Repo mode uses the same synthesis after grouping historical mistake classes. Loa
 
 Lead with the most consequential repeated problem, or with the **delivery record** when the user asked what happened on an artifact.
 
-For each proposal, give its evidence, exact target and change, fix level, reason, and proof status. Separate supported proposals, open leads, and rejected ideas. Finish repo mode with the proposed rule and enforcement table.
+For each proposal, give its evidence, exact target and change, fix level, reason, and proof status. When a session lesson belongs in a skill, name the skill file and the exact edit, ready to apply on a yes. When repo mode finds a mistake class that keeps returning, propose the rule or test that would have caught it, in the fix order above, before any prose. Separate supported proposals, open leads, and rejected ideas. Finish repo mode with the proposed rule and enforcement table.
 
 If nothing survives the evidence checks, say so. Do not fill a quota.
 
