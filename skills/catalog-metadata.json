@@ -356,6 +356,7 @@
         "create-bruno-collection",
         "write-adr",
         "write-changelog",
+        "create-readme",
         "write-postmortem",
         "write-runbook",
         "polyglot-copywriter",

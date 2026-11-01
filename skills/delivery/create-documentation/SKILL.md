@@ -1,6 +1,6 @@
 ---
 name: create-documentation
-description: "Write source-checked technical documentation and client API handovers. For handovers, reads Bruno first, creates a missing collection, then reconciles code, Git history, plans, existing docs, and available Swagger/OpenAPI for supported response variants and states. Use when asked for technical writing, a README, API reference, PDF/HTML/DOCX API handover, endpoint and field explanations, full error responses, lifecycle states, process or payload documentation, doc comments, or a docs check after a diff. Not for an ADR, design doc, or RFC (write-adr), runbook (write-runbook), postmortem (write-postmortem), changelog or release notes (write-changelog), repo map (codebase-learner), implementation plan (write-plan), MR description (write-mr-description), or prose polish alone (polyglot-copywriter)."
+description: "Write source-checked technical documentation and client API handovers. For handovers, reads Bruno first, creates a missing collection, then reconciles code, Git history, plans, existing docs, and available Swagger/OpenAPI for supported response variants and states. Use when asked for technical writing, API reference, PDF/HTML/DOCX API handover, endpoint and field explanations, full error responses, lifecycle states, process or payload documentation, doc comments, or a docs check after a diff. Not for an ADR, design doc, or RFC (write-adr), runbook (write-runbook), postmortem (write-postmortem), changelog or release notes (write-changelog), repo map (codebase-learner), implementation plan (write-plan), MR description (write-mr-description), a project README (create-readme), or prose polish alone (polyglot-copywriter)."
 metadata:
   version: 1.5.0
   author: levistack
@@ -15,6 +15,7 @@ metadata:
     - create-bruno-collection
     - write-adr
     - write-changelog
+    - create-readme
     - write-postmortem
     - write-runbook
     - polyglot-copywriter
@@ -78,6 +79,8 @@ For technical writing across all jobs, read [writing-style.md](references/writin
 
 For **handover**, also load [api-glossary.md](references/api-glossary.md) and start from [the handover template](templates/api-handover.md). The glossary explains API parts. The handover reference covers HTTP outcomes and business lifecycle states separately.
 
+A project README belongs to `create-readme`. Doc comments inside the code stay the **comments** job here: docstrings and API comments, checked against the source.
+
 ADRs, design documents, RFCs, runbooks, postmortems, and changelogs have independent owners: `write-adr`, `write-runbook`, `write-postmortem`, and `write-changelog`. Invoke the matching skill directly for those requests instead of treating them as modes here.
 
 If the request mixes jobs, check existing documentation first and write only the gaps. A handover package may contain a quick start, an explanation, and reference sections. Keep those sections distinct so a reader can find each kind of information.
@@ -119,6 +122,7 @@ Complete missing collection cases through `create-bruno-collection` before final
 
 ## Related skills
 
+- `create-readme`: the project README. Not a feature doc or an API handover.
 - `codebase-learner`: understand an area first (explain), or write one `ARCHITECTURE.md` of what exists (summarize).
 - `create-bruno-collection`: required first when a handover collection is missing, and used to complete missing cases before final delivery.
 - `write-runbook`: operational procedures with checks, recovery, and escalation.
