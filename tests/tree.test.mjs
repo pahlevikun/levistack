@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { cpSync, mkdtempSync, rmSync, writeFileSync, mkdirSync } from 'node:fs';
+import { cpSync, existsSync, mkdtempSync, rmSync, writeFileSync, mkdirSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
 import { test } from 'node:test';
@@ -48,12 +48,14 @@ test('validator rejects employer references and local paths', () => {
     writeGenerated(dir);
     const skill = join(dir, 'skills/focus/later-list/SKILL.md');
     writeFileSync(skill, '---\nname: later-list\ndescription: ok.\n---\nsee /Users/someone/x, ' + 'go' + 'jek and teamharness\n');
+    const localPatterns = existsSync(join(repo, 'scripts/validate.local.json'));
     const soft = validateTree(dir);
     assert.deepEqual([...soft], [], 'soft hits are warnings by default');
-    assert.equal(soft.warnings.filter((w) => w.includes('focus/later-list')).length, 3);
+    const later = soft.warnings.filter((w) => w.includes('focus/later-list'));
+    assert.equal(later.length, localPatterns ? 3 : 2);
     const strict = validateTree(dir, { strict: true });
     assert.ok(strict.some((e) => e.includes('absolute local path')));
-    assert.ok(strict.some((e) => e.includes('employer identifier')));
+    if (localPatterns) assert.ok(strict.some((e) => e.includes('employer identifier')));
     assert.ok(strict.some((e) => e.includes('teamonia tooling')));
   } finally {
     rmSync(dir, { recursive: true, force: true });

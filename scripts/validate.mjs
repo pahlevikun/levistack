@@ -7,19 +7,31 @@ import { validateSkillEvalFixtures } from './lib/skill-evals.mjs';
 import { diffGenerated } from './sync.mjs';
 
 const MAX_DESC = 1024; // Agent Skills spec maximum
-// Public repo guard: nothing employer-owned, no local paths, no obvious secrets.
+const HERE = dirname(fileURLToPath(import.meta.url));
+// Public repo guard: no local paths, no obvious secrets.
 // `hard` hits always fail. Soft hits are warnings during import cleanup and fail under --strict (publish gate).
-// Built from parts so this file does not spell out the names it guards against.
-const EMPLOYER_NAMES = new RegExp(
-  ['go-?', 'jek|go', 'food|go', 'biz|go', 'pay|goto', 'company|toko', 'pedia|sauda', 'gar|nexo', 'cean'].join(''),
-  'i',
-);
+// Extra name patterns live in scripts/validate.local.json, which is gitignored.
 const FORBIDDEN = [
   [/(api[_-]?key|secret|token|password)\s*[:=]\s*['"][A-Za-z0-9_\-]{16,}['"]/i, 'possible secret', true],
-  [EMPLOYER_NAMES, 'employer identifier', false],
   [/teamharness|teamonia/i, 'teamonia tooling reference (not installable by others)', false],
   [/\/Users\/[A-Za-z0-9._-]+/, 'absolute local path', false],
 ];
+
+function loadLocalForbidden() {
+  const path = join(HERE, 'validate.local.json');
+  if (!existsSync(path)) return;
+  let parsed;
+  try {
+    parsed = JSON.parse(readFileSync(path, 'utf8'));
+  } catch {
+    return;
+  }
+  const pattern = typeof parsed.employer === 'string' ? parsed.employer.trim() : '';
+  if (!pattern) return;
+  FORBIDDEN.push([new RegExp(pattern, 'i'), 'employer identifier', false]);
+}
+
+loadLocalForbidden();
 
 function oneLine(desc) {
   return typeof desc === 'string' && desc.length > 0 && !['>', '|', '>-', '|-'].includes(desc);
