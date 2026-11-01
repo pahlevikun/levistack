@@ -1,6 +1,6 @@
 ---
 name: safe-refactor
-description: "Behavior-preserving refactoring across languages and stacks: plan multi-file work, execute one safe boundary at a time, review-and-align to project standards, cut method complexity, apply smell/pattern catalogs, and run scoped tracks for Go, Elixir (via super-elixir), Terraform modules, React components, web UI, and mobile placeholders. Always pairs with output-savers for minimal diffs. Use when the user asks to refactor, clean up, extract, rename, reduce complexity, split a component, refactor a Terraform module, plan a safe refactor, or fix UI hierarchy — not for new features or repo rebuilds."
+description: "Behavior-preserving refactoring across languages and stacks: plan multi-file work, execute one safe boundary at a time, review-and-align to project standards, cut method complexity, apply smell/pattern catalogs, and run scoped tracks for Go, Elixir (via super-elixir), Terraform modules, React components, web UI, and mobile placeholders. Always pairs with output-savers for minimal diffs. Use when the user asks to refactor, clean up, extract, rename, reduce complexity, split a component, refactor a Terraform module, plan a safe refactor, fix UI hierarchy, or split coupled modules so tests get easier. Not for new features or repo rebuilds."
 metadata:
   version: 1.0.0
   author: levistack
@@ -51,6 +51,7 @@ Do this first; do not announce it. Full signal table: [references/core/auto-dete
 | Terraform module extraction | **language: Terraform** | [module-refactor.md](references/tech/terraform/module-refactor.md) |
 | React/TSX split, huge components | **language: React** | [component-refactor.md](references/tech/react/component-refactor.md) |
 | Visual hierarchy, spacing, Tailwind | **ui-refactor** | [refactoring.md](references/tech/web-ui/refactoring.md) — only when UI is in scope |
+| Coupled modules that make tests hard | **split** | [safe-refactor-protocol.md](references/core/safe-refactor-protocol.md), one boundary at a time, tests stay green |
 | Kotlin, Swift, Android/iOS mobile | **language: mobile** | [android.md](references/tech/android.md) |
 
 Precedence: missing tests on critical paths → [tdd](../tdd/SKILL.md) first; then explicit user mode; then detected signals.
