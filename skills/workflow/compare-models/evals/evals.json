@@ -1,0 +1,39 @@
+{
+  "skill_name": "compare-models",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Compare two models on this prompt: explain why the session cache drops entries after five minutes. Tell me which explanation you would ship.",
+      "expected_output": "Runs the same prompt on two models the host can spawn and returns a comparison table plus a ship choice and a reason.",
+      "assertions": [
+        "Uses the user's prompt unchanged",
+        "Runs two models and names them",
+        "Shows where the results disagree",
+        "Names which result to ship and why",
+        "Does not call a paid judge"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Compare models for me. I have not said what they should do.",
+      "expected_output": "Asks once for the prompt and does not invent one or start runs.",
+      "assertions": [
+        "Asks for the missing prompt",
+        "Does not invent a prompt",
+        "Does not start model runs"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Time a single model on this export and tell me if it is faster. Do not compare models.",
+      "expected_output": "Routes to verify to vet the number and does not run a model comparison.",
+      "assertions": [
+        "Selects verify",
+        "Does not run a cross-model comparison"
+      ],
+      "files": []
+    }
+  ]
+}
