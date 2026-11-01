@@ -1,6 +1,6 @@
 ---
 name: diagram
-description: "Build and fix technical diagrams with editable sources and checked exports. Use for architecture, APIs, schemas, code-to-diagram, design-doc figures, wiki or Confluence, themed or high-contrast Mermaid, terminal ASCII, branded HTML or SVG, and the visual type atlas (flow, sequence, journey, Wardley, Sankey, and more). Supports Mermaid, draw.io, Excalidraw, SVG motion, batch PNG, Playwright GIF, and compression. Hand posters to infographic. Use codebase-learner, ready-spec, create-documentation, or color-kit when that skill owns the work."
+description: "Build and fix technical diagrams with editable sources and checked exports. Use for a map of one pull request (components, data flow, and where to read first), architecture, APIs, schemas, code-to-diagram, design-doc figures, wiki or Confluence, themed or high-contrast Mermaid, terminal ASCII, branded HTML or SVG, and the visual type atlas (flow, sequence, journey, Wardley, Sankey, and more). Supports Mermaid, draw.io, Excalidraw, SVG motion, batch PNG, Playwright GIF, and compression. Hand posters to infographic. Use codebase-learner, ready-spec, create-documentation, or color-kit when that skill owns the work."
 metadata:
   version: 1.0.1
   author: levistack
@@ -66,8 +66,13 @@ When the request touches docs, wiki, theme, or chart type, start at [route diagr
 | Many Mermaid blocks to PNG for a static host | [Mermaid batch export](references/mermaid-batch-export.md) |
 | Animated GIF from Mermaid source with browser motion styles | [Mermaid Playwright GIF](references/mermaid-playwright-gif.md) |
 | Editorial poster, carousel or infographic that includes this figure | [Infographic handoff](references/infographic-handoff.md) |
+| A map of one pull request | The short steps under **Map one pull request** |
 
 Read only the guides the task needs. Use a brief list when it answers the question without a figure.
+
+## Map one pull request
+
+When they ask for a walkthrough of one pull request, draw the components the diff touches, the data flow between them, and the file to read first. Use Mermaid. Do not build a new interactive app.
 
 ## Establish truth before layout
 
