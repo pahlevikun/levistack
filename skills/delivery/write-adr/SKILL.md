@@ -1,8 +1,8 @@
 ---
 name: write-adr
-description: "Write evidence-based architecture decision records, design documents, and RFC, using current code, decision history, realistic alternatives, documents, attachments, image, mermaid, diagram, infographic, brainstorm output, user discussion, and clear review conditions. Use when asked to draft, review, consult, accept, or supersede an ADR, or to write or revise a technical proposal, design document, or RFC. Not for implementing the design, an implementation plan (write-plan), choosing an architecture style (super-architecture), or documenting an existing API contract (create-documentation)."
+description: "Write evidence-based architecture decision records, design documents, and RFC, using current code, decision history, realistic alternatives, documents, attachments, image, mermaid, diagram, infographic, brainstorm output, user discussion, and clear review conditions. Use when asked to draft, review, consult, accept, or supersede an ADR, or to write or revise a technical proposal, design document, or RFC. Not for implementing the design, sketching types and signatures before code (shape-and-build), an implementation plan (write-plan), choosing an architecture style (super-architecture), or documenting an existing API contract (create-documentation)."
 metadata:
-  version: 1.1.0
+  version: 1.2.1
   author: levistack
   license: MIT
   group: delivery
@@ -15,6 +15,7 @@ metadata:
     - diagram
     - infographic
     - polyglot-copywriter
+    - file-toolkit
   invokes:
     - skill: super-architecture
       when: The architecture choice still needs evaluation
@@ -37,6 +38,7 @@ metadata:
     - decision_lifecycle
     - design_documentation
     - proposal_evidence_and_acceptance
+    - offline_section_feedback
   languages:
     - en
 
@@ -71,6 +73,8 @@ State DARCI roles when known, context, and a distinct problem statement. Documen
 Keep one decision per record. Label unknown rationale, missing authority, and open questions. Do not set `accepted` just because a draft is well written or implementation exists. When the repo requires a decision owner or date, use an evidenced value or leave a visible gap. Link the governing code and related records when available.
 
 For **Review**, check the problem statement, DARCI gaps, decision, evidence, each approach (figure, pros, cons, consequences), status, links, and whether the record conflicts with another accepted decision. Report concrete gaps. Do not silently edit accepted history. For **Consult**, identify the governing accepted record and its scope; if records conflict or are superseded, show the chain and current uncertainty.
+
+For requested interactive feedback, use the [offline section-review packet](references/section-feedback.md). It collects comments without starting a server or changing the proposal.
 
 ## Verify the document
 
