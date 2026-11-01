@@ -32,4 +32,7 @@ Examples only, not the full map. `playbooks/invoke.md` picks the first skill, an
 | "Our benchmark says 2x faster" | `verify` (vet a number) → deliver the verdict word first |
 | "Write a skill that does X" | step 4: `find-skills` (does one exist?) → `create-skill` → lint → deliver |
 | "Too much to do, no idea where to start" | `get-moving` → deliver one next action |
-| "Use levistack: second-opinion on src/payments" | one-shot: `second-opinion`, skip step 4 → deliver |
+| "Use levistack: second-opinion on src/payments" | one-shot: `second-opinion`, step 4 confirms it and does not replace it → deliver |
+| "Keep fixing the parser until the exit-code test passes" | task skill inside `loopy` → `verify` each round → deliver. No `evidence` Run on the same edit |
+| "Try three approaches in parallel and pick one" | `rumbling` Contest → `evidence` Judge → deliver |
+| "Add the export, I have to stop midway" | task skill → prove → `handoff` Write → deliver |

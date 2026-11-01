@@ -21,6 +21,85 @@
         "Stays conversational or asks what is needed"
       ],
       "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Use use-levistack to add a filter to the list API. The first skill is obvious. Still show the hunt.",
+      "expected_output": "Picks tdd, then runs find-skills to confirm that pick instead of skipping the hunt.",
+      "assertions": [
+        "Selects tdd as the task skill",
+        "Runs find-skills even though the first skill is clear",
+        "Does not replace the task skill during the hunt"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Use use-levistack. Try three implementations in parallel and pick one. Judge the result.",
+      "expected_output": "Uses rumbling Contest, then evidence Judge. Does not wrap the same edit in loopy.",
+      "assertions": [
+        "Selects rumbling Contest",
+        "Follows with evidence Judge",
+        "Does not also run loopy on the same edit"
+      ],
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "Use use-levistack. Keep fixing the parser until the exit-code test passes. I have to stop after this session with the work unfinished.",
+      "expected_output": "Uses loopy around the task skill, then writes a handoff note before the final reply.",
+      "assertions": [
+        "Selects loopy because the checks must be repeated",
+        "Does not use evidence Run for the same edit",
+        "Writes a handoff note before deliver because the task is unfinished"
+      ],
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "Use use-levistack. Checkout throws a 500 when the cart has a gift card. Fix it.",
+      "expected_output": "Matches the bug-fix playbook, restates expected and observed behavior before editing, reproduces, finds the root cause, then fixes and proves the original repro passes.",
+      "assertions": [
+        "Matches the bug-fix playbook in step 1",
+        "Restates the goal and the problem before any edit",
+        "Reproduces before fixing",
+        "Still runs find-skills in step 4"
+      ],
+      "files": []
+    },
+    {
+      "id": 7,
+      "prompt": "Use use-levistack. Teach me how the session token refresh works and why it retries twice.",
+      "expected_output": "Matches the investigate playbook, runs codebase-learner then trace, returns one plain explanation, and edits nothing.",
+      "assertions": [
+        "Matches the investigate playbook",
+        "Uses codebase-learner for how and trace for why",
+        "Makes no edits"
+      ],
+      "files": []
+    },
+    {
+      "id": 8,
+      "prompt": "Use use-levistack to fix the failing login test. This machine has no python3, and there is no ~/.levistack/setup.md. Do not start editing until the environment can run levistack scripts.",
+      "expected_output": "Runs the setup-levistack check before any route step. Status is blocked, so it follows setup-levistack, asks before installing, and does not match a playbook or edit code until a recheck is no longer blocked.",
+      "assertions": [
+        "Runs the machine check before step 1",
+        "Follows setup-levistack because python3 is missing",
+        "Does not install without a yes",
+        "Does not start the bug fix while the check is blocked"
+      ],
+      "files": []
+    },
+    {
+      "id": 9,
+      "prompt": "Use use-levistack to explain how checkout works. The setup note says ready with named gaps: ffmpeg and mmdc are missing. node and python3 are present.",
+      "expected_output": "Treats the machine as able to run, does not install ffmpeg or mmdc, and continues into the investigate playbook.",
+      "assertions": [
+        "Does not stop the route for optional tools",
+        "Does not install ffmpeg or mmdc",
+        "Matches the investigate playbook and continues"
+      ],
+      "files": []
     }
   ]
 }
