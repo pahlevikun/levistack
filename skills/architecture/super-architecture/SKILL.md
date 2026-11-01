@@ -1,6 +1,6 @@
 ---
 name: super-architecture
-description: "Detect, choose, build, evaluate, migrate and document software architecture. Use to name the architecture of an existing codebase, pick one for a new system, scaffold or write code in a given style (layered, onion, hexagonal or ports and adapters, clean, COLA, vertical slice, CQRS, event sourcing, event-driven, client-server, domain-driven, functional core, microkernel, microservices, modular monolith, pipeline, serverless, service-based, space-based), check dependency direction and layer violations, plan a strangler-fig migration, or write C4 docs and architecture blueprints. For a standalone ADR use write-adr. For the types, signatures, and module boundaries of one change, use shape-and-build. One skill with granular job, style and stack guides; it loads only what the task needs."
+description: "Detect, choose, build, evaluate, migrate and document software architecture. Use to name the architecture of an existing codebase, pick one for a new system, scaffold or write code in a given style (layered, onion, hexagonal or ports and adapters, clean, COLA, vertical slice, CQRS, event sourcing, event-driven, client-server, domain-driven, functional core, microkernel, microservices, modular monolith, pipeline, serverless, service-based, space-based), check dependency direction and layer violations, plan a strangler-fig migration, write C4 docs and architecture blueprints, or name service boundaries and a thin facade in front of old code. For a standalone ADR use write-adr. For the types, signatures, and module boundaries of one change, use shape-and-build. One skill with granular job, style and stack guides; it loads only what the task needs."
 when_to_use: "Use when the user asks 'what architecture is this', 'which architecture should we use', 'where does this code belong', 'structure this service', 'is the domain leaking into the framework', 'should we use CQRS or microservices', 'modular monolith or services', 'functional core', 'serverless vs always-on', 'refactor toward hexagonal' or 'draw the C4 diagram'; or when scaffolding a new service or feature that needs a structure. Use write-adr for a standalone decision record."
 metadata:
   version: 1.1.1
@@ -57,6 +57,7 @@ Do this first and do not announce it.
 | Create a service, feature or scaffold in a style | build | [jobs/build.md](jobs/build.md) |
 | Assess health, maturity or debt of an existing design | evaluate | [jobs/evaluate.md](jobs/evaluate.md) |
 | Move from one structure to another, or strangle a legacy one | migrate | [jobs/migrate.md](jobs/migrate.md) |
+| Name service boundaries and a thin facade in front of old code | migrate | [jobs/migrate.md](jobs/migrate.md). New callers use the facade. Old code stays behind it. |
 | Write C4 diagrams or an architecture blueprint | document | [jobs/document.md](jobs/document.md) |
 
 For a standalone ADR request, use `write-adr`. When an architecture selection also needs a decision record, pass the chosen option and evidence to `write-adr`.
