@@ -18,6 +18,7 @@ Group → plugin: `levistack-<group>`. Group `upstream` means the skill ships as
 | Investigate the root cause of a bug, incident, flaky or slow pipeline; five whys | `verify` (if the failure is live and unexplained), `trace` (root-cause mode) | knowledge |
 | Onboard, map a codebase, find architecture smells | `codebase-learner` | knowledge |
 | Write docs for a feature, module or API, or check which docs a change made stale | `create-documentation` | delivery |
+| Write or refresh the project README | `create-readme` | delivery |
 | Pick a framework, compare X vs Y, cost a migration, plan a greenfield stack | `codebase-learner` (only if facts are missing), `super-tech-blueprint` | architecture |
 | Name or choose an architecture style, scaffold in one | `super-architecture` | architecture |
 | Settle types, signatures and module shape before code, then build against it | `shape-and-build` | architecture |

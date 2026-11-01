@@ -34,6 +34,7 @@
     "./skills/delivery/code-review",
     "./skills/delivery/create-bruno-collection",
     "./skills/delivery/create-documentation",
+    "./skills/delivery/create-readme",
     "./skills/delivery/create-tickets",
     "./skills/delivery/file-toolkit",
     "./skills/delivery/ready-spec",

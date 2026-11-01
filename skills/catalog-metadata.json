@@ -899,6 +899,12 @@
         "frame_animation_composition"
       ]
     },
+    "create-readme": {
+      "related_skills": ["create-documentation", "write-changelog", "polyglot-copywriter", "codebase-learner"],
+      "invokes": [{"skill": "write-changelog", "when": "They ask for a changelog section and the repo has no unreleased notes"}],
+      "tags": ["readme", "install", "changelog"],
+      "capabilities": ["project_readme"]
+    },
     "gap-analysis": {
       "related_skills": ["trace", "blast-radius", "ready-spec", "write-adr", "write-plan", "verify", "second-opinion", "tdd"],
       "invokes": [{"skill": "blast-radius", "when": "A gap can break behavior outside the diff"}],
