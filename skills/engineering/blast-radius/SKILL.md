@@ -14,6 +14,7 @@ metadata:
     - trace
     - rumbling
     - tdd
+    - gap-analysis
   invokes:
     - skill: trace
       when: The intent behind the change is unclear and needs the PR and commit history

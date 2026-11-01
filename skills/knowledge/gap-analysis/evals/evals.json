@@ -1,0 +1,34 @@
+{
+  "skill_name": "gap-analysis",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Before release, check whether the code still matches the product spec and the docs.",
+      "expected_output": "Lists mismatches between code, spec, and docs. Each mismatch names a file.",
+      "assertions": [
+        "Uses gap mode",
+        "Compares code, spec, and docs",
+        "Names a file for each mismatch"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "This stack trace fails in parseHeader. Find the failure.",
+      "expected_output": "Starts from the stack frame, states one hypothesis, and isolates the failure.",
+      "assertions": [
+        "Uses debug mode",
+        "Quotes the stack frame before guessing",
+        "Reports one isolated failure"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Why was the cache layer shaped this way?",
+      "expected_output": "Routes to trace and does not list spec gaps.",
+      "assertions": [
+        "Selects trace",
+        "Does not run gap mode"
+      ]
+    }
+  ]
+}

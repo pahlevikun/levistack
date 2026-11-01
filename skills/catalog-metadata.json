@@ -659,7 +659,7 @@
     },
     "blast-radius": {
       "version": "1.0.0",
-      "related_skills": ["verify", "second-opinion", "trace", "rumbling", "tdd"],
+      "related_skills": ["verify", "second-opinion", "trace", "rumbling", "tdd", "gap-analysis"],
       "invokes": [
         {"skill": "trace", "when": "The intent behind the change is unclear and needs the PR and commit history"},
         {"skill": "rumbling", "when": "A wide change needs a Council of reviewers looking for outside-the-diff breakage"}
@@ -898,6 +898,12 @@
         "interactive_canvas_exploration",
         "frame_animation_composition"
       ]
+    },
+    "gap-analysis": {
+      "related_skills": ["trace", "blast-radius", "ready-spec", "write-adr", "write-plan", "verify", "second-opinion", "tdd"],
+      "invokes": [{"skill": "blast-radius", "when": "A gap can break behavior outside the diff"}],
+      "tags": ["gap", "spec", "debug"],
+      "capabilities": ["spec_gap_list", "failure_isolation"]
     }
   }
 }

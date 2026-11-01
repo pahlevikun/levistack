@@ -14,6 +14,7 @@ Group → plugin: `levistack-<group>`. Group `upstream` means the skill ships as
 | Understand a change or subsystem, explained plainly | `use-levistack` (investigate playbook: `codebase-learner`, then `trace`) | foundation |
 | How one flow or module works, where a change should live | `codebase-learner` (explain mode) | knowledge |
 | Why code is shaped this way, what tradeoff or incident caused it | `trace` | knowledge |
+| List where the code, the product spec, the tech spec, and the docs do not match, or isolate a failure from an error or a stack trace | `gap-analysis` (gap or debug). A behavior risk then goes to `blast-radius` | knowledge |
 | Investigate the root cause of a bug, incident, flaky or slow pipeline; five whys | `verify` (if the failure is live and unexplained), `trace` (root-cause mode) | knowledge |
 | Onboard, map a codebase, find architecture smells | `codebase-learner` | knowledge |
 | Write docs for a feature, module or API, or check which docs a change made stale | `create-documentation` | delivery |
