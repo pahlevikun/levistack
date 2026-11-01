@@ -1,0 +1,37 @@
+{
+  "skill_name": "blast-radius",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "What's the blast radius of changing the session cache TTL from 15 minutes to 5? The diff is one line.",
+      "expected_output": "Finds the fact the change is safe because of, looks past grep at readers of the cached value and expiry timing, proves the fact with a script that runs the real code, and lists confirmed risks apart from cleared ones.",
+      "assertions": [
+        "States one safety fact with its ladder level",
+        "Proves the fact by running code and pastes the output, or marks it unproven",
+        "Cites real file:line locations for risks",
+        "Separates confirmed risks from cleared ones"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Run the tests and lint and tell me if the branch is green.",
+      "expected_output": "Routes to verify for the ordinary gates instead of an outside-the-diff analysis.",
+      "assertions": [
+        "Selects verify",
+        "Does not run a blast-radius analysis"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Give me an adversarial review of this whole branch before merge with reviewers on different models.",
+      "expected_output": "Routes to second-opinion for the adversarial review of the diff itself.",
+      "assertions": [
+        "Selects second-opinion",
+        "Does not replace the review with a safety-fact proof"
+      ],
+      "files": []
+    }
+  ]
+}
