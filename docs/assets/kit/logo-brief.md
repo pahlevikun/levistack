@@ -6,7 +6,7 @@
 - **Kit tier:** `full`
 - **Grill:** decisions asked one by one: mascot name, motion, kit tier, asset location.
 - **Intent:** Animate the existing mascot and ship it as the levistack README hero. The four assets show Murk, a tired mug built from three stacked layers with a fish-hook handle, floating in dusky fog, beside the `levistack` wordmark and the seven-step `use-levistack` route. For people who install levistack. Tokens come only from the mascot's own colors. The banner keeps the 3-column blueprint.
-- **Context sources:** `docs/assets/murk.svg` (every color token), `README.md` (tagline line, mascot copy), the GitHub repo description ("Agent skills for people tired of AI slop"), `skills/workflow/use-levistack/SKILL.md` (the seven steps), `docs/assets/levistack-routing-stack.svg` (the gold "prove" accent).
+- **Context sources:** `docs/assets/murk.svg` (every color token), `README.md` (tagline line, mascot copy), the GitHub repo description ("Agent skills for people tired of AI slop"), `skills/foundation/use-levistack/SKILL.md` (the seven steps), `docs/assets/levistack-routing-stack.svg` (the gold "prove" accent).
 - **Unknown after lookup:** no theme file in the repo (looked: no CSS or token files). Tokens taken from the mascot SVG instead.
 - **Banner column 3 mode:** `feature-summary` (the seven-step route)
 - **Preview artifacts:** concept sheet, tiles boards, preview sheet, presentation board

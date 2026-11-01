@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1480" height="1440" viewBox="0 0 1480 1440" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1480" height="1472" viewBox="0 0 1480 1472" role="img" aria-labelledby="title desc">
   <title id="title">The levistack routing stack</title>
   <desc id="desc">Every task routed through use-levistack takes seven steps: route, prime, invoke, hunt, apply, prove, deliver. Rules, hooks, agents, one-shots, focus skills and upstream plugins wrap the session.</desc>
   <defs>
@@ -25,24 +25,24 @@
     </style>
   </defs>
 
-  <rect width="1480" height="1440" fill="#F3F1EC"/>
+  <rect width="1480" height="1472" fill="#F3F1EC"/>
 
   <!-- Header -->
   <g class="sans">
     <text x="32" y="52" class="ink" font-size="28" font-weight="700">Every task takes the same seven steps.</text>
     <text x="32" y="82" class="muted" font-size="15">Nothing counts as done without proof. Nothing leaves the session without your yes.</text>
     <text x="32" y="110" class="blue" font-size="15" font-weight="700">Type /start (or /use-levistack) and your task. It picks the skill, runs it, proves it and shapes the reply.</text>
-    <text x="32" y="130" class="muted" font-size="12">Prime and deliver always run. Hunt runs only when no first skill is clear. A skill you name skips step 04.</text>
+    <text x="32" y="130" class="muted" font-size="12">Prime, hunt and deliver always run. Step 01 matches a playbook before the first skill is picked.</text>
 
     <rect x="152" y="148" width="1296" height="44" rx="4" fill="#E6E4DE" stroke="#ADB0BC"/>
     <text x="168" y="168" class="ink" font-size="11" font-weight="700">levistack@levistack</text>
-    <text x="168" y="184" class="muted" font-size="10">root install: 51 skills, 11 agents, 42 rules, 15 commands, 5 opt-in hooks, 2 upstream plugins as dependencies &#183; group plugins ship skills only</text>
+    <text x="168" y="184" class="muted" font-size="10">root install: 66 skills in 9 groups, 11 agents, 42 rules, 15 commands, 5 opt-in hooks, 2 upstream plugins as dependencies &#183; group plugins ship skills only</text>
   </g>
 
   <!-- Envelopes and step separator -->
-  <rect x="152" y="212" width="800" height="1176" rx="6" class="envline"/>
-  <rect x="972" y="212" width="476" height="1176" rx="6" class="envline"/>
-  <line x1="136" y1="212" x2="136" y2="1388" stroke="#C3C5CD" stroke-width="1"/>
+  <rect x="152" y="212" width="800" height="1208" rx="6" class="envline"/>
+  <rect x="972" y="212" width="476" height="1208" rx="6" class="envline"/>
+  <line x1="136" y1="212" x2="136" y2="1420" stroke="#C3C5CD" stroke-width="1"/>
 
   <!-- Step labels -->
   <g class="mono" font-size="10" letter-spacing="0.8">
@@ -51,8 +51,8 @@
     <text x="32" y="486" class="muted">03</text><text x="32" y="500" class="ink" font-weight="700">INVOKE</text>
     <text x="32" y="698" class="muted">04</text><text x="32" y="712" class="ink" font-weight="700">HUNT</text>
     <text x="32" y="810" class="muted">05</text><text x="32" y="824" class="ink" font-weight="700">APPLY</text>
-    <text x="32" y="1062" class="muted">06</text><text x="32" y="1076" class="ink" font-weight="700">PROVE</text>
-    <text x="32" y="1234" class="muted">07</text><text x="32" y="1248" class="ink" font-weight="700">DELIVER</text>
+    <text x="32" y="1090" class="muted">06</text><text x="32" y="1104" class="ink" font-weight="700">PROVE</text>
+    <text x="32" y="1262" class="muted">07</text><text x="32" y="1276" class="ink" font-weight="700">DELIVER</text>
   </g>
   <g class="sans" font-size="11">
     <text x="32" y="292" class="muted">Which skill?</text>
@@ -60,8 +60,8 @@
     <text x="32" y="516" class="muted">Pick the first skill</text>
     <text x="32" y="728" class="muted">Search the catalog</text>
     <text x="32" y="840" class="muted">Do the work</text>
-    <text x="32" y="1092" class="muted">Proof, then your yes</text>
-    <text x="32" y="1264" class="muted">Shape the reply</text>
+    <text x="32" y="1120" class="muted">Proof, then your yes</text>
+    <text x="32" y="1292" class="muted">Shape the reply</text>
   </g>
 
   <!-- 01 ROUTE -->
@@ -73,8 +73,8 @@
     <line x1="388" y1="276" x2="426" y2="276" class="inkline" marker-end="url(#arrow-ink)"/>
     <rect x="432" y="236" width="488" height="80" rx="5" fill="#E3E5F0" stroke="#4F5A8F" stroke-width="2.5"/>
     <text x="452" y="268" class="blue" font-size="22" font-weight="700">use-levistack</text>
-    <text x="452" y="290" class="muted" font-size="11">Start here. The entry point for every task.</text>
-    <text x="452" y="305" class="muted" font-size="11">A skill you name inside it runs as a one-shot.</text>
+    <text x="452" y="290" class="muted" font-size="11">Start here (foundation). The entry point for every task.</text>
+    <text x="452" y="305" class="muted" font-size="11">Matches a playbook. A named skill runs as a one-shot.</text>
   </g>
   <line x1="552" y1="320" x2="552" y2="344" class="blueline" marker-end="url(#arrow-blue)"/>
 
@@ -111,7 +111,7 @@
     <rect x="564" y="602" width="164" height="24" rx="3" class="chip"/><text x="574" y="618" class="ink">a super-* domain router</text>
     <rect x="744" y="542" width="156" height="24" rx="3" class="chip"/><text x="754" y="558" class="ink">second-opinion</text>
     <rect x="744" y="572" width="156" height="24" rx="3" class="chip"/><text x="754" y="588" class="ink">verify</text>
-    <rect x="744" y="602" width="156" height="24" rx="3" class="chip"/><text x="754" y="618" class="ink">retrospective</text>
+    <rect x="744" y="602" width="156" height="24" rx="3" class="chip"/><text x="754" y="618" class="ink">refresh-pr</text>
   </g>
   <line x1="552" y1="644" x2="552" y2="668" class="blueline" marker-end="url(#arrow-blue)"/>
 
@@ -126,56 +126,50 @@
 
   <!-- 05 APPLY -->
   <g class="sans">
-    <rect x="184" y="784" width="736" height="220" rx="5" fill="none" stroke="#4F5A8F" stroke-width="1.6" stroke-dasharray="8 5"/>
+    <rect x="184" y="784" width="736" height="240" rx="5" fill="none" stroke="#4F5A8F" stroke-width="1.6" stroke-dasharray="8 5"/>
     <text x="204" y="810" class="blue" font-size="15" font-weight="700">skill groups (apply)</text>
-    <text x="204" y="831" class="muted" font-size="12">Runs the chain one skill at a time. Each result goes to the next skill in one sentence.</text>
+    <text x="204" y="831" class="muted" font-size="12">Foundation starts, workflow frames, the rest do the work. One skill at a time.</text>
 
-    <rect x="204" y="846" width="170" height="64" rx="4" class="card"/>
-    <text x="218" y="868" class="ink" font-size="13" font-weight="700">engineering</text>
-    <text x="218" y="884" class="blue" font-size="11" font-weight="700">5 skills</text>
-    <text x="218" y="899" class="muted" font-size="10">tdd, verify, safe-refactor</text>
+    <rect x="204" y="846" width="228" height="50" rx="4" class="card"/>
+    <text x="218" y="868" class="ink" font-size="12" font-weight="700">foundation &#183; 3</text>
+    <text x="218" y="885" class="muted" font-size="10">use, setup, help</text>
 
-    <rect x="384" y="846" width="170" height="64" rx="4" class="card"/>
-    <text x="398" y="868" class="ink" font-size="13" font-weight="700">knowledge</text>
-    <text x="398" y="884" class="blue" font-size="11" font-weight="700">5 skills</text>
-    <text x="398" y="899" class="muted" font-size="10">learn, trace, research, review</text>
+    <rect x="442" y="846" width="228" height="50" rx="4" class="card"/>
+    <text x="456" y="868" class="ink" font-size="12" font-weight="700">workflow &#183; 9</text>
+    <text x="456" y="885" class="muted" font-size="10">evidence, loopy, lanes, runs</text>
 
-    <rect x="564" y="846" width="170" height="64" rx="4" class="card"/>
-    <text x="578" y="868" class="ink" font-size="13" font-weight="700">architecture</text>
-    <text x="578" y="884" class="blue" font-size="11" font-weight="700">6 skills</text>
-    <text x="578" y="899" class="muted" font-size="10">super-* domain routers</text>
+    <rect x="680" y="846" width="220" height="50" rx="4" class="card"/>
+    <text x="694" y="868" class="ink" font-size="12" font-weight="700">knowledge &#183; 5</text>
+    <text x="694" y="885" class="muted" font-size="10">learn, trace, research</text>
 
-    <rect x="744" y="846" width="156" height="64" rx="4" class="card"/>
-    <text x="758" y="868" class="ink" font-size="13" font-weight="700">delivery</text>
-    <text x="758" y="884" class="blue" font-size="11" font-weight="700">12 skills</text>
-    <text x="758" y="899" class="muted" font-size="10">plans, docs, APIs, review</text>
+    <rect x="204" y="906" width="228" height="50" rx="4" class="card"/>
+    <text x="218" y="928" class="ink" font-size="12" font-weight="700">engineering &#183; 7</text>
+    <text x="218" y="945" class="muted" font-size="10">tdd, verify, blast-radius</text>
 
-    <rect x="204" y="920" width="170" height="64" rx="4" class="card"/>
-    <text x="218" y="942" class="ink" font-size="13" font-weight="700">agent-authoring</text>
-    <text x="218" y="958" class="blue" font-size="11" font-weight="700">8 skills</text>
-    <text x="218" y="973" class="muted" font-size="10">create-*, retrospective, hooks</text>
+    <rect x="442" y="906" width="228" height="50" rx="4" class="card"/>
+    <text x="456" y="928" class="ink" font-size="12" font-weight="700">architecture &#183; 7</text>
+    <text x="456" y="945" class="muted" font-size="10">shape, super-* routers</text>
 
-    <rect x="384" y="920" width="170" height="64" rx="4" class="card"/>
-    <text x="398" y="942" class="ink" font-size="13" font-weight="700">product</text>
-    <text x="398" y="958" class="blue" font-size="11" font-weight="700">7 skills</text>
-    <text x="398" y="973" class="muted" font-size="10">diagram, infographic, UI, polish</text>
+    <rect x="680" y="906" width="220" height="50" rx="4" class="card"/>
+    <text x="694" y="928" class="ink" font-size="12" font-weight="700">delivery &#183; 14</text>
+    <text x="694" y="945" class="muted" font-size="10">review, refresh, plans, docs</text>
 
-    <rect x="564" y="920" width="170" height="64" rx="4" class="card"/>
-    <text x="578" y="942" class="ink" font-size="13" font-weight="700">workflow</text>
-    <text x="578" y="958" class="blue" font-size="11" font-weight="700">5 skills</text>
-    <text x="578" y="973" class="muted" font-size="10">router, evidence, rumbling</text>
+    <rect x="204" y="966" width="228" height="50" rx="4" class="card"/>
+    <text x="218" y="988" class="ink" font-size="12" font-weight="700">product &#183; 8</text>
+    <text x="218" y="1005" class="muted" font-size="10">diagram, UI, polish, art</text>
 
-    <rect x="744" y="920" width="156" height="64" rx="4" class="card"/>
-    <text x="758" y="942" class="ink" font-size="13" font-weight="700">focus</text>
-    <text x="758" y="958" class="blue" font-size="11" font-weight="700">3 skills</text>
-    <text x="758" y="973" class="muted" font-size="10">get-moving, later-list, standup</text>
+    <rect x="442" y="966" width="228" height="50" rx="4" class="card"/>
+    <text x="456" y="988" class="ink" font-size="12" font-weight="700">agent-authoring &#183; 10</text>
+    <text x="456" y="1005" class="muted" font-size="10">create-*, setup-pack</text>
 
-    <text x="204" y="998" class="muted" font-size="10">51 skills in 8 groups &#183; rumbling coordinates agents and evidence judges the result</text>
+    <rect x="680" y="966" width="220" height="50" rx="4" class="card"/>
+    <text x="694" y="988" class="ink" font-size="12" font-weight="700">focus &#183; 3</text>
+    <text x="694" y="1005" class="muted" font-size="10">get-moving, standup</text>
   </g>
-  <line x1="552" y1="1008" x2="552" y2="1032" class="blueline" marker-end="url(#arrow-blue)"/>
+  <line x1="552" y1="1032" x2="552" y2="1060" class="blueline" marker-end="url(#arrow-blue)"/>
 
   <!-- 06 PROVE -->
-  <g class="sans">
+  <g class="sans" transform="translate(0 28)">
     <rect x="184" y="1036" width="736" height="148" rx="4" fill="#F3F1EC" stroke="#17152E" stroke-width="1.6"/>
     <text x="204" y="1062" class="ink" font-size="15" font-weight="700">prove.md (prove)</text>
     <text x="204" y="1083" class="muted" font-size="12">Every claim gets fresh proof before the reply says done. Anything that leaves the session waits for you.</text>
@@ -199,10 +193,10 @@
     <text x="722" y="1139" class="muted" font-size="10">the MR exists, the push landed,</text>
     <text x="722" y="1154" class="muted" font-size="10">the tests still pass</text>
   </g>
-  <line x1="552" y1="1188" x2="552" y2="1206" class="inkline" marker-end="url(#arrow-ink)"/>
+  <line x1="552" y1="1216" x2="552" y2="1234" class="inkline" marker-end="url(#arrow-ink)"/>
 
   <!-- 07 DELIVER -->
-  <g class="sans">
+  <g class="sans" transform="translate(0 28)">
     <rect x="184" y="1210" width="736" height="160" rx="5" fill="none" stroke="#4F5A8F" stroke-width="1.6" stroke-dasharray="8 5"/>
     <text x="204" y="1236" class="blue" font-size="15" font-weight="700">deliver.md (deliver)</text>
     <text x="204" y="1257" class="muted" font-size="12">The same session shapes the reply before it leaves the chat.</text>
@@ -244,8 +238,8 @@
     <!-- One-shot -->
     <rect x="1004" y="662" width="412" height="146" rx="4" fill="none" stroke="#5E6275" stroke-width="1.4" stroke-dasharray="6 5"/>
     <text x="1022" y="688" class="ink" font-size="14" font-weight="700">Named skill (one-shot)</text>
-    <text x="1022" y="708" class="muted" font-size="11">Name a skill inside /use-levistack: prime, run it, prove,</text>
-    <text x="1022" y="724" class="muted" font-size="11">deliver. There is no step 04 hunt.</text>
+    <text x="1022" y="708" class="muted" font-size="11">Name a skill inside /use-levistack: prime, run it,</text>
+    <text x="1022" y="724" class="muted" font-size="11">prove, deliver. Step 04 hunts only to confirm it.</text>
     <rect x="1022" y="734" width="376" height="24" rx="3" class="chip"/>
     <text x="1034" y="750" class="mono ink" font-size="10">/use-levistack second-opinion on my branch</text>
     <text x="1022" y="774" class="muted" font-size="10">A bare /skill call runs that skill alone, with no prime or deliver.</text>
@@ -299,5 +293,5 @@
   <line x1="901" y1="1290" x2="1021" y2="1302" class="bluedash"/>
 
   <!-- Footer -->
-  <text x="32" y="1420" class="mono muted" font-size="11" letter-spacing="0.6">51 skills &#183; 11 agents &#183; 42 rules &#183; 15 commands &#183; 5 hooks &#183; 2 upstream &#183; 28 OCT 2026</text>
+  <text x="32" y="1452" class="mono muted" font-size="11" letter-spacing="0.6">66 skills &#183; 11 agents &#183; 42 rules &#183; 15 commands &#183; 5 hooks &#183; 2 upstream &#183; 31 OCT 2026</text>
 </svg>
