@@ -1,9 +1,9 @@
 ---
 name: atomic-semantic-commit
-description: "Split a messy working tree into small commits, one purpose and one context per commit, with descriptive semantic commit messages (feat, fix, docs, style, refactor, test, chore) written in Simplified Technical English. A subject says what changed for the reader and a body says why, so a message is never just "add" plus a name. Use when the user asks to commit, split commits, organize changes, clean up history or write a commit message, or when unrelated changes are staged together. Commits only when asked."
+description: "Slice a messy tree into atomic commits with conventional types and STE prose. Subjects name behavior and boundaries—reject bad input, retry on timeout, cap page size—not a lazy streak of add page, add hook, add tests. The body carries the why. Use when the user asks to commit, split commits, organize changes, clean up history or write a commit message, or when unrelated changes are staged together. Commits only when asked."
 allowed-tools: Bash(git:*) Bash(node:*)
 metadata:
-  version: 1.0.0
+  version: 1.1.0
   author: levistack
   license: MIT
   group: delivery
@@ -41,7 +41,8 @@ Uses semantic commit types, STE message rules, a guide for descriptive subjects 
 4. **Prepare first, change second.** Refactor in one commit. Change behavior in the next.
 5. **Keep formatting apart.** A style-only change gets its own commit.
 6. **Describe the effect.** The subject says what changed for the reader and under which condition. `add` plus a name is not enough. The body says why.
-7. **Commit only when the user asks.** Do not push unless asked. Add no trailers (`Co-authored-by`, `Generated with`) unless the user's rule requires them.
+7. **No add parade.** If three commits in a row start with `add`, you are naming files, not outcomes. Reach for the verb ladder: `reject`, `retry`, `cache`, `show`, `cap`, `extract`. Reserve `add` for when the new artifact is the whole story and you still say what it is for (`add rate limit after 5 failed tries`).
+8. **Commit only when the user asks.** Do not push unless asked. Add no trailers (`Co-authored-by`, `Generated with`) unless the user's rule requires them.
 
 ## Workflow
 
@@ -49,7 +50,7 @@ Uses semantic commit types, STE message rules, a guide for descriptive subjects 
 2. **Plan.** Fill in [templates/commit-plan.md](templates/commit-plan.md): the commits in order, each with `type(scope)`, a subject, its files or hunks, and how to verify it. Show the plan before you commit if it has more than two commits or the user asked to see it first.
 3. **Stage exactly.** Use `git add <paths>`, or `git add -p` when one file holds two purposes. Run `git diff --cached --stat`. The staged files must match the plan.
 4. **Verify.** Run the focused test for the staged context. If the test needs unstaged changes, say so and stage them or split differently.
-5. **Write the message.** First read the staged diff and answer three questions: what is different for the user or caller, why was it needed, and under which condition does it apply. Write the subject from the effect and the condition. Write the body from the reason (see [descriptive-messages.md](references/descriptive-messages.md)). Then follow the format and the STE rules below. Run `node scripts/check-message.mjs --diff-lines=<changed lines> "<message>"` and fix every error and every warning you agree with.
+5. **Write the message.** First read the staged diff and answer three questions: what is different for the user or caller, why was it needed, and under which condition does it apply. Draft the subject from the effect and the condition, not from the file you touched. If your first draft is `add <noun>`, rewrite with [descriptive-messages.md](references/descriptive-messages.md) before you stage the commit. Write the body from the reason. Then follow the format and the STE rules below. Run `node scripts/check-message.mjs --diff-lines=<changed lines> "<message>"` and fix every error and every warning you agree with.
 6. **Commit.** Run `git commit -m "<subject>" -m "<body>"`. Write a body for any change of 40 lines or more, a bug fix, a migration, a security fix, a revert or a breaking change.
 7. **Repeat** from step 3 until `git status` shows a clean tree, or only the changes the user wants to keep.
 8. **Report.** Run `git log --oneline -n <count>` and show the new commits.
@@ -76,8 +77,8 @@ These seven are the base. Use `perf`, `build`, `ci` or `revert` only when the re
 
 ## Write the message in STE
 
-- **Subject:** imperative, present tense: `add`, `fix`, `remove`. Not `added`, `adds`, `adding`.
-- **Effect, not object.** Pick the verb that names the effect (`reject`, `retry`, `cache`, `show`, `cap`, `stop`), and add the condition when it matters. `feat: add retry` becomes `feat(sync): retry upload up to 3 times on timeout`. Use `add` only when you also say what it is for. The verb ladder and 12 rewrites: [descriptive-messages.md](references/descriptive-messages.md).
+- **Subject:** imperative, present tense: `fix`, `remove`, `reject`, `retry`, and the verbs in the ladder—not `added`, `adds`, `adding`.
+- **Effect, not object.** Pick the verb that names the effect (`reject`, `retry`, `cache`, `show`, `cap`, `stop`), and add the condition when it matters. `feat: add retry` becomes `feat(sync): retry upload up to 3 times on timeout`. Treat `add` as a last resort: if the subject could be swapped for any other noun (`add button`, `add field`, `add flag`), it is too weak. The verb ladder and rewrites: [descriptive-messages.md](references/descriptive-messages.md).
 - **Length:** aim for 60 characters. The hard limit is 72. No period at the end. Lowercase after the colon, unless the repository does otherwise.
 - **One idea.** Name the thing that changed, the action and the condition. Do not list files.
 - **Common words, one meaning.** Use `remove`, `fix`, `rename`, `move`, `replace`, `extract` and the verbs in the ladder. Avoid `improve`, `enhance`, `update stuff`, `various`, `misc`, `minor changes`.

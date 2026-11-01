@@ -1,6 +1,6 @@
 # Write a descriptive message
 
-A subject like `feat: add login page` names a thing. It does not say what the thing does or why it exists. A reader of `git log` learns that a file was added, and nothing else. This guide makes the subject say what changed for the reader, and the body say why.
+A subject like `feat: add login page` names a thing. It does not say what the thing does or why it exists. A reader of `git log` learns that a file was added, and nothing else. Histories full of `add X`, `add Y`, `add Z` look busy and teach nothing. This guide makes the subject say what changed for the reader, and the body say why.
 
 ## Read the diff first
 
