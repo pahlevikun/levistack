@@ -144,6 +144,13 @@ test('classify: one skill folder with enhance wording is the enhance-skill use c
     assert.equal(classify({ paths: [target, other], text: 'enhance the first with the second' }).status, 'ask');
     assert.deepEqual(kinds(classify({ paths: [target, other], text: 'merge these into one skill' })), ['merge-skills']);
     assert.equal(classify({ text: 'improve the skill from https://github.com/a/b' }).status, 'ask');
+    assert.equal(classify({ paths: [target], text: 'update this skill from the changelog' }).status, 'ok');
+    assert.deepEqual(kinds(classify({ paths: [target], text: 'update this skill from the changelog' })), ['update-skill']);
+    assert.equal(classify({ text: 'revise this skill from the changelog' }).status, 'ask');
+    assert.deepEqual(
+      kinds(classify({ paths: ['README.md', 'CHANGELOG.md'], text: 'turn these into a skill' })),
+      ['from-readme-and-changelog'],
+    );
     assert.equal(classify({ paths: [target] }).status, 'ask', 'a skill folder alone still asks');
     assert.match(classify({ paths: [target] }).question, /Enhance it/);
   } finally {

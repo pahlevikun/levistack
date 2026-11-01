@@ -22,6 +22,8 @@ export const GUIDES = {
   'from-document': 'specialities/from-document/GUIDE.md',
   'merge-skills': 'specialities/merge-skills/GUIDE.md',
   'enhance-skill': 'specialities/enhance-skill/GUIDE.md',
+  'update-skill': 'specialities/update-skill/GUIDE.md',
+  'from-readme-and-changelog': 'specialities/from-readme-and-changelog/GUIDE.md',
 };
 
 const DOCS_DIRS = new Set(['docs', 'documentation', 'doc', 'handbook', 'manuals', 'papers']);
@@ -32,6 +34,7 @@ const NEW_RULE = /\b(new rule|create a rule|write a rule|add a rule)\b/i;
 const NEW_COMMAND = /\b(new command|create a command|write a (slash )?command|add a command)\b/i;
 const NEW_AGENT = /\b(new (sub)?agent|create (an |a )?(sub)?agent|write (an |a )?(sub)?agent|add (an |a )?(sub)?agent)\b/i;
 const MERGE = /\b(merge|combine|into one skill)\b/i;
+const UPDATE = /\b(update (this |the |an |a )?skill|revise (this |the |an |a )?skill|skill from (a |the )?changelog|from the changelog)\b/i;
 // One skill gets better by learning from other sources. The words must name that intent.
 const ENHANCE = /\b(enhance|enhancing|improve|improving|upgrade|extend|refine|strengthen|level up|learn from|learning from|upstream)\b/i;
 const CONVO = /\b(conversation|this (chat|session)|prior session|previous session|last (time|session)|what we just did|save this session|harvest|transcript)\b/i;
@@ -69,6 +72,8 @@ export function kindFromInspect(info) {
   if (DOCUMENT_EXTS.has(info.ext)) return 'from-document';
   if (info.parts.some((p) => DOCS_DIRS.has(p))) return 'from-document';
   if (info.isDirectory && /^(docs?|documentation|handbook|manuals|papers)$/i.test(info.name)) return 'from-document';
+  if (/^readme(\.[a-z0-9]+)?$/i.test(info.name)) return 'readme';
+  if (/^changelog(\.[a-z0-9]+)?$/i.test(info.name)) return 'changelog';
   return 'unknown';
 }
 
@@ -114,6 +119,28 @@ export function classify({ paths = [], text = '', inspect = inspectPath } = {}) 
   const mergeWords = MERGE.test(text);
   const convoWords = CONVO.test(text);
 
+  const readmes = byKind.get('readme') ?? [];
+  const changelogs = byKind.get('changelog') ?? [];
+  const readmeAndChangelog = (readmes.length > 0 && changelogs.length > 0)
+    || (/\breadme\b/i.test(text) && /\bchangelog\b/i.test(text));
+  if (readmeAndChangelog && !mergeWords) {
+    return ok([job(
+      'from-readme-and-changelog',
+      [...readmes, ...changelogs, ...skillDirs],
+      'a README and a changelog',
+    )]);
+  }
+
+  const updateWords = UPDATE.test(text) && !mergeWords;
+  if (updateWords && skillDirs.length === 1 && knownKinds.length === 0) {
+    return ok([job('update-skill', [skillDirs[0]], 'one skill folder plus update or changelog wording')]);
+  }
+  if (updateWords && skillDirs.length === 0 && knownKinds.length === 0) {
+    return ask('Which skill folder should be updated? It must contain SKILL.md.');
+  }
+  if (updateWords && skillDirs.length > 1) {
+    return ask('Update needs one skill folder. Name the skill to revise.');
+  }
   const enhanceWords = ENHANCE.test(text) && !mergeWords;
   if (skillDirs.length === 1 && enhanceWords) {
     const sources = [...items.filter((it) => it.kind !== 'skill-dir' && it.kind !== 'unknown').map((it) => it.path), ...urls.filter((u) => !paths.includes(u))];
