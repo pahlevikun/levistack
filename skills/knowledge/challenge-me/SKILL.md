@@ -1,8 +1,8 @@
 ---
 name: challenge-me
-description: "Stress-test a document, plan, idea, design, or architecture by grilling like a critical manager: numbered questions with recommended answers, glossary and ADR alignment, blunt challenge of estimates and hidden work, plus structured brainstorming that ends in an approved design brief (approaches with trade-offs, play-backs, a fresh-reader check), a compact decision map, and a sharpen mode that makes a task prompt deeper before work starts. Use when the user says grill me, grill this doc, stress-test this plan, challenge this idea, poke holes, decision-map, sharpen this prompt, or brainstorm a design before coding. Not for executing a refactor (safe-refactor), writing implementation-plan files (write-plan), inventing a target stack (super-tech-blueprint), or reviewing code or a diff (second-opinion)."
+description: "Stress-test a document, plan, idea, design, or architecture by grilling like a critical manager: numbered questions with recommended answers, glossary and ADR alignment, blunt challenge of estimates and hidden work, plus structured brainstorming that ends in an approved design brief (approaches with trade-offs, play-backs, a fresh-reader check), a compact decision map, and a sharpen mode that makes a task prompt deeper before work starts and returns the prompt without doing the task. Use when the user says grill me, grill this doc, stress-test this plan, challenge this idea, poke holes, decision-map, sharpen this prompt, or brainstorm a design before coding. Not for executing a refactor (safe-refactor), writing implementation-plan files (write-plan), inventing a target stack (super-tech-blueprint), or reviewing code or a diff (second-opinion)."
 metadata:
-  version: 1.0.0
+  version: 1.1.0
   author: levistack
   license: MIT
   group: knowledge
