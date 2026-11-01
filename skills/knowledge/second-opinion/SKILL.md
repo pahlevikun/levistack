@@ -2,7 +2,7 @@
 name: second-opinion
 description: "Adversarial read-only review of a diff, branch or named files that drives every open decision to a commitment. It restates the change and confirms it, then turns the brief, the reviewers' questions and every open finding into one decision tree and resolves it in dependency order: explore first, then exactly one question per node, each with a recommended answer. Independent reviewers on different models challenge the change through what-to-check lenses and a code-quality lens, and it buckets findings into Act on, Consider, Noted or Dismissed. Exits only when zero nodes are open, with a decision ledger, and offers CONTEXT.md terms and decision records. Quick triage first. Uses codebase-learner for context and why before removing a guard. Never applies fixes. Use for 'second opinion', 'interrogate', 'adversarial review', 'challenge this code', 'find blind spots', or 'what did I miss' before merge. Not for the routine MR review loop (code-review) or a plan or doc (challenge-me)."
 metadata:
-  version: 1.0.0
+  version: 1.1.0
   author: levistack
   license: MIT
   group: knowledge
@@ -19,8 +19,10 @@ metadata:
   tags:
     - review
     - adversarial
+    - interrogate
   capabilities:
     - blind_spot_review
+    - run_proven_findings
   languages:
     - en
 
@@ -115,6 +117,8 @@ Put every finding in one of four buckets, with the reviewer(s) that raised it an
 - **Consider.** Legitimate, but you are not sure they outweigh the cost of fixing them now. Worth the user's attention.
 - **Noted.** Technically valid but not actionable: context-dependent, premature optimization, or low impact at this stage.
 - **Dismissed.** Wrong, nitpicky or missing context, with a brief reason.
+
+**A finding survives only when a run proves it.** Before a correctness, security, or behavior finding goes in Act on, prove it with a throwaway check outside the reviewed tree: a failing test in a scratch copy, or a one-off script that calls the real code. Paste the output. A finding no run could reach stays in Consider, marked unproven, with the check that would settle it. A maintainability finding cites the lines and the cost instead. The review stays read-only: the scratch check never touches the reviewed files.
 
 Every Act on and Consider finding becomes an open F-n node.
 
