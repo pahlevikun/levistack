@@ -1,6 +1,6 @@
 ---
 name: ready-spec
-description: "Draft a repo-grounded, execution-ready spec for a backend or API change: frozen current contract, target modes, full lifecycle, error catalog, testable backward-compatibility guarantees, ordered tasks, test matrix, traceability and an independent adversarial review, a file map, per-task interfaces, blind spots and a hand-off choice, gated READY or BLOCKED. Use when the user asks for a detailed spec or design plan for an endpoint, event, consumer or contract change before an agent implements it. Not for a general step-by-step coding plan (write-plan) or grilling an idea (challenge-me)."
+description: "Draft a repo-grounded, execution-ready spec for a backend or API change: frozen current contract, target modes, full lifecycle, error catalog, testable backward-compatibility guarantees, ordered tasks, test matrix, traceability and an independent adversarial review, a file map, per-task interfaces, blind spots and a hand-off choice, gated READY or BLOCKED. Use when the user asks for a detailed spec or design plan for an endpoint, event, consumer or contract change before an agent implements it, including a short workshop that writes acceptance criteria before the spec freezes. Not for a general step-by-step coding plan (write-plan) or grilling an idea (challenge-me)."
 metadata:
   version: 1.0.0
   author: levistack
@@ -43,6 +43,10 @@ So the plan holds **decisions only**. Two failures to avoid:
 If the request covers several independent subsystems, split it into separate plans, one per subsystem. Each plan should deliver working, testable software on its own. Tell the user about the split before you go on.
 
 ## Workflow
+
+### 0. Acceptance workshop
+
+Before the spec freezes, write the acceptance criteria with them. Cover the behaviors that must pass, the errors, and what must stay compatible. Three to seven criteria. Then freeze those into the spec. Skip the workshop when they already handed you the criteria.
 
 ### 1. Ground the current behavior
 
