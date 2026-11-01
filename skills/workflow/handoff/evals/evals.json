@@ -21,6 +21,28 @@
         "Does not apply handoff procedures to the wrong job"
       ],
       "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Where did I leave off on the export limit work? There is no handoff note.",
+      "expected_output": "Runs Recall: sets the window, topic, and workspace, reads past sessions and git, and returns a short brief with the next step.",
+      "assertions": [
+        "Selects Recall mode",
+        "States the window, topic, and workspace before searching",
+        "Does not edit files"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "This migration run will take all afternoon and I will review it tonight. Keep a log of your decisions in the handoff note.",
+      "expected_output": "Writes a handoff note with a Decision log table and adds one row per decision as it lands: what, why, evidence, result.",
+      "assertions": [
+        "Adds a Decision log section",
+        "Each row has what, why, evidence, and result",
+        "Adds rows as decisions land, not only at the end"
+      ],
+      "files": []
     }
   ]
 }

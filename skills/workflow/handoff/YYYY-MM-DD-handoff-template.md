@@ -50,6 +50,14 @@ Work from the first unchecked item. Keep the order.
 |---|---|---|
 | <what was chosen> | <the reason> | <alternatives and why not> |
 
+## Decision log
+
+Long runs only. Add a row as each decision lands. Delete this section for a short session.
+
+| # | What | Why | Evidence | Result |
+|---|---|---|---|---|
+| 1 | <the decision> | <the reason> | <command, output, or file:line> | <kept, reverted, or open> |
+
 ## Open questions
 
 - <question> (ask: <who>) (blocks: <which checklist item>)

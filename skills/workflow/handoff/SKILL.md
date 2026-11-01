@@ -1,8 +1,8 @@
 ---
 name: handoff
-description: "Use to carry work across time, in four modes. Write: when ending, pausing or switching a session, write a dated handoff note (goals, context, state, checklist, decisions, resume steps) that a fresh session can act on with no chat history. Resume: read the latest note and verify it before continuing. Catch up: in a long chat or unattended run, say in plain words what changed since the user's last message and list every call waiting on them, each with a pick. Recall: when no note exists, rebuild recent working context from past sessions, git and the shared record. Not for a report of yesterday's work for other people (use standup)."
+description: "Use to carry work across time, in four modes. Write: when ending, pausing or switching a session, write a dated handoff note (goals, context, state, checklist, decisions, resume steps) that a fresh session can act on with no chat history; a long run adds one decision-log row per decision (what, why, evidence, result). Resume: read the latest note and verify it before continuing. Catch up: in a long chat or unattended run, say in plain words what changed since the user's last message and list every call waiting on them, each with a pick. Recall: when no note exists, or the user says 'recall' or 'where did I leave off', rebuild recent working context from past sessions, git and the shared record. Not for a report of yesterday's work for other people (use standup)."
 metadata:
-  version: 1.0.0
+  version: 1.1.0
   author: levistack
   license: MIT
   group: workflow
@@ -13,8 +13,11 @@ metadata:
   tags:
     - handoff
     - session
+    - recall
+    - decision-log
   capabilities:
     - session_handoff
+    - decision_log
   languages:
     - en
 
@@ -29,7 +32,7 @@ Carry work across time. Pick the mode that fits:
 | **Write** | You are ending, pausing or switching a session | This file |
 | **Resume** | A dated handoff note exists and the user says "continue" or "pick up" | This file |
 | **Catch up** | The user is back in a long chat or an unattended run: what changed, and what waits on them | [catch-up.md](references/catch-up.md) |
-| **Recall** | No note exists: rebuild recent context from past sessions, git and the shared record | [recall.md](references/recall.md) |
+| **Recall** | No note exists, or the user says "recall" or "where did I leave off": rebuild recent context from past sessions, git and the shared record | [recall.md](references/recall.md) |
 
 Catch up and recall are read-only. The two modes below leave a note that lets a fresh session (or a teammate) continue without re-deriving anything. The reader has zero memory of this session. Write for that reader.
 
@@ -57,9 +60,10 @@ A good handoff answers four questions:
    - Is every command copy-pasteable, and every path relative to the project root?
    - Is there any "as discussed", "see above", or "the bug we found"? Replace each with the actual fact.
    - Are decisions recorded with a reason, and are unverified claims marked?
-5. **Check for secrets.** Write the names of environment variables, never their values. Never paste tokens, keys, cookies, or customer data.
-6. **Do not commit the note** unless the user asks.
-7. **Reply with** the path, the three-line summary, and a ready prompt for the next session:
+5. **Long runs keep a decision log.** When the run spans many steps, or a person will review it after stepping away, add a `Decision log` table to the note as each decision lands, one row per decision: what was decided, why, the evidence, and the result. Do not save the rows for the end. A short session needs no log; its decisions fit the Decisions section.
+6. **Check for secrets.** Write the names of environment variables, never their values. Never paste tokens, keys, cookies, or customer data.
+7. **Do not commit the note** unless the user asks.
+8. **Reply with** the path, the three-line summary, and a ready prompt for the next session:
 
    > Read `<path>`. Verify the state it describes. Then continue from the first unchecked item in the checklist.
 
