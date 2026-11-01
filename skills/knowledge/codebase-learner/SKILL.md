@@ -2,7 +2,7 @@
 name: codebase-learner
 description: "Learn how a codebase works today, read-only: explain one flow or subsystem ('how does X work', walkthroughs, 'where should this live', 'which package owns this'), onboard onto a repo, deep-read it, write ARCHITECTURE.md of what exists, diagnose layering and architecture smells, extract conventions into rules, or plan site IA of the product as built. Splits a wide question into parallel explorer subagents, then one explainer writes a senior-engineer mental model. Use when onboarding, priming context, mapping modules and data flow, or before changing unfamiliar code. Not for why code is shaped this way (trace), reviewing a diff (second-opinion), or choosing a target stack, TCO, greenfield design or a migration blueprint (super-tech-blueprint)."
 metadata:
-  version: 1.0.0
+  version: 1.1.0
   author: levistack
   license: MIT
   group: knowledge
@@ -12,12 +12,17 @@ metadata:
     - trace
     - research
     - create-agents-md
+    - diagram
+    - super-architecture
+    - safe-refactor
+    - write-plan
   tags:
     - onboarding
     - architecture
     - map
   capabilities:
     - codebase_explanation
+    - feature_flow_and_duplication_mapping
   languages:
     - en
 
@@ -62,6 +67,8 @@ Pick a mode from the user's words, and load only that reference. Combine modes o
 - "Learn the codebase" without "every file" → **onboard**. With insistence on an exhaustive read → **deep-read**.
 - "Create onboarding docs" for developers → **summarize** (file) or **onboard** (chat guide). Ask if they want `ARCHITECTURE.md` on disk.
 - "Improve the architecture" meaning *document or smell the current tree* → **diagnose** (optionally after **summarize**). Meaning *pick a new stack or target shape* → **not this skill**, load `super-tech-blueprint`.
+
+For a feature-by-feature flow and duplication audit, use the [flow-map recipe](references/feature-flow-map.md); keep current-state evidence separate from proposed unification.
 
 ## Subagents
 
