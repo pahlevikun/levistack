@@ -1,6 +1,6 @@
 ---
 name: challenge-me
-description: "Stress-test a document, plan, idea, design, or architecture by grilling like a critical manager: numbered questions with recommended answers, glossary and ADR alignment, blunt challenge of estimates and hidden work, plus structured brainstorming that ends in an approved design brief (approaches with trade-offs, play-backs, a fresh-reader check), a compact decision map, and a sharpen mode that makes a task prompt deeper before work starts and returns the prompt without doing the task. Use when the user says grill me, grill this doc, stress-test this plan, challenge this idea, poke holes, decision-map, sharpen this prompt, or brainstorm a design before coding. Not for executing a refactor (safe-refactor), writing implementation-plan files (write-plan), inventing a target stack (super-tech-blueprint), or reviewing code or a diff (second-opinion)."
+description: "Stress-test a document, plan, idea, design, or architecture by grilling like a critical manager: numbered questions with recommended answers, glossary and ADR alignment, blunt challenge of estimates and hidden work, plus structured brainstorming that ends in an approved design brief (approaches with trade-offs, play-backs, a fresh-reader check), a compact decision map, and a sharpen mode that makes a task prompt deeper before work starts and returns the prompt without doing the task. Use when the user says grill me, grill this doc, stress-test this plan, challenge this idea, poke holes, decision-map, sharpen this prompt, brainstorm a design before coding, run a pre-mortem, or red-team a plan. Not for executing a refactor (safe-refactor), writing implementation-plan files (write-plan), inventing a target stack (super-tech-blueprint), or reviewing code or a diff (second-opinion)."
 metadata:
   version: 1.1.0
   author: levistack
@@ -54,6 +54,8 @@ Do this first; do not announce it. Load only that mode file plus the core files 
 | Ideas → design before implementation (new or existing product) | **brainstorm** | [brainstorm.md](references/modes/brainstorm.md) |
 | Compact stateful map across sessions, or work too big for one session | **decision-map** | [decision-map.md](references/modes/decision-map.md) |
 | Make a task or prompt deeper before work starts, then rewrite it | **sharpen** | [sharpen.md](references/modes/sharpen.md) |
+| Imagine the plan already failed, and name how | **pre-mortem** | [grill.md](references/modes/grill.md) |
+| Attack the plan as an opponent | **red-team** | [challenge.md](references/modes/challenge.md) |
 | Softer/harder, one-at-a-time vs frontier-round | **calibrate** | [intensity.md](references/core/intensity.md) |
 | Mermaid/PlantUML as an aid, not a diagram takeover | **mindmap** | [mindmap.md](references/core/mindmap.md) |
 
