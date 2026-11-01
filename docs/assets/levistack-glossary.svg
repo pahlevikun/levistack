@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="3834" viewBox="0 0 1040 3834" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="3894" viewBox="0 0 1040 3894" role="img" aria-labelledby="title desc">
   <title id="title">Levistack glossary</title>
-  <desc id="desc">How to start (full route, one-shot, or a bare skill), the seven steps, the words around a run, nine groups, and all 66 skills plus 2 upstream skills. Modes inside output-savers and noslop are not separate catalog skills.</desc>
+  <desc id="desc">How to start (full route, one-shot, or a bare skill), the seven steps, the words around a run, nine groups, and all 68 skills plus 2 upstream skills. Modes inside output-savers and noslop are not separate catalog skills.</desc>
   <style>
     .sans { font-family: Inter, Helvetica, Arial, sans-serif; }
     .mono { font-family: "SFMono-Regular", Menlo, Consolas, monospace; }
@@ -10,10 +10,10 @@
     .blue { fill: #4F5A8F; }
     .gold { fill: #7A5410; }
   </style>
-  <rect width="1040" height="3834" fill="#F3F1EC"/>
+  <rect width="1040" height="3894" fill="#F3F1EC"/>
   <text x="36" y="52" class="sans ink" font-size="28" font-weight="700">The words in this stack.</text>
   <text x="36" y="84" class="sans muted" font-size="16">How to start, what each group is, and what each skill does.</text>
-  <text x="36" y="108" class="sans blue" font-size="15" font-weight="700">66 skills in 9 groups, plus 2 upstream skills.</text>
+  <text x="36" y="108" class="sans blue" font-size="15" font-weight="700">68 skills in 9 groups, plus 2 upstream skills.</text>
   <text x="36" y="144" class="mono muted" font-size="12" font-weight="700">HOW TO START</text>
   <rect x="36" y="160" width="313.3" height="128" rx="5" fill="#E3E5F0" stroke="#4F5A8F" stroke-width="2.5"/>
   <text x="50" y="188" class="sans blue" font-size="16" font-weight="700">Full route</text>
@@ -92,7 +92,7 @@
   <text x="36" y="922" class="mono ink" font-size="14" font-weight="700">Hook</text>
   <text x="216" y="922" class="sans ink" font-size="14">An opt-in check on a tool event. It runs only after you create ~/.levistack/&lt;name&gt;.on.</text>
   <text x="36" y="962" class="mono muted" font-size="12" font-weight="700">EVERY SKILL</text>
-  <text x="36" y="984" class="sans ink" font-size="14">66 catalog skills, plus 2 upstream. concise, concise-light, concise-heavy, and principles live inside output-savers. noslop-code</text>
+  <text x="36" y="984" class="sans ink" font-size="14">68 catalog skills, plus 2 upstream. concise, concise-light, concise-heavy, and principles live inside output-savers. noslop-code</text>
   <text x="36" y="1003" class="sans ink" font-size="14">lives inside noslop. Those are modes, not extra catalog skills.</text>
   <text x="36" y="1028" class="sans muted" font-size="13">Group order follows the path: front door, machinery, the work, the session, the catalog, then upstream.</text>
   <rect x="36" y="1048" width="968" height="149" rx="5" fill="#ECEDF4" stroke="#B5BAD3"/>
@@ -100,7 +100,7 @@
   <text x="952" y="1072" class="mono muted" font-size="14" font-weight="700">3</text>
   <text x="52" y="1094" class="sans muted" font-size="14">The front door. Start a task, check the machine, or ask how.</text>
   <text x="52" y="1121" class="mono ink" font-size="14" font-weight="700">use-levistack</text>
-  <text x="328" y="1121" class="sans ink" font-size="15">Match a playbook, then run the seven steps. Start here.</text>
+  <text x="328" y="1121" class="sans ink" font-size="15">Check the machine, match a playbook, then run the seven steps.</text>
   <text x="52" y="1151" class="mono ink" font-size="14" font-weight="700">setup-levistack</text>
   <text x="328" y="1151" class="sans ink" font-size="15">Check the tools scripts call. Install nothing without a yes.</text>
   <text x="52" y="1181" class="mono ink" font-size="14" font-weight="700">help-levistack</text>
@@ -127,149 +127,153 @@
   <text x="328" y="1492" class="sans ink" font-size="15">One prompt on two or three models this host can spawn.</text>
   <text x="52" y="1522" class="mono ink" font-size="14" font-weight="700">retrospective</text>
   <text x="328" y="1522" class="sans ink" font-size="15">Name repeated friction and the strongest useful fix.</text>
-  <rect x="36" y="1550" width="968" height="209" rx="5" fill="#ECEDF4" stroke="#B5BAD3"/>
+  <rect x="36" y="1550" width="968" height="239" rx="5" fill="#ECEDF4" stroke="#B5BAD3"/>
   <text x="52" y="1574" class="sans blue" font-size="18" font-weight="700">knowledge</text>
-  <text x="952" y="1574" class="mono muted" font-size="14" font-weight="700">5</text>
+  <text x="952" y="1574" class="mono muted" font-size="14" font-weight="700">6</text>
   <text x="52" y="1596" class="sans muted" font-size="14">How code works, why it is shaped that way, and whether a plan holds.</text>
   <text x="52" y="1623" class="mono ink" font-size="14" font-weight="700">codebase-learner</text>
   <text x="328" y="1623" class="sans ink" font-size="15">Explain how the code works today. Read-only.</text>
   <text x="52" y="1653" class="mono ink" font-size="14" font-weight="700">trace</text>
   <text x="328" y="1653" class="sans ink" font-size="15">Explain why it is shaped this way, evidence on every step.</text>
-  <text x="52" y="1683" class="mono ink" font-size="14" font-weight="700">challenge-me</text>
-  <text x="328" y="1683" class="sans ink" font-size="15">Grill a plan. Numbered questions, each with a recommended answer.</text>
-  <text x="52" y="1713" class="mono ink" font-size="14" font-weight="700">research</text>
-  <text x="328" y="1713" class="sans ink" font-size="15">Answer from primary sources, or write questions for one person.</text>
-  <text x="52" y="1743" class="mono ink" font-size="14" font-weight="700">second-opinion</text>
-  <text x="328" y="1743" class="sans ink" font-size="15">Read-only review that drives each open decision to a commitment.</text>
-  <rect x="36" y="1771" width="968" height="269" rx="5" fill="#ECEDF4" stroke="#B5BAD3"/>
-  <text x="52" y="1795" class="sans blue" font-size="18" font-weight="700">engineering</text>
-  <text x="952" y="1795" class="mono muted" font-size="14" font-weight="700">7</text>
-  <text x="52" y="1817" class="sans muted" font-size="14">Test first, prove the claim, keep behavior, and cut slop.</text>
-  <text x="52" y="1844" class="mono ink" font-size="14" font-weight="700">tdd</text>
-  <text x="328" y="1844" class="sans ink" font-size="15">One failing test, the smallest pass, then refactor while green.</text>
-  <text x="52" y="1874" class="mono ink" font-size="14" font-weight="700">verify</text>
-  <text x="328" y="1874" class="sans ink" font-size="15">Fresh proof before any claim of done. Diagnose before editing.</text>
-  <text x="52" y="1904" class="mono ink" font-size="14" font-weight="700">safe-refactor</text>
-  <text x="328" y="1904" class="sans ink" font-size="15">Keep behavior the same while the structure changes.</text>
-  <text x="52" y="1934" class="mono ink" font-size="14" font-weight="700">noslop</text>
-  <text x="328" y="1934" class="sans ink" font-size="15">Filter slop in handlers, UI, queries, config, tests, and comments.</text>
-  <text x="52" y="1964" class="mono ink" font-size="14" font-weight="700">output-savers</text>
-  <text x="328" y="1964" class="sans ink" font-size="15">The smallest change, named principles, and plain replies.</text>
-  <text x="52" y="1994" class="mono ink" font-size="14" font-weight="700">blast-radius</text>
-  <text x="328" y="1994" class="sans ink" font-size="15">What a small diff can break outside itself, and why it is safe.</text>
-  <text x="52" y="2024" class="mono ink" font-size="14" font-weight="700">dev-cache-cleanup</text>
-  <text x="328" y="2024" class="sans ink" font-size="15">Audit dev caches. Delete only paths you approved.</text>
-  <rect x="36" y="2052" width="968" height="269" rx="5" fill="#ECEDF4" stroke="#B5BAD3"/>
-  <text x="52" y="2076" class="sans blue" font-size="18" font-weight="700">architecture</text>
-  <text x="952" y="2076" class="mono muted" font-size="14" font-weight="700">7</text>
-  <text x="52" y="2098" class="sans muted" font-size="14">Pick a shape, a stack, or a boundary, then build against it.</text>
-  <text x="52" y="2125" class="mono ink" font-size="14" font-weight="700">shape-and-build</text>
-  <text x="328" y="2125" class="sans ink" font-size="15">Settle types and module shape, compare two, then build one.</text>
-  <text x="52" y="2155" class="mono ink" font-size="14" font-weight="700">super-architecture</text>
-  <text x="328" y="2155" class="sans ink" font-size="15">Detect, choose, build, evaluate, migrate, or document one.</text>
-  <text x="52" y="2185" class="mono ink" font-size="14" font-weight="700">super-caching</text>
-  <text x="328" y="2185" class="sans ink" font-size="15">Cache design for web and mobile, including offline.</text>
-  <text x="52" y="2215" class="mono ink" font-size="14" font-weight="700">super-nodejs</text>
-  <text x="328" y="2215" class="sans ink" font-size="15">Node.js services, APIs, middleware, and auth.</text>
-  <text x="52" y="2245" class="mono ink" font-size="14" font-weight="700">super-elixir</text>
-  <text x="328" y="2245" class="sans ink" font-size="15">Elixir, Phoenix, Ecto, and OTP.</text>
-  <text x="52" y="2275" class="mono ink" font-size="14" font-weight="700">super-protobuf</text>
-  <text x="328" y="2275" class="sans ink" font-size="15">proto3, buf, gRPC or Connect, and schema breaks.</text>
-  <text x="52" y="2305" class="mono ink" font-size="14" font-weight="700">super-tech-blueprint</text>
-  <text x="328" y="2305" class="sans ink" font-size="15">Compare stacks, cost a migration, or write a blueprint.</text>
-  <rect x="36" y="2333" width="968" height="479" rx="5" fill="#ECEDF4" stroke="#B5BAD3"/>
-  <text x="52" y="2357" class="sans blue" font-size="18" font-weight="700">delivery</text>
-  <text x="952" y="2357" class="mono muted" font-size="14" font-weight="700">14</text>
-  <text x="52" y="2379" class="sans muted" font-size="14">Spec, plan, review, and the writing that ships with the change.</text>
-  <text x="52" y="2406" class="mono ink" font-size="14" font-weight="700">write-plan</text>
-  <text x="328" y="2406" class="sans ink" font-size="15">A plan a stranger can follow: files, tasks, tests, and commits.</text>
-  <text x="52" y="2436" class="mono ink" font-size="14" font-weight="700">ready-spec</text>
-  <text x="328" y="2436" class="sans ink" font-size="15">An execution-ready spec for a backend or API change.</text>
-  <text x="52" y="2466" class="mono ink" font-size="14" font-weight="700">write-adr</text>
-  <text x="328" y="2466" class="sans ink" font-size="15">An ADR, design doc, or RFC from the code and real alternatives.</text>
-  <text x="52" y="2496" class="mono ink" font-size="14" font-weight="700">code-review</text>
-  <text x="328" y="2496" class="sans ink" font-size="15">Review a diff or MR. Watch stays until clean. Prep stops before merge.</text>
-  <text x="52" y="2526" class="mono ink" font-size="14" font-weight="700">refresh-pr</text>
-  <text x="328" y="2526" class="sans ink" font-size="15">Refresh, rework, or close a stale PR or MR, then code-review.</text>
-  <text x="52" y="2556" class="mono ink" font-size="14" font-weight="700">atomic-semantic-commit</text>
-  <text x="328" y="2556" class="sans ink" font-size="15">Split a messy tree into small commits with clean messages.</text>
-  <text x="52" y="2586" class="mono ink" font-size="14" font-weight="700">write-mr-description</text>
-  <text x="328" y="2586" class="sans ink" font-size="15">Draft the MR or PR description from the commits.</text>
-  <text x="52" y="2616" class="mono ink" font-size="14" font-weight="700">create-tickets</text>
-  <text x="328" y="2616" class="sans ink" font-size="15">Slice a plan into end-to-end tickets, then draft them.</text>
-  <text x="52" y="2646" class="mono ink" font-size="14" font-weight="700">create-documentation</text>
-  <text x="328" y="2646" class="sans ink" font-size="15">Docs and API handovers checked against the source.</text>
-  <text x="52" y="2676" class="mono ink" font-size="14" font-weight="700">create-bruno-collection</text>
-  <text x="328" y="2676" class="sans ink" font-size="15">A Bruno API collection, with auth and error examples.</text>
-  <text x="52" y="2706" class="mono ink" font-size="14" font-weight="700">file-toolkit</text>
-  <text x="328" y="2706" class="sans ink" font-size="15">Parse, create, or convert documents, images, and audio.</text>
-  <text x="52" y="2736" class="mono ink" font-size="14" font-weight="700">write-changelog</text>
-  <text x="328" y="2736" class="sans ink" font-size="15">Changelog and release notes from the commits and the diff.</text>
-  <text x="52" y="2766" class="mono ink" font-size="14" font-weight="700">write-postmortem</text>
-  <text x="328" y="2766" class="sans ink" font-size="15">A blameless postmortem or near-miss, from evidence.</text>
-  <text x="52" y="2796" class="mono ink" font-size="14" font-weight="700">write-runbook</text>
-  <text x="328" y="2796" class="sans ink" font-size="15">A recovery, deploy, or migration runbook with a rollback.</text>
-  <rect x="36" y="2824" width="968" height="299" rx="5" fill="#ECEDF4" stroke="#B5BAD3"/>
-  <text x="52" y="2848" class="sans blue" font-size="18" font-weight="700">product</text>
-  <text x="952" y="2848" class="mono muted" font-size="14" font-weight="700">8</text>
-  <text x="52" y="2870" class="sans muted" font-size="14">Color, screens, diagrams, explainers, prototypes, and polish.</text>
-  <text x="52" y="2897" class="mono ink" font-size="14" font-weight="700">color-kit</text>
-  <text x="328" y="2897" class="sans ink" font-size="15">Pick colors and prove contrast.</text>
-  <text x="52" y="2927" class="mono ink" font-size="14" font-weight="700">design-system-kit</text>
-  <text x="328" y="2927" class="sans ink" font-size="15">Build a design system, then critique with it.</text>
-  <text x="52" y="2957" class="mono ink" font-size="14" font-weight="700">ui-ux-kit</text>
-  <text x="328" y="2957" class="sans ink" font-size="15">One screen or one component, including motion.</text>
-  <text x="52" y="2987" class="mono ink" font-size="14" font-weight="700">diagram</text>
-  <text x="328" y="2987" class="sans ink" font-size="15">A technical diagram with an editable source and a checked export.</text>
-  <text x="52" y="3017" class="mono ink" font-size="14" font-weight="700">infographic</text>
-  <text x="328" y="3017" class="sans ink" font-size="15">An evidence-based explainer, chart, timeline, or poster.</text>
-  <text x="52" y="3047" class="mono ink" font-size="14" font-weight="700">prototype-wireframe</text>
-  <text x="328" y="3047" class="sans ink" font-size="15">A throwaway prototype or wireframe for one design question.</text>
-  <text x="52" y="3077" class="mono ink" font-size="14" font-weight="700">product-polish-workflow</text>
-  <text x="328" y="3077" class="sans ink" font-size="15">Audit a shipped product: code, journeys, branding, motion.</text>
-  <text x="52" y="3107" class="mono ink" font-size="14" font-weight="700">visual-art</text>
-  <text x="328" y="3107" class="sans ink" font-size="15">Static canvas art, seeded generative art, or a short GIF.</text>
-  <rect x="36" y="3135" width="968" height="149" rx="5" fill="#ECEDF4" stroke="#B5BAD3"/>
-  <text x="52" y="3159" class="sans blue" font-size="18" font-weight="700">focus</text>
-  <text x="952" y="3159" class="mono muted" font-size="14" font-weight="700">3</text>
-  <text x="52" y="3181" class="sans muted" font-size="14">The session itself. One next step, a later list, today's standup.</text>
-  <text x="52" y="3208" class="mono ink" font-size="14" font-weight="700">get-moving</text>
-  <text x="328" y="3208" class="sans ink" font-size="15">Shrink a stuck task to one next action and a 25-minute round.</text>
-  <text x="52" y="3238" class="mono ink" font-size="14" font-weight="700">later-list</text>
-  <text x="328" y="3238" class="sans ink" font-size="15">Park a tangent in LATER.md and return to the task.</text>
-  <text x="52" y="3268" class="mono ink" font-size="14" font-weight="700">standup</text>
-  <text x="328" y="3268" class="sans ink" font-size="15">Today's standup from what you actually did.</text>
-  <rect x="36" y="3296" width="968" height="359" rx="5" fill="#ECEDF4" stroke="#B5BAD3"/>
-  <text x="52" y="3320" class="sans blue" font-size="18" font-weight="700">agent-authoring</text>
-  <text x="952" y="3320" class="mono muted" font-size="14" font-weight="700">10</text>
-  <text x="52" y="3342" class="sans muted" font-size="14">Skills, agents, rules, commands, hooks, and whole setups.</text>
-  <text x="52" y="3369" class="mono ink" font-size="14" font-weight="700">create-skill</text>
-  <text x="328" y="3369" class="sans ink" font-size="15">Write or fix a skill.</text>
-  <text x="52" y="3399" class="mono ink" font-size="14" font-weight="700">convert-as-skill</text>
-  <text x="328" y="3399" class="sans ink" font-size="15">Turn existing material into a skill, or merge skills.</text>
-  <text x="52" y="3429" class="mono ink" font-size="14" font-weight="700">create-agent</text>
-  <text x="328" y="3429" class="sans ink" font-size="15">Write a subagent.</text>
-  <text x="52" y="3459" class="mono ink" font-size="14" font-weight="700">create-command</text>
-  <text x="328" y="3459" class="sans ink" font-size="15">Write a slash command.</text>
-  <text x="52" y="3489" class="mono ink" font-size="14" font-weight="700">create-rule</text>
-  <text x="328" y="3489" class="sans ink" font-size="15">Write a rule or coding standard.</text>
-  <text x="52" y="3519" class="mono ink" font-size="14" font-weight="700">create-hook</text>
-  <text x="328" y="3519" class="sans ink" font-size="15">Automate something on an agent event.</text>
-  <text x="52" y="3549" class="mono ink" font-size="14" font-weight="700">create-agents-md</text>
-  <text x="328" y="3549" class="sans ink" font-size="15">Write or refresh AGENTS.md or CLAUDE.md.</text>
-  <text x="52" y="3579" class="mono ink" font-size="14" font-weight="700">mcp-management</text>
-  <text x="328" y="3579" class="sans ink" font-size="15">Connect, diagnose, or build an MCP server.</text>
-  <text x="52" y="3609" class="mono ink" font-size="14" font-weight="700">setup-pack</text>
-  <text x="328" y="3609" class="sans ink" font-size="15">Export or import an agent setup. Secrets are stripped.</text>
-  <text x="52" y="3639" class="mono ink" font-size="14" font-weight="700">dev-environment</text>
-  <text x="328" y="3639" class="sans ink" font-size="15">Move an agent setup and a Mac in or out. Waits for a yes before writing.</text>
-  <rect x="36" y="3667" width="968" height="119" rx="5" fill="#F3F1EC" stroke="#5E6275" stroke-dasharray="6 5"/>
-  <text x="52" y="3691" class="sans blue" font-size="18" font-weight="700">upstream</text>
-  <text x="952" y="3691" class="mono muted" font-size="14" font-weight="700">2</text>
-  <text x="52" y="3713" class="sans muted" font-size="14">Their own repos. The levistack plugin installs them. Edit them there.</text>
-  <text x="52" y="3740" class="mono ink" font-size="14" font-weight="700">polyglot-copywriter</text>
-  <text x="328" y="3740" class="sans ink" font-size="15">Plain prose for people, in 97 languages, facts unchanged.</text>
-  <text x="52" y="3770" class="mono ink" font-size="14" font-weight="700">logo-kit-svg</text>
-  <text x="328" y="3770" class="sans ink" font-size="15">An SVG brand kit: icon, banner, static, and animated.</text>
-  <text x="36" y="3806" class="sans muted" font-size="13">Each line is the index. The skill file owns the detail. 31 Oct 2026.</text>
+  <text x="52" y="1683" class="mono ink" font-size="14" font-weight="700">gap-analysis</text>
+  <text x="328" y="1683" class="sans ink" font-size="15">Where code, specs, and docs do not match, or the isolated failure.</text>
+  <text x="52" y="1713" class="mono ink" font-size="14" font-weight="700">challenge-me</text>
+  <text x="328" y="1713" class="sans ink" font-size="15">Grill a plan. Numbered questions, each with a recommended answer.</text>
+  <text x="52" y="1743" class="mono ink" font-size="14" font-weight="700">research</text>
+  <text x="328" y="1743" class="sans ink" font-size="15">Answer from primary sources, or write questions for one person.</text>
+  <text x="52" y="1773" class="mono ink" font-size="14" font-weight="700">second-opinion</text>
+  <text x="328" y="1773" class="sans ink" font-size="15">Read-only review that drives each open decision to a commitment.</text>
+  <rect x="36" y="1801" width="968" height="299" rx="5" fill="#ECEDF4" stroke="#B5BAD3"/>
+  <text x="52" y="1825" class="sans blue" font-size="18" font-weight="700">engineering</text>
+  <text x="952" y="1825" class="mono muted" font-size="14" font-weight="700">8</text>
+  <text x="52" y="1847" class="sans muted" font-size="14">Test first, prove the claim, keep behavior, and cut slop.</text>
+  <text x="52" y="1874" class="mono ink" font-size="14" font-weight="700">tdd</text>
+  <text x="328" y="1874" class="sans ink" font-size="15">One failing test, the smallest pass, then refactor while green.</text>
+  <text x="52" y="1904" class="mono ink" font-size="14" font-weight="700">qa</text>
+  <text x="328" y="1904" class="sans ink" font-size="15">A test plan, the cases, and a defect note. Code tests stay with tdd.</text>
+  <text x="52" y="1934" class="mono ink" font-size="14" font-weight="700">verify</text>
+  <text x="328" y="1934" class="sans ink" font-size="15">Fresh proof before any claim of done. Diagnose before editing.</text>
+  <text x="52" y="1964" class="mono ink" font-size="14" font-weight="700">safe-refactor</text>
+  <text x="328" y="1964" class="sans ink" font-size="15">Keep behavior the same while the structure changes.</text>
+  <text x="52" y="1994" class="mono ink" font-size="14" font-weight="700">noslop</text>
+  <text x="328" y="1994" class="sans ink" font-size="15">Filter slop in handlers, UI, queries, config, tests, and comments.</text>
+  <text x="52" y="2024" class="mono ink" font-size="14" font-weight="700">output-savers</text>
+  <text x="328" y="2024" class="sans ink" font-size="15">The smallest change, named principles, and plain replies.</text>
+  <text x="52" y="2054" class="mono ink" font-size="14" font-weight="700">blast-radius</text>
+  <text x="328" y="2054" class="sans ink" font-size="15">What a small diff can break outside itself, and why it is safe.</text>
+  <text x="52" y="2084" class="mono ink" font-size="14" font-weight="700">dev-cache-cleanup</text>
+  <text x="328" y="2084" class="sans ink" font-size="15">Audit dev caches. Delete only paths you approved.</text>
+  <rect x="36" y="2112" width="968" height="269" rx="5" fill="#ECEDF4" stroke="#B5BAD3"/>
+  <text x="52" y="2136" class="sans blue" font-size="18" font-weight="700">architecture</text>
+  <text x="952" y="2136" class="mono muted" font-size="14" font-weight="700">7</text>
+  <text x="52" y="2158" class="sans muted" font-size="14">Pick a shape, a stack, or a boundary, then build against it.</text>
+  <text x="52" y="2185" class="mono ink" font-size="14" font-weight="700">shape-and-build</text>
+  <text x="328" y="2185" class="sans ink" font-size="15">Settle types and module shape, compare two, then build one.</text>
+  <text x="52" y="2215" class="mono ink" font-size="14" font-weight="700">super-architecture</text>
+  <text x="328" y="2215" class="sans ink" font-size="15">Detect, choose, build, evaluate, migrate, or document one.</text>
+  <text x="52" y="2245" class="mono ink" font-size="14" font-weight="700">super-caching</text>
+  <text x="328" y="2245" class="sans ink" font-size="15">Cache design for web and mobile, including offline.</text>
+  <text x="52" y="2275" class="mono ink" font-size="14" font-weight="700">super-nodejs</text>
+  <text x="328" y="2275" class="sans ink" font-size="15">Node.js services, APIs, middleware, and auth.</text>
+  <text x="52" y="2305" class="mono ink" font-size="14" font-weight="700">super-elixir</text>
+  <text x="328" y="2305" class="sans ink" font-size="15">Elixir, Phoenix, Ecto, and OTP.</text>
+  <text x="52" y="2335" class="mono ink" font-size="14" font-weight="700">super-protobuf</text>
+  <text x="328" y="2335" class="sans ink" font-size="15">proto3, buf, gRPC or Connect, and schema breaks.</text>
+  <text x="52" y="2365" class="mono ink" font-size="14" font-weight="700">super-tech-blueprint</text>
+  <text x="328" y="2365" class="sans ink" font-size="15">Compare stacks, cost a migration, or write a blueprint.</text>
+  <rect x="36" y="2393" width="968" height="509" rx="5" fill="#ECEDF4" stroke="#B5BAD3"/>
+  <text x="52" y="2417" class="sans blue" font-size="18" font-weight="700">delivery</text>
+  <text x="952" y="2417" class="mono muted" font-size="14" font-weight="700">15</text>
+  <text x="52" y="2439" class="sans muted" font-size="14">Spec, plan, review, and the writing that ships with the change.</text>
+  <text x="52" y="2466" class="mono ink" font-size="14" font-weight="700">write-plan</text>
+  <text x="328" y="2466" class="sans ink" font-size="15">A plan a stranger can follow: files, tasks, tests, and commits.</text>
+  <text x="52" y="2496" class="mono ink" font-size="14" font-weight="700">ready-spec</text>
+  <text x="328" y="2496" class="sans ink" font-size="15">An execution-ready spec for a backend or API change.</text>
+  <text x="52" y="2526" class="mono ink" font-size="14" font-weight="700">write-adr</text>
+  <text x="328" y="2526" class="sans ink" font-size="15">An ADR, design doc, or RFC from the code and real alternatives.</text>
+  <text x="52" y="2556" class="mono ink" font-size="14" font-weight="700">code-review</text>
+  <text x="328" y="2556" class="sans ink" font-size="15">Review a diff or MR. Watch stays until clean. Prep stops before merge.</text>
+  <text x="52" y="2586" class="mono ink" font-size="14" font-weight="700">refresh-pr</text>
+  <text x="328" y="2586" class="sans ink" font-size="15">Refresh, rework, or close a stale PR or MR, then code-review.</text>
+  <text x="52" y="2616" class="mono ink" font-size="14" font-weight="700">atomic-semantic-commit</text>
+  <text x="328" y="2616" class="sans ink" font-size="15">Split a messy tree into small commits with clean messages.</text>
+  <text x="52" y="2646" class="mono ink" font-size="14" font-weight="700">write-mr-description</text>
+  <text x="328" y="2646" class="sans ink" font-size="15">Draft the MR or PR description from the commits.</text>
+  <text x="52" y="2676" class="mono ink" font-size="14" font-weight="700">create-tickets</text>
+  <text x="328" y="2676" class="sans ink" font-size="15">Slice a plan into end-to-end tickets, then draft them.</text>
+  <text x="52" y="2706" class="mono ink" font-size="14" font-weight="700">create-documentation</text>
+  <text x="328" y="2706" class="sans ink" font-size="15">Docs and API handovers checked against the source.</text>
+  <text x="52" y="2736" class="mono ink" font-size="14" font-weight="700">create-readme</text>
+  <text x="328" y="2736" class="sans ink" font-size="15">The project README: what it is, how to install it, and how to run it.</text>
+  <text x="52" y="2766" class="mono ink" font-size="14" font-weight="700">create-bruno-collection</text>
+  <text x="328" y="2766" class="sans ink" font-size="15">A Bruno API collection, with auth and error examples.</text>
+  <text x="52" y="2796" class="mono ink" font-size="14" font-weight="700">file-toolkit</text>
+  <text x="328" y="2796" class="sans ink" font-size="15">Parse, create, or convert documents, images, and audio.</text>
+  <text x="52" y="2826" class="mono ink" font-size="14" font-weight="700">write-changelog</text>
+  <text x="328" y="2826" class="sans ink" font-size="15">Changelog and release notes from the commits and the diff.</text>
+  <text x="52" y="2856" class="mono ink" font-size="14" font-weight="700">write-postmortem</text>
+  <text x="328" y="2856" class="sans ink" font-size="15">A blameless postmortem or near-miss, from evidence.</text>
+  <text x="52" y="2886" class="mono ink" font-size="14" font-weight="700">write-runbook</text>
+  <text x="328" y="2886" class="sans ink" font-size="15">A recovery, deploy, or migration runbook with a rollback.</text>
+  <rect x="36" y="2914" width="968" height="299" rx="5" fill="#ECEDF4" stroke="#B5BAD3"/>
+  <text x="52" y="2938" class="sans blue" font-size="18" font-weight="700">product</text>
+  <text x="952" y="2938" class="mono muted" font-size="14" font-weight="700">8</text>
+  <text x="52" y="2960" class="sans muted" font-size="14">Color, screens, diagrams, explainers, prototypes, and polish.</text>
+  <text x="52" y="2987" class="mono ink" font-size="14" font-weight="700">color-kit</text>
+  <text x="328" y="2987" class="sans ink" font-size="15">Pick colors and prove contrast.</text>
+  <text x="52" y="3017" class="mono ink" font-size="14" font-weight="700">design-system-kit</text>
+  <text x="328" y="3017" class="sans ink" font-size="15">Build a design system, then critique with it.</text>
+  <text x="52" y="3047" class="mono ink" font-size="14" font-weight="700">ui-ux-kit</text>
+  <text x="328" y="3047" class="sans ink" font-size="15">One screen or one component, including motion.</text>
+  <text x="52" y="3077" class="mono ink" font-size="14" font-weight="700">diagram</text>
+  <text x="328" y="3077" class="sans ink" font-size="15">A technical diagram with an editable source and a checked export.</text>
+  <text x="52" y="3107" class="mono ink" font-size="14" font-weight="700">infographic</text>
+  <text x="328" y="3107" class="sans ink" font-size="15">An evidence-based explainer, chart, timeline, or poster.</text>
+  <text x="52" y="3137" class="mono ink" font-size="14" font-weight="700">prototype-wireframe</text>
+  <text x="328" y="3137" class="sans ink" font-size="15">A throwaway prototype or wireframe for one design question.</text>
+  <text x="52" y="3167" class="mono ink" font-size="14" font-weight="700">product-polish-workflow</text>
+  <text x="328" y="3167" class="sans ink" font-size="15">Audit a shipped product: code, journeys, branding, motion.</text>
+  <text x="52" y="3197" class="mono ink" font-size="14" font-weight="700">visual-art</text>
+  <text x="328" y="3197" class="sans ink" font-size="15">Static canvas art, seeded generative art, or a short GIF.</text>
+  <rect x="36" y="3225" width="968" height="149" rx="5" fill="#ECEDF4" stroke="#B5BAD3"/>
+  <text x="52" y="3249" class="sans blue" font-size="18" font-weight="700">focus</text>
+  <text x="952" y="3249" class="mono muted" font-size="14" font-weight="700">3</text>
+  <text x="52" y="3271" class="sans muted" font-size="14">The session itself. One next step, a later list, today's standup.</text>
+  <text x="52" y="3298" class="mono ink" font-size="14" font-weight="700">get-moving</text>
+  <text x="328" y="3298" class="sans ink" font-size="15">Shrink a stuck task to one next action and a 25-minute round.</text>
+  <text x="52" y="3328" class="mono ink" font-size="14" font-weight="700">later-list</text>
+  <text x="328" y="3328" class="sans ink" font-size="15">Park a tangent in LATER.md and return to the task.</text>
+  <text x="52" y="3358" class="mono ink" font-size="14" font-weight="700">standup</text>
+  <text x="328" y="3358" class="sans ink" font-size="15">Today's standup from what you actually did.</text>
+  <rect x="36" y="3386" width="968" height="329" rx="5" fill="#ECEDF4" stroke="#B5BAD3"/>
+  <text x="52" y="3410" class="sans blue" font-size="18" font-weight="700">agent-authoring</text>
+  <text x="952" y="3410" class="mono muted" font-size="14" font-weight="700">9</text>
+  <text x="52" y="3432" class="sans muted" font-size="14">Skills, agents, rules, commands, hooks, and whole setups.</text>
+  <text x="52" y="3459" class="mono ink" font-size="14" font-weight="700">create-skill</text>
+  <text x="328" y="3459" class="sans ink" font-size="15">Write or fix a skill.</text>
+  <text x="52" y="3489" class="mono ink" font-size="14" font-weight="700">convert-as-skill</text>
+  <text x="328" y="3489" class="sans ink" font-size="15">Turn existing material into a skill, or merge skills.</text>
+  <text x="52" y="3519" class="mono ink" font-size="14" font-weight="700">create-agent</text>
+  <text x="328" y="3519" class="sans ink" font-size="15">Write a subagent.</text>
+  <text x="52" y="3549" class="mono ink" font-size="14" font-weight="700">create-command</text>
+  <text x="328" y="3549" class="sans ink" font-size="15">Write a slash command.</text>
+  <text x="52" y="3579" class="mono ink" font-size="14" font-weight="700">create-rule</text>
+  <text x="328" y="3579" class="sans ink" font-size="15">Write a rule or coding standard.</text>
+  <text x="52" y="3609" class="mono ink" font-size="14" font-weight="700">create-hook</text>
+  <text x="328" y="3609" class="sans ink" font-size="15">Automate something on an agent event.</text>
+  <text x="52" y="3639" class="mono ink" font-size="14" font-weight="700">create-agents-md</text>
+  <text x="328" y="3639" class="sans ink" font-size="15">Write or refresh AGENTS.md or CLAUDE.md.</text>
+  <text x="52" y="3669" class="mono ink" font-size="14" font-weight="700">mcp-management</text>
+  <text x="328" y="3669" class="sans ink" font-size="15">Connect, diagnose, or build an MCP server.</text>
+  <text x="52" y="3699" class="mono ink" font-size="14" font-weight="700">dev-environment</text>
+  <text x="328" y="3699" class="sans ink" font-size="15">Move an agent setup and a Mac in or out. Waits for a yes before writing.</text>
+  <rect x="36" y="3727" width="968" height="119" rx="5" fill="#F3F1EC" stroke="#5E6275" stroke-dasharray="6 5"/>
+  <text x="52" y="3751" class="sans blue" font-size="18" font-weight="700">upstream</text>
+  <text x="952" y="3751" class="mono muted" font-size="14" font-weight="700">2</text>
+  <text x="52" y="3773" class="sans muted" font-size="14">Their own repos. The levistack plugin installs them. Edit them there.</text>
+  <text x="52" y="3800" class="mono ink" font-size="14" font-weight="700">polyglot-copywriter</text>
+  <text x="328" y="3800" class="sans ink" font-size="15">Plain prose for people, in 97 languages, facts unchanged.</text>
+  <text x="52" y="3830" class="mono ink" font-size="14" font-weight="700">logo-kit-svg</text>
+  <text x="328" y="3830" class="sans ink" font-size="15">An SVG brand kit: icon, banner, static, and animated.</text>
+  <text x="36" y="3866" class="sans muted" font-size="13">Each line is the index. The skill file owns the detail. 1 Nov 2026.</text>
 </svg>

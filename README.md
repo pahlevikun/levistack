@@ -6,7 +6,7 @@
 
 <p align="left"><em>Meet Murk, the mug. Overskilled, underslept, and one cron job away from a nap.</em></p>
 
-The agent skills I use every day, in one repo. 65 skills (plus 2 [upstream](#upstream-skills)), 11 subagents, 42 rules, 15 commands and 5 hooks for Claude Code, Codex, Cursor, Antigravity, Trae and the skills CLI.
+The agent skills I use every day, in one repo. 68 skills (plus 2 [upstream](#upstream-skills)), 11 subagents, 42 rules, 15 commands and 5 hooks for Claude Code, Codex, Cursor, Antigravity, Trae and the skills CLI.
 
 **Not sure which skill fits?** Start with `/use-levistack <what you want>`. It picks the skill, runs it, checks the result, and writes the reply in plain words.
 
@@ -225,10 +225,10 @@ Order follows the path: front door, machinery, the work, the session, the catalo
 |---|---|---|
 | [`foundation`](skills/foundation/DESCRIPTION.md) | The front door. Start a task, check the machine, or ask how. | 3 |
 | [`workflow`](skills/workflow/DESCRIPTION.md) | The machinery around a result: hunt, evidence, loops, lanes, handoff. | 9 |
-| [`knowledge`](skills/knowledge/DESCRIPTION.md) | How code works, why it is shaped that way, and whether a plan holds. | 5 |
-| [`engineering`](skills/engineering/DESCRIPTION.md) | Test first, prove the claim, keep behavior, and cut slop. | 7 |
+| [`knowledge`](skills/knowledge/DESCRIPTION.md) | How code works, why it is shaped that way, and whether a plan holds. | 6 |
+| [`engineering`](skills/engineering/DESCRIPTION.md) | Test first, prove the claim, keep behavior, and cut slop. | 8 |
 | [`architecture`](skills/architecture/DESCRIPTION.md) | Pick a shape, a stack, or a boundary, then build against it. | 7 |
-| [`delivery`](skills/delivery/DESCRIPTION.md) | Spec, plan, review, and the writing that ships with the change. | 14 |
+| [`delivery`](skills/delivery/DESCRIPTION.md) | Spec, plan, review, and the writing that ships with the change. | 15 |
 | [`product`](skills/product/DESCRIPTION.md) | Color, screens, diagrams, explainers, prototypes, and polish. | 8 |
 | [`focus`](skills/focus/DESCRIPTION.md) | The session itself. One next step, a later list, today's standup. | 3 |
 | [`agent-authoring`](skills/agent-authoring/DESCRIPTION.md) | Skills, agents, rules, commands, hooks, and whole setups. | 9 |
@@ -236,7 +236,7 @@ Order follows the path: front door, machinery, the work, the session, the catalo
 
 ### Every skill
 
-65 catalog skills, plus 2 upstream. concise, concise-light, concise-heavy, and principles live inside output-savers. noslop-code lives inside noslop. Those are modes, not extra skills.
+68 catalog skills, plus 2 upstream. concise, concise-light, concise-heavy, and principles live inside output-savers. noslop-code lives inside noslop. Those are modes, not extra skills.
 
 #### foundation
 
@@ -266,6 +266,7 @@ Order follows the path: front door, machinery, the work, the session, the catalo
 |---|---|
 | [`codebase-learner`](skills/knowledge/codebase-learner/SKILL.md) | Explain how the code works today. Read-only. |
 | [`trace`](skills/knowledge/trace/SKILL.md) | Explain why it is shaped this way, evidence on every step. |
+| [`gap-analysis`](skills/knowledge/gap-analysis/SKILL.md) | Where code, specs, and docs do not match, or the isolated failure. |
 | [`challenge-me`](skills/knowledge/challenge-me/SKILL.md) | Grill a plan. Numbered questions, each with a recommended answer. |
 | [`research`](skills/knowledge/research/SKILL.md) | Answer from primary sources, or write questions for one person. |
 | [`second-opinion`](skills/knowledge/second-opinion/SKILL.md) | Read-only review that drives each open decision to a commitment. |
@@ -275,6 +276,7 @@ Order follows the path: front door, machinery, the work, the session, the catalo
 | Skill | Does |
 |---|---|
 | [`tdd`](skills/engineering/tdd/SKILL.md) | One failing test, the smallest pass, then refactor while green. |
+| [`qa`](skills/engineering/qa/SKILL.md) | A test plan, the cases, and a defect note. Code tests stay with tdd. |
 | [`verify`](skills/engineering/verify/SKILL.md) | Fresh proof before any claim of done. Diagnose before editing. |
 | [`safe-refactor`](skills/engineering/safe-refactor/SKILL.md) | Keep behavior the same while the structure changes. |
 | [`noslop`](skills/engineering/noslop/SKILL.md) | Filter slop in handlers, UI, queries, config, tests, and comments. |
@@ -307,6 +309,7 @@ Order follows the path: front door, machinery, the work, the session, the catalo
 | [`write-mr-description`](skills/delivery/write-mr-description/SKILL.md) | Draft the MR or PR description from the commits. |
 | [`create-tickets`](skills/delivery/create-tickets/SKILL.md) | Slice a plan into end-to-end tickets, then draft them. |
 | [`create-documentation`](skills/delivery/create-documentation/SKILL.md) | Docs and API handovers checked against the source. |
+| [`create-readme`](skills/delivery/create-readme/SKILL.md) | The project README: what it is, how to install it, and how to run it. |
 | [`create-bruno-collection`](skills/delivery/create-bruno-collection/SKILL.md) | A Bruno API collection, with auth and error examples. |
 | [`file-toolkit`](skills/delivery/file-toolkit/SKILL.md) | Parse, create, or convert documents, images, and audio. |
 | [`write-changelog`](skills/delivery/write-changelog/SKILL.md) | Changelog and release notes from the commits and the diff. |

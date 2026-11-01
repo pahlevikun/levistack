@@ -184,18 +184,18 @@ Order follows the path: front door, machinery, the work, the session, the catalo
 |---|---|---|
 | [`foundation`](../../foundation/DESCRIPTION.md) | The front door. Start a task, check the machine, or ask how. | 3 |
 | [`workflow`](../../workflow/DESCRIPTION.md) | The machinery around a result: hunt, evidence, loops, lanes, handoff. | 9 |
-| [`knowledge`](../../knowledge/DESCRIPTION.md) | How code works, why it is shaped that way, and whether a plan holds. | 5 |
-| [`engineering`](../../engineering/DESCRIPTION.md) | Test first, prove the claim, keep behavior, and cut slop. | 7 |
+| [`knowledge`](../../knowledge/DESCRIPTION.md) | How code works, why it is shaped that way, and whether a plan holds. | 6 |
+| [`engineering`](../../engineering/DESCRIPTION.md) | Test first, prove the claim, keep behavior, and cut slop. | 8 |
 | [`architecture`](../../architecture/DESCRIPTION.md) | Pick a shape, a stack, or a boundary, then build against it. | 7 |
-| [`delivery`](../../delivery/DESCRIPTION.md) | Spec, plan, review, and the writing that ships with the change. | 14 |
+| [`delivery`](../../delivery/DESCRIPTION.md) | Spec, plan, review, and the writing that ships with the change. | 15 |
 | [`product`](../../product/DESCRIPTION.md) | Color, screens, diagrams, explainers, prototypes, and polish. | 8 |
 | [`focus`](../../focus/DESCRIPTION.md) | The session itself. One next step, a later list, today's standup. | 3 |
-| [`agent-authoring`](../../agent-authoring/DESCRIPTION.md) | Skills, agents, rules, commands, hooks, and whole setups. | 10 |
+| [`agent-authoring`](../../agent-authoring/DESCRIPTION.md) | Skills, agents, rules, commands, hooks, and whole setups. | 9 |
 | [`upstream`](../../../upstream.json) | Their own repos. The levistack plugin installs them. Edit them there. | 2 |
 
 ### Every skill
 
-66 catalog skills, plus 2 upstream. concise, concise-light, concise-heavy, and principles live inside output-savers. noslop-code lives inside noslop. Those are modes, not extra catalog skills.
+68 catalog skills, plus 2 upstream. concise, concise-light, concise-heavy, and principles live inside output-savers. noslop-code lives inside noslop. Those are modes, not extra catalog skills.
 
 #### foundation
 
@@ -225,6 +225,7 @@ Order follows the path: front door, machinery, the work, the session, the catalo
 |---|---|
 | [`codebase-learner`](../../knowledge/codebase-learner/SKILL.md) | Explain how the code works today. Read-only. |
 | [`trace`](../../knowledge/trace/SKILL.md) | Explain why it is shaped this way, evidence on every step. |
+| [`gap-analysis`](../../knowledge/gap-analysis/SKILL.md) | Where code, specs, and docs do not match, or the isolated failure. |
 | [`challenge-me`](../../knowledge/challenge-me/SKILL.md) | Grill a plan. Numbered questions, each with a recommended answer. |
 | [`research`](../../knowledge/research/SKILL.md) | Answer from primary sources, or write questions for one person. |
 | [`second-opinion`](../../knowledge/second-opinion/SKILL.md) | Read-only review that drives each open decision to a commitment. |
@@ -234,6 +235,7 @@ Order follows the path: front door, machinery, the work, the session, the catalo
 | Skill | Does |
 |---|---|
 | [`tdd`](../../engineering/tdd/SKILL.md) | One failing test, the smallest pass, then refactor while green. |
+| [`qa`](../../engineering/qa/SKILL.md) | A test plan, the cases, and a defect note. Code tests stay with tdd. |
 | [`verify`](../../engineering/verify/SKILL.md) | Fresh proof before any claim of done. Diagnose before editing. |
 | [`safe-refactor`](../../engineering/safe-refactor/SKILL.md) | Keep behavior the same while the structure changes. |
 | [`noslop`](../../engineering/noslop/SKILL.md) | Filter slop in handlers, UI, queries, config, tests, and comments. |
@@ -266,6 +268,7 @@ Order follows the path: front door, machinery, the work, the session, the catalo
 | [`write-mr-description`](../../delivery/write-mr-description/SKILL.md) | Draft the MR or PR description from the commits. |
 | [`create-tickets`](../../delivery/create-tickets/SKILL.md) | Slice a plan into end-to-end tickets, then draft them. |
 | [`create-documentation`](../../delivery/create-documentation/SKILL.md) | Docs and API handovers checked against the source. |
+| [`create-readme`](../../delivery/create-readme/SKILL.md) | The project README: what it is, how to install it, and how to run it. |
 | [`create-bruno-collection`](../../delivery/create-bruno-collection/SKILL.md) | A Bruno API collection, with auth and error examples. |
 | [`file-toolkit`](../../delivery/file-toolkit/SKILL.md) | Parse, create, or convert documents, images, and audio. |
 | [`write-changelog`](../../delivery/write-changelog/SKILL.md) | Changelog and release notes from the commits and the diff. |
@@ -305,7 +308,7 @@ Order follows the path: front door, machinery, the work, the session, the catalo
 | [`create-hook`](../../agent-authoring/create-hook/SKILL.md) | Automate something on an agent event. |
 | [`create-agents-md`](../../agent-authoring/create-agents-md/SKILL.md) | Write or refresh AGENTS.md or CLAUDE.md. |
 | [`mcp-management`](../../agent-authoring/mcp-management/SKILL.md) | Connect, diagnose, or build an MCP server. |
-| [`dev-environment`](../../agent-authoring/dev-environment/SKILL.md) | Move an agent setup and a Mac in or out. Secrets are stripped. Waits for a yes before writing. |
+| [`dev-environment`](../../agent-authoring/dev-environment/SKILL.md) | Move an agent setup and a Mac in or out. Waits for a yes before writing. |
 
 #### upstream
 
