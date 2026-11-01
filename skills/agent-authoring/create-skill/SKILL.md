@@ -1,6 +1,6 @@
 ---
 name: create-skill
-description: "Create, audit or improve agent skills (a folder with SKILL.md) for Claude Code, Cursor, Codex and the skills CLI. Use when asked to write or add a skill, fix a skill that never triggers, split an oversized SKILL.md, or review skill quality."
+description: "Create, audit or improve agent skills (a folder with SKILL.md) for Claude Code, Cursor, Codex and the skills CLI. Use when asked to write or add a skill, fix a skill that never triggers, split an oversized SKILL.md, or review skill quality. When asked to update or revise an existing skill, use convert-as-skill."
 metadata:
   version: 1.1.0
   author: levistack
@@ -59,6 +59,7 @@ This skill covers skills only. For subagents use `create-agent`; for rules, hook
 | Skill exists but never triggers, misfires, or is too big | [Audit](#audit), then fix by symptom in [format.md](references/format.md#test-and-iterate) |
 | Review a skill or a folder of skills | [Audit](#audit) |
 | Turn a rule, command, agent, conversation, PDF or docs folder into a skill, or merge two skills | `convert-as-skill` |
+| Update or revise an existing skill from a changelog or a diff | `convert-as-skill` (update-skill) |
 
 ## New skill
 
