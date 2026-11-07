@@ -6,6 +6,9 @@ Private. Keep this file in the ignored scratch folder. Do not commit it and do n
 Target:            <path to the skill folder>
 Policy:            <upstream names in shipped files: none | allowed>. <language>. <vocabulary bar>
 Do not remove:     <template, step order, command, file>
+Approved behaviour to preserve: <exact behaviour the user approved, or none>
+Final / source-of-truth set: <folder, file or version the user settled on, or n/a>
+Surface vs canonical name: <display name> / <legal or canonical name, or n/a>
 Scratch folder:    <path> (ignored by git: yes | no)
 Baseline:          lint <n errors, n warnings>. tests <n pass, n fail>
 ```

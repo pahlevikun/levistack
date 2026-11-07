@@ -64,7 +64,7 @@ node scripts/classify.mjs [--text "<user request>"] [--json] [path...]
 | `from-conversation` | Chat / transcript, no files | **Extract** what worked | [from-conversation](specialities/from-conversation/GUIDE.md) |
 | `from-document` | PDF, docs folder, HTML, URL | **Distill** structure | [from-document](specialities/from-document/GUIDE.md) |
 | `merge-skills` | Two or more skill folders | **Compose** one new skill | [merge-skills](specialities/merge-skills/GUIDE.md) |
-| `enhance-skill` | One skill folder plus upstream skills, repos or pages | **Add to** the skill: keep, replace or drop each method, write it ourselves | [enhance-skill](specialities/enhance-skill/GUIDE.md) |
+| `enhance-skill` | One skill folder plus upstream skills, repos, pages or a named conversation | **Add to** the skill: keep, replace or drop each method, write it ourselves | [enhance-skill](specialities/enhance-skill/GUIDE.md) |
 
 Scripts: `scripts/classify.mjs`, `scripts/convert.mjs` (rules/agents only), `scripts/extract_document.py`, `scripts/merge.mjs`, `scripts/enhance.mjs` (read-only inventory and fetch plan). Document parsers live in `scripts/extractor/` (`pdf.py`, `html.py`, `docx.py`, `epub.py`, `text.py`, `rtf.py`, `sanitize.py`, `dependencies.py`, `config.py`, `exceptions.py`, `scan_generated_skill.py`). Templates: [harvest.md](templates/harvest.md), [merge-outline.md](templates/merge-outline.md), [enhance-map.md](templates/enhance-map.md).
 
