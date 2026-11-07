@@ -6,6 +6,14 @@ All notable changes to this catalog are documented here. Version numbers follow 
 
 ---
 
+## 1.3.2 — 2026-11-07
+
+### Changed
+
+- **enhance-skill**: tighten harvest guidance — transcript-as-source handling, shorter approved wording, and map notes ([#6](https://github.com/pahlevikun/levistack/pull/6)).
+
+---
+
 ## 1.1.0 — 2026-10-26
 
 ### Added
